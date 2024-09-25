@@ -1,0 +1,15 @@
+{
+  "name": "docs",
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "@typespec/compiler": "0.59.1",
+    "@typespec/http": "0.59.1",
+    "@typespec/openapi3": "0.59.1"
+  },
+  "private": true,
+  "devDependencies": {
+    "@typespec/prettier-plugin-typespec": "^0.59.0",
+    "prettier": "^3.3.3"
+  }
+}
