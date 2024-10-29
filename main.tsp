@@ -1,5 +1,5 @@
 import "@typespec/http";
-import "@typespec/openapi3";
+import "@typespec/openapi";
 
 import "./models/Product.tsp";
 import "./models/Supplier.tsp";
@@ -38,7 +38,13 @@ import "./schemas/ExtendReservationSchema.tsp";
 import "./responses/ExtendReservationResponse.tsp";
 
 using TypeSpec.Http;
+using TypeSpec.OpenAPI;
 
+
+
+@server("https://ventrata-api-1011165921260.us-central1.run.app/api/octo", "")
+@server("http://localhost:8080/api/octo", "")
+@useAuth(BearerAuth)
 @service({
   title: "OCTO API Specification",
 })

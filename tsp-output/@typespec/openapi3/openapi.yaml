@@ -89,28 +89,40 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
                 Bad request response:
                   summary: Bad request response
                   description: Bad request response
-                  value: {}
+                  value:
+                    error: BAD_REQUEST
+                    errorMessage: either localDate, localDateStart/localDateEnd or availabilityIds is required
                 Invalid Option Id Response:
                   summary: Invalid Option Id Response
                   description: Invalid Option Id Response
                   value:
+                    error: INVALID_OPTION_ID
+                    errorMessage: The optionId was missing or invalid
                     optionId: 681fea0f-196e-45da-bec7-467bfacb1d87
                 Invalid Product Id Response:
                   summary: Invalid Product Id Response
                   description: Invalid Product Id Response
                   value:
+                    error: INVALID_PRODUCT_ID
+                    errorMessage: The productId was missing or invalid
                     productId: cc2a6d56-6efe-426f-99c9-6eb10e341565
       tags:
         - Availability
@@ -205,28 +217,40 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
                 Bad request response:
                   summary: Bad request response
                   description: Bad request response
-                  value: {}
+                  value:
+                    error: BAD_REQUEST
+                    errorMessage: cannot request more than 1 year of availability
                 Invalid Option Id Response:
                   summary: Invalid Option Id Response
                   description: Invalid Option Id Response
                   value:
+                    error: INVALID_OPTION_ID
+                    errorMessage: The optionId was missing or invalid
                     optionId: 681fea0f-196e-45da-bec7-467bfacb1d87
                 Invalid Product Id Response:
                   summary: Invalid Product Id Response
                   description: Invalid Product Id Response
                   value:
+                    error: INVALID_PRODUCT_ID
+                    errorMessage: The productId was missing or invalid
                     productId: cc2a6d56-6efe-426f-99c9-6eb10e341565
       tags:
         - Availability
@@ -556,38 +580,54 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
                 Unprocessable Entity Response:
                   summary: Unprocessable Entity Response
                   description: Unprocessable Entity Response
-                  value: {}
+                  value:
+                    error: UNPROCESSABLE_ENTITY
+                    errorMessage: 'Validation failed: Minimum tickets is 2'
                 Invalid Availability Id Response:
                   summary: Invalid Availability Id Response
                   description: Invalid Availability Id Response
                   value:
+                    error: INVALID_AVAILABILITY_ID
+                    errorMessage: The availabilityId was missing or invalid
                     availabilityId: 2022-03-12T00:00:00+00:00
                 Invalid Unit Id Response:
                   summary: Invalid Unit Id Response
                   description: Invalid Unit Id Response
                   value:
+                    error: INVALID_UNIT_ID
+                    errorMessage: The unitId was missing or invalid
                     unitId: senior
                 Invalid Option Id Response:
                   summary: Invalid Option Id Response
                   description: Invalid Option Id Response
                   value:
+                    error: INVALID_OPTION_ID
+                    errorMessage: The optionId was missing or invalid
                     optionId: 681fea0f-196e-45da-bec7-467bfacb1d87
                 Invalid Product Id Response:
                   summary: Invalid Product Id Response
                   description: Invalid Product Id Response
                   value:
+                    error: INVALID_PRODUCT_ID
+                    errorMessage: The productId was missing or invalid
                     productId: cc2a6d56-6efe-426f-99c9-6eb10e341565
       tags:
         - Bookings
@@ -847,7 +887,12 @@ paths:
                       deliveryMethods:
                         - TICKET
                         - VOUCHER
-                      voucher: {}
+                      voucher:
+                        redemptionMethod: DIGITAL
+                        utcRedeemedAt: 2021-10-27T23:28:43Z
+                        deliveryOptions:
+                          - deliveryFormat: QRCODE
+                            deliveryValue: ''
                       unitItems:
                         - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                           resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33a
@@ -881,7 +926,12 @@ paths:
                             postalCode: ''
                             country: ''
                             notes: ''
-                          ticket: {}
+                          ticket:
+                            redemptionMethod: DIGITAL
+                            utcRedeemedAt: 2021-10-27T23:28:43Z
+                            deliveryOptions:
+                              - deliveryFormat: QRCODE
+                                deliveryValue: ''
                         - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                           resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33b
                           supplierReference: K9T7R5
@@ -914,7 +964,12 @@ paths:
                             postalCode: ''
                             country: ''
                             notes: ''
-                          ticket: {}
+                          ticket:
+                            redemptionMethod: DIGITAL
+                            utcRedeemedAt: 2021-10-27T23:28:43Z
+                            deliveryOptions:
+                              - deliveryFormat: QRCODE
+                                deliveryValue: ''
                         - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                           resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33c
                           supplierReference: K9T7R6
@@ -948,7 +1003,12 @@ paths:
                             postalCode: ''
                             country: ''
                             notes: ''
-                          ticket: {}
+                          ticket:
+                            redemptionMethod: DIGITAL
+                            utcRedeemedAt: 2021-10-27T23:28:43Z
+                            deliveryOptions:
+                              - deliveryFormat: QRCODE
+                                deliveryValue: ''
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -962,19 +1022,27 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
                 Bad Request Response:
                   summary: Bad Request Response
                   description: Bad Request Response
-                  value: {}
+                  value:
+                    error: BAD_REQUEST
+                    errorMessage: either resellerReference, supplierReference, localDate or localDateStart/localDateEnd is required
       tags:
         - Bookings
   /bookings/{uuid}:
@@ -1175,7 +1243,12 @@ paths:
                     deliveryMethods:
                       - TICKET
                       - VOUCHER
-                    voucher: {}
+                    voucher:
+                      redemptionMethod: DIGITAL
+                      utcRedeemedAt: 2021-10-27T23:28:43Z
+                      deliveryOptions:
+                        - deliveryFormat: QRCODE
+                          deliveryValue: ''
                     unitItems:
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33a
@@ -1209,7 +1282,12 @@ paths:
                           postalCode: ''
                           country: ''
                           notes: ''
-                        ticket: {}
+                        ticket:
+                          redemptionMethod: DIGITAL
+                          utcRedeemedAt: 2021-10-27T23:28:43Z
+                          deliveryOptions:
+                            - deliveryFormat: QRCODE
+                              deliveryValue: ''
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33b
                         supplierReference: K9T7R5
@@ -1242,7 +1320,12 @@ paths:
                           postalCode: ''
                           country: ''
                           notes: ''
-                        ticket: {}
+                        ticket:
+                          redemptionMethod: DIGITAL
+                          utcRedeemedAt: 2021-10-27T23:28:43Z
+                          deliveryOptions:
+                            - deliveryFormat: QRCODE
+                              deliveryValue: ''
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33c
                         supplierReference: K9T7R6
@@ -1276,7 +1359,12 @@ paths:
                           postalCode: ''
                           country: ''
                           notes: ''
-                        ticket: {}
+                        ticket:
+                          redemptionMethod: DIGITAL
+                          utcRedeemedAt: 2021-10-27T23:28:43Z
+                          deliveryOptions:
+                            - deliveryFormat: QRCODE
+                              deliveryValue: ''
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -1291,19 +1379,27 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
                 Invalid Booking UUID Response:
                   summary: Invalid Booking UUID Response
                   description: Invalid Booking UUID Response
                   value:
+                    error: INVALID_BOOKING_UUID
+                    errorMessage: The uuid was already used, missing or invalid
                     uuid: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
       tags:
         - Bookings
@@ -1520,7 +1616,10 @@ paths:
                           requiredContactFields:
                             - firstName
                     cancellable: false
-                    cancellation: {}
+                    cancellation:
+                      refund: FULL
+                      reason: this product sucks
+                      utcCancelledAt: 2022-05-25T11:00:22Z
                     freesale: false
                     availabilityId: 2021-10-27T00:00:00-04:00
                     availability:
@@ -1563,23 +1662,33 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
                 Unprocessable Entity Response:
                   summary: Unprocessable Entity Response
                   description: Unprocessable Entity Response
-                  value: {}
+                  value:
+                    error: UNPROCESSABLE_ENTITY
+                    errorMessage: The request body is technically correct but cannot be processed for other reasons. e.g. you tried to cancel a booking after the cancellation cutoff had elapsed
                 Invalid Booking UUID Response:
                   summary: Invalid Booking UUID Response
                   description: Invalid Booking UUID Response
                   value:
+                    error: INVALID_BOOKING_UUID
+                    errorMessage: The uuid was already used, missing or invalid
                     uuid: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
       tags:
         - Bookings
@@ -1787,7 +1896,12 @@ paths:
                     deliveryMethods:
                       - TICKET
                       - VOUCHER
-                    voucher: {}
+                    voucher:
+                      redemptionMethod: DIGITAL
+                      utcRedeemedAt: 2021-10-27T23:28:43Z
+                      deliveryOptions:
+                        - deliveryFormat: QRCODE
+                          deliveryValue: ''
                     unitItems:
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33a
@@ -1821,7 +1935,12 @@ paths:
                           postalCode: ''
                           country: ''
                           notes: ''
-                        ticket: {}
+                        ticket:
+                          redemptionMethod: DIGITAL
+                          utcRedeemedAt: 2021-10-27T23:28:43Z
+                          deliveryOptions:
+                            - deliveryFormat: QRCODE
+                              deliveryValue: ''
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33b
                         supplierReference: K9T7R5
@@ -1854,7 +1973,12 @@ paths:
                           postalCode: ''
                           country: ''
                           notes: ''
-                        ticket: {}
+                        ticket:
+                          redemptionMethod: DIGITAL
+                          utcRedeemedAt: 2021-10-27T23:28:43Z
+                          deliveryOptions:
+                            - deliveryFormat: QRCODE
+                              deliveryValue: ''
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33c
                         supplierReference: K9T7R6
@@ -1888,7 +2012,12 @@ paths:
                           postalCode: ''
                           country: ''
                           notes: ''
-                        ticket: {}
+                        ticket:
+                          redemptionMethod: DIGITAL
+                          utcRedeemedAt: 2021-10-27T23:28:43Z
+                          deliveryOptions:
+                            - deliveryFormat: QRCODE
+                              deliveryValue: ''
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -1908,43 +2037,61 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
                 Unprocessable Entity Response:
                   summary: Unprocessable Entity Response
                   description: Unprocessable Entity Response
-                  value: {}
+                  value:
+                    error: UNPROCESSABLE_ENTITY
+                    errorMessage: The request body is technically correct but cannot be processed for other reasons. e.g. you tried to cancel a booking after the cancellation cutoff had elapsed
                 Invalid Booking UUID Response:
                   summary: Invalid Booking UUID Response
                   description: Invalid Booking UUID Response
                   value:
+                    error: INVALID_BOOKING_UUID
+                    errorMessage: The uuid was already used, missing or invalid
                     uuid: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
                 Invalid Availability Id Response:
                   summary: Invalid Availability Id Response
                   description: Invalid Availability Id Response
                   value:
+                    error: INVALID_AVAILABILITY_ID
+                    errorMessage: The availabilityId was missing or invalid
                     availabilityId: 2022-03-12T00:00:00+00:00
                 Invalid Unit Id Response:
                   summary: Invalid Unit Id Response
                   description: Invalid Unit Id Response
                   value:
+                    error: INVALID_UNIT_ID
+                    errorMessage: The unitId was missing or invalid
                     unitId: senior
                 Invalid Option Id Response:
                   summary: Invalid Option Id Response
                   description: Invalid Option Id Response
                   value:
+                    error: INVALID_OPTION_ID
+                    errorMessage: The optionId was missing or invalid
                     optionId: 681fea0f-196e-45da-bec7-467bfacb1d87
                 Invalid Product Id Response:
                   summary: Invalid Product Id Response
                   description: Invalid Product Id Response
                   value:
+                    error: INVALID_PRODUCT_ID
+                    errorMessage: The productId was missing or invalid
                     productId: cc2a6d56-6efe-426f-99c9-6eb10e341565
       tags:
         - Bookings
@@ -2269,23 +2416,33 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
                 Unprocessable Entity Response:
                   summary: Unprocessable Entity Response
                   description: Unprocessable Entity Response
-                  value: {}
+                  value:
+                    error: UNPROCESSABLE_ENTITY
+                    errorMessage: The request body is technically correct but cannot be processed for other reasons. e.g. you tried to cancel a booking after the cancellation cutoff had elapsed
                 Invalid Booking UUID Response:
                   summary: Invalid Booking UUID Response
                   description: Invalid Booking UUID Response
                   value:
+                    error: INVALID_BOOKING_UUID
+                    errorMessage: The uuid was already used, missing or invalid
                     uuid: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
       tags:
         - Bookings
@@ -2402,15 +2559,21 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
       tags:
         - Products
   /products/{id}:
@@ -2525,19 +2688,27 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
                 Invalid Product Id Response:
                   summary: Invalid Product Id Response
                   description: Invalid Product Id Response
                   value:
+                    error: INVALID_PRODUCT_ID
+                    errorMessage: The productId was missing or invalid
                     productId: cc2a6d56-6efe-426f-99c9-6eb10e341565
       tags:
         - Products
@@ -2567,6 +2738,8 @@ paths:
                       email: support@ventrata.com
                       telephone: null
                       address: Marble Arch, London, W1H 7EJ, United Kingdom
+                    capabilities:
+                      - octo/content
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -2580,17 +2753,25 @@ paths:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: {}
+                  value:
+                    error: FORBIDDEN
+                    errorMessage: You sent an API Key that was invalid or has been revoked by the backend system. Or you're trying to access an endpoint/resource that you do not have access to
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: {}
+                  value:
+                    error: INTERNAL_SERVER_ERROR
+                    errorMessage: There was an un-recoverable error, please try again
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: {}
+                  value:
+                    error: UNAUTHORIZED
+                    errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
       tags:
         - Supplier
+security:
+  - BearerAuth: []
 components:
   schemas:
     Availability:
@@ -2672,8 +2853,26 @@ components:
             $ref: '#/components/schemas/PricingUnit'
           example:
             - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 1000
+              retail: 1000
+              net: 8000
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
             - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 500
+              retail: 500
+              net: 400
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
             - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 0
+              retail: 0
+              net: 0
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
         pricing:
           type: array
@@ -2754,8 +2953,26 @@ components:
             $ref: '#/components/schemas/PricingUnit'
           example:
             - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 1000
+              retail: 1000
+              net: 8000
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
             - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 500
+              retail: 500
+              net: 400
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
             - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 0
+              retail: 0
+              net: 0
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
         pricingFrom:
           type: array
@@ -2804,11 +3021,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AvailabilityUnit'
-          example:
-            - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
-              quantity: 2
-            - id: child_797e3ce8-1860-4cbf-80ad-95857df1f640
-              quantity: 1
           description: A list of units.
         currency:
           type: string
@@ -3157,7 +3369,10 @@ components:
           allOf:
             - $ref: '#/components/schemas/BookingCancellation'
           nullable: true
-          example: {}
+          example:
+            refund: FULL
+            reason: this product sucks
+            utcCancelledAt: 2022-05-25T11:00:22Z
           description: A boolean field indicating whether this booking can be cancelled.
         freesale:
           type: boolean
@@ -3213,7 +3428,12 @@ components:
           allOf:
             - $ref: '#/components/schemas/Ticket'
           nullable: true
-          example: {}
+          example:
+            redemptionMethod: DIGITAL
+            utcRedeemedAt: 2021-10-27T23:28:43Z
+            deliveryOptions:
+              - deliveryFormat: QRCODE
+                deliveryValue: ''
           description: ''
         unitItems:
           type: array
@@ -3890,6 +4110,81 @@ components:
         - minute
         - day
       example: hour
+    Capability:
+      type: string
+      enum:
+        - octo/adjustments
+        - octo/cart
+        - octo/content
+        - octo/mappings
+        - octo/packages
+        - octo/pickups
+        - octo/pricing
+        - octo/questions
+    Category:
+      type: object
+      required:
+        - id
+        - default
+        - name
+        - title
+        - shortDescription
+        - bannerImageUrl
+        - coverImageUrl
+        - productIds
+      properties:
+        id:
+          type: string
+          example: 697e3ce8-1860-4cbf-80ad-95857df1f640
+          description: Unique identifier used in the platform to represent the category.
+        default:
+          type: boolean
+          example: true
+          description: TRUE` identifies the category as default, and should therefore rendered and selected first
+        name:
+          type: string
+          nullable: true
+          example: ''
+          description: The name of the category.
+        title:
+          type: string
+          nullable: true
+          example: ''
+          description: The title of the category.
+        shortDescription:
+          type: string
+          nullable: true
+          example: ''
+          description: The description of the category
+        bannerImageUrl:
+          type: string
+          nullable: true
+          example: The URL of the image that represents the category.
+          format: uri
+          description: The URL of the image that represents the category.
+        coverImageUrl:
+          type: string
+          nullable: true
+          example: The URL of the image that represents the category.
+          format: uri
+          description: The URL of the image that represents the category.
+        productIds:
+          type: array
+          items:
+            type: string
+          example:
+            - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+          description: ''
+      example:
+        id: 697e3ce8-1860-4cbf-80ad-95857df1f640
+        default: true
+        name: ''
+        title: ''
+        shortDescription: ''
+        bannerImageUrl: The URL of the image that represents the category.
+        coverImageUrl: The URL of the image that represents the category.
+        productIds:
+          - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
     Contact:
       type: object
       required:
@@ -4013,21 +4308,192 @@ components:
       example:
         deliveryFormat: QRCODE
         deliveryValue: ''
+    Destination:
+      type: object
+      required:
+        - id
+        - default
+        - name
+        - country
+        - contact
+        - latitude
+        - longitude
+        - googlePlaceId
+        - bannerImageUrl
+        - coverImageUrl
+        - videoUrl
+        - facebookUrl
+        - googleUrl
+        - tripadvisorUrl
+        - twitterUrl
+        - youtubeUrl
+        - instagramUrl
+        - categories
+      properties:
+        id:
+          type: string
+          example: 697e3ce8-1860-4cbf-80ad-95857df1f640
+          description: Unique identifier used in the platform to represent the destination.
+        default:
+          type: boolean
+          example: true
+          description: TRUE` identifies the destination as default, and should therefore rendered and selected first
+        name:
+          type: string
+          nullable: true
+          example: ''
+          description: The name of the destination
+        country:
+          type: string
+          nullable: true
+          example: ''
+          description: The name of the destination
+        contact:
+          allOf:
+            - $ref: '#/components/schemas/SupplierContact'
+          example:
+            website: null
+            email: support@ventrata.com
+            telephone: null
+            address: Marble Arch, London, W1H 7EJ, United Kingdom
+          description: ''
+        latitude:
+          type: number
+          nullable: true
+          example: 55.9533
+          description: The name of the destination
+        longitude:
+          type: number
+          nullable: true
+          example: -3.1883
+          description: The name of the destination
+        googlePlaceId:
+          type: string
+          nullable: true
+          example: ''
+          description: ''
+        bannerImageUrl:
+          type: string
+          nullable: true
+          example: The URL of the image that represents the destination.
+          format: uri
+          description: The URL of the image that represents the destination.
+        coverImageUrl:
+          type: string
+          nullable: true
+          example: The URL of the image that represents the destination.
+          format: uri
+          description: The URL of the image that represents the DESTINATION.
+        videoUrl:
+          type: string
+          nullable: true
+          example: ''
+          format: uri
+          description: ''
+        facebookUrl:
+          type: string
+          nullable: true
+          example: ''
+          format: uri
+          description: ''
+        googleUrl:
+          type: string
+          nullable: true
+          example: ''
+          format: uri
+          description: ''
+        tripadvisorUrl:
+          type: string
+          nullable: true
+          example: ''
+          format: uri
+          description: ''
+        twitterUrl:
+          type: string
+          nullable: true
+          example: ''
+          format: uri
+          description: ''
+        youtubeUrl:
+          type: string
+          nullable: true
+          example: ''
+          format: uri
+          description: ''
+        instagramUrl:
+          type: string
+          nullable: true
+          example: ''
+          format: uri
+          description: ''
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+          example:
+            - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
+              default: true
+              name: ''
+              title: ''
+              shortDescription: ''
+              bannerImageUrl: The URL of the image that represents the category.
+              coverImageUrl: The URL of the image that represents the category.
+              productIds:
+                - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+          description: ''
+      example:
+        id: 697e3ce8-1860-4cbf-80ad-95857df1f640
+        default: true
+        name: ''
+        country: ''
+        contact:
+          website: null
+          email: support@ventrata.com
+          telephone: null
+          address: Marble Arch, London, W1H 7EJ, United Kingdom
+        latitude: 55.9533
+        longitude: -3.1883
+        googlePlaceId: ''
+        bannerImageUrl: The URL of the image that represents the destination.
+        coverImageUrl: The URL of the image that represents the destination.
+        videoUrl: ''
+        facebookUrl: ''
+        googleUrl: ''
+        tripadvisorUrl: ''
+        twitterUrl: ''
+        youtubeUrl: ''
+        instagramUrl: ''
+        categories:
+          - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
+            default: true
+            name: ''
+            title: ''
+            shortDescription: ''
+            bannerImageUrl: The URL of the image that represents the category.
+            coverImageUrl: The URL of the image that represents the category.
+            productIds:
+              - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
     ErrorBadRequest:
       type: object
       allOf:
         - $ref: '#/components/schemas/BaseError'
-      example: {}
+      example:
+        error: BAD_REQUEST
+        errorMessage: PAYMENT_DECLINED
     ErrorForbidden:
       type: object
       allOf:
         - $ref: '#/components/schemas/BaseError'
-      example: {}
+      example:
+        error: BAD_REQUEST
+        errorMessage: PAYMENT_DECLINED
     ErrorInternalServerError:
       type: object
       allOf:
         - $ref: '#/components/schemas/BaseError'
-      example: {}
+      example:
+        error: INTERNAL_SERVER_ERROR
+        errorMessage: There was an un-recoverable error, please try again
     ErrorInvalidAvailabilityID:
       type: object
       required:
@@ -4039,6 +4505,8 @@ components:
       allOf:
         - $ref: '#/components/schemas/BaseError'
       example:
+        error: INVALID_AVAILABILITY_ID
+        errorMessage: The availabilityId was missing or invalid
         availabilityId: 2022-03-12T00:00:00+00:00
     ErrorInvalidBookingUUID:
       type: object
@@ -4051,6 +4519,8 @@ components:
       allOf:
         - $ref: '#/components/schemas/BaseError'
       example:
+        error: INVALID_BOOKING_UUID
+        errorMessage: The uuid was already used, missing or invalid
         uuid: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
     ErrorInvalidOptionID:
       type: object
@@ -4063,6 +4533,8 @@ components:
       allOf:
         - $ref: '#/components/schemas/BaseError'
       example:
+        error: INVALID_OPTION_ID
+        errorMessage: The optionId was missing or invalid
         optionId: 681fea0f-196e-45da-bec7-467bfacb1d87
     ErrorInvalidProductID:
       type: object
@@ -4075,6 +4547,8 @@ components:
       allOf:
         - $ref: '#/components/schemas/BaseError'
       example:
+        error: INVALID_PRODUCT_ID
+        errorMessage: The productId was missing or invalid
         productId: cc2a6d56-6efe-426f-99c9-6eb10e341565
     ErrorInvalidUnitID:
       type: object
@@ -4087,17 +4561,23 @@ components:
       allOf:
         - $ref: '#/components/schemas/BaseError'
       example:
+        error: INVALID_UNIT_ID
+        errorMessage: The unitId was missing or invalid
         unitId: senior
     ErrorUnauthorized:
       type: object
       allOf:
         - $ref: '#/components/schemas/BaseError'
-      example: {}
+      example:
+        error: UNAUTHORIZED
+        errorMessage: You didn't send the API Key in the Authorization header to an endpoint that requires authentication
     ErrorUnprocessableEntity:
       type: object
       allOf:
         - $ref: '#/components/schemas/BaseError'
-      example: {}
+      example:
+        error: UNPROCESSABLE_ENTITY
+        errorMessage: The request body is technically correct but cannot be processed for other reasons. e.g. you tried to cancel a booking after the cancellation cutoff had elapsed
     ExtendReservationBody:
       type: object
       properties:
@@ -4412,6 +4892,12 @@ components:
         - $ref: '#/components/schemas/Pricing'
       example:
         unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+        original: 1000
+        retail: 1000
+        net: 8000
+        currency: EUR
+        currencyPrecision: 2
+        includedTaxes: []
     Product:
       type: object
       required:
@@ -4734,6 +5220,7 @@ components:
         - name
         - endpoint
         - contact
+        - capabilities
       properties:
         id:
           type: string
@@ -4757,6 +5244,62 @@ components:
             telephone: null
             address: Marble Arch, London, W1H 7EJ, United Kingdom
           description: ''
+        capabilities:
+          type: array
+          items:
+            $ref: '#/components/schemas/Capability'
+          example:
+            - octo/content
+          description: An array of capabilities that the supplier has. Possible values are:`octo/content` The supplier can provide pricing information
+          x-oapi-codegen-only-honour-go-name: true
+          x-go-json-ignore: true
+          x-go-name: capabilities
+        country:
+          type: string
+          nullable: true
+          example: United Kingdom
+          description: The country the supplier is based in.
+          x-oapi-codegen-extra-tags:
+            capability: octo/content
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+          example:
+            - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
+              default: true
+              name: ''
+              country: ''
+              contact:
+                website: null
+                email: support@ventrata.com
+                telephone: null
+                address: Marble Arch, London, W1H 7EJ, United Kingdom
+              latitude: 55.9533
+              longitude: -3.1883
+              googlePlaceId: ''
+              bannerImageUrl: The URL of the image that represents the destination.
+              coverImageUrl: The URL of the image that represents the destination.
+              videoUrl: ''
+              facebookUrl: ''
+              googleUrl: ''
+              tripadvisorUrl: ''
+              twitterUrl: ''
+              youtubeUrl: ''
+              instagramUrl: ''
+              categories:
+                - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
+                  default: true
+                  name: ''
+                  title: ''
+                  shortDescription: ''
+                  bannerImageUrl: The URL of the image that represents the category.
+                  coverImageUrl: The URL of the image that represents the category.
+                  productIds:
+                    - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+          description: An array of destinations the supplier operates in.
+          x-oapi-codegen-extra-tags:
+            capability: octo/content
       example:
         id: 697e3ce8-1860-4cbf-80ad-95857df1f640
         name: Edin Explore
@@ -4766,6 +5309,8 @@ components:
           email: support@ventrata.com
           telephone: null
           address: Marble Arch, London, W1H 7EJ, United Kingdom
+        capabilities:
+          - octo/content
     SupplierContact:
       type: object
       required:
@@ -4783,6 +5328,7 @@ components:
           type: string
           nullable: true
           example: support@ventrata.com
+          format: email
           description: The email support contact for the Supplier.
         telephone:
           type: string
@@ -5058,7 +5604,12 @@ components:
           allOf:
             - $ref: '#/components/schemas/Ticket'
           nullable: true
-          example: {}
+          example:
+            redemptionMethod: DIGITAL
+            utcRedeemedAt: 2021-10-27T23:28:43Z
+            deliveryOptions:
+              - deliveryFormat: QRCODE
+                deliveryValue: ''
           description: ''
         pricing:
           allOf:
@@ -5118,3 +5669,14 @@ components:
         - MILITARY
         - OTHER
       example: ADULT
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+servers:
+  - url: http://localhost:8080/api/octo
+    description: ''
+    variables: {}
+  - url: https://ventrata-api-1011165921260.us-central1.run.app/api/octo
+    description: ''
+    variables: {}
