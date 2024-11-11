@@ -298,7 +298,7 @@ paths:
                     utcRedeemedAt: null
                     utcConfirmedAt: null
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                    prdouct:
+                    product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                       internalName: Amazon River Tour
                       reference: AMZN
@@ -725,7 +725,7 @@ paths:
                       utcRedeemedAt: null
                       utcConfirmedAt: 2022-05-25T11:00:22Z
                       productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                      prdouct:
+                      product:
                         id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                         internalName: Amazon River Tour
                         reference: AMZN
@@ -1081,7 +1081,7 @@ paths:
                     utcRedeemedAt: null
                     utcConfirmedAt: 2022-05-25T11:00:22Z
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                    prdouct:
+                    product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                       internalName: Amazon River Tour
                       reference: AMZN
@@ -1480,7 +1480,7 @@ paths:
                     utcRedeemedAt: null
                     utcConfirmedAt: 2022-05-25T11:00:22Z
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                    prdouct:
+                    product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                       internalName: Amazon River Tour
                       reference: AMZN
@@ -1734,7 +1734,7 @@ paths:
                     utcRedeemedAt: null
                     utcConfirmedAt: 2022-05-25T11:00:22Z
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                    prdouct:
+                    product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                       internalName: Amazon River Tour
                       reference: AMZN
@@ -2137,7 +2137,7 @@ paths:
                     utcRedeemedAt: null
                     utcConfirmedAt: null
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                    prdouct:
+                    product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                       internalName: Amazon River Tour
                       reference: AMZN
@@ -3021,6 +3021,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AvailabilityUnit'
+          example:
+            - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+              quantity: 2
+            - id: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+              quantity: 1
           description: A list of units.
         currency:
           type: string
@@ -3214,7 +3219,7 @@ components:
           type: string
           example: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
           description: The product ID that identifies the product in the booking system to make this reservation.
-        prdouct:
+        product:
           allOf:
             - $ref: '#/components/schemas/Product'
           example:
@@ -3498,7 +3503,7 @@ components:
         utcRedeemedAt: null
         utcConfirmedAt: null
         productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-        prdouct:
+        product:
           id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
           internalName: Amazon River Tour
           reference: AMZN

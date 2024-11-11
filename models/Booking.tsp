@@ -112,7 +112,7 @@ model Booking {
 
   @doc(BOOKING_PRODUCT_DOC)
   @example(BOOKING_PRODUCT_EXAMPLE)
-  prdouct?: Product;
+  product?: Product;
 
   @doc(BOOKING_OPTION_ID_DOC)
   @example(BOOKING_OPTION_ID_EXAMPLE)
@@ -178,7 +178,7 @@ const BOOKING_ON_HOLD_EXAMPLE = #{
   utcRedeemedAt: null,
   utcConfirmedAt: null,
   productId: BOOKING_PRODUCT_ID_EXAMPLE,
-  prdouct: BOOKING_PRODUCT_EXAMPLE,
+  product: BOOKING_PRODUCT_EXAMPLE,
   optionId: BOOKING_OPTION_ID_EXAMPLE,
   option: BOOKING_OPTION_EXAMPLE,
   cancellable: BOOKING_CANCELLABLE_EXAMPLE,
@@ -221,7 +221,7 @@ const BOOKING_CONFIRMED_EXAMPLE = #{
   utcRedeemedAt: null,
   utcConfirmedAt: BOOKING_UTC_CONFIRMED_AT_EXAMPLE,
   productId: BOOKING_PRODUCT_ID_EXAMPLE,
-  prdouct: BOOKING_PRODUCT_EXAMPLE,
+  product: BOOKING_PRODUCT_EXAMPLE,
   optionId: BOOKING_OPTION_ID_EXAMPLE,
   option: BOOKING_OPTION_EXAMPLE,
   cancellable: BOOKING_CANCELLABLE_EXAMPLE,
@@ -264,7 +264,7 @@ const BOOKING_CANCELLED_EXAMPLE = #{
   utcRedeemedAt: null,
   utcConfirmedAt: BOOKING_UTC_CONFIRMED_AT_EXAMPLE,
   productId: BOOKING_PRODUCT_ID_EXAMPLE,
-  prdouct: BOOKING_PRODUCT_EXAMPLE,
+  product: BOOKING_PRODUCT_EXAMPLE,
   optionId: BOOKING_OPTION_ID_EXAMPLE,
   option: BOOKING_OPTION_EXAMPLE,
   cancellable: false,
