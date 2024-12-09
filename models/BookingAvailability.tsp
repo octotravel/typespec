@@ -1,6 +1,6 @@
 import "./OpeningHours.tsp";
 
-const BOOKING_AVAILABILITY_ID_DOC = "The availability id that was used in the request.";
+const BOOKING_AVAILABILITY_ID_DOC = "The ID of availability booked.";
 const BOOKING_AVAILABILITY_LOCAL_DATE_TIME_START_DOC = "The `localDateTimeStart` value from the original availability object.";
 const BOOKING_AVAILABILITY_LOCAL_DATE_TIME_END_DOC = "The `localDateTimeEnd` value from the original availability object.";
 const BOOKING_AVAILABILITY_ALLDAY_DOC = "A boolean value indicating whether the availability is all day.";

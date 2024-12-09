@@ -1,11 +1,11 @@
 import "./Tax.tsp";
 
-const PRICING_ORIGINAL_DOC = "The original price for this product which will be the same or higher than the sale amount. Use this to show a discount has been applied e.g. $10 $8.50";
-const PRICING_RETAIL_DOC = "The sale price you should charge your customers.";
-const PRICING_NET_DOC = "The wholesale rate the supplier will charge you for this sale.";
-const PRICING_CURRENCY_DOC = "The currency.";
+const PRICING_ORIGINAL_DOC = "Represents the advertised marketing price, which must be equal to or higher than pricingFrom.retail. Typically used for strike-through pricing, it highlights the original or component-based value of the product when the retail price reflects a discount or bundled offer. For example, a package product combining multiple components (e.g., hotel + tour + meals) may have a total component value of $500 (original), while the bundled retail price is $400. In such cases, the original price is displayed to show savings.This field should only be shown when it is higher than pricingFrom.retail and must accurately reflect a valid reference price, ensuring transparency and trust.";
+const PRICING_RETAIL_DOC = "The supplier’s recommended sale price, including all taxes and fees. This is the price charged to end customers and represents the total cost.";
+const PRICING_NET_DOC = "The wholesale price charged to the reseller, including all taxes and fees. This price reflects the amount the reseller pays to the supplier.";
+const PRICING_CURRENCY_DOC = "Specifies the currency used for the prices provided in the pricingFrom object. The value must adhere to ISO 4217 currency codes (e.g., USD, EUR, JPY) to ensure consistency across systems.";
 const PRICING_CURRENCY_PRECISION_DOC = "All pricing is given in integers to avoid floating point rounding issues. e.g. USD = 2 and JPY = 0. To convert a price to decimal you should do: price / (10 ** currencyPrecision) where ** is to the power of e.g. Math.pow(10, currencyPrecision).";
-const PRICING_INCLUDED_TAXES_DOC = "Any taxes included in the retail and/or net price.";
+const PRICING_INCLUDED_TAXES_DOC = "This field defines the number of decimal places used for the currency in the pricingFrom object, ensuring precise representation and preventing rounding errors during calculations. For example, in currencies like USD, which have a precision of 2, prices are expressed in cents (e.g., $45.00 is represented as 4500). In currencies like JPY, which have a precision of 0, prices are expressed as whole yen amounts (e.g., ¥4500 is represented as 4500). By aligning with the specific decimal requirements of different currencies, this field guarantees accurate pricing calculations and consistent handling across various currency formats.";
 
 const PRICING_ORIGINAL_EXAMPLE = 3995;
 const PRICING_RETAIL_EXAMPLE = 3995;
@@ -79,17 +79,17 @@ const PRICING_INFANT_EXAMPLE_EUR = #{
 
 const PRICING_ADULT_EXAMPLE_USD = #{
   ...PRICING_ADULT_EXAMPLE_EUR,
-  currency: "USD"
+  currency: "USD",
 };
 
 const PRICING_CHILD_EXAMPLE_USD = #{
   ...PRICING_CHILD_EXAMPLE_EUR,
-  currency: "USD"
+  currency: "USD",
 };
 
 const PRICING_INFANT_EXAMPLE_USD = #{
   ...PRICING_INFANT_EXAMPLE_EUR,
-  currency: "USD"
+  currency: "USD",
 };
 
 const PRICING_GROUP_EUR = #{
@@ -101,7 +101,4 @@ const PRICING_GROUP_EUR = #{
   includedTaxes: #[],
 };
 
-const PRICING_GROUP_USD = #{
-  ...PRICING_GROUP_EUR,
-  currency: "USD",
-};
+const PRICING_GROUP_USD = #{ ...PRICING_GROUP_EUR, currency: "USD" };

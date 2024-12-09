@@ -5,24 +5,47 @@ import "./DeliveryFormat.tsp";
 import "./DeliveryMethod.tsp";
 import "./capabilities/pricing/ProductPricing.tsp";
 
-const PRODUCT_ID_DOC = "The id used for checking for availability and creating bookings for the product. This MUST be unique within the scope of the Supplier.";
-const PRODUCT_INTERNAL_NAME_DOC = "The name the supplier calls the product.";
-const PRODUCT_REFERENCE_DOC = "An optional code this supplier might use to identify the product.";
-const PRODUCT_LOCALE_DOC = "A language code indicating what language this product content is in. This MUST be a valid BCP 47 RFC 5646 RFC 4647 language tag.";
-const PRODUCT_TIMEZONE_DOC = "The IANA TimeZone name this product is located in.";
-const PRODUCT_ALLOW_FREESALE_DOC = "Whether a booking can be made for this product without having to query availability first.";
-const PRODUCT_INSTANT_CONFIRMATION_DOC = "Whether bookings will be immediately confirmed when a sale is made, otherwise the supplier will later either accept or reject the booking. When instantConfirmation is set to false one should expect created bookings to first get into a PENDING state.";
+const PRODUCT_ID_DOC = "The unique identifier for the product, used across the platform to check availability, create bookings, etc. This identifier must be unique within the scope of the supplier’s system to ensure accurate referencing and operations.";
+const PRODUCT_INTERNAL_NAME_DOC = "The internal name used by the supplier to refer to the product. This name is for internal or operational purposes and may differ from the public, customer-facing name. The customer-facing name is defined separately in the title field under the octo/content capability.";
+const PRODUCT_REFERENCE_DOC = "An optional internal code used by the supplier to refer to the product. This field is useful for supplier-specific workflows or cross-referencing. It can be null if no reference code exists for the product.";
+const PRODUCT_LOCALE_DOC = "The language code specifying the primary language in which the product operates. It must conform to the IETF BCP 47 standard, which defines language tags for localization (e.g., en-US for American English, fr-FR for French (France), es-ES for Spanish (Spain)).";
+const PRODUCT_TIMEZONE_DOC = "The IANA Time Zone identifier indicating the product's location (e.g., America/New_York, Europe/London).";
+const PRODUCT_ALLOW_FREESALE_DOC = "Indicates whether an availabilityId is required when creating a booking. If set to false, bookings can be made without specifying a travel date, creating open-dated bookings.";
+const PRODUCT_INSTANT_CONFIRMATION_DOC = "Indicates whether the customer’s tickets or vouchers are delivered immediately after the booking is confirmed. If false, resellers must manage delayed ticket delivery processes.";
 const PRODUCT_INSTANT_DELIVERY_DOC = "This indicates whether the Reseller can expect immediate delivery of the customer's tickets. If `false` then the Reseller MUST be able to delay delivery of the tickets to the customer.";
-const PRODUCT_AVAILABILITY_REQUIRED_DOC = "Whether an `availabilityId` is required when creating a booking. Without this the booking will be open-dated and not have a specified travel date.";
-const PRODUCT_AVAILABILITY_TYPE_DOC = "What type of availability this product has, possible values are:\n`START_TIME` if there are fixed departure times which you must pick one. Typical for day tours or activities.\n`OPENING_HOURS` if you just select a date and can visit any time when the venue is open.";
-const PRODUCT_DELIVERY_FORMATS_DOC = "An array of formats the API will deliver the tickets as. Possible values are:\n`QRCODE` A code to be presented as a QR CODE barcode\n`CODE128A` code to be presented as a CODE 128 barcode\n`PDF_URL` A URL to a PDF file which contains all the ticket details";
-const PRODUCT_DELIVERY_METHODS_DOC = "How the formats described in `deliveryFormats` will be delivered in the booking response, possible values are:\n`TICKET`: Individually per unit in the order (i.e. single ticket for each person)\n`VOUCHER`: One ticket for the whole booking";
-const PRODUCT_REDEMPTION_METHOD_DOC = "How the voucher can be redeemed. Possible values are:\n`MANIFEST` The guest name will be written down and they just need to show up\n`DIGITAL` The tickets/voucher must be scanned but can be on mobile\n`PRINT` The tickets/voucher must be printed and presented on arrival";
-const PRODUCT_OPTIONS_DOC = "An array of all options for this product. All products must have at least one option.";
+const PRODUCT_AVAILABILITY_REQUIRED_DOC = "Indicates whether an availabilityId is required when creating a booking. If set to false, bookings can be made without specifying a travel date, creating open-dated bookings.";
+const PRODUCT_AVAILABILITY_TYPE_DOC = """
+  Specifies the type of availability for the product:
+  START_TIME: For products with fixed departure times (e.g., walking tour at set times during the day).
+  OPENING_HOURS: For products where customers select a date and can visit anytime during operating hours (e.g., museums general admission ticket valid at any time when museum is open).
+  """;
+const PRODUCT_DELIVERY_FORMATS_DOC = """
+  Lists the formats in which tickets or vouchers for this product are delivered. Each format specifies how the tickets or vouchers will be represented:
+  QRCODE: A code presented as a QR Code, commonly used for scanning at entry points.
+  CODE128: A linear barcode format widely used for retail and ticketing purposes.
+  AZTECCODE: A two-dimensional barcode format similar to QR codes but more compact. It is optimized for small spaces and often used in transportation and event ticketing.
+  PDF_URL: A URL linking to a downloadable PDF containing the complete ticket details for this product.
+  PKPASS_URL: A URL for adding the ticket to Apple Wallet (Passbook) for easy access on iOS devices.
+  This field ensures resellers can understand and integrate the appropriate ticket delivery formats specifically associated with this product.
+  """;
+const PRODUCT_DELIVERY_METHODS_DOC = """
+  Specifies all supported methods of how tickets or vouchers for this product are delivered in the booking response:
+  TICKET: Delivered individually per unit in the booking, where each person or unit receives a separate ticket.
+  VOUCHER: Delivered as a single voucher for the entire booking, consolidating all units under one document.
+  This field ensures clarity on the format of ticket or voucher delivery to resellers and customers.
+  """;
+const PRODUCT_REDEMPTION_METHOD_DOC = """
+  Specifies how the product can be redeemed by the customer:
+  DIGITAL: The ticket or voucher must be presented, either scanned from a digital device (e.g., smartphone) or as a printed copy. Redemption requires a valid voucher or ticket, even in digital form.
+  MANIFEST: The customer’s name, reference, or other information is checked against a manifest by the supplier. Redemption does not require a ticket or voucher.
+  PRINT: A physical printed ticket or voucher is strictly required for redemption and must be presented at the time of use.
+  This field ensures resellers and customers understand the specific requirements for redeeming this product.
+  """;
+const PRODUCT_OPTIONS_DOC = "The list array of all options (variations of the product). Each product must have at lest one option. See Option for a detailed on the object.";
 
 const PRODUCT_ID_EXAMPLE = "6b903d44-dc24-4ca4-ae71-6bde6c4f4854";
-const PRODUCT_INTERNAL_NAME_EXAMPLE = "Amazon River Tour";
-const PRODUCT_REFERENCE_EXAMPLE = "AMZN";
+const PRODUCT_INTERNAL_NAME_EXAMPLE = "London Eye General Admission";
+const PRODUCT_REFERENCE_EXAMPLE = "LEYE-GA";
 const PRODUCT_LOCALE_EXAMPLE = "en-GB";
 const PRODUCT_TIMEZONE_EXAMPLE = "Europe/London";
 const PRODUCT_ALLOW_FREESALE_EXAMPLE = true;
@@ -109,7 +132,8 @@ model Product {
   @doc(PRODUCT_OPTIONS_DOC)
   @example(PRODUCT_OPTIONS_EXAMPLE)
   options: Option[];
-// capabilities
+
+  // capabilities
   ...ProductPricing;
 }
 

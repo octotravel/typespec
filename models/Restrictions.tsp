@@ -1,10 +1,12 @@
-const RESTRICTIONS_MIN_AGE_DOC = "This is the minumum age this unit can be sold to";
-const RESTRICTIONS_MAX_AGE_DOC = "This is the maximum age this unit can be sold to";
-const RESTRICTIONS_ID_REQURED_DOC = "This is whether a form of identification will be required at redemption point (eg. student card)";
-const RESTRICTIONS_MIN_QUANTITY_DOC = "This is if there is a minimum amount of units to be chosen for purchase (eg. ${RESTRICTIONS_MIN_QUANTITY_EXAMPLE})";
-const RESTRICTIONS_MAX_QUANTITY_DOC = "This is if there is a maximum amount of units to be chosen for purchase (eg. ${RESTRICTIONS_MAX_QUANTITY_EXAMPLE})";
-const RESTRICTIONS_PAX_COUNT_DOC = "This is the amount of people each unit counts as (eg. family == 4pax)";
-const RESTRICTIONS_ACCOMPANIED_BY_DOC = "This is if the unit needs to be accompanied by another unit (eg. Infant with Adult)";
+import "./capabilities/content/RestrictionsContent.tsp";
+
+const RESTRICTIONS_MIN_AGE_DOC = "Minimum age to purchase the unit.";
+const RESTRICTIONS_MAX_AGE_DOC = "Maximum age to purchase the unit.";
+const RESTRICTIONS_ID_REQURED_DOC = "Indicates if identification (e.g., student ID) is required for redemption.";
+const RESTRICTIONS_MIN_QUANTITY_DOC = "Minimum number of units that must be purchased (e.g., 2 tickets). Null means no minimum.";
+const RESTRICTIONS_MAX_QUANTITY_DOC = "Maximum number of units allowed in a single booking. Null means unlimited.";
+const RESTRICTIONS_PAX_COUNT_DOC = "The number of people each unit represents (e.g., 1 family ticket = 4 pax).";
+const RESTRICTIONS_ACCOMPANIED_BY_DOC = "Specifies if this unit must be accompanied by another unit (e.g., an infant ticket must be purchased with an adult ticket). Array of unit IDs which must be booked together. ";
 
 const RESTRICTIONS_MIN_AGE_EXAMPLE = 3;
 const RESTRICTIONS_MAX_AGE_EXAMPLE = 17;
@@ -55,6 +57,9 @@ model Restrictions {
   @doc(RESTRICTIONS_ACCOMPANIED_BY_DOC)
   @example(RESTRICTIONS_ACCOMPANIED_BY_EXAMPLE)
   accompaniedBy: string[];
+
+  // octo/content
+  ...RestrictionsContent;
 }
 
 const RESTRICTIONS_ADULT_EXAMPLE = #{

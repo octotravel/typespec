@@ -64,6 +64,7 @@ model BookingReservationBody {
   @doc(BOOKING_RESERVATION_BODY_UNIT_ITEMS_DOC)
   @example(BOOKING_RESERVATION_BODY_UNIT_ITEMS_EXAMPLE)
   unitItems: BookingUnitItem[];
+
   // capabilities
-  ...BookingReservationPricingBody
+  ...BookingReservationPricingBody;
 }

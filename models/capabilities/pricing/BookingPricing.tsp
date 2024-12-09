@@ -4,9 +4,7 @@ const BOOKING_PRICING_PRICING_DOC = "Is on the object when Pricing capability is
 
 const BOOKING_PRICING_PRICING_EXAMPLE = PRICING_GROUP_EUR;
 
-const BOOKING_PRICING_EXAMPLE = #{
-  pricing: BOOKING_PRICING_PRICING_EXAMPLE,
-};
+const BOOKING_PRICING_EXAMPLE = #{ pricing: BOOKING_PRICING_PRICING_EXAMPLE };
 
 @example(BOOKING_PRICING_EXAMPLE)
 model BookingPricing {
@@ -14,4 +12,3 @@ model BookingPricing {
   @example(BOOKING_PRICING_PRICING_EXAMPLE)
   pricing?: Pricing;
 }
-

@@ -1,11 +1,11 @@
-const OPENING_HOURS_DOC = "A list of opening hours that the product is open on this day.";
+const OPENING_HOURS_DOC = "Defines the opening hours for this availability, even for start time-based availability. Supports multiple periods for breaks in the day.";
 const OPENING_HOURS_EXAMPLE = #{
   from: OPENING_HOURS_FROM_EXAMPLE,
   to: OPENING_HOURS_TO_EXAMPLE,
 };
 
-const OPENING_HOURS_FROM_DOC = "When this product opens (HH:MM)";
-const OPENING_HOURS_TO_DOC = "When this product closes (HH:MM)";
+const OPENING_HOURS_FROM_DOC = "The opening time";
+const OPENING_HOURS_TO_DOC = "The closing time";
 
 const OPENING_HOURS_FROM_EXAMPLE = "08:00";
 const OPENING_HOURS_TO_EXAMPLE = "16:00";

@@ -2,11 +2,22 @@ import "./OpeningHours.tsp";
 import "./AvailabilityStatus.tsp";
 import "./capabilities/pricing/AvailabilityCalendarPricing.tsp";
 
-const AVAILABILITY_CALENDAR_LOCAL_DATE_DOC = "A single date to query. Must be ISO 8601 compliant date.";
-const AVAILABILITY_CALENDAR_AVAILABLE_DOC = "Whether there is availability for this date / slot.";
-const AVAILABILITY_CALENDAR_STATUS_DOC = "The status of that date. Possible values are:\n`AVAILABLE` This availability is available for sale\n`FREESALE` This availability has no capacity and is available.\n`SOLD_OUT` There are no more spots available for this date / slot.\n`LIMITED` This availability is available but has less than 50% capacity left.\n`CLOSED` Availability is closed for this day / slot.";
-const AVAILABILITY_CALENDAR_VACANCIES_DOC = "This SHOULD NOT be returned when status is `FREESALE`. This SHOULD be a shared pool for all Unit types in the Option. If availability is tracked per-Unit then this value MUST be equal to the available quantity for the Unit that has the most remaining.";
-const AVAILABILITY_CALENDAR_CAPACITY_DOC = "The total capacity on this day.";
+const AVAILABILITY_CALENDAR_LOCAL_DATE_DOC = "The specific date for querying availability on Availability Calendar endpoint. This field must follow the ISO 8601 date format (e.g., 2024-11-18). It ensures standardized representation of dates across different systems.";
+const AVAILABILITY_CALENDAR_AVAILABLE_DOC = """
+  Indicates whether there is any remaining availability for the specified date.
+  true: Availability exists.
+  false: Fully booked or unavailable.
+  """;
+const AVAILABILITY_CALENDAR_STATUS_DOC = """
+  Defines the current status of the availability date:
+  AVAILABLE: Open for booking.
+  FREESALE: Unlimited availability, no capacity limits.
+  SOLD_OUT: No spots available.
+  LIMITED: Less than 50% capacity remaining.
+  CLOSED: The availability is closed.
+  """;
+const AVAILABILITY_CALENDAR_VACANCIES_DOC = "Specifies the number of available slots remaining quantity (highest remaining vacancies from all availabilities of this day). Should be nulled or omitted when status is FREESALE.";
+const AVAILABILITY_CALENDAR_CAPACITY_DOC = "The total capacity for this availability date. ";
 const AVAILABILITY_CALENDAR_OPENING_HOURS_DOC = OPENING_HOURS_DOC;
 
 const AVAILABILITY_CALENDAR_LOCAL_DATE_EXAMPLE = "2022-05-12";
@@ -50,7 +61,8 @@ model AvailabilityCalendar {
   @doc(AVAILABILITY_OPENING_HOURS_DOC)
   @example(AVAILABILITY_CALENDAR_OPENING_HOURS_EXAMPLE)
   openingHours: OpeningHours[];
-// capabilities
+
+  // capabilities
   ...AvailabilityCalendarPricing;
 }
 

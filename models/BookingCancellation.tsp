@@ -1,6 +1,6 @@
 import "./Refund.tsp";
 
-const BOOKING_CANCELLATION_REFUND_DOC = "Whether the booking was refunded as part of the cancellation. Possible values are `FULL`, `PARTIAL` or `NONE`";
+const BOOKING_CANCELLATION_REFUND_DOC = "Whether the booking was refunded as part of the cancellation. Possible values are FULL, PARTIAL or NONE";
 const BOOKING_CANCELLATION_REASON_DOC = "A text value describing why the cancellation happened.";
 const BOOKING_CANCELLATION_UTC_CANCELLED_AT_DOC = "An ISO8601 date time in UTC indicating when the booking was cancelled.";
 

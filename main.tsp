@@ -40,8 +40,6 @@ import "./responses/ExtendReservationResponse.tsp";
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
 
-
-
 @server("https://ventrata-api-1011165921260.us-central1.run.app/api/octo", "")
 @server("http://localhost:8080/api/octo", "")
 @useAuth(BearerAuth)

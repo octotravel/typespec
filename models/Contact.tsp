@@ -1,12 +1,12 @@
-const CONTACT_FULL_NAME_DOC = "The full name of the booking holder or the ticket holder. Can also be retrieved as an alias for the concatenation of `firstName` and `lastName`";
-const CONTACT_FIRST_NAME_DOC = "The first name of the booking holder or the ticket holder.";
-const CONTACT_LAST_NAME_DOC = "The last name of the booking holder or the ticket holder.";
-const CONTACT_EMAIL_ADDRESS_DOC = "The email address of the booking holder or the ticket holder.";
-const CONTACT_PHONE_NUMBER_DOC = "The phone number of the booking holder or the ticket holder.";
-const CONTACT_LOCALES_DOC = "An array of locale values, equivalent to navigator.languages in a browsers environment.";
+const CONTACT_FULL_NAME_DOC = "The full name of the booking holder. Can also be retrieved as an alias for the concatenation of firstName and lastName";
+const CONTACT_FIRST_NAME_DOC = "The first name of the booking holder.";
+const CONTACT_LAST_NAME_DOC = "The last name of the booking holder.";
+const CONTACT_EMAIL_ADDRESS_DOC = "The email address of the booking holder.";
+const CONTACT_PHONE_NUMBER_DOC = "The phone number of the booking holder.";
+const CONTACT_LOCALES_DOC = "An array of locale values, equivalent to navigator.languages in a browsers environment; representing customer language for booking communications.";
 const CONTACT_POSTAL_CODE_DOC = "The PO Box of the booking holder or the ticket holder.";
 const CONTACT_COUNTRY_DOC = "The country of the booking holder or the ticket holder.";
-const CONTACT_NOTES_DOC = "Optional notes for the booking.";
+const CONTACT_NOTES_DOC = "Customer-facing public notes for the booking.";
 
 const CONTACT_FULL_NAME_EXAMPLE = "John Doe";
 const CONTACT_FIRST_NAME_EXAMPLE = "John";

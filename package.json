@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "type": "module",
   "dependencies": {
-    "@typespec/compiler": "0.61.2",
-    "@typespec/http": "0.61.0",
-    "@typespec/openapi": "^0.61.0",
-    "@typespec/openapi3": "0.61.0"
+    "@typespec/compiler": "0.62.0",
+    "@typespec/http": "0.62.0",
+    "@typespec/openapi": "^0.62.0",
+    "@typespec/openapi3": "0.62.0"
   },
   "scripts": {
     "compile": "tsp compile ."
   },
   "private": true,
   "devDependencies": {
-    "@typespec/prettier-plugin-typespec": "^0.61.0",
-    "prettier": "^3.3.3"
+    "@typespec/prettier-plugin-typespec": "^0.62.0",
+    "prettier": "^3.4.2"
   }
 }

@@ -31,7 +31,6 @@ const AVAILABILITY_CALENDAR_WITH_UNITS_BODY_EXAMPLE = #{
   units: AVAILABILITY_CALENDAR_BODY_UNITS_EXAMPLE,
 };
 
-
 const AVAILABILITY_CALENDAR_DATE_RANGE_BODY_CURRENCY_EXAMPLE = #{
   ...AVAILABILITY_CALENDAR_DATE_RANGE_BODY_EXAMPLE,
   currency: "EUR",
@@ -58,6 +57,7 @@ model AvailabilityCalendarBody {
   @doc(AVAILABILITY_CALENDAR_BODY_UNITS_DOC)
   @example(AVAILABILITY_CALENDAR_BODY_UNITS_EXAMPLE)
   units?: AvailabilityUnit[];
+
   // capabilities
-  ...AvailabilityCalendarPricingBody
+  ...AvailabilityCalendarPricingBody;
 }

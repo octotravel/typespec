@@ -21,46 +21,54 @@ const CATEGORY_COVER_IMAGE_URL_EXAMPLE = "The URL of the image that represents t
 const CATEGORY_PRODUCTS_EXAMPLE = #["6b903d44-dc24-4ca4-ae71-6bde6c4f4854"];
 
 const CATEGORY_EXAMPLE = #{
-    id: CATEGORY_ID_EXAMPLE,
-    default: CATEGORY_DEFAULT_EXAMPLE,
-    name: CATEGORY_NAME_EXAMPLE,
-    title: CATEGORY_TITLE_EXAMPLE,
-    shortDescription: CATEGORY_SHORT_DESCRIPTION_EXAMPLE,
-    bannerImageUrl: CATEGORY_BANNER_IMAGE_URL_EXAMPLE,
-    coverImageUrl: CATEGORY_COVER_IMAGE_URL_EXAMPLE,
-    // destinations: CATEGORY_DESTINATIONS_EXAMPLE,
-    productIds: CATEGORY_PRODUCTS_EXAMPLE,
+  id: CATEGORY_ID_EXAMPLE,
+  default: CATEGORY_DEFAULT_EXAMPLE,
+  name: CATEGORY_NAME_EXAMPLE,
+  title: CATEGORY_TITLE_EXAMPLE,
+  shortDescription: CATEGORY_SHORT_DESCRIPTION_EXAMPLE,
+  bannerImageUrl: CATEGORY_BANNER_IMAGE_URL_EXAMPLE,
+  coverImageUrl: CATEGORY_COVER_IMAGE_URL_EXAMPLE,
+
+  // destinations: CATEGORY_DESTINATIONS_EXAMPLE,
+  productIds: CATEGORY_PRODUCTS_EXAMPLE,
 };
 
 @example(CATEGORY_EXAMPLE)
 model Category {
-    @doc(CATEGORY_ID_DOC)
-    @example(CATEGORY_ID_EXAMPLE)
-    id:string;
-    @doc(CATEGORY_DEFAULT_DOC)
-    @example(CATEGORY_DEFAULT_EXAMPLE)
-    default: boolean;
-    @doc(CATEGORY_NAME_DOC)
-    @example(CATEGORY_NAME_EXAMPLE)
-    name: string | null;
-    @doc(CATEGORY_TITLE_DOC)
-    @example(CATEGORY_TITLE_EXAMPLE)
-    title: string | null;
-    @doc(CATEGORY_SHORT_DESCRIPTION_DOC)
-    @example(CATEGORY_SHORT_DESCRIPTION_EXAMPLE)
-    shortDescription: string | null;
-    @doc(CATEGORY_BANNER_IMAGE_URL_DOC)
-    @example(CATEGORY_BANNER_IMAGE_URL_EXAMPLE)
-    @format("uri")
-    bannerImageUrl: string | null;
-    @doc(CATEGORY_COVER_IMAGE_URL_DOC)
-    @example(CATEGORY_COVER_IMAGE_URL_EXAMPLE)
-    @format("uri")
-    coverImageUrl: string | null;
-    // @doc(CATEGORY_DESTINATIONS_DOC)
-    // @example(CATEGORY_DESTINATIONS_EXAMPLE)
-    // destinations: Destination[];
-    @doc(CATEGORY_PRODUCTS_DOC)
-    @example(CATEGORY_PRODUCTS_EXAMPLE)
-    productIds: string[];
+  @doc(CATEGORY_ID_DOC)
+  @example(CATEGORY_ID_EXAMPLE)
+  id: string;
+
+  @doc(CATEGORY_DEFAULT_DOC)
+  @example(CATEGORY_DEFAULT_EXAMPLE)
+  default: boolean;
+
+  @doc(CATEGORY_NAME_DOC)
+  @example(CATEGORY_NAME_EXAMPLE)
+  name: string | null;
+
+  @doc(CATEGORY_TITLE_DOC)
+  @example(CATEGORY_TITLE_EXAMPLE)
+  title: string | null;
+
+  @doc(CATEGORY_SHORT_DESCRIPTION_DOC)
+  @example(CATEGORY_SHORT_DESCRIPTION_EXAMPLE)
+  shortDescription: string | null;
+
+  @doc(CATEGORY_BANNER_IMAGE_URL_DOC)
+  @example(CATEGORY_BANNER_IMAGE_URL_EXAMPLE)
+  @format("uri")
+  bannerImageUrl: string | null;
+
+  @doc(CATEGORY_COVER_IMAGE_URL_DOC)
+  @example(CATEGORY_COVER_IMAGE_URL_EXAMPLE)
+  @format("uri")
+  coverImageUrl: string | null;
+
+  // @doc(CATEGORY_DESTINATIONS_DOC)
+  // @example(CATEGORY_DESTINATIONS_EXAMPLE)
+  // destinations: Destination[];
+  @doc(CATEGORY_PRODUCTS_DOC)
+  @example(CATEGORY_PRODUCTS_EXAMPLE)
+  productIds: string[];
 }

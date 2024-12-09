@@ -1,17 +1,39 @@
 import "./Unit.tsp";
+import "./CancellationCutoffUnit.tsp";
+import "./OptionRestrictions.tsp";
 import "./capabilities/pricing/OptionPricing.tsp";
 
-const OPTION_ID_DOC = "The id that identifies this option, it is only unique within the product.";
-const OPTION_DEFAULT_DOC = "`TRUE` identifies the option as default, and should therefore rendered and selected first";
-const OPTION_INTERNAL_NAME_DOC = "The name the supplier calls the option by.";
-const OPTION_REFERENCE_DOC = "An optional code this supplier might use to identify the product.";
-const OPTION_AVAILABILITY_LOCAL_START_TIMES_DOC = "This will be an array of all possible start times that can be returned during availability. For example an all day attraction may have a single value like `[\"00:00\"]` whilst a tour with multiple departure times may have multiple:`[\"09:00\", \"14:00\", \"17:00\"]`.";
-const OPTION_CANCELLATION_CUTOFF_DOC = "This is how long before the tour the booking can be still be cancelled.";
-const OPTION_CANCELLATION_CUTOFF_AMOUNT_DOC = "The numeric amount for the cutoff.";
-const OPTION_CANCELLATION_CUTOFF_UNIT_DOC = "Time units used to determine duration. Three values are available: `hour`, `minute`, `day`.";
-const OPTION_REQUIRED_CONTACT_FIELDS_DOC = "An array of the contact fields required to confirm a booking. These just apply to the lead traveller on the booking and not for every ticket.";
-const OPTION_RESTRICTIONS_DOC = "An object containing a fixed list of restrictions for booking the option.";
-const OPTION_UNITS_DOC = "The list of ticket types (units) available for sale";
+const OPTION_ID_DOC = "A unique identifier for the option within the product. This ID is critical for identifying specific options during bookings or other API interactions.";
+const OPTION_DEFAULT_DOC = """
+  Indicates whether the option is the default selection.
+  true: This option should be rendered and selected first in customer-facing interfaces.
+  false: The option is not default and requires manual selection.
+  """;
+const OPTION_INTERNAL_NAME_DOC = "The internal name used by the supplier to refer to the option. This name is for internal or operational purposes and may differ from the public, customer-facing name. The customer-facing name is defined separately in the title field under the octo/content capability.";
+const OPTION_REFERENCE_DOC = "An optional internal code used by the supplier to refer to the product. This field is useful for supplier-specific workflows or cross-referencing. It can be null if no reference code exists for the product.";
+const OPTION_AVAILABILITY_LOCAL_START_TIMES_DOC = "An array containing all possible start times for the option that can be returned during availability. For example a tour with multiple departure times may have multiple:[\"09:00\", \"14:00\", \"17:00\"].";
+const OPTION_CANCELLATION_CUTOFF_DOC = "A text description of the option's cancellation policy, providing clear guidelines to customers.";
+const OPTION_CANCELLATION_CUTOFF_AMOUNT_DOC = "The numeric value of the cutoff period for cancellations, relative to start time or closing hour (of opening hours product)";
+const OPTION_CANCELLATION_CUTOFF_UNIT_DOC = """
+  The time unit associated with the cutoff period. Possible values are:
+  hour: Cutoff is measured in hours.
+  minute: Cutoff is measured in minutes.
+  day: Cutoff is measured in days.
+  """;
+const OPTION_REQUIRED_CONTACT_FIELDS_DOC = """
+  An array specifying the contact fields required to confirm a booking. These apply to the lead traveler, not individual tickets. Possible values:
+  firstName: The first name of the traveler.
+  lastName: The last name of the traveler.
+  fullName: The full name of the traveler.
+  emailAddress: The email address of the traveler.
+  phoneNumber: The phone number of the traveler.
+  postalCode: The postal code of the traveler.
+  country: The country of the traveler.
+  notes: Optional notes from the traveler.
+  locales: Preferred language/localization preferences.
+  """;
+const OPTION_RESTRICTIONS_DOC = "Specifies the limitations on booking the option.";
+const OPTION_UNITS_DOC = "The list array of all units (ticket types) available for this product. Each unit represents a specific type of ticket (e.g., Adult, Child). See Unit for a detailed on the object.";
 
 const OPTION_ID_EXAMPLE = "DEFAULT";
 const OPTION_DEFAULT_EXAMPLE = true;
@@ -88,13 +110,14 @@ model Option {
   @doc(OPTION_UNITS_DOC)
   @example(OPTION_UNITS_EXAMPLE)
   units: Unit[];
-// capabilities
+
+  // capabilities
   ...OptionPricing;
 }
 
 const OPTION_EXAMPLE_PRICING_PER_BOOKING = #{
   ...OPTION_EXAMPLE,
-  ...OPTION_PRICING_PER_BOOKING
+  ...OPTION_PRICING_PER_BOOKING,
 };
 
 const OPTION_EXAMPLE_PRICING_PER_UNIT = #{
@@ -104,35 +127,5 @@ const OPTION_EXAMPLE_PRICING_PER_UNIT = #{
     UNIT_ADULT_EXAMPLE_PRICING,
     UNIT_CHILD_EXAMPLE_PRICING,
     UNIT_INFANT_EXAMPLE_PRICING
-  ]
+  ],
 };
-
-
-const OPTION_RESTRICTIONS_MIN_UNITS_DOC = "The minimum number of tickets that can be purchased in a single booking (null = 0).";
-const OPTION_RESTRICTIONS_MAX_UNITS_DOC = "The maximum number of tickets that can be purchased in a single booking (null = unlimited).";
-
-const OPTION_RESTRICTIONS_MIN_UNITS_EXAMPLE = 0;
-const OPTION_RESTRICTIONS_MAX_UNITS_EXAMPLE = 9;
-
-const OPTION_RESTRICTIONS_EXAMPLE = #{
-  minUnits: OPTION_RESTRICTIONS_MIN_UNITS_EXAMPLE,
-  maxUnits: OPTION_RESTRICTIONS_MAX_UNITS_EXAMPLE,
-};
-
-@example(OPTION_RESTRICTIONS_EXAMPLE)
-model OptionRestrictions {
-  @doc(OPTION_RESTRICTIONS_MIN_UNITS_DOC)
-  @example(OPTION_RESTRICTIONS_MIN_UNITS_EXAMPLE)
-  minUnits: integer | null;
-
-  @doc(OPTION_RESTRICTIONS_MAX_UNITS_DOC)
-  @example(OPTION_RESTRICTIONS_MAX_UNITS_EXAMPLE)
-  maxUnits: integer | null;
-}
-
-@example(CancellationCutoffUnit.hour)
-enum CancellationCutoffUnit {
-  hour,
-  minute,
-  day,
-}

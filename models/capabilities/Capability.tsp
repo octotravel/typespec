@@ -1,4 +1,3 @@
-
 enum Capability {
   ADJUSTMENTS: "octo/adjustments",
   CART: "octo/cart",
@@ -7,5 +6,5 @@ enum Capability {
   PACKAGES: "octo/packages",
   PICKUPS: "octo/pickups",
   PRICING: "octo/pricing",
-  QUESTIONS: "octo/questions"
+  QUESTIONS: "octo/questions",
 }

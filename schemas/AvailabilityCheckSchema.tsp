@@ -71,6 +71,7 @@ model AvailabilityCheckBody {
   @doc(AVAILABILITY_CHECK_BODY_UNITS_DOC)
   @example(AVAILABILITY_CHECK_BODY_UNITS_EXAMPLE)
   units?: AvailabilityUnit[];
+
   // capabilities
-  ...AvailabilityPricingBody
+  ...AvailabilityPricingBody;
 }

@@ -59,8 +59,8 @@ model UnitItem {
   @example(UNIT_TICKET_EXAMPLE)
   ticket: Ticket | null;
 
-    // capabilities
-    ...UnitItemPricing;
+  // capabilities
+  ...UnitItemPricing;
 }
 
 const UNIT_ITEM_ADULT_RESELLER_REFERENCE = "4ec08a62-892c-48c1-a608-dc946531a33a";

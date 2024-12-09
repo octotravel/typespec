@@ -2,13 +2,25 @@ import "./UnitType.tsp";
 import "./ContactField.tsp";
 import "./Restrictions.tsp";
 import "./capabilities/pricing/UnitPricing.tsp";
+import "./capabilities/content/UnitContent.tsp";
 
-const UNIT_ID_DOC = "This MUST be a unique identifier within the scope of the option.";
-const UNIT_INTERNAL_NAME_DOC = "This should be a name to help with identifying the unit. It should NOT be shown to the customer.";
-const UNIT_REFERENCE_DOC = "This is an internal reference identifier that the Supplier wishes to use. It MAY be non-unique.";
-const UNIT_TYPE_DOC = "This is the base unit type for this unit definition. A value of TRAVELLER MUST only be used in replacement of `ADULT`, `CHILD`, `INFANT`, `YOUTH`, `STUDENT`, or `SENIOR`.";
-const UNIT_RESTRICTIONS_DOC = "unit restrictions";
-const UNIT_REQUIRED_CONTACT_FIELDS_DOC = "This is the array of the contact information PER ticket that the supplier expects.";
+const UNIT_ID_DOC = "The unique identifier for this unit within the scope of the option. This ID ensures that each unit can be uniquely referenced and managed.";
+const UNIT_INTERNAL_NAME_DOC = "An internal name for the unit, used for backend purposes and not visible to customers. This field helps with identifying and managing the unit in the supplier’s system.";
+const UNIT_REFERENCE_DOC = "An optional internal reference code used by the supplier for identification purposes. This field may not be unique and is meant for operational use.";
+const UNIT_TYPE_DOC = "This is the base unit type for this unit definition. A value of TRAVELLER must only be used in replacement of ADULT, CHILD, INFANT, YOUTH, STUDENT, MILITARY or SENIOR. ";
+const UNIT_RESTRICTIONS_DOC = "Specifies booking or usage restrictions for the unit.";
+const UNIT_REQUIRED_CONTACT_FIELDS_DOC = """
+  Lists the contact information required per ticket for the unit. Possible values include:
+  firstName: First name of the ticket holder.
+  lastName: Last name of the ticket holder.
+  fullName: Full name, as a combination of first and last name.
+  emailAddress: Email address of the ticket holder.
+  phoneNumber: Phone number of the ticket holder.
+  postalCode: Postal code for identification purposes.
+  country: Country code (ISO 3166-1 alpha-2).
+  notes: Additional notes or special instructions.
+  locales: Locale preferences (IETF BCP 47 tags).
+  """;
 
 const UNIT_ID_EXAMPLE = "adult_697e3ce8-1860-4cbf-80ad-95857df1f640";
 const UNIT_INTERNAL_NAME_EXAMPLE = "Adult(s)";
@@ -55,8 +67,12 @@ model Unit {
   @doc(UNIT_REQUIRED_CONTACT_FIELDS_DOC)
   @example(UNIT_REQUIRED_CONTACT_FIELDS_EXAMPLE)
   requiredContactFields: ContactField[];
-// capabilities
-  ...UnitPricing
+
+  // octo/pricing
+  ...UnitPricing;
+
+  // octo/content
+  ...UnitContent;
 }
 
 const UNIT_ADULT_EXAMPLE = #{
@@ -86,7 +102,6 @@ const UNIT_INFANT_EXAMPLE = #{
   requiredContactFields: UNIT_REQUIRED_CONTACT_FIELDS_EXAMPLE,
 };
 
-
 const UNIT_ADULT_EXAMPLE_PRICING = #{
   ...UNIT_ADULT_EXAMPLE,
   ...UNIT_PRICING_ADULT,
@@ -109,10 +124,10 @@ const UNIT_CHILD_EXAMPLE_PRICING_FINAL = #{
 
 const UNIT_INFANT_EXAMPLE_PRICING = #{
   ...UNIT_INFANT_EXAMPLE,
-  ...UNIT_PRICING_INFANT
+  ...UNIT_PRICING_INFANT,
 };
 
 const UNIT_INFANT_EXAMPLE_PRICING_FINAL = #{
   ...UNIT_INFANT_EXAMPLE,
-  ...UNIT_PRICING_INFANT_FINAL
+  ...UNIT_PRICING_INFANT_FINAL,
 };

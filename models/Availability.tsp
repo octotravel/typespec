@@ -2,16 +2,23 @@ import "./OpeningHours.tsp";
 import "./AvailabilityStatus.tsp";
 import "./capabilities/pricing/AvailabilityPricing.tsp";
 
-const AVAILABILITY_ID_DOC = "The availability id, you''ll need this when booking. MUST be a unique identifier within the scope of an option.";
-const AVAILABILITY_LOCAL_DATE_TIME_START_DOC = "The start time for this availability. This will be in the local time zone of the product. Must be an `ISO 8601` compliant date and time.";
-const AVAILABILITY_LOCAL_DATE_TIME_END_DOC = "The end time for this availability. This will be in the local time zone of the product. Must be an `ISO 8601` compliant date and time.";
+const AVAILABILITY_ID_DOC = "A unique identifier for this availability. This ID is used during booking and must be unique within the scope of an option.";
+const AVAILABILITY_LOCAL_DATE_TIME_START_DOC = "The start time for this availability in the product’s local time zone. This value must conform to ISO 8601 standards (e.g., \"2024-11-17T09:00:00+00:00\").";
+const AVAILABILITY_LOCAL_DATE_TIME_END_DOC = "The end time for this availability in the product’s local time zone. It must also adhere to ISO 8601 standards.";
 const AVAILABILITY_UTC_CUTOFF_AT_DOC = "The time by which the booking must be confirmed at";
-const AVAILABILITY_ALL_DAY_DOC = "A boolean field indicating whether this is an all day availability and not a fixed departure time. If this value is true then there will be no other availability object on the same day.";
-const AVAILABILITY_AVAILABLE_DOC = "Whether there is availability for this date / slot.";
-const AVAILABILITY_STATUS_DOC = "The status of that date. Possible values are:\n`AVAILABLE` This availability is available for sale\n`FREESALE` This availability has no capacity and is available.\n`SOLD_OUT` There are no more spots available for this date / slot.\n`LIMITED` This availability is available but has less than 50% capacity left.\n`CLOSED` Availability is closed for this day / slot.";
-const AVAILABILITY_VACANCIES_DOC = "This SHOULD NOT be returned when status is `FREESALE`. This SHOULD be a shared pool for all Unit types in the Option. If availability is tracked per-Unit then this value MUST be equal to the available quantity for the Unit that has the most remaining.";
-const AVAILABILITY_CAPACITY_DOC = "The total capacity on this day.";
-const AVAILABILITY_MAX_UNITS_DOC = "Maximum number of units that can be sold within one booking on this day / slot.";
+const AVAILABILITY_ALL_DAY_DOC = "Indicates if this availability spans the entire day. If set to true, there will be no specific start or end times for this availability.";
+const AVAILABILITY_AVAILABLE_DOC = "Indicates if there are remaining slots available for this date or time slot.";
+const AVAILABILITY_STATUS_DOC = """
+  Defines the current status of the availability:
+  AVAILABLE: Open for booking.
+  FREESALE: Unlimited availability, no capacity limits.
+  SOLD_OUT: No spots available.
+  LIMITED: Less than 50% capacity remaining.
+  CLOSED: The availability is closed.
+  """;
+const AVAILABILITY_VACANCIES_DOC = "Specifies the number of available slots remaining. Should be nulled or omitted when status is FREESALE. If availability is tracked per unit, this represents the maximum remaining quantity across all units.";
+const AVAILABILITY_CAPACITY_DOC = "The total capacity for this availability.";
+const AVAILABILITY_MAX_UNITS_DOC = "The maximum number of units that can be sold in a single booking during this availability slot.";
 const AVAILABILITY_OPENING_HOURS_DOC = OPENING_HOURS_DOC;
 
 const AVAILABILITY_ID_EXAMPLE = "2022-05-23T00:00:00+01:00";
@@ -85,6 +92,7 @@ model Availability {
   @doc(AVAILABILITY_OPENING_HOURS_DOC)
   @example(AVAILABILITY_OPENING_HOURS_EXAMPLE)
   openingHours: OpeningHours[];
+
   // capabilities
   ...AvailabilityPricing;
 }

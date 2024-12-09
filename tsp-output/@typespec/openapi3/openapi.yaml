@@ -5303,8 +5303,9 @@ components:
                   productIds:
                     - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
           description: An array of destinations the supplier operates in.
-          x-oapi-codegen-extra-tags:
+          x-capability-data:
             capability: octo/content
+            required: true
       example:
         id: 697e3ce8-1860-4cbf-80ad-95857df1f640
         name: Edin Explore
@@ -5316,6 +5317,8 @@ components:
           address: Marble Arch, London, W1H 7EJ, United Kingdom
         capabilities:
           - octo/content
+      x-supported-capabilities:
+        - octo/content
     SupplierContact:
       type: object
       required:
