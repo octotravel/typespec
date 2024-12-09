@@ -1,0 +1,46 @@
+import "@typespec/http";
+import "@typespec/openapi3";
+
+import "../models/AvailabilityCalendar.tsp";
+import "../models/Error.tsp";
+
+namespace Octo;
+using TypeSpec.Http;
+
+model AvailabilityCalendarSuccessResponse {
+  @statusCode statusCode: 200;
+  @body body: AvailabilityCalendar[];
+}
+
+const AVAILABILITY_CALENDAR_START_TIMES_RESPONSE = #[
+  AVAILABILITY_CALENDAR_START_TIME_EXAMPLE_1,
+  AVAILABILITY_CALENDAR_START_TIME_EXAMPLE_2,
+  AVAILABILITY_CALENDAR_START_TIME_EXAMPLE_3
+];
+
+const AVAILABILITY_CALENDAR_OPENING_HOURS_RESPONSE = #[
+  AVAILABILITY_CALENDAR_OPENING_HOURS_EXAMPLE_1,
+  AVAILABILITY_CALENDAR_OPENING_HOURS_EXAMPLE_2,
+  AVAILABILITY_CALENDAR_OPENING_HOURS_EXAMPLE_3
+];
+
+model AvailabilityCalendarErrorResponse {
+  @statusCode statusCode: 400;
+  @body body:
+    | ErrorInvalidProductID
+    | ErrorInvalidOptionID
+    | ErrorBadRequest
+    | ErrorUnauthorized
+    | ErrorInternalServerError
+    | ErrorForbidden;
+}
+
+const AVAILABILITY_CALENDAR_INVALID_PRODUCT_ID_RESPONSE_EXAMPLE = ERROR_INVALID_PRODUCT_ID_EXAMPLE;
+const AVAILABILITY_CALENDAR_INVALID_OPTION_ID_RESPONSE_EXAMPLE = ERROR_INVALID_OPTION_ID_EXAMPLE;
+const AVAILABILITY_CALENDAR_BAD_REQUEST_RESPONSE_EXAMPLE = #{
+  error: ERROR_BAD_REQUEST_ERROR_EXAMPLE,
+  errorMessage: "cannot request more than 1 year of availability",
+};
+const AVAILABILITY_CALENDAR_UNAUTHORIZED_RESPONSE_EXAMPLE = ERROR_UNAUTHORIZED_EXAMPLE;
+const AVAILABILITY_CALENDAR_INTERNAL_SERVER_ERROR_RESPONSE_EXAMPLE = ERROR_INTERNAL_SERVER_ERROR_EXAMPLE;
+const AVAILABILITY_CALENDAR_FORBIDDEN_RESPONSE_EXAMPLE = ERROR_FORBIDDEN_EXAMPLE;

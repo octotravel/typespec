@@ -9,7 +9,8 @@
     "@typespec/openapi3": "0.62.0"
   },
   "scripts": {
-    "compile": "tsp compile ."
+    "compile": "tsp compile .",
+    "compile:ventrata": "tsp compile ventrata/main.tsp"
   },
   "private": true,
   "devDependencies": {

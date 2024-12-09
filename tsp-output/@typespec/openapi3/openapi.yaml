@@ -300,8 +300,8 @@ paths:
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                     product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                      internalName: Amazon River Tour
-                      reference: AMZN
+                      internalName: London Eye General Admission
+                      reference: LEYE-GA
                       locale: en-GB
                       timeZone: Europe/London
                       allowFreesale: true
@@ -436,12 +436,18 @@ paths:
                     cancellable: true
                     cancellation: null
                     freesale: false
-                    availabilityId: 2021-10-27T00:00:00-04:00
+                    availabilityId: ''
                     availability:
-                      id: 2021-10-27T00:00:00-04:00
-                      localDateTimeStart: 2021-10-27T00:00:00-04:00
-                      localDateTimeEnd: 2021-10-28T00:00:00-04:00
+                      id: 2022-05-23T00:00:00+01:00
+                      localDateTimeStart: 2022-05-23T00:00:00+01:00
+                      localDateTimeEnd: 2022-05-24T00:00:00+01:00
+                      utcCutoffAt: 2022-05-22T23:00:00Z
                       allDay: false
+                      available: true
+                      status: AVAILABLE
+                      vacancies: 10
+                      capacity: 10
+                      maxUnits: null
                       openingHours:
                         - from: 08:00
                           to: 16:00
@@ -727,8 +733,8 @@ paths:
                       productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                       product:
                         id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                        internalName: Amazon River Tour
-                        reference: AMZN
+                        internalName: London Eye General Admission
+                        reference: LEYE-GA
                         locale: en-GB
                         timeZone: Europe/London
                         allowFreesale: true
@@ -863,12 +869,18 @@ paths:
                       cancellable: true
                       cancellation: null
                       freesale: false
-                      availabilityId: 2021-10-27T00:00:00-04:00
+                      availabilityId: ''
                       availability:
-                        id: 2021-10-27T00:00:00-04:00
-                        localDateTimeStart: 2021-10-27T00:00:00-04:00
-                        localDateTimeEnd: 2021-10-28T00:00:00-04:00
+                        id: 2022-05-23T00:00:00+01:00
+                        localDateTimeStart: 2022-05-23T00:00:00+01:00
+                        localDateTimeEnd: 2022-05-24T00:00:00+01:00
+                        utcCutoffAt: 2022-05-22T23:00:00Z
                         allDay: false
+                        available: true
+                        status: AVAILABLE
+                        vacancies: 10
+                        capacity: 10
+                        maxUnits: null
                         openingHours:
                           - from: 08:00
                             to: 16:00
@@ -1083,8 +1095,8 @@ paths:
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                     product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                      internalName: Amazon River Tour
-                      reference: AMZN
+                      internalName: London Eye General Admission
+                      reference: LEYE-GA
                       locale: en-GB
                       timeZone: Europe/London
                       allowFreesale: true
@@ -1219,12 +1231,18 @@ paths:
                     cancellable: true
                     cancellation: null
                     freesale: false
-                    availabilityId: 2021-10-27T00:00:00-04:00
+                    availabilityId: ''
                     availability:
-                      id: 2021-10-27T00:00:00-04:00
-                      localDateTimeStart: 2021-10-27T00:00:00-04:00
-                      localDateTimeEnd: 2021-10-28T00:00:00-04:00
+                      id: 2022-05-23T00:00:00+01:00
+                      localDateTimeStart: 2022-05-23T00:00:00+01:00
+                      localDateTimeEnd: 2022-05-24T00:00:00+01:00
+                      utcCutoffAt: 2022-05-22T23:00:00Z
                       allDay: false
+                      available: true
+                      status: AVAILABLE
+                      vacancies: 10
+                      capacity: 10
+                      maxUnits: null
                       openingHours:
                         - from: 08:00
                           to: 16:00
@@ -1482,8 +1500,8 @@ paths:
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                     product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                      internalName: Amazon River Tour
-                      reference: AMZN
+                      internalName: London Eye General Admission
+                      reference: LEYE-GA
                       locale: en-GB
                       timeZone: Europe/London
                       allowFreesale: true
@@ -1621,12 +1639,18 @@ paths:
                       reason: this product sucks
                       utcCancelledAt: 2022-05-25T11:00:22Z
                     freesale: false
-                    availabilityId: 2021-10-27T00:00:00-04:00
+                    availabilityId: ''
                     availability:
-                      id: 2021-10-27T00:00:00-04:00
-                      localDateTimeStart: 2021-10-27T00:00:00-04:00
-                      localDateTimeEnd: 2021-10-28T00:00:00-04:00
+                      id: 2022-05-23T00:00:00+01:00
+                      localDateTimeStart: 2022-05-23T00:00:00+01:00
+                      localDateTimeEnd: 2022-05-24T00:00:00+01:00
+                      utcCutoffAt: 2022-05-22T23:00:00Z
                       allDay: false
+                      available: true
+                      status: AVAILABLE
+                      vacancies: 10
+                      capacity: 10
+                      maxUnits: null
                       openingHours:
                         - from: 08:00
                           to: 16:00
@@ -1736,8 +1760,8 @@ paths:
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                     product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                      internalName: Amazon River Tour
-                      reference: AMZN
+                      internalName: London Eye General Admission
+                      reference: LEYE-GA
                       locale: en-GB
                       timeZone: Europe/London
                       allowFreesale: true
@@ -1872,12 +1896,18 @@ paths:
                     cancellable: true
                     cancellation: null
                     freesale: false
-                    availabilityId: 2021-10-27T00:00:00-04:00
+                    availabilityId: ''
                     availability:
-                      id: 2021-10-27T00:00:00-04:00
-                      localDateTimeStart: 2021-10-27T00:00:00-04:00
-                      localDateTimeEnd: 2021-10-28T00:00:00-04:00
+                      id: 2022-05-23T00:00:00+01:00
+                      localDateTimeStart: 2022-05-23T00:00:00+01:00
+                      localDateTimeEnd: 2022-05-24T00:00:00+01:00
+                      utcCutoffAt: 2022-05-22T23:00:00Z
                       allDay: false
+                      available: true
+                      status: AVAILABLE
+                      vacancies: 10
+                      capacity: 10
+                      maxUnits: null
                       openingHours:
                         - from: 08:00
                           to: 16:00
@@ -2139,8 +2169,8 @@ paths:
                     productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                     product:
                       id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                      internalName: Amazon River Tour
-                      reference: AMZN
+                      internalName: London Eye General Admission
+                      reference: LEYE-GA
                       locale: en-GB
                       timeZone: Europe/London
                       allowFreesale: true
@@ -2275,12 +2305,18 @@ paths:
                     cancellable: true
                     cancellation: null
                     freesale: false
-                    availabilityId: 2021-10-27T00:00:00-04:00
+                    availabilityId: ''
                     availability:
-                      id: 2021-10-27T00:00:00-04:00
-                      localDateTimeStart: 2021-10-27T00:00:00-04:00
-                      localDateTimeEnd: 2021-10-28T00:00:00-04:00
+                      id: 2022-05-23T00:00:00+01:00
+                      localDateTimeStart: 2022-05-23T00:00:00+01:00
+                      localDateTimeEnd: 2022-05-24T00:00:00+01:00
+                      utcCutoffAt: 2022-05-22T23:00:00Z
                       allDay: false
+                      available: true
+                      status: AVAILABLE
+                      vacancies: 10
+                      capacity: 10
+                      maxUnits: null
                       openingHours:
                         - from: 08:00
                           to: 16:00
@@ -2473,8 +2509,8 @@ paths:
                   description: Products example
                   value:
                     - id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                      internalName: Amazon River Tour
-                      reference: AMZN
+                      internalName: London Eye General Admission
+                      reference: LEYE-GA
                       locale: en-GB
                       timeZone: Europe/London
                       allowFreesale: true
@@ -2601,8 +2637,8 @@ paths:
                   description: Product example
                   value:
                     id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-                    internalName: Amazon River Tour
-                    reference: AMZN
+                    internalName: London Eye General Admission
+                    reference: LEYE-GA
                     locale: en-GB
                     timeZone: Europe/London
                     allowFreesale: true
@@ -2731,8 +2767,8 @@ paths:
                   description: Supplier example
                   value:
                     id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-                    name: Edin Explore
-                    endpoint: https://api.ventrata.com/api-octo
+                    name: Merlin Entertainments
+                    endpoint: https://api.my-booking-platform.com/v1
                     contact:
                       website: null
                       email: support@ventrata.com
@@ -2792,15 +2828,15 @@ components:
         id:
           type: string
           example: 2022-05-23T00:00:00+01:00
-          description: The availability id, you''ll need this when booking. MUST be a unique identifier within the scope of an option.
+          description: A unique identifier for this availability. This ID is used during booking and must be unique within the scope of an option.
         localDateTimeStart:
           type: string
           example: 2022-05-23T00:00:00+01:00
-          description: The start time for this availability. This will be in the local time zone of the product. Must be an `ISO 8601` compliant date and time.
+          description: The start time for this availability in the product’s local time zone. This value must conform to ISO 8601 standards (e.g., "2024-11-17T09:00:00+00:00").
         localDateTimeEnd:
           type: string
           example: 2022-05-24T00:00:00+01:00
-          description: The end time for this availability. This will be in the local time zone of the product. Must be an `ISO 8601` compliant date and time.
+          description: The end time for this availability in the product’s local time zone. It must also adhere to ISO 8601 standards.
         utcCutoffAt:
           type: string
           example: 2022-05-22T23:00:00Z
@@ -2808,37 +2844,37 @@ components:
         allDay:
           type: boolean
           example: false
-          description: A boolean field indicating whether this is an all day availability and not a fixed departure time. If this value is true then there will be no other availability object on the same day.
+          description: Indicates if this availability spans the entire day. If set to true, there will be no specific start or end times for this availability.
         available:
           type: boolean
           example: true
-          description: Whether there is availability for this date / slot.
+          description: Indicates if there are remaining slots available for this date or time slot.
         status:
           allOf:
             - $ref: '#/components/schemas/AvailabilityStatus'
           example: AVAILABLE
           description: |-
-            The status of that date. Possible values are:
-            `AVAILABLE` This availability is available for sale
-            `FREESALE` This availability has no capacity and is available.
-            `SOLD_OUT` There are no more spots available for this date / slot.
-            `LIMITED` This availability is available but has less than 50% capacity left.
-            `CLOSED` Availability is closed for this day / slot.
+            Defines the current status of the availability:
+            AVAILABLE: Open for booking.
+            FREESALE: Unlimited availability, no capacity limits.
+            SOLD_OUT: No spots available.
+            LIMITED: Less than 50% capacity remaining.
+            CLOSED: The availability is closed.
         vacancies:
           type: integer
           nullable: true
           example: 10
-          description: This SHOULD NOT be returned when status is `FREESALE`. This SHOULD be a shared pool for all Unit types in the Option. If availability is tracked per-Unit then this value MUST be equal to the available quantity for the Unit that has the most remaining.
+          description: Specifies the number of available slots remaining. Should be nulled or omitted when status is FREESALE. If availability is tracked per unit, this represents the maximum remaining quantity across all units.
         capacity:
           type: integer
           nullable: true
           example: 10
-          description: The total capacity on this day.
+          description: The total capacity for this availability.
         maxUnits:
           type: integer
           nullable: true
           example: null
-          description: Maximum number of units that can be sold within one booking on this day / slot.
+          description: The maximum number of units that can be sold in a single booking during this availability slot.
         openingHours:
           type: array
           items:
@@ -2846,7 +2882,7 @@ components:
           example:
             - from: 08:00
               to: 16:00
-          description: A list of opening hours that the product is open on this day.
+          description: Defines the opening hours for this availability, even for start time-based availability. Supports multiple periods for breaks in the day.
         unitPricing:
           type: array
           items:
@@ -2913,32 +2949,35 @@ components:
         localDate:
           type: string
           example: 2022-05-12
-          description: A single date to query. Must be ISO 8601 compliant date.
+          description: The specific date for querying availability on Availability Calendar endpoint. This field must follow the ISO 8601 date format (e.g., 2024-11-18). It ensures standardized representation of dates across different systems.
         available:
           type: boolean
           example: true
-          description: Whether there is availability for this date / slot.
+          description: |-
+            Indicates whether there is any remaining availability for the specified date.
+            true: Availability exists.
+            false: Fully booked or unavailable.
         status:
           allOf:
             - $ref: '#/components/schemas/AvailabilityStatus'
           example: AVAILABLE
           description: |-
-            The status of that date. Possible values are:
-            `AVAILABLE` This availability is available for sale
-            `FREESALE` This availability has no capacity and is available.
-            `SOLD_OUT` There are no more spots available for this date / slot.
-            `LIMITED` This availability is available but has less than 50% capacity left.
-            `CLOSED` Availability is closed for this day / slot.
+            Defines the current status of the availability date:
+            AVAILABLE: Open for booking.
+            FREESALE: Unlimited availability, no capacity limits.
+            SOLD_OUT: No spots available.
+            LIMITED: Less than 50% capacity remaining.
+            CLOSED: The availability is closed.
         vacancies:
           type: integer
           nullable: true
           example: 10
-          description: This SHOULD NOT be returned when status is `FREESALE`. This SHOULD be a shared pool for all Unit types in the Option. If availability is tracked per-Unit then this value MUST be equal to the available quantity for the Unit that has the most remaining.
+          description: Specifies the number of available slots remaining quantity (highest remaining vacancies from all availabilities of this day). Should be nulled or omitted when status is FREESALE.
         capacity:
           type: integer
           nullable: true
           example: 10
-          description: The total capacity on this day.
+          description: 'The total capacity for this availability date. '
         openingHours:
           type: array
           items:
@@ -2946,7 +2985,7 @@ components:
           example:
             - from: 08:00
               to: 16:00
-          description: A list of opening hours that the product is open on this day.
+          description: Defines the opening hours for this availability, even for start time-based availability. Supports multiple periods for breaks in the day.
         unitPricingFrom:
           type: array
           items:
@@ -3036,6 +3075,85 @@ components:
         optionId: DEFAULT
         localDateStart: 2022-05-23
         localDateEnd: 2022-05-29
+    AvailabilityCalendarPricing:
+      type: object
+      properties:
+        unitPricingFrom:
+          type: array
+          items:
+            $ref: '#/components/schemas/PricingUnit'
+          example:
+            - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 1000
+              retail: 1000
+              net: 8000
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+            - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 500
+              retail: 500
+              net: 400
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+            - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 0
+              retail: 0
+              net: 0
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+        pricingFrom:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pricing'
+          example:
+            - original: 2000
+              retail: 2000
+              net: 1600
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+      example:
+        unitPricingFrom:
+          - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+            original: 1000
+            retail: 1000
+            net: 8000
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+          - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+            original: 500
+            retail: 500
+            net: 400
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+          - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+            original: 0
+            retail: 0
+            net: 0
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+        pricingFrom:
+          - original: 2000
+            retail: 2000
+            net: 1600
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+    AvailabilityCalendarPricingBody:
+      type: object
+      properties:
+        currency:
+          type: string
+          example: USD
+          description: Can be used only when pricing capability is used.
     AvailabilityCheckBody:
       type: object
       required:
@@ -3084,6 +3202,85 @@ components:
         optionId: DEFAULT
         localDateStart: 2022-05-23
         localDateEnd: 2022-05-29
+    AvailabilityPricing:
+      type: object
+      properties:
+        unitPricing:
+          type: array
+          items:
+            $ref: '#/components/schemas/PricingUnit'
+          example:
+            - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 1000
+              retail: 1000
+              net: 8000
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+            - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 500
+              retail: 500
+              net: 400
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+            - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+              original: 0
+              retail: 0
+              net: 0
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+        pricing:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pricing'
+          example:
+            - original: 2000
+              retail: 2000
+              net: 1600
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+      example:
+        unitPricing:
+          - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+            original: 1000
+            retail: 1000
+            net: 8000
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+          - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+            original: 500
+            retail: 500
+            net: 400
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+          - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+            original: 0
+            retail: 0
+            net: 0
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+        pricing:
+          - original: 2000
+            retail: 2000
+            net: 1600
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+    AvailabilityPricingBody:
+      type: object
+      properties:
+        currency:
+          type: string
+          example: USD
+          description: Can be used only when pricing capability is used.
     AvailabilityStatus:
       type: string
       enum:
@@ -3159,38 +3356,39 @@ components:
         id:
           type: string
           example: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
-          description: A unique ID / UUID generated by the supplier system to identify the booking.
+          description: A unique identifier generated by the supplier system for the booking. This ID ensures traceability and must be unique within the system.
         uuid:
           type: string
           example: 559aed3d-6d5b-4fe0-bfca-99f5e7218a56
           format: uuid
-          description: A UUID you can set when generating the booking to use as an idempotency key.
+          description: An optional idempotency key set when creating a booking to prevent duplicate bookings in case of retries. Used for API calls.
         testMode:
           type: boolean
           example: false
-          description: If `TRUE`, booking was created on test mode
+          description: Indicates whether the booking was created in test mode. If true, it is a test booking.
         resellerReference:
           type: string
           nullable: true
           example: null
-          description: The reference set by the Reseller. A mandatory field for resellers to be set in the booking confirmation request.
+          description: A reference provided by the reseller to identify the booking.
         supplierReference:
           type: string
           nullable: true
           example: XOPSUT
-          description: The reference set by the Reseller. A mandatory field for resellers to be set in the booking confirmation request.
+          description: A reference provided by the reseller to identify the booking.
         status:
           allOf:
             - $ref: '#/components/schemas/BookingStatus'
           example: CONFIRMED
           description: |-
-            The status of the booking, possible values are:
-            `ON_HOLD` The booking is pending confirmation, this is the default value when you first create the booking.
-            `EXPIRED` If the booking is not confirmed before the expiration hold expires, it goes into an expired state.
-            `CONFIRMED` Once the confirmation call is made the booking is ready to be used.
-            `CANCELLED` If the booking is cancelled.
-            `PENDING` If the booking is pending outside availability confirmation.
-            `REDEEMED` If the booking is already redeemed.
+            Represents the current state of the booking:
+            ON_HOLD: Awaiting confirmation.
+            EXPIRED: Not confirmed within the hold expiration time.
+            CONFIRMED: Successfully confirmed.
+            CANCELLED: The booking was canceled.
+            PENDING: Awaiting external confirmation.
+            REDEEMED: The booking has been used.
+            UPGRADED: Upgraded to another tier or package.
         utcCreatedAt:
           type: string
           example: 2022-05-25T10:34:22Z
@@ -3199,33 +3397,33 @@ components:
           type: string
           nullable: true
           example: 2022-05-25T10:34:22Z
-          description: An ISO8601 date time in UTC when the booking was updated.
+          description: An ISO8601 date time in UTC when the booking was last updated, if applicable.
         utcExpiresAt:
           type: string
           nullable: true
           example: 2022-05-25T11:04:22Z
-          description: An ISO8601 date times in UTC for when this booking is due to expire if the status is `ON_HOLD`.
+          description: An ISO8601 date times in UTC for when this booking is due to expire if the status is ON_HOLD.
         utcRedeemedAt:
           type: string
           nullable: true
           example: 2022-06-25T10:34:22Z
-          description: An ISO8601 date time in UTC at when the booking was redeemed.
+          description: An ISO8601 date time in UTC at when the booking was redeemed, if applicable.
         utcConfirmedAt:
           type: string
           nullable: true
           example: 2022-05-25T11:00:22Z
-          description: An ISO8601 date time in UTC when the booking was confirmed.
+          description: An ISO8601 date time in UTC when the booking was confirmed, if applicable.
         productId:
           type: string
           example: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-          description: The product ID that identifies the product in the booking system to make this reservation.
+          description: The ID of product booked.
         product:
           allOf:
             - $ref: '#/components/schemas/Product'
           example:
             id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-            internalName: Amazon River Tour
-            reference: AMZN
+            internalName: London Eye General Admission
+            reference: LEYE-GA
             locale: en-GB
             timeZone: Europe/London
             allowFreesale: true
@@ -3297,11 +3495,11 @@ components:
                         - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                     requiredContactFields:
                       - firstName
-          description: A bookable product listed by a supplier.
+          description: 'The object of booked product. '
         optionId:
           type: string
           example: DEFAULT
-          description: The product ID that identifies the product option in the booking system to make this reservation.
+          description: The ID of option booked.
         option:
           allOf:
             - $ref: '#/components/schemas/Option'
@@ -3364,11 +3562,11 @@ components:
                     - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                 requiredContactFields:
                   - firstName
-          description: The product ID that identifies the product option in the booking system to make this reservation.
+          description: The ID of option booked.
         cancellable:
           type: boolean
           example: true
-          description: Product options are subdivisions of the original product that will affect price and / or duration. Within the OCTo spec, every product must contain an option.
+          description: The object of booked option.
         cancellation:
           type: object
           allOf:
@@ -3382,24 +3580,29 @@ components:
         freesale:
           type: boolean
           example: false
-          description: Whether the booking was made as freesale (without checking availability first).
+          description: Indicates if the booking was made without checking availability.
         availabilityId:
           type: string
-          example: 2021-10-27T00:00:00-04:00
-          description: The availability id that was used in the request.
+          example: ''
+          description: The ID of availability booked.
         availability:
           allOf:
-            - $ref: '#/components/schemas/BookingAvailability'
+            - $ref: '#/components/schemas/Availability'
           example:
-            id: 2021-10-27T00:00:00-04:00
-            localDateTimeStart: 2021-10-27T00:00:00-04:00
-            localDateTimeEnd: 2021-10-28T00:00:00-04:00
+            id: 2022-05-23T00:00:00+01:00
+            localDateTimeStart: 2022-05-23T00:00:00+01:00
+            localDateTimeEnd: 2022-05-24T00:00:00+01:00
+            utcCutoffAt: 2022-05-22T23:00:00Z
             allDay: false
+            available: true
+            status: AVAILABLE
+            vacancies: 10
+            capacity: 10
+            maxUnits: null
             openingHours:
               - from: 08:00
                 to: 16:00
-          description: |
-            The availability object that was booked.
+          description: The availability object that was booked.
         contact:
           allOf:
             - $ref: '#/components/schemas/Contact'
@@ -3414,12 +3617,12 @@ components:
             postalCode: ''
             country: ''
             notes: ''
-          description: Contact details for the guests that will attend the tour/attraction. Contact schema can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information)
+          description: Customer contact details for the booking (see unit object for per ticket / unit details).
         notes:
           type: string
           nullable: true
           example: Optional notes for the booking
-          description: Optional notes for the booking.
+          description: Customer-facing public notes for the booking.
         deliveryMethods:
           type: array
           items:
@@ -3427,7 +3630,11 @@ components:
           example:
             - TICKET
             - VOUCHER
-          description: An array of delivery methods available for this booking.
+          description: |-
+            Specifies all supported methods of how tickets or vouchers for this booking are delivered.
+            TICKET: Delivered individually per unit in the booking, where each person or unit receives a separate ticket. These will be provided in the ticket object.
+            VOUCHER: Delivered as a single voucher for the entire booking, consolidating all units under one document. These will be provided in the voucher object.
+            This field ensures clarity on the format of ticket or voucher delivery to resellers and customers.
         voucher:
           type: object
           allOf:
@@ -3439,7 +3646,7 @@ components:
             deliveryOptions:
               - deliveryFormat: QRCODE
                 deliveryValue: ''
-          description: ''
+          description: Details for voucher-based delivery, provided when VOUCHER is one of deliveryMethods.
         unitItems:
           type: array
           items:
@@ -3478,7 +3685,7 @@ components:
                 country: ''
                 notes: ''
               ticket: null
-          description: An array o`f unit items that will be included in the booking.
+          description: An array of unit items included in the booking.
         pricing:
           allOf:
             - $ref: '#/components/schemas/Pricing'
@@ -3505,8 +3712,8 @@ components:
         productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
         product:
           id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-          internalName: Amazon River Tour
-          reference: AMZN
+          internalName: London Eye General Admission
+          reference: LEYE-GA
           locale: en-GB
           timeZone: Europe/London
           allowFreesale: true
@@ -3641,12 +3848,18 @@ components:
         cancellable: true
         cancellation: null
         freesale: false
-        availabilityId: 2021-10-27T00:00:00-04:00
+        availabilityId: ''
         availability:
-          id: 2021-10-27T00:00:00-04:00
-          localDateTimeStart: 2021-10-27T00:00:00-04:00
-          localDateTimeEnd: 2021-10-28T00:00:00-04:00
+          id: 2022-05-23T00:00:00+01:00
+          localDateTimeStart: 2022-05-23T00:00:00+01:00
+          localDateTimeEnd: 2022-05-24T00:00:00+01:00
+          utcCutoffAt: 2022-05-22T23:00:00Z
           allDay: false
+          available: true
+          status: AVAILABLE
+          vacancies: 10
+          capacity: 10
+          maxUnits: null
           openingHours:
             - from: 08:00
               to: 16:00
@@ -3767,47 +3980,6 @@ components:
               country: ''
               notes: ''
             ticket: null
-    BookingAvailability:
-      type: object
-      required:
-        - id
-        - localDateTimeStart
-        - localDateTimeEnd
-        - allDay
-        - openingHours
-      properties:
-        id:
-          type: string
-          example: 2021-10-27T00:00:00-04:00
-          description: The availability id that was used in the request.
-        localDateTimeStart:
-          type: string
-          example: 2021-10-27T00:00:00-04:00
-          description: The `localDateTimeStart` value from the original availability object.
-        localDateTimeEnd:
-          type: string
-          example: 2021-10-28T00:00:00-04:00
-          description: The `localDateTimeEnd` value from the original availability object.
-        allDay:
-          type: boolean
-          example: false
-          description: A boolean value indicating whether the availability is all day.
-        openingHours:
-          type: array
-          items:
-            $ref: '#/components/schemas/OpeningHours'
-          example:
-            - from: 08:00
-              to: 16:00
-          description: The opening hours from the original availability object.
-      example:
-        id: 2021-10-27T00:00:00-04:00
-        localDateTimeStart: 2021-10-27T00:00:00-04:00
-        localDateTimeEnd: 2021-10-28T00:00:00-04:00
-        allDay: false
-        openingHours:
-          - from: 08:00
-            to: 16:00
     BookingCancellation:
       type: object
       required:
@@ -3819,7 +3991,7 @@ components:
           allOf:
             - $ref: '#/components/schemas/Refund'
           example: FULL
-          description: Whether the booking was refunded as part of the cancellation. Possible values are `FULL`, `PARTIAL` or `NONE`
+          description: Whether the booking was refunded as part of the cancellation. Possible values are FULL, PARTIAL or NONE
         reason:
           type: string
           nullable: true
@@ -3951,6 +4123,28 @@ components:
           - en-GB
           - en-US
         country: GB
+    BookingPricing:
+      type: object
+      properties:
+        pricing:
+          allOf:
+            - $ref: '#/components/schemas/Pricing'
+          example:
+            original: 2000
+            retail: 2000
+            net: 1600
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+      example:
+        pricing:
+          original: 2000
+          retail: 2000
+          net: 1600
+          currency: EUR
+          currencyPrecision: 2
+          includedTaxes: []
     BookingReservationBody:
       type: object
       required:
@@ -4005,6 +4199,52 @@ components:
           - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
           - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
           - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+    BookingReservationPricingBody:
+      type: object
+      properties:
+        currency:
+          type: string
+          example: USD
+          description: Can be used only when pricing capability is used.
+    BookingReservationQuery:
+      type: object
+      required:
+        - resellerReference
+        - supplierReference
+        - localDate
+        - localDateStart
+        - localDateEnd
+        - productId
+        - optionId
+      properties:
+        resellerReference:
+          type: string
+          example: ''
+          description: The reseller reference on the booking
+        supplierReference:
+          type: string
+          example: ''
+          description: The reference provided by the supplier
+        localDate:
+          type: string
+          example: ''
+          description: All bookings made for a specific date
+        localDateStart:
+          type: string
+          example: ''
+          description: First date of a date range search
+        localDateEnd:
+          type: string
+          example: ''
+          description: Last date of a date range search
+        productId:
+          type: string
+          example: ''
+          description: The product id to filter by
+        optionId:
+          type: string
+          example: ''
+          description: The option id to filter by
     BookingStatus:
       type: string
       enum:
@@ -4207,35 +4447,35 @@ components:
           type: string
           nullable: true
           example: John Doe
-          description: The full name of the booking holder or the ticket holder. Can also be retrieved as an alias for the concatenation of `firstName` and `lastName`
+          description: The full name of the booking holder. Can also be retrieved as an alias for the concatenation of firstName and lastName
         firstName:
           type: string
           nullable: true
           example: John
-          description: The first name of the booking holder or the ticket holder.
+          description: The first name of the booking holder.
         lastName:
           type: string
           nullable: true
           example: Doe
-          description: The last name of the booking holder or the ticket holder.
+          description: The last name of the booking holder.
         emailAddress:
           type: string
           nullable: true
           example: johndoe@email.com
           format: email
-          description: The email address of the booking holder or the ticket holder.
+          description: The email address of the booking holder.
         phoneNumber:
           type: string
           nullable: true
           example: ''
-          description: The phone number of the booking holder or the ticket holder.
+          description: The phone number of the booking holder.
         locales:
           type: array
           items:
             type: string
           example:
             - en
-          description: An array of locale values, equivalent to navigator.languages in a browsers environment.
+          description: An array of locale values, equivalent to navigator.languages in a browsers environment; representing customer language for booking communications.
         postalCode:
           type: string
           nullable: true
@@ -4250,7 +4490,7 @@ components:
           type: string
           nullable: true
           example: ''
-          description: Optional notes for the booking.
+          description: Customer-facing public notes for the booking.
       example:
         fullName: John Doe
         firstName: John
@@ -4300,16 +4540,17 @@ components:
             - $ref: '#/components/schemas/DeliveryFormat'
           example: QRCODE
           description: |-
-            The format for the delivery option possible values are:
-            `QRCODE` You should generate the QR Code yourself on a ticket.
-            `PDF_URL` Where you use the generated tickets as a PDF.
+            The format in which vouchers for this product are delivered. Each format specifies how the vouchers will be represented:
+            QRCODE: A code presented as a QR Code, commonly used for scanning at entry points.
+            CODE128: A linear barcode format widely used for retail and ticketing purposes.
+            AZTECCODE: A two-dimensional barcode format similar to QR codes but more compact. It is optimized for small spaces and often used in transportation and event ticketing.
+            PDF_URL: A URL linking to a downloadable PDF containing the complete ticket details for this product.
+            PKPASS_URL: A URL for adding the ticket to Apple Wallet (Passbook) for easy access on iOS devices.
+            This field ensures resellers can understand and integrate the appropriate ticket delivery formats specifically associated with this product."
         deliveryValue:
           type: string
           example: ''
-          description: |
-            The format for the delivery option possible values are:
-            `QRCODE` You should generate the QR Code yourself on a ticket.
-            `PDF_URL` Where you use the generated tickets as a PDF.
+          description: The string with the value of the delivery option, e.g. value behind the QRCODE, CODE128, AZTECCODE, or URL hosting the file for PDF_URL or PKPASS_URL)
       example:
         deliveryFormat: QRCODE
         deliveryValue: ''
@@ -4599,15 +4840,15 @@ components:
         from:
           type: string
           example: 08:00
-          description: When this product opens (HH:MM)
+          description: The opening time
         to:
           type: string
           example: 16:00
-          description: When this product closes (HH:MM)
+          description: The closing time
       example:
         from: 08:00
         to: 16:00
-      description: A list of opening hours that the product is open on this day.
+      description: Defines the opening hours for this availability, even for start time-based availability. Supports multiple periods for breaks in the day.
     Option:
       type: object
       required:
@@ -4626,20 +4867,23 @@ components:
         id:
           type: string
           example: DEFAULT
-          description: The id that identifies this option, it is only unique within the product.
+          description: A unique identifier for the option within the product. This ID is critical for identifying specific options during bookings or other API interactions.
         default:
           type: boolean
           example: true
-          description: '`TRUE` identifies the option as default, and should therefore rendered and selected first'
+          description: |-
+            Indicates whether the option is the default selection.
+            true: This option should be rendered and selected first in customer-facing interfaces.
+            false: The option is not default and requires manual selection.
         internalName:
           type: string
           example: DEFAULT
-          description: The name the supplier calls the option by.
+          description: The internal name used by the supplier to refer to the option. This name is for internal or operational purposes and may differ from the public, customer-facing name. The customer-facing name is defined separately in the title field under the octo/content capability.
         reference:
           type: string
           nullable: true
           example: null
-          description: An optional code this supplier might use to identify the product.
+          description: An optional internal code used by the supplier to refer to the product. This field is useful for supplier-specific workflows or cross-referencing. It can be null if no reference code exists for the product.
         availabilityLocalStartTimes:
           type: array
           items:
@@ -4647,34 +4891,48 @@ components:
           example:
             - 00:00
           minItems: 1
-          description: This will be an array of all possible start times that can be returned during availability. For example an all day attraction may have a single value like `["00:00"]` whilst a tour with multiple departure times may have multiple:`["09:00", "14:00", "17:00"]`.
+          description: An array containing all possible start times for the option that can be returned during availability. For example a tour with multiple departure times may have multiple:["09:00", "14:00", "17:00"].
         cancellationCutoff:
           type: string
           example: 1 hour
-          description: This is how long before the tour the booking can be still be cancelled.
+          description: A text description of the option's cancellation policy, providing clear guidelines to customers.
         cancellationCutoffAmount:
           type: integer
           example: 1
-          description: The numeric amount for the cutoff.
+          description: The numeric value of the cutoff period for cancellations, relative to start time or closing hour (of opening hours product)
         cancellationCutoffUnit:
           allOf:
             - $ref: '#/components/schemas/CancellationCutoffUnit'
           example: hour
-          description: 'Time units used to determine duration. Three values are available: `hour`, `minute`, `day`.'
+          description: |-
+            The time unit associated with the cutoff period. Possible values are:
+            hour: Cutoff is measured in hours.
+            minute: Cutoff is measured in minutes.
+            day: Cutoff is measured in days.
         requiredContactFields:
           type: array
           items:
             $ref: '#/components/schemas/ContactField'
           example:
             - firstName
-          description: An array of the contact fields required to confirm a booking. These just apply to the lead traveller on the booking and not for every ticket.
+          description: |-
+            An array specifying the contact fields required to confirm a booking. These apply to the lead traveler, not individual tickets. Possible values:
+            firstName: The first name of the traveler.
+            lastName: The last name of the traveler.
+            fullName: The full name of the traveler.
+            emailAddress: The email address of the traveler.
+            phoneNumber: The phone number of the traveler.
+            postalCode: The postal code of the traveler.
+            country: The country of the traveler.
+            notes: Optional notes from the traveler.
+            locales: Preferred language/localization preferences.
         restrictions:
           allOf:
             - $ref: '#/components/schemas/OptionRestrictions'
           example:
             minUnits: 0
             maxUnits: 9
-          description: An object containing a fixed list of restrictions for booking the option.
+          description: Specifies the limitations on booking the option.
         units:
           type: array
           items:
@@ -4723,7 +4981,7 @@ components:
                   - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
               requiredContactFields:
                 - firstName
-          description: The list of ticket types (units) available for sale
+          description: The list array of all units (ticket types) available for this product. Each unit represents a specific type of ticket (e.g., Adult, Child). See Unit for a detailed on the object.
         pricingFrom:
           type: array
           items:
@@ -4807,6 +5065,48 @@ components:
                 - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
             requiredContactFields:
               - firstName
+    OptionPricing:
+      type: object
+      properties:
+        pricingFrom:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pricing'
+          example:
+            - original: 2000
+              retail: 2000
+              net: 1600
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+        pricing:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pricing'
+          example:
+            - original: 2000
+              retail: 2000
+              net: 1600
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+      example:
+        pricingFrom:
+          - original: 2000
+            retail: 2000
+            net: 1600
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+        pricing:
+          - original: 2000
+            retail: 2000
+            net: 1600
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
     OptionRestrictions:
       type: object
       required:
@@ -4817,12 +5117,12 @@ components:
           type: integer
           nullable: true
           example: 0
-          description: The minimum number of tickets that can be purchased in a single booking (null = 0).
+          description: The minimum number of units (tickets) that can be purchased in a single booking. A null value indicates no minimum.
         maxUnits:
           type: integer
           nullable: true
           example: 9
-          description: The maximum number of tickets that can be purchased in a single booking (null = unlimited).
+          description: The maximum number of units (tickets) that can be purchased in a single booking. A null value indicates no maximum.
       example:
         minUnits: 0
         maxUnits: 9
@@ -4839,20 +5139,20 @@ components:
         original:
           type: integer
           example: 3995
-          description: The original price for this product which will be the same or higher than the sale amount. Use this to show a discount has been applied e.g. $10 $8.50
+          description: Represents the advertised marketing price, which must be equal to or higher than pricingFrom.retail. Typically used for strike-through pricing, it highlights the original or component-based value of the product when the retail price reflects a discount or bundled offer. For example, a package product combining multiple components (e.g., hotel + tour + meals) may have a total component value of $500 (original), while the bundled retail price is $400. In such cases, the original price is displayed to show savings.This field should only be shown when it is higher than pricingFrom.retail and must accurately reflect a valid reference price, ensuring transparency and trust.
         retail:
           type: integer
           example: 3995
-          description: The sale price you should charge your customers.
+          description: The supplier’s recommended sale price, including all taxes and fees. This is the price charged to end customers and represents the total cost.
         net:
           type: integer
           nullable: true
           example: 2996
-          description: The wholesale rate the supplier will charge you for this sale.
+          description: The wholesale price charged to the reseller, including all taxes and fees. This price reflects the amount the reseller pays to the supplier.
         currency:
           type: string
           example: USD
-          description: The currency.
+          description: Specifies the currency used for the prices provided in the pricingFrom object. The value must adhere to ISO 4217 currency codes (e.g., USD, EUR, JPY) to ensure consistency across systems.
         currencyPrecision:
           type: integer
           example: 2
@@ -4866,7 +5166,7 @@ components:
               retail: 700
               original: 700
               net: 400
-          description: Any taxes included in the retail and/or net price.
+          description: This field defines the number of decimal places used for the currency in the pricingFrom object, ensuring precise representation and preventing rounding errors during calculations. For example, in currencies like USD, which have a precision of 2, prices are expressed in cents (e.g., $45.00 is represented as 4500). In currencies like JPY, which have a precision of 0, prices are expressed as whole yen amounts (e.g., ¥4500 is represented as 4500). By aligning with the specific decimal requirements of different currencies, this field guarantees accurate pricing calculations and consistent handling across various currency formats.
       example:
         original: 3995
         retail: 3995
@@ -4923,32 +5223,32 @@ components:
         id:
           type: string
           example: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-          description: The id used for checking for availability and creating bookings for the product. This MUST be unique within the scope of the Supplier.
+          description: The unique identifier for the product, used across the platform to check availability, create bookings, etc. This identifier must be unique within the scope of the supplier’s system to ensure accurate referencing and operations.
         internalName:
           type: string
-          example: Amazon River Tour
-          description: The name the supplier calls the product.
+          example: London Eye General Admission
+          description: The internal name used by the supplier to refer to the product. This name is for internal or operational purposes and may differ from the public, customer-facing name. The customer-facing name is defined separately in the title field under the octo/content capability.
         reference:
           type: string
           nullable: true
-          example: AMZN
-          description: An optional code this supplier might use to identify the product.
+          example: LEYE-GA
+          description: An optional internal code used by the supplier to refer to the product. This field is useful for supplier-specific workflows or cross-referencing. It can be null if no reference code exists for the product.
         locale:
           type: string
           example: en-GB
-          description: A language code indicating what language this product content is in. This MUST be a valid BCP 47 RFC 5646 RFC 4647 language tag.
+          description: The language code specifying the primary language in which the product operates. It must conform to the IETF BCP 47 standard, which defines language tags for localization (e.g., en-US for American English, fr-FR for French (France), es-ES for Spanish (Spain)).
         timeZone:
           type: string
           example: Europe/London
-          description: The IANA TimeZone name this product is located in.
+          description: The IANA Time Zone identifier indicating the product's location (e.g., America/New_York, Europe/London).
         allowFreesale:
           type: boolean
           example: true
-          description: Whether a booking can be made for this product without having to query availability first.
+          description: Indicates whether an availabilityId is required when creating a booking. If set to false, bookings can be made without specifying a travel date, creating open-dated bookings.
         instantConfirmation:
           type: boolean
           example: true
-          description: Whether bookings will be immediately confirmed when a sale is made, otherwise the supplier will later either accept or reject the booking. When instantConfirmation is set to false one should expect created bookings to first get into a PENDING state.
+          description: Indicates whether the customer’s tickets or vouchers are delivered immediately after the booking is confirmed. If false, resellers must manage delayed ticket delivery processes.
         instantDelivery:
           type: boolean
           example: true
@@ -4956,15 +5256,15 @@ components:
         availabilityRequired:
           type: boolean
           example: true
-          description: Whether an `availabilityId` is required when creating a booking. Without this the booking will be open-dated and not have a specified travel date.
+          description: Indicates whether an availabilityId is required when creating a booking. If set to false, bookings can be made without specifying a travel date, creating open-dated bookings.
         availabilityType:
           allOf:
             - $ref: '#/components/schemas/AvailabilityType'
           example: START_TIME
           description: |-
-            What type of availability this product has, possible values are:
-            `START_TIME` if there are fixed departure times which you must pick one. Typical for day tours or activities.
-            `OPENING_HOURS` if you just select a date and can visit any time when the venue is open.
+            Specifies the type of availability for the product:
+            START_TIME: For products with fixed departure times (e.g., walking tour at set times during the day).
+            OPENING_HOURS: For products where customers select a date and can visit anytime during operating hours (e.g., museums general admission ticket valid at any time when museum is open).
         deliveryFormats:
           type: array
           items:
@@ -4972,10 +5272,13 @@ components:
           example:
             - QRCODE
           description: |-
-            An array of formats the API will deliver the tickets as. Possible values are:
-            `QRCODE` A code to be presented as a QR CODE barcode
-            `CODE128A` code to be presented as a CODE 128 barcode
-            `PDF_URL` A URL to a PDF file which contains all the ticket details
+            Lists the formats in which tickets or vouchers for this product are delivered. Each format specifies how the tickets or vouchers will be represented:
+            QRCODE: A code presented as a QR Code, commonly used for scanning at entry points.
+            CODE128: A linear barcode format widely used for retail and ticketing purposes.
+            AZTECCODE: A two-dimensional barcode format similar to QR codes but more compact. It is optimized for small spaces and often used in transportation and event ticketing.
+            PDF_URL: A URL linking to a downloadable PDF containing the complete ticket details for this product.
+            PKPASS_URL: A URL for adding the ticket to Apple Wallet (Passbook) for easy access on iOS devices.
+            This field ensures resellers can understand and integrate the appropriate ticket delivery formats specifically associated with this product.
         deliveryMethods:
           type: array
           items:
@@ -4983,18 +5286,20 @@ components:
           example:
             - TICKET
           description: |-
-            How the formats described in `deliveryFormats` will be delivered in the booking response, possible values are:
-            `TICKET`: Individually per unit in the order (i.e. single ticket for each person)
-            `VOUCHER`: One ticket for the whole booking
+            Specifies all supported methods of how tickets or vouchers for this product are delivered in the booking response:
+            TICKET: Delivered individually per unit in the booking, where each person or unit receives a separate ticket.
+            VOUCHER: Delivered as a single voucher for the entire booking, consolidating all units under one document.
+            This field ensures clarity on the format of ticket or voucher delivery to resellers and customers.
         redemptionMethod:
           allOf:
             - $ref: '#/components/schemas/RedemptionMethod'
           example: DIGITAL
           description: |-
-            How the voucher can be redeemed. Possible values are:
-            `MANIFEST` The guest name will be written down and they just need to show up
-            `DIGITAL` The tickets/voucher must be scanned but can be on mobile
-            `PRINT` The tickets/voucher must be printed and presented on arrival
+            Specifies how the product can be redeemed by the customer:
+            DIGITAL: The ticket or voucher must be presented, either scanned from a digital device (e.g., smartphone) or as a printed copy. Redemption requires a valid voucher or ticket, even in digital form.
+            MANIFEST: The customer’s name, reference, or other information is checked against a manifest by the supplier. Redemption does not require a ticket or voucher.
+            PRINT: A physical printed ticket or voucher is strictly required for redemption and must be presented at the time of use.
+            This field ensures resellers and customers understand the specific requirements for redeeming this product.
         options:
           type: array
           items:
@@ -5058,7 +5363,7 @@ components:
                       - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                   requiredContactFields:
                     - firstName
-          description: An array of all options for this product. All products must have at least one option.
+          description: The list array of all options (variations of the product). Each product must have at lest one option. See Option for a detailed on the object.
         defaultCurrency:
           type: string
           example: USD
@@ -5078,8 +5383,8 @@ components:
           description: Is on the object when Pricing capability is requested. Indicates whether the pricing is per unit (most common), or per booking. Pricing which is per booking is common for private charters or group booking products where the price is the same regardless of how many tickets are purchased.
       example:
         id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-        internalName: Amazon River Tour
-        reference: AMZN
+        internalName: London Eye General Admission
+        reference: LEYE-GA
         locale: en-GB
         timeZone: Europe/London
         allowFreesale: true
@@ -5151,6 +5456,32 @@ components:
                     - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                 requiredContactFields:
                   - firstName
+    ProductPricing:
+      type: object
+      properties:
+        defaultCurrency:
+          type: string
+          example: USD
+          description: Is on the object when Pricing capability is requested. Default currency for this product, if you omit the currency parameter on future endpoints this is the value the reservation system will fallback to.
+        availableCurrencies:
+          type: array
+          items:
+            type: string
+          example:
+            - USD
+            - EUR
+          description: Is on the object when Pricing capability is requested. All the possible currencies that we accept for this product.
+        pricingPer:
+          allOf:
+            - $ref: '#/components/schemas/PricingPer'
+          example: UNIT
+          description: Is on the object when Pricing capability is requested. Indicates whether the pricing is per unit (most common), or per booking. Pricing which is per booking is common for private charters or group booking products where the price is the same regardless of how many tickets are purchased.
+      example:
+        defaultCurrency: USD
+        availableCurrencies:
+          - USD
+          - EUR
+        pricingPer: BOOKING
     RedemptionMethod:
       type: string
       enum:
@@ -5179,36 +5510,78 @@ components:
         minAge:
           type: integer
           example: 3
-          description: This is the minumum age this unit can be sold to
+          description: Minimum age to purchase the unit.
         maxAge:
           type: integer
           example: 17
-          description: This is the maximum age this unit can be sold to
+          description: Maximum age to purchase the unit.
         idRequired:
           type: boolean
           example: true
-          description: This is whether a form of identification will be required at redemption point (eg. student card)
+          description: Indicates if identification (e.g., student ID) is required for redemption.
         minQuantity:
           type: integer
           nullable: true
           example: 2
-          description: This is if there is a minimum amount of units to be chosen for purchase (eg. 2)
+          description: Minimum number of units that must be purchased (e.g., 2 tickets). Null means no minimum.
         maxQuantity:
           type: integer
           nullable: true
           example: 7
-          description: This is if there is a maximum amount of units to be chosen for purchase (eg. 7)
+          description: Maximum number of units allowed in a single booking. Null means unlimited.
         paxCount:
           type: integer
           example: 1
-          description: This is the amount of people each unit counts as (eg. family == 4pax)
+          description: The number of people each unit represents (e.g., 1 family ticket = 4 pax).
         accompaniedBy:
           type: array
           items:
             type: string
           example:
             - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
-          description: This is if the unit needs to be accompanied by another unit (eg. Infant with Adult)
+          description: 'Specifies if this unit must be accompanied by another unit (e.g., an infant ticket must be purchased with an adult ticket). Array of unit IDs which must be booked together. '
+        minHeight:
+          type: integer
+          example: 220
+          description: Minimum height required for this unit (e.g., for amusement park rides).
+          x-capability-data:
+            capability: octo/content
+            required: false
+        maxHeight:
+          type: integer
+          example: 120
+          description: Maximum height allowed.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        heightUnit:
+          type: string
+          example: ''
+          description: Unit of height measurement (e.g., "cm" or "in") used for values of minHeight, maxHeight.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        minWeight:
+          type: integer
+          example: 50
+          description: Minimum weight required.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        maxWeight:
+          type: integer
+          example: 120
+          description: Maximum weight allowed.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        weightUnit:
+          type: string
+          example: ''
+          description: Unit of weight measurement (e.g., "kg" or "lb") used for values of minWeight, maxWeight.
+          x-capability-data:
+            capability: octo/content
+            required: false
       example:
         minAge: 3
         maxAge: 17
@@ -5218,6 +5591,58 @@ components:
         paxCount: 1
         accompaniedBy:
           - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+    RestrictionsContent:
+      type: object
+      properties:
+        minHeight:
+          type: integer
+          example: 220
+          description: Minimum height required for this unit (e.g., for amusement park rides).
+          x-capability-data:
+            capability: octo/content
+            required: false
+        maxHeight:
+          type: integer
+          example: 120
+          description: Maximum height allowed.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        heightUnit:
+          type: string
+          example: ''
+          description: Unit of height measurement (e.g., "cm" or "in") used for values of minHeight, maxHeight.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        minWeight:
+          type: integer
+          example: 50
+          description: Minimum weight required.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        maxWeight:
+          type: integer
+          example: 120
+          description: Maximum weight allowed.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        weightUnit:
+          type: string
+          example: ''
+          description: Unit of weight measurement (e.g., "kg" or "lb") used for values of minWeight, maxWeight.
+          x-capability-data:
+            capability: octo/content
+            required: false
+      example:
+        maxHeight: 220
+        minHeight: 120
+        heightUnit: ''
+        maxWeight: 120
+        minWeight: 50
+        weightUnit: ''
     Supplier:
       type: object
       required:
@@ -5230,16 +5655,16 @@ components:
         id:
           type: string
           example: 697e3ce8-1860-4cbf-80ad-95857df1f640
-          description: Unique identifier used in the platform to represent the supplier.
+          description: Unique identifier for the supplier, used across the platform to represent this supplier entity. This identifier must be unique within the supplier system.
         name:
           type: string
-          example: Edin Explore
-          description: Name the supplier uses to identify itsel. Usually what the end customer will know the supplier as.
+          example: Merlin Entertainments
+          description: Name used to identify the supplier within the platform. This name is typically recognized by end customers as the official name of the supplier's business entity. It should clearly represent the supplier's brand or identity to ensure consistency across platforms. For larger multi-venue suppliers, this represents the parent entity's name. Other associated entities or sub-divisions can be specified using the octo/content capability through the venues field.
         endpoint:
           type: string
-          example: https://api.ventrata.com/api-octo
+          example: https://api.my-booking-platform.com/v1
           format: uri
-          description: This is the base URL that will be prepended to ALL other paths. The value SHOULD NOT contain a trailing /.
+          description: The base URL that is prepended to all other API paths. The value should not contain a trailing slash and must follow URI format.
         contact:
           allOf:
             - $ref: '#/components/schemas/SupplierContact'
@@ -5248,7 +5673,7 @@ components:
             email: support@ventrata.com
             telephone: null
             address: Marble Arch, London, W1H 7EJ, United Kingdom
-          description: ''
+          description: A structured object containing defined contact fields related to the supplier. This includes various communication methods (e.g., website, email, phone) and address information. It ensures standardized contact details that facilitate seamless communication with the supplier for both customers and partners.
         capabilities:
           type: array
           items:
@@ -5308,8 +5733,8 @@ components:
             required: true
       example:
         id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-        name: Edin Explore
-        endpoint: https://api.ventrata.com/api-octo
+        name: Merlin Entertainments
+        endpoint: https://api.my-booking-platform.com/v1
         contact:
           website: null
           email: support@ventrata.com
@@ -5331,28 +5756,78 @@ components:
           type: string
           nullable: true
           example: null
-          description: This SHOULD be the website of the Supplier that is separate from the Booking Platform but MAY be a unique destination within the Booking Platform about the Supplier.
+          description: The supplier's official website URL. This should link directly to the supplier's primary website or a dedicated page about the supplier within a supplier system. The URL should not reference a general supplier system but a specific, identifiable supplier presence. This field can be null if no website is available.
         email:
           type: string
           nullable: true
           example: support@ventrata.com
           format: email
-          description: The email support contact for the Supplier.
+          description: The email address for customer service inquiries, primarily for end customers. This should be a direct and monitored email address for resolving queries and providing support. The field may be null if email support is not offered or the email address is unavailable or not provided in supplier system.
         telephone:
           type: string
           nullable: true
           example: null
-          description: The phone support contact for the Supplier.
+          description: The customer service telephone number for end customers, formatted according to the E.164 standard. This format includes the country code followed by the national number, with no spaces, dashes, or special characters. This field can be null if telephone support is unavailable or not provided in supplier system.
         address:
           type: string
           nullable: true
           example: Marble Arch, London, W1H 7EJ, United Kingdom
-          description: The (snail) mail address support contact for the Supplier.
+          description: The full mailing address of the location as a single string. It includes street address, city, state, postal code, and country. If no address is provided, this field can be null. For structured details, use the additional address-related fields
       example:
         website: null
         email: support@ventrata.com
         telephone: null
         address: Marble Arch, London, W1H 7EJ, United Kingdom
+    SupplierContent:
+      type: object
+      properties:
+        country:
+          type: string
+          nullable: true
+          example: United Kingdom
+          description: The country the supplier is based in.
+          x-oapi-codegen-extra-tags:
+            capability: octo/content
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Destination'
+          example:
+            - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
+              default: true
+              name: ''
+              country: ''
+              contact:
+                website: null
+                email: support@ventrata.com
+                telephone: null
+                address: Marble Arch, London, W1H 7EJ, United Kingdom
+              latitude: 55.9533
+              longitude: -3.1883
+              googlePlaceId: ''
+              bannerImageUrl: The URL of the image that represents the destination.
+              coverImageUrl: The URL of the image that represents the destination.
+              videoUrl: ''
+              facebookUrl: ''
+              googleUrl: ''
+              tripadvisorUrl: ''
+              twitterUrl: ''
+              youtubeUrl: ''
+              instagramUrl: ''
+              categories:
+                - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
+                  default: true
+                  name: ''
+                  title: ''
+                  shortDescription: ''
+                  bannerImageUrl: The URL of the image that represents the category.
+                  coverImageUrl: The URL of the image that represents the category.
+                  productIds:
+                    - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+          description: An array of destinations the supplier operates in.
+          x-capability-data:
+            capability: octo/content
+            required: true
     Tax:
       type: object
       required:
@@ -5364,11 +5839,11 @@ components:
         name:
           type: string
           example: VAT 10
-          description: ''
+          description: The name of the tax or fee, such as "VAT", "City Tax", or "Service Charge". This field provides clear labeling of the tax or fee being applied, making the pricing structure easier to interpret.
         retail:
           type: integer
           example: 700
-          description: ''
+          description: The value of the tax or fee included in the retail price, expressed in the same currency as the pricingFrom.currency. This value indicates the portion of the end-customer price attributable to the specific tax or fee.
         original:
           type: integer
           example: 700
@@ -5377,7 +5852,7 @@ components:
           type: integer
           nullable: true
           example: 400
-          description: ''
+          description: The value of the tax or fee included in the net price, expressed in the same currency as the pricingFrom.currency. This value indicates the portion of the reseller’s cost attributable to the specific tax or fee.
       example:
         name: VAT 10
         retail: 700
@@ -5395,19 +5870,21 @@ components:
             - $ref: '#/components/schemas/RedemptionMethod'
           example: DIGITAL
           description: |-
-            How the voucher can be redeemed. Possible values are:
-            `MANIFEST` The guest name will be written down and they just need to show up
-            `DIGITAL` The tickets/voucher must be scanned but can be on mobile
-            `PRINT` The tickets/voucher must be printed and presented on arrival
+            Specifies how the voucher can be redeemed by the customer:
+            DIGITAL: The voucher must be presented, either scanned from a digital device (e.g., smartphone) or as a printed copy. Redemption requires a valid voucher or ticket, even in digital form.
+            MANIFEST: The customer’s name, reference, or other information is checked against a manifest by the supplier. Redemption does not require a ticket or voucher.
+            PRINT: A physical printed voucher is strictly required for redemption and must be presented at the time of use.
+            This field ensures resellers and customers understand the specific requirements for redeeming this booking.
         utcRedeemedAt:
           type: string
           nullable: true
           example: 2021-10-27T23:28:43Z
           description: |-
-            How the voucher can be redeemed. Possible values are:
-            `MANIFEST` The guest name will be written down and they just need to show up
-            `DIGITAL` The tickets/voucher must be scanned but can be on mobile
-            `PRINT` The tickets/voucher must be printed and presented on arrival
+            Specifies how the voucher can be redeemed by the customer:
+            DIGITAL: The voucher must be presented, either scanned from a digital device (e.g., smartphone) or as a printed copy. Redemption requires a valid voucher or ticket, even in digital form.
+            MANIFEST: The customer’s name, reference, or other information is checked against a manifest by the supplier. Redemption does not require a ticket or voucher.
+            PRINT: A physical printed voucher is strictly required for redemption and must be presented at the time of use.
+            This field ensures resellers and customers understand the specific requirements for redeeming this booking.
         deliveryOptions:
           type: array
           items:
@@ -5416,10 +5893,11 @@ components:
             - deliveryFormat: QRCODE
               deliveryValue: ''
           description: |-
-            How the voucher can be redeemed. Possible values are:
-            `MANIFEST` The guest name will be written down and they just need to show up
-            `DIGITAL` The tickets/voucher must be scanned but can be on mobile
-            `PRINT` The tickets/voucher must be printed and presented on arrival
+            Specifies how the voucher can be redeemed by the customer:
+            DIGITAL: The voucher must be presented, either scanned from a digital device (e.g., smartphone) or as a printed copy. Redemption requires a valid voucher or ticket, even in digital form.
+            MANIFEST: The customer’s name, reference, or other information is checked against a manifest by the supplier. Redemption does not require a ticket or voucher.
+            PRINT: A physical printed voucher is strictly required for redemption and must be presented at the time of use.
+            This field ensures resellers and customers understand the specific requirements for redeeming this booking.
       example:
         redemptionMethod: DIGITAL
         utcRedeemedAt: 2021-10-27T23:28:43Z
@@ -5439,21 +5917,21 @@ components:
         id:
           type: string
           example: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
-          description: This MUST be a unique identifier within the scope of the option.
+          description: The unique identifier for this unit within the scope of the option. This ID ensures that each unit can be uniquely referenced and managed.
         internalName:
           type: string
           example: Adult(s)
-          description: This should be a name to help with identifying the unit. It should NOT be shown to the customer.
+          description: An internal name for the unit, used for backend purposes and not visible to customers. This field helps with identifying and managing the unit in the supplier’s system.
         reference:
           type: string
           nullable: true
           example: LR1-01-new
-          description: This is an internal reference identifier that the Supplier wishes to use. It MAY be non-unique.
+          description: An optional internal reference code used by the supplier for identification purposes. This field may not be unique and is meant for operational use.
         type:
           allOf:
             - $ref: '#/components/schemas/UnitType'
           example: ADULT
-          description: This is the base unit type for this unit definition. A value of TRAVELLER MUST only be used in replacement of `ADULT`, `CHILD`, `INFANT`, `YOUTH`, `STUDENT`, or `SENIOR`.
+          description: 'This is the base unit type for this unit definition. A value of TRAVELLER must only be used in replacement of ADULT, CHILD, INFANT, YOUTH, STUDENT, MILITARY or SENIOR. '
         restrictions:
           allOf:
             - $ref: '#/components/schemas/Restrictions'
@@ -5466,14 +5944,24 @@ components:
             paxCount: 1
             accompaniedBy:
               - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
-          description: unit restrictions
+          description: Specifies booking or usage restrictions for the unit.
         requiredContactFields:
           type: array
           items:
             $ref: '#/components/schemas/ContactField'
           example:
             - firstName
-          description: This is the array of the contact information PER ticket that the supplier expects.
+          description: |-
+            Lists the contact information required per ticket for the unit. Possible values include:
+            firstName: First name of the ticket holder.
+            lastName: Last name of the ticket holder.
+            fullName: Full name, as a combination of first and last name.
+            emailAddress: Email address of the ticket holder.
+            phoneNumber: Phone number of the ticket holder.
+            postalCode: Postal code for identification purposes.
+            country: Country code (ISO 3166-1 alpha-2).
+            notes: Additional notes or special instructions.
+            locales: Locale preferences (IETF BCP 47 tags).
         pricingFrom:
           type: array
           items:
@@ -5510,6 +5998,21 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+        title:
+          type: string
+          nullable: true
+          example: ''
+          description: The public-facing name of the unit, designed to be displayed to customers. This should clearly convey the nature of the unit, such as "Adult" or "Student".
+          x-capability-data:
+            capability: octo/content
+            required: true
+        shortDescription:
+          type: string
+          example: ''
+          description: A concise summary of the unit, offering key details to customers. This helps in differentiating units and highlighting important characteristics.
+          x-capability-data:
+            capability: octo/content
+            required: true
       example:
         id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
         internalName: Adult(s)
@@ -5526,6 +6029,24 @@ components:
             - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
         requiredContactFields:
           - firstName
+    UnitContent:
+      type: object
+      properties:
+        title:
+          type: string
+          nullable: true
+          example: ''
+          description: The public-facing name of the unit, designed to be displayed to customers. This should clearly convey the nature of the unit, such as "Adult" or "Student".
+          x-capability-data:
+            capability: octo/content
+            required: true
+        shortDescription:
+          type: string
+          example: ''
+          description: A concise summary of the unit, offering key details to customers. This helps in differentiating units and highlighting important characteristics.
+          x-capability-data:
+            capability: octo/content
+            required: true
     UnitItem:
       type: object
       required:
@@ -5664,6 +6185,94 @@ components:
           country: ''
           notes: ''
         ticket: null
+    UnitItemPricing:
+      type: object
+      properties:
+        pricing:
+          allOf:
+            - $ref: '#/components/schemas/Pricing'
+          example:
+            original: 1000
+            retail: 1000
+            net: 8000
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+      example:
+        pricing:
+          original: 1000
+          retail: 1000
+          net: 8000
+          currency: EUR
+          currencyPrecision: 2
+          includedTaxes: []
+    UnitPricing:
+      type: object
+      properties:
+        pricingFrom:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pricing'
+          example:
+            - original: 1000
+              retail: 1000
+              net: 8000
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+            - original: 1000
+              retail: 1000
+              net: 8000
+              currency: USD
+              currencyPrecision: 2
+              includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+        pricing:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pricing'
+          example:
+            - original: 1000
+              retail: 1000
+              net: 8000
+              currency: EUR
+              currencyPrecision: 2
+              includedTaxes: []
+            - original: 1000
+              retail: 1000
+              net: 8000
+              currency: USD
+              currencyPrecision: 2
+              includedTaxes: []
+          description: 'Is on the object when Pricing capability is requested. '
+      example:
+        pricingFrom:
+          - original: 1000
+            retail: 1000
+            net: 8000
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+          - original: 1000
+            retail: 1000
+            net: 8000
+            currency: USD
+            currencyPrecision: 2
+            includedTaxes: []
+        pricing:
+          - original: 1000
+            retail: 1000
+            net: 8000
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+          - original: 1000
+            retail: 1000
+            net: 8000
+            currency: USD
+            currencyPrecision: 2
+            includedTaxes: []
     UnitType:
       type: string
       enum:

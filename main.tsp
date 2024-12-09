@@ -1,44 +1,45 @@
 import "@typespec/http";
 import "@typespec/openapi";
 
-import "./models/Product.tsp";
-import "./models/Supplier.tsp";
-import "./models/Booking.tsp";
-import "./models/Availability.tsp";
-import "./models/AvailabilityCalendar.tsp";
+import "./src/models/Product.tsp";
+import "./src/models/Supplier.tsp";
+import "./src/models/Booking.tsp";
+import "./src/models/Availability.tsp";
+import "./src/models/AvailabilityCalendar.tsp";
 
-import "./responses/GetSupplierResponse.tsp";
-import "./responses/GetProductResponse.tsp";
-import "./responses/GetProductsResponse.tsp";
+import "./src/responses/GetSupplierResponse.tsp";
+import "./src/responses/GetProductResponse.tsp";
+import "./src/responses/GetProductsResponse.tsp";
 
-import "./schemas/AvailabilityCheckSchema.tsp";
-import "./responses/AvailabilityCheckResponse.tsp";
+import "./src/schemas/AvailabilityCheckSchema.tsp";
+import "./src/responses/AvailabilityCheckResponse.tsp";
 
-import "./schemas/AvailabilityCalendarSchema.tsp";
-import "./responses/AvailabilityCalendarResponse.tsp";
+import "./src/schemas/AvailabilityCalendarSchema.tsp";
+import "./src/responses/AvailabilityCalendarResponse.tsp";
 
-import "./schemas/BookingReservationSchema.tsp";
-import "./responses/BookingReservationResponse.tsp";
+import "./src/schemas/BookingReservationSchema.tsp";
+import "./src/responses/BookingReservationResponse.tsp";
 
-import "./schemas/GetBookingsSchema.tsp";
-import "./responses/GetBookingsResponse.tsp";
+import "./src/schemas/GetBookingsSchema.tsp";
+import "./src/responses/GetBookingsResponse.tsp";
 
-import "./schemas/BookingConfirmationSchema.tsp";
-import "./responses/BookingConfirmationResponse.tsp";
+import "./src/schemas/BookingConfirmationSchema.tsp";
+import "./src/responses/BookingConfirmationResponse.tsp";
 
-import "./schemas/BookingCancellationSchema.tsp";
-import "./responses/BookingCancellationResponse.tsp";
+import "./src/schemas/BookingCancellationSchema.tsp";
+import "./src/responses/BookingCancellationResponse.tsp";
 
-import "./responses/GetBookingResponse.tsp";
+import "./src/responses/GetBookingResponse.tsp";
 
-import "./schemas/BookingUpdateSchema.tsp";
-import "./responses/BookingUpdateResponse.tsp";
+import "./src/schemas/BookingUpdateSchema.tsp";
+import "./src/responses/BookingUpdateResponse.tsp";
 
-import "./schemas/ExtendReservationSchema.tsp";
-import "./responses/ExtendReservationResponse.tsp";
+import "./src/schemas/ExtendReservationSchema.tsp";
+import "./src/responses/ExtendReservationResponse.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
+using Octo;
 
 @server("https://ventrata-api-1011165921260.us-central1.run.app/api/octo", "")
 @server("http://localhost:8080/api/octo", "")
@@ -46,7 +47,9 @@ using TypeSpec.OpenAPI;
 @service({
   title: "OCTO API Specification",
 })
-namespace OCTOApi;
+
+namespace Octo;
+
 
 @tag("Supplier")
 @route("/supplier")
