@@ -1,0 +1,10 @@
+namespace Octo;
+
+const BOOKING_RESERVATION_PRICING_BODY_CURRENCY_DOC = "Can be used only when pricing capability is used.";
+const BOOKING_RESERVATION_PRICING_BODY_CURRENCY_EXAMPLE = "USD";
+
+model BookingReservationPricingBody {
+  @doc(BOOKING_RESERVATION_PRICING_BODY_CURRENCY_DOC)
+  @example(BOOKING_RESERVATION_PRICING_BODY_CURRENCY_EXAMPLE)
+  currency?: string;
+}
