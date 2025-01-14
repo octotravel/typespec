@@ -3,6 +3,7 @@ import "@typespec/openapi3";
 
 import "../models/AvailabilityCalendar.tsp";
 import "../models/Error.tsp";
+import "./ResponseHeaders.tsp";
 
 namespace Octo;
 using TypeSpec.Http;
@@ -10,6 +11,7 @@ using TypeSpec.Http;
 model AvailabilityCalendarSuccessResponse {
   @statusCode statusCode: 200;
   @body body: AvailabilityCalendar[];
+  ...ResponseHeaders;
 }
 
 const AVAILABILITY_CALENDAR_START_TIMES_RESPONSE = #[

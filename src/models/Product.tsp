@@ -4,6 +4,7 @@ import "./RedemptionMethod.tsp";
 import "./DeliveryFormat.tsp";
 import "./DeliveryMethod.tsp";
 import "./capabilities/pricing/ProductPricing.tsp";
+import "./capabilities/content/ProductContent.tsp";
 
 namespace Octo;
 
@@ -137,16 +138,31 @@ model Product {
 
   // capabilities
   ...ProductPricing;
+
+  ...ProductContent;
+  // availableLanguages: string,
 }
+
+// Examples Capabilities
+
+// octo/pricing
 
 const PRODUCT_EXAMPLE_PRICING_PER_BOOKING = #{
   ...PRODUCT_EXAMPLE,
-  ...OPTION_EXAMPLE_PRICING_PER_BOOKING,
+  options: #[OPTION_EXAMPLE_PRICING_PER_BOOKING],
   ...PRODUCT_PRICING_PER_BOOKING,
 };
 
 const PRODUCT_EXAMPLE_PRICING_PER_UNIT = #{
   ...PRODUCT_EXAMPLE,
-  ...OPTION_EXAMPLE_PRICING_PER_UNIT,
+  options: #[OPTION_EXAMPLE_PRICING_PER_UNIT],
   ...PRODUCT_PRICING_PER_UNIT,
+};
+
+// octo/content
+
+const PRODUCT_EXAMPLE_CONTENT = #{
+  ...PRODUCT_EXAMPLE,
+  ...PRODUCT_CONTENT_EXAMPLE,
+  options: #[OPTION_EXAMPLE_CONTENT],
 };

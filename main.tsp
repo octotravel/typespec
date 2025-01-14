@@ -8,33 +8,39 @@ import "./src/models/Availability.tsp";
 import "./src/models/AvailabilityCalendar.tsp";
 
 import "./src/responses/GetSupplierResponse.tsp";
+import "./src/requests/GetSupplierRequest.tsp";
+
 import "./src/responses/GetProductResponse.tsp";
+import "./src/requests/GetProductRequest.tsp";
+
+import "./src/requests/GetProductsRequest.tsp";
 import "./src/responses/GetProductsResponse.tsp";
 
-import "./src/schemas/AvailabilityCheckSchema.tsp";
+import "./src/requests/AvailabilityCheckRequest.tsp";
 import "./src/responses/AvailabilityCheckResponse.tsp";
 
-import "./src/schemas/AvailabilityCalendarSchema.tsp";
+import "./src/requests/AvailabilityCalendarRequest.tsp";
 import "./src/responses/AvailabilityCalendarResponse.tsp";
 
-import "./src/schemas/BookingReservationSchema.tsp";
+import "./src/requests/BookingReservationRequest.tsp";
 import "./src/responses/BookingReservationResponse.tsp";
 
-import "./src/schemas/GetBookingsSchema.tsp";
+import "./src/requests/GetBookingsRequest.tsp";
 import "./src/responses/GetBookingsResponse.tsp";
 
-import "./src/schemas/BookingConfirmationSchema.tsp";
+import "./src/requests/BookingConfirmationRequest.tsp";
 import "./src/responses/BookingConfirmationResponse.tsp";
 
-import "./src/schemas/BookingCancellationSchema.tsp";
+import "./src/requests/BookingCancellationRequest.tsp";
 import "./src/responses/BookingCancellationResponse.tsp";
 
+import "./src/requests/GetBookingRequest.tsp";
 import "./src/responses/GetBookingResponse.tsp";
 
-import "./src/schemas/BookingUpdateSchema.tsp";
+import "./src/requests/BookingUpdateRequest.tsp";
 import "./src/responses/BookingUpdateResponse.tsp";
 
-import "./src/schemas/ExtendReservationSchema.tsp";
+import "./src/requests/ExtendReservationRequest.tsp";
 import "./src/responses/ExtendReservationResponse.tsp";
 
 using TypeSpec.Http;
@@ -47,9 +53,9 @@ using Octo;
 @service({
   title: "OCTO API Specification",
 })
-
 namespace Octo;
 
+const ACCEPT_LANGUAGE_DOC = "This optional request header allows to specify preferred languages for content in the response. A language code that specifies the language of the product content. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain). This header supports a comma-separated list of language tags with optional quality values (q) to indicate priority, such as en-US, fr-CA;q=0.8, fr;q=0.7, which prioritizes U.S. English, followed by Canadian French, and general French. This header is defined in the HTTP/1.1 specification (RFC 7231) and is commonly used for internationalized websites and services to enhance user experience. For more details, visit MDN Web Docs: Accept-Language - HTTP | MDN. Note this only determines preference and does not guarantee location has content available in the desired language.";
 
 @tag("Supplier")
 @route("/supplier")
@@ -58,7 +64,26 @@ interface Suppliers {
   @summary("Get Supplier")
   @doc("Returns the supplier and associated contact details.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: GET_SUPPLIER_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "octo/content",
+        statusCode: 200,
+        body: GET_SUPPLIER_CONTENT_RESPONSE,
+      },
+    },
+    #{
+      title: "Supplier with octo/content",
+      description: "Supplier with octo/content",
+    }
+  )
+  @opExample(
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: GET_SUPPLIER_RESPONSE,
+      },
+    },
     #{ title: "Supplier example", description: "Supplier example" }
   )
   @opExample(
@@ -91,7 +116,9 @@ interface Suppliers {
     },
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
-  get(): GetSupplierSuccessResponse | GetSupplierErrorResponse;
+  get(
+    ...GetSupplierRequest,
+  ): GetSupplierSuccessResponse | GetSupplierErrorResponse;
 }
 
 @tag("Products")
@@ -101,7 +128,52 @@ interface Products {
   @summary("Get Products")
   @doc("Fetch the list of products.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: GET_PRODUCTS_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "octo/pricing",
+        statusCode: 200,
+        body: GET_PRODUCTS_PRICING_PER_BOOKING_RESPONSE,
+      },
+    },
+    #{
+      title: "Products with octo/pricng (pricing per booking)",
+      description: "Products with octo/pricng (pricing per booking)",
+    }
+  )
+  @opExample(
+    #{
+      returnType: #{
+        octoCapabilities: "octo/pricing",
+        statusCode: 200,
+        body: GET_PRODUCTS_PRICING_PER_UNIT_RESPONSE,
+      },
+    },
+    #{
+      title: "Products with octo/pricng (pricing per unit)",
+      description: "Products with octo/pricng (pricing per unit)",
+    }
+  )
+  @opExample(
+    #{
+      returnType: #{
+        octoCapabilities: "octo/content",
+        statusCode: 200,
+        body: GET_PRODUCTS_CONTENT_RESPONSE,
+      },
+    },
+    #{
+      title: "Products with octo/content",
+      description: "Products with octo/content",
+    }
+  )
+  @opExample(
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: GET_PRODUCTS_RESPONSE,
+      },
+    },
     #{ title: "Products example", description: "Products example" }
   )
   @opExample(
@@ -134,13 +206,60 @@ interface Products {
     },
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
-  GetProducts(): GetProductsSuccessResponse | GetProductsErrorResponse;
+  GetProducts(
+    ...GetProductsSuccessRequest,
+  ): GetProductsSuccessResponse | GetProductsErrorResponse;
 
   @route("/{id}")
   @summary("Get Product")
   @doc("Fetch the product for the given id.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: GET_PRODUCT_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "octo/pricing",
+        statusCode: 200,
+        body: GET_PRODUCT_PRICING_PER_BOOKING_RESPONSE,
+      },
+    },
+    #{
+      title: "Product with octo/pricng (pricing per booking)",
+      description: "Product with octo/pricng (pricing per booking)",
+    }
+  )
+  @opExample(
+    #{
+      returnType: #{
+        octoCapabilities: "octo/pricing",
+        statusCode: 200,
+        body: GET_PRODUCT_PRICING_PER_UNIT_RESPONSE,
+      },
+    },
+    #{
+      title: "Product with octo/pricng (pricing per unit)",
+      description: "Product with octo/pricng (pricing per unit)",
+    }
+  )
+  @opExample(
+    #{
+      returnType: #{
+        octoCapabilities: "octo/content",
+        statusCode: 200,
+        body: GET_PRODUCT_CONTENT_RESPONSE,
+      },
+    },
+    #{
+      title: "Product with octo/content",
+      description: "Product with octo/content",
+    }
+  )
+  @opExample(
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: GET_PRODUCT_RESPONSE,
+      },
+    },
     #{ title: "Product example", description: "Product example" }
   )
   @opExample(
@@ -186,9 +305,7 @@ interface Products {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   GetProduct(
-    @doc("The product id")
-    @path
-    id: string,
+    ...GetProductSuccessRequest,
   ): GetProductSuccessResponse | GetProductErrorResponse;
 }
 
@@ -202,6 +319,20 @@ interface Availabilities {
   @opExample(
     #{
       returnType: #{
+        octoCapabilities: "octo/content",
+        statusCode: 200,
+        body: AVAILABILITY_CHECK_CONTENT_RESPONSE,
+      },
+    },
+    #{
+      title: "Availability Check with octo/content",
+      description: "Availability Check with octo/content",
+    }
+  )
+  @opExample(
+    #{
+      returnType: #{
+        octoCapabilities: "",
         statusCode: 200,
         body: AVAILABILITY_CHECK_START_TIMES_RESPONSE,
       },
@@ -211,6 +342,7 @@ interface Availabilities {
   @opExample(
     #{
       returnType: #{
+        octoCapabilities: "",
         statusCode: 200,
         body: AVAILABILITY_CHECK_OPENING_HOURS_RESPONSE,
       },
@@ -281,23 +413,7 @@ interface Availabilities {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   AvailabilityCheck(
-    @example(
-      AVAILABILITY_CHECK_DATE_RANGE_BODY_EXAMPLE,
-      #{ title: "Date Range example", description: "Date Range example" }
-    )
-    @example(
-      AVAILABILITY_CHECK_AVAILABILITY_IDS_BODY_EXAMPLE,
-      #{
-        title: "Availability IDs example",
-        description: "Availability IDs example",
-      }
-    )
-    @example(
-      AVAILABILITY_CHECK_WITH_UNITS_BODY_EXAMPLE,
-      #{ title: "Example with units", description: "Example with units" }
-    )
-    @body
-    body: AvailabilityCheckBody,
+    ...AvailabilityCheckRequest,
   ): AvailabilityCheckSuccessResponse | AvailabilityCheckErrorResponse;
   @route("/calendar")
   @doc("This endpoint is highly optimised and will return a single object per day. It's designed to be queried for large date ranges and the result is used to populate an availability calendar.\n\nWhen the end user selects an open date you can call on `/availability` endpoint to get the `availabilityId` to create the booking")
@@ -305,6 +421,7 @@ interface Availabilities {
   @opExample(
     #{
       returnType: #{
+        octoCapabilities: "",
         statusCode: 200,
         body: AVAILABILITY_CALENDAR_START_TIMES_RESPONSE,
       },
@@ -314,6 +431,7 @@ interface Availabilities {
   @opExample(
     #{
       returnType: #{
+        octoCapabilities: "",
         statusCode: 200,
         body: AVAILABILITY_CALENDAR_OPENING_HOURS_RESPONSE,
       },
@@ -384,16 +502,7 @@ interface Availabilities {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   AvailabilityCalendar(
-    @example(
-      AVAILABILITY_CALENDAR_DATE_RANGE_BODY_EXAMPLE,
-      #{ title: "Date Range example", description: "Date Range example" }
-    )
-    @example(
-      AVAILABILITY_CALENDAR_WITH_UNITS_BODY_EXAMPLE,
-      #{ title: "Example with units", description: "Example with units" }
-    )
-    @body
-    body: AvailabilityCalendarBody,
+    ...AvailabilityCalendarRequest,
   ): AvailabilityCalendarSuccessResponse | AvailabilityCalendarErrorResponse;
 }
 
@@ -405,7 +514,13 @@ interface Bookings {
   @summary("Booking Reservation")
   @doc("Reserving availability when making a booking. The steps to make a reservation are:\n\n1. **Check Availability**: Check the availability on the [/availability](docs/octo/branches/main/5b08f5f75e75d-availability-check) endpoint to retrieve an `availabilityId`\n2. **Booking Reservation** (this step): Create a booking that reserves the availability while you collect payment and contact information from the customer. The booking will remain with status `ON_HOLD` until the booking is confirmed or the reservation hold expires.\n\nThe availability for the booking is held for the amount of time equal to the`expirationMinutes` parameter (if provided), up to an internal limit set by either the supplier or the OCTo provider. The `utc_expires_at` parameter in the response object will indicate when a reservtion will expire. A reservation can be extended by calling the [/bookings/{uuid}/extend](docs/octo/branches/main/2c7924ab9128f-extend-reservation) endpoint.\n\nA reserved booking can be confirmed after the customer finalizes their choice on the [/bookings/{uuid}/confirm](docs/octo/branches/main/614d1613b2d70-booking-confirmation) endpoint provided the reservation had not expired.\n")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: BOOKING_RESERVATION_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: BOOKING_RESERVATION_RESPONSE,
+      },
+    },
     #{
       title: "ON_HOLD Booking example",
       description: "ON_HOLD Booking example",
@@ -502,19 +617,20 @@ interface Bookings {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   BookingReservation(
-    @example(
-      BOOKING_RESRVATION_BODY_EXAMPLE,
-      #{ title: "Reserve Booking", description: "Reserve Booking" }
-    )
-    @body
-    body: BookingReservationBody,
+    ...BookingReservationRequest,
   ): BookingReservationSuccessResponse | BookingReservationErrorResponse;
   @get
   @route("/")
   @summary("Get Bookings")
   @doc("This endpoint will fetch the bookings you have made for the given filters.\n\nWhen using this endpoint you must include one of the following query parameters:\n\n- `resellerReference`\n- `supplierReference`\n- `localDate`\n- `localDateStart` and `localDateEnd`")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: GET_BOOKINGS_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: GET_BOOKINGS_RESPONSE,
+      },
+    },
     #{ title: "Bad Request Response", description: "Bad Request Response" }
   )
   @opExample(
@@ -557,40 +673,20 @@ interface Bookings {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   GetBookings(
-    @doc(GET_BOOKINGS_QUERY_RESELLER_REFERENCE_DOC)
-    @query
-    resellerReference?: string,
-
-    @doc(GET_BOOKINGS_QUERY_SUPPLIER_REFERENCE_DOC)
-    @query
-    supplierReference?: string,
-
-    @doc(GET_BOOKINGS_QUERY_LOCAL_DATE_DOC)
-    @query
-    localDate?: string,
-
-    @doc(GET_BOOKINGS_QUERY_LOCAL_DATE_START_DOC)
-    @query
-    localDateStart?: string,
-
-    @doc(GET_BOOKINGS_QUERY_LOCAL_DATE_END_DOC)
-    @query
-    localDateEnd?: string,
-
-    @doc(GET_BOOKINGS_QUERY_PRODUCT_ID_DOC)
-    @query
-    productId?: string,
-
-    @doc(GET_BOOKINGS_QUERY_OPTION_ID_DOC)
-    @query
-    optionId?: string,
+    ...GetBookingsRequest,
   ): GetBookingsSuccessResponse | GetBookingsErrorResponse;
   @post
   @summary("Booking Confirmation")
   @route("/{uuid}/confirm")
   @doc("This endpoint confirms the booking so it's ready to be used.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: BOOKING_CONFIRMATION_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: BOOKING_CONFIRMATION_RESPONSE,
+      },
+    },
     #{
       title: "CONFIRMED Booking example",
       description: "CONFIRMED Booking example",
@@ -699,23 +795,20 @@ interface Bookings {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   BookingConfirmation(
-    @doc("The UUID of the booking")
-    @path
-    uuid: string,
-
-    @example(
-      BOOKING_CONFIRMATION_BODY_EXAMPLE,
-      #{ title: "Confirmation", description: "Confirmation" }
-    )
-    @body
-    body: BookingConfirmationBody,
+    ...BookingConfirmationRequest,
   ): BookingConfirmationSuccessResponse | BookingConfirmationErrorResponse;
   @post
   @summary("Booking Cancellation")
   @route("/{uuid}/cancel")
   @doc("For cancelling bookings. You can only cancel a booking if `booking.cancellable` is `TRUE`, and is within the booking cancellation cut-off window.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: BOOKING_CANCELLATION_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: BOOKING_CANCELLATION_RESPONSE,
+      },
+    },
     #{
       title: "CANCELLED Booking example",
       description: "CANCELLED Booking example",
@@ -776,18 +869,20 @@ interface Bookings {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   BookingCancellation(
-    @doc("The UUID of the booking")
-    @path
-    uuid: string,
-
-    @body body: BookingCancellationBody,
+    ...BookingCancellationRequest,
   ): BookingCancellationSuccessResponse | BookingCancellationErrorResponse;
   @get
   @route("/")
   @summary("Get Booking")
   @doc("Fetch the status of an existing booking.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: GET_BOOKING_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: GET_BOOKING_RESPONSE,
+      },
+    },
     #{ title: "Booking example", description: "Booking example" }
   )
   @opExample(
@@ -833,27 +928,27 @@ interface Bookings {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   GetBooking(
-    @doc("The UUID of the booking")
-    @path
-    uuid: string,
+    ...GetBookingRequest,
   ): GetBookingSuccessResponse | GetBookingErrorResponse;
   @patch
   @route("/")
   @summary("Booking Update")
   @doc("Updates a booking before and after it has been confirmed as long as it hasn''t been redeemed or within the cancellation cutoff window. To know if the booking can be updated check the booking''s `cancellable` field. If the booking can be cancelled, it can also be updated. It''s generally preferred to update a booking rather than cancelling it and rebooking")
   BookingUpdate(
-    @doc("The UUID of the booking")
-    @path
-    uuid: string,
-
-    @body body: BookingUpdateBody,
+    ...BookingUpdateRequest,
   ): BookingUpdateSuccessResponse | BookingUpdateErrorResponse;
   @post
   @route("/{uuid}/extend")
   @summary("Extend Reservation")
   @doc("Use this endpoint to hold the availability for a booking longer if the status is `ON_HOLD`.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: EXTEND_RESERVATION_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: EXTEND_RESERVATION_RESPONSE,
+      },
+    },
     #{
       title: "ON_HOLD Booking example",
       description: "ON_HOLD Booking example",
@@ -914,10 +1009,6 @@ interface Bookings {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   ExtendReservation(
-    @doc("The UUID of the booking")
-    @path
-    uuid: string,
-
-    @body body: ExtendReservationBody,
+    ...ExtendReservationRequest,
   ): ExtendReservationSuccessResponse | ExtendReservationErrorResponse;
 }

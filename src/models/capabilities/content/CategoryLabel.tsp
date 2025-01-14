@@ -2,6 +2,8 @@ namespace Octo;
 
 @example(CategoryLabel.ADULTS_ONLY)
 enum CategoryLabel {
+  MULTI_DAY: "multi-day",
+  CITY_CARDS: "city-cards",
   ADULTS_ONLY: "adults-only",
   ANIMALS: "animals",
   AUDIO_GUIDE: "audio-guide",
@@ -31,5 +33,8 @@ enum CategoryLabel {
   THEME_PARKS: "theme-parks",
   WALKING_TOURS: "walking-tours",
   WHEELCHAIR_ACCESSIBLE: "wheelchair-accessible",
-  OTHER: "other",
+  ACCOMMODATION_INCLUDED: "accommodation-included",
+  TRIP_DIFFICULTY_EASY: "trip-difficulty-easy",
+  TRIP_DIFFICULTY_MEDIUM: "trip-difficulty-medium",
+  TRIP_DIFFICULTY_HARD: "trip-difficulty-hard",
 }

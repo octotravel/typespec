@@ -13,7 +13,6 @@ const EXTERNAL_PLATFORM_LOCATION_ID_EXAMPLE = "";
 const EXTERNAL_PLATFORM_LOCATION_NAME_EXAMPLE = "";
 const EXTERNAL_PLATFORM_LOCATION_URL_EXAMPLE = "";
 
-
 model ExternalPlatformLocation {
   @doc("")
   @example(ExternalPlatformLocationType.AMAP_PLACE_ID)

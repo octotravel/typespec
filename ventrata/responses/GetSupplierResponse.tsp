@@ -9,17 +9,19 @@ import "../models/Supplier.tsp";
 namespace Ventrata;
 using TypeSpec.Http;
 
-
 model GetSupplierSuccessResponse {
   @statusCode statusCode: 200;
   @body body: Supplier;
+  ...ResponseHeaders;
 }
 
 const GET_SUPPLIER_RESPONSE = SUPPLIER_EXAMPLE;
 
 model GetSupplierErrorResponse {
   @statusCode statusCode: 400;
-  @body body: Octo.ErrorUnauthorized | Octo.ErrorInternalServerError | Octo.ErrorForbidden;
+
+  @body
+  body: Octo.ErrorUnauthorized | Octo.ErrorInternalServerError | Octo.ErrorForbidden;
 }
 
 const GET_SUPPLIER_UNAUTHORIZED_RESPONSE_EXAMPLE = Octo.ERROR_UNAUTHORIZED_EXAMPLE;

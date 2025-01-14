@@ -1,9 +1,9 @@
 import "./OpeningHours.tsp";
 import "./AvailabilityStatus.tsp";
 import "./capabilities/pricing/AvailabilityPricing.tsp";
+import "./capabilities/content/AvailabilityContent.tsp";
 
 namespace Octo;
-
 
 const AVAILABILITY_ID_DOC = "A unique identifier for this availability. This ID is used during booking and must be unique within the scope of an option.";
 const AVAILABILITY_LOCAL_DATE_TIME_START_DOC = "The start time for this availability in the product’s local time zone. This value must conform to ISO 8601 standards (e.g., \"2024-11-17T09:00:00+00:00\").";
@@ -98,6 +98,8 @@ model Availability {
 
   // capabilities
   ...AvailabilityPricing;
+
+  ...AvailabilityContent;
 }
 
 const AVAILABILITY_START_TIME_EXAMPLE_1 = #{
@@ -141,3 +143,14 @@ const AVAILABILITY_OPENING_HOURS_EXAMPLE_1 = #{
   utcCutoffAt: "2022-06-29T22:00:00Z",
   openingHours: AVAILABILITY_OPENING_HOURS_EXAMPLE,
 };
+
+// Examples Capabilities
+
+// octo/content
+
+const AVAILABILITY_EXAMPLE_CONTENT = #{
+  ...AVAILABILITY_OPENING_HOURS_EXAMPLE_1,
+  ...AVAILABILITY_CONTENT_EXAMPLE,
+};
+
+// TODO: pricing capability examples

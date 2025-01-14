@@ -3,6 +3,7 @@ import "@typespec/openapi3";
 
 import "../models/Product.tsp";
 import "../models/Error.tsp";
+import "./ResponseHeaders.tsp";
 
 namespace Octo;
 using TypeSpec.Http;
@@ -10,9 +11,13 @@ using TypeSpec.Http;
 model GetProductSuccessResponse {
   @statusCode statusCode: 200;
   @body body: Product;
+  ...ResponseHeaders;
 }
 
 const GET_PRODUCT_RESPONSE = PRODUCT_EXAMPLE;
+const GET_PRODUCT_CONTENT_RESPONSE = PRODUCT_EXAMPLE_CONTENT;
+const GET_PRODUCT_PRICING_PER_UNIT_RESPONSE = PRODUCT_EXAMPLE_PRICING_PER_UNIT;
+const GET_PRODUCT_PRICING_PER_BOOKING_RESPONSE = PRODUCT_EXAMPLE_PRICING_PER_BOOKING;
 
 model GetProductErrorResponse {
   @statusCode statusCode: 400;

@@ -11,13 +11,16 @@ using TypeSpec.Http;
 model GetProductsSuccessResponse {
   @statusCode statusCode: 200;
   @body body: Product[];
+  ...ResponseHeaders;
 }
 
 const GET_PRODUCTS_RESPONSE = #[PRODUCT_EXAMPLE];
 
 model GetProductsErrorResponse {
   @statusCode statusCode: 400;
-  @body body: Octo.ErrorUnauthorized | Octo.ErrorInternalServerError | Octo.ErrorForbidden;
+
+  @body
+  body: Octo.ErrorUnauthorized | Octo.ErrorInternalServerError | Octo.ErrorForbidden;
 }
 
 const GET_PRODUCTS_UNAUTHORIZED_RESPONSE_EXAMPLE = Octo.ERROR_UNAUTHORIZED_EXAMPLE;

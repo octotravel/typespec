@@ -3,6 +3,7 @@ import "@typespec/openapi3";
 
 import "../models/Availability.tsp";
 import "../models/Error.tsp";
+import "./ResponseHeaders.tsp";
 
 namespace Octo;
 using TypeSpec.Http;
@@ -10,6 +11,7 @@ using TypeSpec.Http;
 model AvailabilityCheckSuccessResponse {
   @statusCode statusCode: 200;
   @body body: Availability[];
+  ...ResponseHeaders;
 }
 
 const AVAILABILITY_CHECK_START_TIMES_RESPONSE = #[
@@ -20,6 +22,8 @@ const AVAILABILITY_CHECK_START_TIMES_RESPONSE = #[
 const AVAILABILITY_CHECK_OPENING_HOURS_RESPONSE = #[
   AVAILABILITY_OPENING_HOURS_EXAMPLE_1
 ];
+
+const AVAILABILITY_CHECK_CONTENT_RESPONSE = #[AVAILABILITY_EXAMPLE_CONTENT];
 
 model AvailabilityCheckErrorResponse {
   @statusCode statusCode: 400;

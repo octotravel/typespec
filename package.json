@@ -3,18 +3,21 @@
   "version": "0.1.0",
   "type": "module",
   "dependencies": {
-    "@typespec/compiler": "0.62.0",
-    "@typespec/http": "0.62.0",
-    "@typespec/openapi": "^0.62.0",
-    "@typespec/openapi3": "0.62.0"
+    "@typespec/compiler": "0.63.0",
+    "@typespec/http": "0.63.0",
+    "@typespec/openapi": "^0.63.0",
+    "@typespec/openapi3": "0.63.0"
   },
   "scripts": {
+    "format": "tsp format ./src",
+    "format:ventrata": "tsp format ./ventrata",
     "compile": "tsp compile .",
+    "compile:watch": "tsp compile . --watch",
     "compile:ventrata": "tsp compile ventrata/main.tsp"
   },
   "private": true,
   "devDependencies": {
-    "@typespec/prettier-plugin-typespec": "^0.62.0",
+    "@typespec/prettier-plugin-typespec": "^0.63.0",
     "prettier": "^3.4.2"
   }
 }

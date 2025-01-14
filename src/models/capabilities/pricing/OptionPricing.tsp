@@ -24,6 +24,6 @@ model OptionPricing {
   pricing?: Pricing[];
 }
 
-const OPTION_PRICING_PER_BOOKING = #{ pricingFrom: PRICING_GROUP_EUR };
+const OPTION_PRICING_PER_BOOKING = #{ pricingFrom: #[PRICING_GROUP_EUR] };
 
 const OPTION_PRICING_PER_UNIT = #{};

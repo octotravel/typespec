@@ -3,7 +3,7 @@ import "@typespec/openapi3";
 
 import "../models/Supplier.tsp";
 import "../models/Error.tsp";
-
+import "./ResponseHeaders.tsp";
 
 namespace Octo;
 
@@ -12,9 +12,11 @@ using TypeSpec.Http;
 model GetSupplierSuccessResponse {
   @statusCode statusCode: 200;
   @body body: Supplier;
+  ...ResponseHeaders;
 }
 
 const GET_SUPPLIER_RESPONSE = SUPPLIER_EXAMPLE;
+const GET_SUPPLIER_CONTENT_RESPONSE = SUPPLIER_EXAMPLE_CONTENT;
 
 model GetSupplierErrorResponse {
   @statusCode statusCode: 400;

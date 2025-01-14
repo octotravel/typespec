@@ -4,5 +4,5 @@ namespace Octo;
 enum DurationUnit {
   MINUTE: "minute",
   HOUR: "hour",
-  DAY: "day"
+  DAY: "day",
 }

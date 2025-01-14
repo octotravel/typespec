@@ -25,23 +25,9 @@ const COMMENTARY_EXAMPLE = #{
 model Commentary {
   @doc(COMMENTARY_FORMAT_DOC)
   @example(COMMENTARY_FORMAT_EXAMPLE)
-  @TypeSpec.OpenAPI.extension(
-    "x-capability-data",
-    {
-      capability: "octo/content",
-      required: true,
-    }
-  )
   format: CommentaryFormat;
 
   @doc(COMMENTARY_LANGUAGE_DOC)
   @example(COMMENTARY_LANGUAGE_EXAMPLE)
-  @TypeSpec.OpenAPI.extension(
-    "x-capability-data",
-    {
-      capability: "octo/content",
-      required: true,
-    }
-  )
   language: string;
 }

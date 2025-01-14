@@ -15,14 +15,13 @@ const SUPPLIER_CAPABILITIES_DOC = "An array of capabilities that the supplier ha
 const SUPPLIER_ID_EXAMPLE = "697e3ce8-1860-4cbf-80ad-95857df1f640";
 const SUPPLIER_NAME_EXAMPLE = "Merlin Entertainments";
 const SUPPLIER_ENDPOINT_EXAMPLE = "https://api.my-booking-platform.com/v1";
-const SUPPLIER_CAPABILITIES_EXAMPLE = #[Capability.CONTENT];
+// const SUPPLIER_CAPABILITIES_EXAMPLE = #[Capability.CONTENT];
 
 const SUPPLIER_EXAMPLE = #{
   id: SUPPLIER_ID_EXAMPLE,
   name: SUPPLIER_NAME_EXAMPLE,
   endpoint: SUPPLIER_ENDPOINT_EXAMPLE,
   contact: SUPPLIER_CONTACT_EXAMPLE,
-  capabilities: SUPPLIER_CAPABILITIES_EXAMPLE,
 };
 
 @example(SUPPLIER_EXAMPLE)
@@ -45,12 +44,21 @@ model Supplier {
   @example(SUPPLIER_CONTACT_EXAMPLE)
   contact: SupplierContact;
 
-  @doc(SUPPLIER_CAPABILITIES_DOC)
-  @example(SUPPLIER_CAPABILITIES_EXAMPLE)
-  @TypeSpec.OpenAPI.extension("x-go-name", "capabilities")
-  @TypeSpec.OpenAPI.extension("x-go-json-ignore", true)
-  @TypeSpec.OpenAPI.extension("x-oapi-codegen-only-honour-go-name", true)
-  capabilities: Capability[];
+  // @doc(SUPPLIER_CAPABILITIES_DOC)
+  // @example(SUPPLIER_CAPABILITIES_EXAMPLE)
+  // @TypeSpec.OpenAPI.extension("x-go-name", "capabilities")
+  // @TypeSpec.OpenAPI.extension("x-go-json-ignore", true)
+  // @TypeSpec.OpenAPI.extension("x-oapi-codegen-only-honour-go-name", true)
+  // capabilities: Capability[];
 
+  // capabilities
   ...SupplierContent;
 }
+
+// Examples Capabilities
+
+// octo/content
+const SUPPLIER_EXAMPLE_CONTENT = #{
+  ...SUPPLIER_EXAMPLE,
+  ...SUPPLIER_CONTENT_EXAMPLE,
+};

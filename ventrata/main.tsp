@@ -2,22 +2,27 @@ import "@typespec/http";
 import "@typespec/openapi";
 
 import "./models/Supplier.tsp";
+
+import "./requests/GetSupplierRequest.tsp";
 import "./responses/GetSupplierResponse.tsp";
 
 import "./models/Product.tsp";
+
+import "./requests/GetProductRequest.tsp";
 import "./responses/GetProductResponse.tsp";
+
+import "./requests/GetProductsRequest.tsp";
 import "./responses/GetProductsResponse.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
 using Ventrata;
 
-
 @useAuth(BearerAuth)
+@server("https://api.ventrata.com/octo")
 @service({
   title: "Ventrata OCTO API",
 })
-
 namespace VentrataApi;
 
 @tag("Supplier")
@@ -27,7 +32,13 @@ interface Suppliers {
   @summary("Get Supplier")
   @doc("Returns the supplier and associated contact details.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: GET_SUPPLIER_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: GET_SUPPLIER_RESPONSE,
+      },
+    },
     #{ title: "Supplier example", description: "Supplier example" }
   )
   @opExample(
@@ -60,7 +71,9 @@ interface Suppliers {
     },
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
-  get(): GetSupplierSuccessResponse | GetSupplierErrorResponse;
+  get(
+    ...GetSupplierRequest,
+  ): GetSupplierSuccessResponse | GetSupplierErrorResponse;
 }
 
 @tag("Products")
@@ -70,7 +83,13 @@ interface Products {
   @summary("Get Products")
   @doc("Fetch the list of products.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: GET_PRODUCTS_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: GET_PRODUCTS_RESPONSE,
+      },
+    },
     #{ title: "Products example", description: "Products example" }
   )
   @opExample(
@@ -103,13 +122,21 @@ interface Products {
     },
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
-  GetProducts(): GetProductsSuccessResponse | GetProductsErrorResponse;
+  GetProducts(
+    ...GetProductsRequest,
+  ): GetProductsSuccessResponse | GetProductsErrorResponse;
 
   @route("/{id}")
   @summary("Get Product")
   @doc("Fetch the product for the given id.")
   @opExample(
-    #{ returnType: #{ statusCode: 200, body: GET_PRODUCT_RESPONSE } },
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: GET_PRODUCT_RESPONSE,
+      },
+    },
     #{ title: "Product example", description: "Product example" }
   )
   @opExample(
@@ -155,8 +182,6 @@ interface Products {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   GetProduct(
-    @doc("The product id")
-    @path
-    id: string,
+    ...GetProductRequest,
   ): GetProductSuccessResponse | GetProductErrorResponse;
 }

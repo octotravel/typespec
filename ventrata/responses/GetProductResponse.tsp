@@ -4,6 +4,7 @@ import "@typespec/openapi3";
 import "../../src/models/Error.tsp";
 
 import "../models/Product.tsp";
+import "./ResponseHeaders.tsp";
 
 namespace Ventrata;
 using TypeSpec.Http;
@@ -11,6 +12,7 @@ using TypeSpec.Http;
 model GetProductSuccessResponse {
   @statusCode statusCode: 200;
   @body body: Product;
+  ...ResponseHeaders;
 }
 
 const GET_PRODUCT_RESPONSE = PRODUCT_EXAMPLE;

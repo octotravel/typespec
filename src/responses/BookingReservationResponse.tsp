@@ -3,6 +3,7 @@ import "@typespec/openapi3";
 
 import "../models/Booking.tsp";
 import "../models/Error.tsp";
+import "./ResponseHeaders.tsp";
 
 namespace Octo;
 using TypeSpec.Http;
@@ -10,6 +11,7 @@ using TypeSpec.Http;
 model BookingReservationSuccessResponse {
   @statusCode statusCode: 200;
   @body body: Booking;
+  ...ResponseHeaders;
 }
 
 const BOOKING_RESERVATION_RESPONSE = BOOKING_ON_HOLD_EXAMPLE;

@@ -2,6 +2,7 @@ import "./Unit.tsp";
 import "./CancellationCutoffUnit.tsp";
 import "./OptionRestrictions.tsp";
 import "./capabilities/pricing/OptionPricing.tsp";
+import "./capabilities/content/OptionContent.tsp";
 
 namespace Octo;
 
@@ -66,7 +67,7 @@ const OPTION_EXAMPLE = #{
   units: OPTION_UNITS_EXAMPLE,
 };
 
-@example(OPTION_EXAMPLE)
+@example(OPTION_EXAMPLE_PRICING_PER_BOOKING)
 model Option {
   @doc(OPTION_ID_DOC)
   @example(OPTION_ID_EXAMPLE)
@@ -115,8 +116,13 @@ model Option {
 
   // capabilities
   ...OptionPricing;
+
+  ...OptionContent;
 }
 
+// Examples Capabilities
+
+// octo/pricing
 const OPTION_EXAMPLE_PRICING_PER_BOOKING = #{
   ...OPTION_EXAMPLE,
   ...OPTION_PRICING_PER_BOOKING,
@@ -129,5 +135,17 @@ const OPTION_EXAMPLE_PRICING_PER_UNIT = #{
     UNIT_ADULT_EXAMPLE_PRICING,
     UNIT_CHILD_EXAMPLE_PRICING,
     UNIT_INFANT_EXAMPLE_PRICING
+  ],
+};
+
+// octo/content
+
+const OPTION_EXAMPLE_CONTENT = #{
+  ...OPTION_EXAMPLE,
+  ...OPTION_CONTENT_EXAMPLE,
+  units: #[
+    UNIT_ADULT_EXAMPLE_CONTENT,
+    UNIT_CHILD_EXAMPLE_CONTENT,
+    UNIT_INFANT_EXAMPLE_CONTENT
   ],
 };

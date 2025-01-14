@@ -19,10 +19,40 @@ paths:
         - `localDate`
         - `localeDateStart` and `localDateEnd`
         - `availabilityIds`
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -73,6 +103,25 @@ paths:
                       maxUnits: null
                       utcCutoffAt: 2022-06-30T12:00:00Z
                       openingHours: []
+                Availability Check with octo/content:
+                  summary: Availability Check with octo/content
+                  description: Availability Check with octo/content
+                  value:
+                    - id: 2022-06-30T00:00:00+01:00
+                      localDateTimeStart: 2022-06-30T00:00:00+01:00
+                      localDateTimeEnd: 2022-07-01T00:00:00+01:00
+                      allDay: true
+                      available: true
+                      status: FREESALE
+                      vacancies: null
+                      capacity: null
+                      maxUnits: null
+                      utcCutoffAt: 2022-06-29T22:00:00Z
+                      openingHours:
+                        - from: 08:00
+                          to: 16:00
+                      title: ''
+                      shortDescription: ''
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -140,10 +189,40 @@ paths:
         This endpoint is highly optimised and will return a single object per day. It's designed to be queried for large date ranges and the result is used to populate an availability calendar.
 
         When the end user selects an open date you can call on `/availability` endpoint to get the `availabilityId` to create the booking
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -273,10 +352,40 @@ paths:
         The availability for the booking is held for the amount of time equal to the`expirationMinutes` parameter (if provided), up to an internal limit set by either the supplier or the OCTo provider. The `utc_expires_at` parameter in the response object will indicate when a reservtion will expire. A reservation can be extended by calling the [/bookings/{uuid}/extend](docs/octo/branches/main/2c7924ab9128f-extend-reservation) endpoint.
 
         A reserved booking can be confirmed after the customer finalizes their choice on the [/bookings/{uuid}/confirm](docs/octo/branches/main/614d1613b2d70-booking-confirmation) endpoint provided the reservation had not expired.
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -656,58 +765,46 @@ paths:
         - `localDate`
         - `localDateStart` and `localDateEnd`
       parameters:
-        - name: resellerReference
-          in: query
-          required: false
-          description: The reseller reference on the booking
-          schema:
-            type: string
-          explode: false
-        - name: supplierReference
-          in: query
-          required: false
-          description: The reference provided by the supplier
-          schema:
-            type: string
-          explode: false
-        - name: localDate
-          in: query
-          required: false
-          description: All bookings made for a specific date
-          schema:
-            type: string
-          explode: false
-        - name: localDateStart
-          in: query
-          required: false
-          description: First date of a date range search
-          schema:
-            type: string
-          explode: false
-        - name: localDateEnd
-          in: query
-          required: false
-          description: Last date of a date range search
-          schema:
-            type: string
-          explode: false
-        - name: productId
-          in: query
-          required: false
-          description: The product id to filter by
-          schema:
-            type: string
-          explode: false
-        - name: optionId
-          in: query
-          required: false
-          description: The option id to filter by
-          schema:
-            type: string
-          explode: false
+        - $ref: '#/components/parameters/GetBookingsRequest.resellerReference'
+        - $ref: '#/components/parameters/GetBookingsRequest.supplierReference'
+        - $ref: '#/components/parameters/GetBookingsRequest.localDate'
+        - $ref: '#/components/parameters/GetBookingsRequest.localDateStart'
+        - $ref: '#/components/parameters/GetBookingsRequest.localDateEnd'
+        - $ref: '#/components/parameters/GetBookingsRequest.productId'
+        - $ref: '#/components/parameters/GetBookingsRequest.optionId'
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -1063,15 +1160,40 @@ paths:
       summary: Get Booking
       description: Fetch the status of an existing booking.
       parameters:
-        - name: uuid
-          in: path
-          required: true
-          description: The UUID of the booking
-          schema:
-            type: string
+        - $ref: '#/components/parameters/GetBookingRequest.uuid'
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -1426,15 +1548,40 @@ paths:
       summary: Booking Update
       description: Updates a booking before and after it has been confirmed as long as it hasn''t been redeemed or within the cancellation cutoff window. To know if the booking can be updated check the booking''s `cancellable` field. If the booking can be cancelled, it can also be updated. It''s generally preferred to update a booking rather than cancelling it and rebooking
       parameters:
-        - name: uuid
-          in: path
-          required: true
-          description: The UUID of the booking
-          schema:
-            type: string
+        - $ref: '#/components/parameters/BookingUpdateRequest.uuid'
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -1468,15 +1615,40 @@ paths:
       summary: Booking Cancellation
       description: For cancelling bookings. You can only cancel a booking if `booking.cancellable` is `TRUE`, and is within the booking cancellation cut-off window.
       parameters:
-        - name: uuid
-          in: path
-          required: true
-          description: The UUID of the booking
-          schema:
-            type: string
+        - $ref: '#/components/parameters/BookingCancellationRequest.uuid'
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -1728,15 +1900,40 @@ paths:
       summary: Booking Confirmation
       description: This endpoint confirms the booking so it's ready to be used.
       parameters:
-        - name: uuid
-          in: path
-          required: true
-          description: The UUID of the booking
-          schema:
-            type: string
+        - $ref: '#/components/parameters/BookingConfirmationRequest.uuid'
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -2137,15 +2334,40 @@ paths:
       summary: Extend Reservation
       description: Use this endpoint to hold the availability for a booking longer if the status is `ON_HOLD`.
       parameters:
-        - name: uuid
-          in: path
-          required: true
-          description: The UUID of the booking
-          schema:
-            type: string
+        - $ref: '#/components/parameters/ExtendReservationRequest.uuid'
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -2493,10 +2715,40 @@ paths:
       operationId: Products_GetProducts
       summary: Get Products
       description: Fetch the list of products.
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -2582,6 +2834,413 @@ paths:
                                   - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                               requiredContactFields:
                                 - firstName
+                Products with octo/content:
+                  summary: Products with octo/content
+                  description: Products with octo/content
+                  value:
+                    - id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+                      internalName: London Eye General Admission
+                      reference: LEYE-GA
+                      locale: en-GB
+                      timeZone: Europe/London
+                      allowFreesale: true
+                      instantConfirmation: true
+                      instantDelivery: true
+                      availabilityRequired: true
+                      availabilityType: START_TIME
+                      deliveryFormats:
+                        - QRCODE
+                      deliveryMethods:
+                        - TICKET
+                      redemptionMethod: DIGITAL
+                      options:
+                        - id: DEFAULT
+                          default: true
+                          internalName: DEFAULT
+                          reference: null
+                          availabilityLocalStartTimes:
+                            - 00:00
+                          cancellationCutoff: 1 hour
+                          cancellationCutoffAmount: 1
+                          cancellationCutoffUnit: hour
+                          requiredContactFields:
+                            - firstName
+                          restrictions:
+                            minUnits: 0
+                            maxUnits: 9
+                          units:
+                            - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                              internalName: Adult
+                              reference: null
+                              type: ADULT
+                              restrictions:
+                                minAge: 18
+                                maxAge: 99
+                                idRequired: false
+                                minQuantity: 1
+                                maxQuantity: 10
+                                paxCount: 1
+                                accompaniedBy: []
+                              requiredContactFields:
+                                - firstName
+                              title: ''
+                              shortDescription: ''
+                              features:
+                                - shortDescription: ''
+                                  type: CANCELLATION_TERM
+                            - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                              internalName: Child
+                              reference: null
+                              type: CHILD
+                              restrictions:
+                                minAge: 3
+                                maxAge: 12
+                                idRequired: false
+                                minQuantity: 1
+                                maxQuantity: 10
+                                paxCount: 1
+                                accompaniedBy: []
+                              requiredContactFields:
+                                - firstName
+                              title: ''
+                              shortDescription: ''
+                              features:
+                                - shortDescription: ''
+                                  type: CANCELLATION_TERM
+                            - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+                              internalName: Infant
+                              reference: null
+                              type: INFANT
+                              restrictions:
+                                minAge: 0
+                                maxAge: 3
+                                idRequired: false
+                                minQuantity: 1
+                                maxQuantity: 10
+                                paxCount: 1
+                                accompaniedBy:
+                                  - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                              requiredContactFields:
+                                - firstName
+                              title: ''
+                              shortDescription: ''
+                              features:
+                                - shortDescription: ''
+                                  type: CANCELLATION_TERM
+                          title: ''
+                          shortDescription: ''
+                          description: ''
+                          features:
+                            - shortDescription: ''
+                              type: CANCELLATION_TERM
+                          faqs:
+                            - question: ''
+                              answer: ''
+                          media:
+                            - src: ''
+                              type: image/jpeg
+                              rel: LOGO
+                              title: ''
+                              caption: ''
+                              copyright: ''
+                          locations:
+                            - title: ''
+                              shortDescription: ''
+                              types:
+                                - POINT_OF_INTEREST
+                              minutesTo: null
+                              minutesAt: null
+                              place:
+                                latitude: 55.9533
+                                longitude: -3.1883
+                                postalAddress:
+                                  streetAddress: ''
+                                  addressLocality: ''
+                                  addressRegion: ''
+                                  postalCode: ''
+                                  addressCountry: ''
+                                  postOfficeBoxNumber: ''
+                                identifiers:
+                                  googlePlaceId: null
+                                  applePlaceId: null
+                                  tripadvisorLocationId: null
+                                  yelpPlaceId: null
+                                  facebookPlaceId: null
+                                  foursquarePlaceId: null
+                                  baiduPlaceId: null
+                                  amapPlaceId: null
+                                sameAs: []
+                          categoryLabels:
+                            - adults-only
+                            - romantic
+                          durationMinutesFrom: 30
+                          durationMinutesTo: null
+                          commentary:
+                            - format: IN_PERSON
+                              language: ''
+                      title: ''
+                      shortDescription: ''
+                      description: ''
+                      features:
+                        - shortDescription: ''
+                          type: CANCELLATION_TERM
+                      faqs:
+                        - question: ''
+                          answer: ''
+                      media:
+                        - src: ''
+                          type: image/jpeg
+                          rel: LOGO
+                          title: ''
+                          caption: ''
+                          copyright: ''
+                      locations:
+                        - title: ''
+                          shortDescription: ''
+                          types:
+                            - POINT_OF_INTEREST
+                          minutesTo: null
+                          minutesAt: null
+                          place:
+                            latitude: 55.9533
+                            longitude: -3.1883
+                            postalAddress:
+                              streetAddress: ''
+                              addressLocality: ''
+                              addressRegion: ''
+                              postalCode: ''
+                              addressCountry: ''
+                              postOfficeBoxNumber: ''
+                            identifiers:
+                              googlePlaceId: null
+                              applePlaceId: null
+                              tripadvisorLocationId: null
+                              yelpPlaceId: null
+                              facebookPlaceId: null
+                              foursquarePlaceId: null
+                              baiduPlaceId: null
+                              amapPlaceId: null
+                            sameAs: []
+                      categoryLabels:
+                        - adults-only
+                        - romantic
+                      durationMinutesFrom: 30
+                      durationMinutesTo: null
+                      commentary:
+                        - format: IN_PERSON
+                          language: ''
+                Products with octo/pricng (pricing per unit):
+                  summary: Products with octo/pricng (pricing per unit)
+                  description: Products with octo/pricng (pricing per unit)
+                  value:
+                    - id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+                      internalName: London Eye General Admission
+                      reference: LEYE-GA
+                      locale: en-GB
+                      timeZone: Europe/London
+                      allowFreesale: true
+                      instantConfirmation: true
+                      instantDelivery: true
+                      availabilityRequired: true
+                      availabilityType: START_TIME
+                      deliveryFormats:
+                        - QRCODE
+                      deliveryMethods:
+                        - TICKET
+                      redemptionMethod: DIGITAL
+                      options:
+                        - id: DEFAULT
+                          default: true
+                          internalName: DEFAULT
+                          reference: null
+                          availabilityLocalStartTimes:
+                            - 00:00
+                          cancellationCutoff: 1 hour
+                          cancellationCutoffAmount: 1
+                          cancellationCutoffUnit: hour
+                          requiredContactFields:
+                            - firstName
+                          restrictions:
+                            minUnits: 0
+                            maxUnits: 9
+                          units:
+                            - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                              internalName: Adult
+                              reference: null
+                              type: ADULT
+                              restrictions:
+                                minAge: 18
+                                maxAge: 99
+                                idRequired: false
+                                minQuantity: 1
+                                maxQuantity: 10
+                                paxCount: 1
+                                accompaniedBy: []
+                              requiredContactFields:
+                                - firstName
+                              pricingFrom:
+                                - original: 1000
+                                  retail: 1000
+                                  net: 8000
+                                  currency: EUR
+                                  currencyPrecision: 2
+                                  includedTaxes: []
+                                - original: 1000
+                                  retail: 1000
+                                  net: 8000
+                                  currency: USD
+                                  currencyPrecision: 2
+                                  includedTaxes: []
+                            - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                              internalName: Child
+                              reference: null
+                              type: CHILD
+                              restrictions:
+                                minAge: 3
+                                maxAge: 12
+                                idRequired: false
+                                minQuantity: 1
+                                maxQuantity: 10
+                                paxCount: 1
+                                accompaniedBy: []
+                              requiredContactFields:
+                                - firstName
+                              pricingFrom:
+                                - original: 500
+                                  retail: 500
+                                  net: 400
+                                  currency: EUR
+                                  currencyPrecision: 2
+                                  includedTaxes: []
+                                - original: 500
+                                  retail: 500
+                                  net: 400
+                                  currency: USD
+                                  currencyPrecision: 2
+                                  includedTaxes: []
+                            - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+                              internalName: Infant
+                              reference: null
+                              type: INFANT
+                              restrictions:
+                                minAge: 0
+                                maxAge: 3
+                                idRequired: false
+                                minQuantity: 1
+                                maxQuantity: 10
+                                paxCount: 1
+                                accompaniedBy:
+                                  - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                              requiredContactFields:
+                                - firstName
+                              pricingFrom:
+                                - original: 0
+                                  retail: 0
+                                  net: 0
+                                  currency: EUR
+                                  currencyPrecision: 2
+                                  includedTaxes: []
+                                - original: 0
+                                  retail: 0
+                                  net: 0
+                                  currency: USD
+                                  currencyPrecision: 2
+                                  includedTaxes: []
+                      defaultCurrency: USD
+                      availableCurrencies:
+                        - USD
+                        - EUR
+                      pricingPer: UNIT
+                Products with octo/pricng (pricing per booking):
+                  summary: Products with octo/pricng (pricing per booking)
+                  description: Products with octo/pricng (pricing per booking)
+                  value:
+                    - id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+                      internalName: London Eye General Admission
+                      reference: LEYE-GA
+                      locale: en-GB
+                      timeZone: Europe/London
+                      allowFreesale: true
+                      instantConfirmation: true
+                      instantDelivery: true
+                      availabilityRequired: true
+                      availabilityType: START_TIME
+                      deliveryFormats:
+                        - QRCODE
+                      deliveryMethods:
+                        - TICKET
+                      redemptionMethod: DIGITAL
+                      options:
+                        - id: DEFAULT
+                          default: true
+                          internalName: DEFAULT
+                          reference: null
+                          availabilityLocalStartTimes:
+                            - 00:00
+                          cancellationCutoff: 1 hour
+                          cancellationCutoffAmount: 1
+                          cancellationCutoffUnit: hour
+                          requiredContactFields:
+                            - firstName
+                          restrictions:
+                            minUnits: 0
+                            maxUnits: 9
+                          units:
+                            - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                              internalName: Adult
+                              reference: null
+                              type: ADULT
+                              restrictions:
+                                minAge: 18
+                                maxAge: 99
+                                idRequired: false
+                                minQuantity: 1
+                                maxQuantity: 10
+                                paxCount: 1
+                                accompaniedBy: []
+                              requiredContactFields:
+                                - firstName
+                            - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                              internalName: Child
+                              reference: null
+                              type: CHILD
+                              restrictions:
+                                minAge: 3
+                                maxAge: 12
+                                idRequired: false
+                                minQuantity: 1
+                                maxQuantity: 10
+                                paxCount: 1
+                                accompaniedBy: []
+                              requiredContactFields:
+                                - firstName
+                            - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+                              internalName: Infant
+                              reference: null
+                              type: INFANT
+                              restrictions:
+                                minAge: 0
+                                maxAge: 3
+                                idRequired: false
+                                minQuantity: 1
+                                maxQuantity: 10
+                                paxCount: 1
+                                accompaniedBy:
+                                  - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                              requiredContactFields:
+                                - firstName
+                          pricingFrom:
+                            - original: 2000
+                              retail: 2000
+                              net: 1600
+                              currency: EUR
+                              currencyPrecision: 2
+                              includedTaxes: []
+                      defaultCurrency: USD
+                      availableCurrencies:
+                        - USD
+                        - EUR
+                      pricingPer: BOOKING
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -2618,15 +3277,40 @@ paths:
       summary: Get Product
       description: Fetch the product for the given id.
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: The product id
-          schema:
-            type: string
+        - $ref: '#/components/parameters/GetProductSuccessRequest.id'
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -2710,6 +3394,413 @@ paths:
                                 - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                             requiredContactFields:
                               - firstName
+                Product with octo/content:
+                  summary: Product with octo/content
+                  description: Product with octo/content
+                  value:
+                    id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+                    internalName: London Eye General Admission
+                    reference: LEYE-GA
+                    locale: en-GB
+                    timeZone: Europe/London
+                    allowFreesale: true
+                    instantConfirmation: true
+                    instantDelivery: true
+                    availabilityRequired: true
+                    availabilityType: START_TIME
+                    deliveryFormats:
+                      - QRCODE
+                    deliveryMethods:
+                      - TICKET
+                    redemptionMethod: DIGITAL
+                    options:
+                      - id: DEFAULT
+                        default: true
+                        internalName: DEFAULT
+                        reference: null
+                        availabilityLocalStartTimes:
+                          - 00:00
+                        cancellationCutoff: 1 hour
+                        cancellationCutoffAmount: 1
+                        cancellationCutoffUnit: hour
+                        requiredContactFields:
+                          - firstName
+                        restrictions:
+                          minUnits: 0
+                          maxUnits: 9
+                        units:
+                          - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                            internalName: Adult
+                            reference: null
+                            type: ADULT
+                            restrictions:
+                              minAge: 18
+                              maxAge: 99
+                              idRequired: false
+                              minQuantity: 1
+                              maxQuantity: 10
+                              paxCount: 1
+                              accompaniedBy: []
+                            requiredContactFields:
+                              - firstName
+                            title: ''
+                            shortDescription: ''
+                            features:
+                              - shortDescription: ''
+                                type: CANCELLATION_TERM
+                          - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                            internalName: Child
+                            reference: null
+                            type: CHILD
+                            restrictions:
+                              minAge: 3
+                              maxAge: 12
+                              idRequired: false
+                              minQuantity: 1
+                              maxQuantity: 10
+                              paxCount: 1
+                              accompaniedBy: []
+                            requiredContactFields:
+                              - firstName
+                            title: ''
+                            shortDescription: ''
+                            features:
+                              - shortDescription: ''
+                                type: CANCELLATION_TERM
+                          - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+                            internalName: Infant
+                            reference: null
+                            type: INFANT
+                            restrictions:
+                              minAge: 0
+                              maxAge: 3
+                              idRequired: false
+                              minQuantity: 1
+                              maxQuantity: 10
+                              paxCount: 1
+                              accompaniedBy:
+                                - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                            requiredContactFields:
+                              - firstName
+                            title: ''
+                            shortDescription: ''
+                            features:
+                              - shortDescription: ''
+                                type: CANCELLATION_TERM
+                        title: ''
+                        shortDescription: ''
+                        description: ''
+                        features:
+                          - shortDescription: ''
+                            type: CANCELLATION_TERM
+                        faqs:
+                          - question: ''
+                            answer: ''
+                        media:
+                          - src: ''
+                            type: image/jpeg
+                            rel: LOGO
+                            title: ''
+                            caption: ''
+                            copyright: ''
+                        locations:
+                          - title: ''
+                            shortDescription: ''
+                            types:
+                              - POINT_OF_INTEREST
+                            minutesTo: null
+                            minutesAt: null
+                            place:
+                              latitude: 55.9533
+                              longitude: -3.1883
+                              postalAddress:
+                                streetAddress: ''
+                                addressLocality: ''
+                                addressRegion: ''
+                                postalCode: ''
+                                addressCountry: ''
+                                postOfficeBoxNumber: ''
+                              identifiers:
+                                googlePlaceId: null
+                                applePlaceId: null
+                                tripadvisorLocationId: null
+                                yelpPlaceId: null
+                                facebookPlaceId: null
+                                foursquarePlaceId: null
+                                baiduPlaceId: null
+                                amapPlaceId: null
+                              sameAs: []
+                        categoryLabels:
+                          - adults-only
+                          - romantic
+                        durationMinutesFrom: 30
+                        durationMinutesTo: null
+                        commentary:
+                          - format: IN_PERSON
+                            language: ''
+                    title: ''
+                    shortDescription: ''
+                    description: ''
+                    features:
+                      - shortDescription: ''
+                        type: CANCELLATION_TERM
+                    faqs:
+                      - question: ''
+                        answer: ''
+                    media:
+                      - src: ''
+                        type: image/jpeg
+                        rel: LOGO
+                        title: ''
+                        caption: ''
+                        copyright: ''
+                    locations:
+                      - title: ''
+                        shortDescription: ''
+                        types:
+                          - POINT_OF_INTEREST
+                        minutesTo: null
+                        minutesAt: null
+                        place:
+                          latitude: 55.9533
+                          longitude: -3.1883
+                          postalAddress:
+                            streetAddress: ''
+                            addressLocality: ''
+                            addressRegion: ''
+                            postalCode: ''
+                            addressCountry: ''
+                            postOfficeBoxNumber: ''
+                          identifiers:
+                            googlePlaceId: null
+                            applePlaceId: null
+                            tripadvisorLocationId: null
+                            yelpPlaceId: null
+                            facebookPlaceId: null
+                            foursquarePlaceId: null
+                            baiduPlaceId: null
+                            amapPlaceId: null
+                          sameAs: []
+                    categoryLabels:
+                      - adults-only
+                      - romantic
+                    durationMinutesFrom: 30
+                    durationMinutesTo: null
+                    commentary:
+                      - format: IN_PERSON
+                        language: ''
+                Product with octo/pricng (pricing per unit):
+                  summary: Product with octo/pricng (pricing per unit)
+                  description: Product with octo/pricng (pricing per unit)
+                  value:
+                    id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+                    internalName: London Eye General Admission
+                    reference: LEYE-GA
+                    locale: en-GB
+                    timeZone: Europe/London
+                    allowFreesale: true
+                    instantConfirmation: true
+                    instantDelivery: true
+                    availabilityRequired: true
+                    availabilityType: START_TIME
+                    deliveryFormats:
+                      - QRCODE
+                    deliveryMethods:
+                      - TICKET
+                    redemptionMethod: DIGITAL
+                    options:
+                      - id: DEFAULT
+                        default: true
+                        internalName: DEFAULT
+                        reference: null
+                        availabilityLocalStartTimes:
+                          - 00:00
+                        cancellationCutoff: 1 hour
+                        cancellationCutoffAmount: 1
+                        cancellationCutoffUnit: hour
+                        requiredContactFields:
+                          - firstName
+                        restrictions:
+                          minUnits: 0
+                          maxUnits: 9
+                        units:
+                          - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                            internalName: Adult
+                            reference: null
+                            type: ADULT
+                            restrictions:
+                              minAge: 18
+                              maxAge: 99
+                              idRequired: false
+                              minQuantity: 1
+                              maxQuantity: 10
+                              paxCount: 1
+                              accompaniedBy: []
+                            requiredContactFields:
+                              - firstName
+                            pricingFrom:
+                              - original: 1000
+                                retail: 1000
+                                net: 8000
+                                currency: EUR
+                                currencyPrecision: 2
+                                includedTaxes: []
+                              - original: 1000
+                                retail: 1000
+                                net: 8000
+                                currency: USD
+                                currencyPrecision: 2
+                                includedTaxes: []
+                          - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                            internalName: Child
+                            reference: null
+                            type: CHILD
+                            restrictions:
+                              minAge: 3
+                              maxAge: 12
+                              idRequired: false
+                              minQuantity: 1
+                              maxQuantity: 10
+                              paxCount: 1
+                              accompaniedBy: []
+                            requiredContactFields:
+                              - firstName
+                            pricingFrom:
+                              - original: 500
+                                retail: 500
+                                net: 400
+                                currency: EUR
+                                currencyPrecision: 2
+                                includedTaxes: []
+                              - original: 500
+                                retail: 500
+                                net: 400
+                                currency: USD
+                                currencyPrecision: 2
+                                includedTaxes: []
+                          - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+                            internalName: Infant
+                            reference: null
+                            type: INFANT
+                            restrictions:
+                              minAge: 0
+                              maxAge: 3
+                              idRequired: false
+                              minQuantity: 1
+                              maxQuantity: 10
+                              paxCount: 1
+                              accompaniedBy:
+                                - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                            requiredContactFields:
+                              - firstName
+                            pricingFrom:
+                              - original: 0
+                                retail: 0
+                                net: 0
+                                currency: EUR
+                                currencyPrecision: 2
+                                includedTaxes: []
+                              - original: 0
+                                retail: 0
+                                net: 0
+                                currency: USD
+                                currencyPrecision: 2
+                                includedTaxes: []
+                    defaultCurrency: USD
+                    availableCurrencies:
+                      - USD
+                      - EUR
+                    pricingPer: UNIT
+                Product with octo/pricng (pricing per booking):
+                  summary: Product with octo/pricng (pricing per booking)
+                  description: Product with octo/pricng (pricing per booking)
+                  value:
+                    id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+                    internalName: London Eye General Admission
+                    reference: LEYE-GA
+                    locale: en-GB
+                    timeZone: Europe/London
+                    allowFreesale: true
+                    instantConfirmation: true
+                    instantDelivery: true
+                    availabilityRequired: true
+                    availabilityType: START_TIME
+                    deliveryFormats:
+                      - QRCODE
+                    deliveryMethods:
+                      - TICKET
+                    redemptionMethod: DIGITAL
+                    options:
+                      - id: DEFAULT
+                        default: true
+                        internalName: DEFAULT
+                        reference: null
+                        availabilityLocalStartTimes:
+                          - 00:00
+                        cancellationCutoff: 1 hour
+                        cancellationCutoffAmount: 1
+                        cancellationCutoffUnit: hour
+                        requiredContactFields:
+                          - firstName
+                        restrictions:
+                          minUnits: 0
+                          maxUnits: 9
+                        units:
+                          - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                            internalName: Adult
+                            reference: null
+                            type: ADULT
+                            restrictions:
+                              minAge: 18
+                              maxAge: 99
+                              idRequired: false
+                              minQuantity: 1
+                              maxQuantity: 10
+                              paxCount: 1
+                              accompaniedBy: []
+                            requiredContactFields:
+                              - firstName
+                          - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                            internalName: Child
+                            reference: null
+                            type: CHILD
+                            restrictions:
+                              minAge: 3
+                              maxAge: 12
+                              idRequired: false
+                              minQuantity: 1
+                              maxQuantity: 10
+                              paxCount: 1
+                              accompaniedBy: []
+                            requiredContactFields:
+                              - firstName
+                          - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
+                            internalName: Infant
+                            reference: null
+                            type: INFANT
+                            restrictions:
+                              minAge: 0
+                              maxAge: 3
+                              idRequired: false
+                              minQuantity: 1
+                              maxQuantity: 10
+                              paxCount: 1
+                              accompaniedBy:
+                                - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                            requiredContactFields:
+                              - firstName
+                        pricingFrom:
+                          - original: 2000
+                            retail: 2000
+                            net: 1600
+                            currency: EUR
+                            currencyPrecision: 2
+                            includedTaxes: []
+                    defaultCurrency: USD
+                    availableCurrencies:
+                      - USD
+                      - EUR
+                    pricingPer: BOOKING
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -2753,10 +3844,40 @@ paths:
       operationId: Suppliers_get
       summary: Get Supplier
       description: Returns the supplier and associated contact details.
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
+        - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
         '200':
           description: The request has succeeded.
+          headers:
+            Octo-Capabilities:
+              required: true
+              description: A list of the Capabilities (their IDs) initialized with your request.
+              schema:
+                type: string
+            Content-Language:
+              required: false
+              description: 'This response header indicates the language of the content being returned in the response. The OCTO specification allows only one language to be returned per response. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  To obtain content in multiple languages, separate requests must be made for each desired language. This header is defined in the HTTP/1.1 specification (RFC 7231). For more information, see MDN Web Docs: Content-Language - HTTP | MDN. This response header is required when using Content capability.'
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
+            Available-Languages:
+              required: false
+              description: This response header is used to inform of the languages in which content is available, helping understand the language options without needing additional requests. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain).  Although not a standard HTTP header, it is commonly used in APIs to list available languages, such as en-US, fr-CA, es-ES, indicating that content can be requested in U.S. English, Canadian French, or Spanish. This response header is required when using Content capability.
+              schema:
+                type: string
+                x-capability-data:
+                  capability: octo/content
+                  required: true
+              x-capability-data:
+                capability: octo/content
+                required: true
           content:
             application/json:
               schema:
@@ -2774,8 +3895,26 @@ paths:
                       email: support@ventrata.com
                       telephone: null
                       address: Marble Arch, London, W1H 7EJ, United Kingdom
-                    capabilities:
-                      - octo/content
+                Supplier with octo/content:
+                  summary: Supplier with octo/content
+                  description: Supplier with octo/content
+                  value:
+                    id: 697e3ce8-1860-4cbf-80ad-95857df1f640
+                    name: Merlin Entertainments
+                    endpoint: https://api.my-booking-platform.com/v1
+                    contact:
+                      website: null
+                      email: support@ventrata.com
+                      telephone: null
+                      address: Marble Arch, London, W1H 7EJ, United Kingdom
+                    shortDescription: ''
+                    media:
+                      - src: ''
+                        type: image/jpeg
+                        rel: LOGO
+                        title: ''
+                        caption: ''
+                        copyright: ''
         '400':
           description: The server could not understand the request due to invalid syntax.
           content:
@@ -2809,6 +3948,125 @@ paths:
 security:
   - BearerAuth: []
 components:
+  parameters:
+    BookingCancellationRequest.uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the booking
+      schema:
+        type: string
+    BookingConfirmationRequest.uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the booking
+      schema:
+        type: string
+    BookingUpdateRequest.uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the booking
+      schema:
+        type: string
+    ExtendReservationRequest.uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the booking
+      schema:
+        type: string
+    GetBookingRequest.uuid:
+      name: uuid
+      in: path
+      required: true
+      description: The UUID of the booking
+      schema:
+        type: string
+    GetBookingsRequest.localDate:
+      name: localDate
+      in: query
+      required: false
+      description: All bookings made for a specific date
+      schema:
+        type: string
+      explode: false
+    GetBookingsRequest.localDateEnd:
+      name: localDateEnd
+      in: query
+      required: false
+      description: Last date of a date range search
+      schema:
+        type: string
+      explode: false
+    GetBookingsRequest.localDateStart:
+      name: localDateStart
+      in: query
+      required: false
+      description: First date of a date range search
+      schema:
+        type: string
+      explode: false
+    GetBookingsRequest.optionId:
+      name: optionId
+      in: query
+      required: false
+      description: The option id to filter by
+      schema:
+        type: string
+      explode: false
+    GetBookingsRequest.productId:
+      name: productId
+      in: query
+      required: false
+      description: The product id to filter by
+      schema:
+        type: string
+      explode: false
+    GetBookingsRequest.resellerReference:
+      name: resellerReference
+      in: query
+      required: false
+      description: The reseller reference on the booking
+      schema:
+        type: string
+      explode: false
+    GetBookingsRequest.supplierReference:
+      name: supplierReference
+      in: query
+      required: false
+      description: The reference provided by the supplier
+      schema:
+        type: string
+      explode: false
+    GetProductSuccessRequest.id:
+      name: id
+      in: path
+      required: true
+      description: The product id
+      schema:
+        type: string
+    RequestHeaders.octoCapabilities:
+      name: Octo-Capabilities
+      in: header
+      required: true
+      description: A list of the Capabilities (their IDs) initialized with your request.
+      schema:
+        type: string
+    RequestHeadersContent:
+      name: Accept-Language
+      in: header
+      required: false
+      description: 'This optional request header allows to specify preferred languages for content in the response. A language code that specifies the language of the product content. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain). This header supports a comma-separated list of language tags with optional quality values (q) to indicate priority, such as en-US, fr-CA;q=0.8, fr;q=0.7, which prioritizes U.S. English, followed by Canadian French, and general French. This header is defined in the HTTP/1.1 specification (RFC 7231) and is commonly used for internationalized websites and services to enhance user experience. For more details, visit MDN Web Docs: Accept-Language - HTTP | MDN. Note this only determines preference and does not guarantee location has content available in the desired language.'
+      schema:
+        type: string
+        x-capability-data:
+          capability: octo/content
+          required: true
+      x-capability-data:
+        capability: octo/content
+        required: true
   schemas:
     Availability:
       type: object
@@ -2922,6 +4180,21 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+        title:
+          type: string
+          nullable: true
+          example: ''
+          description: 'The public, customer-facing for the availablity. This name is displayed to end customers and should accurately represent the option for marketing and sales purposes. Can be null when not appliable '
+          x-capability-data:
+            capability: octo/content
+            required: true
+        shortDescription:
+          type: string
+          example: ''
+          description: 'A brief, customer-facing description of the availability. This field provides a concise overview of availability. '
+          x-capability-data:
+            capability: octo/content
+            required: true
       example:
         id: 2022-05-23T00:00:00+01:00
         localDateTimeStart: 2022-05-23T00:00:00+01:00
@@ -3154,6 +4427,24 @@ components:
           type: string
           example: USD
           description: Can be used only when pricing capability is used.
+    AvailabilityCalendarRequest:
+      type: object
+      required:
+        - body
+      properties:
+        body:
+          allOf:
+            - $ref: '#/components/schemas/AvailabilityCalendarBody'
+          example:
+            productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+            optionId: DEFAULT
+            localDateStart: 2022-05-23
+            localDateEnd: 2022-05-29
+            units:
+              - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                quantity: 2
+              - id: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+                quantity: 1
     AvailabilityCheckBody:
       type: object
       required:
@@ -3202,6 +4493,42 @@ components:
         optionId: DEFAULT
         localDateStart: 2022-05-23
         localDateEnd: 2022-05-29
+    AvailabilityCheckRequest:
+      type: object
+      required:
+        - body
+      properties:
+        body:
+          allOf:
+            - $ref: '#/components/schemas/AvailabilityCheckBody'
+          example:
+            productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+            optionId: DEFAULT
+            localDateStart: 2022-05-23
+            localDateEnd: 2022-05-29
+            units:
+              - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+                quantity: 2
+              - id: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+                quantity: 1
+    AvailabilityContent:
+      type: object
+      properties:
+        title:
+          type: string
+          nullable: true
+          example: ''
+          description: 'The public, customer-facing for the availablity. This name is displayed to end customers and should accurately represent the option for marketing and sales purposes. Can be null when not appliable '
+          x-capability-data:
+            capability: octo/content
+            required: true
+        shortDescription:
+          type: string
+          example: ''
+          description: 'A brief, customer-facing description of the availability. This field provides a concise overview of availability. '
+          x-capability-data:
+            capability: octo/content
+            required: true
     AvailabilityPricing:
       type: object
       properties:
@@ -4245,6 +5572,23 @@ components:
           type: string
           example: ''
           description: The option id to filter by
+    BookingReservationRequest:
+      type: object
+      required:
+        - body
+      properties:
+        body:
+          allOf:
+            - $ref: '#/components/schemas/BookingReservationBody'
+          example:
+            productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+            optionId: DEFAULT
+            availabilityId: 2022-05-23T00:00:00+01:00
+            notes: Optional notes
+            unitItems:
+              - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+              - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
+              - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
     BookingStatus:
       type: string
       enum:
@@ -4366,70 +5710,75 @@ components:
         - octo/pickups
         - octo/pricing
         - octo/questions
-    Category:
+    CategoryLabel:
+      type: string
+      enum:
+        - multi-day
+        - city-cards
+        - adults-only
+        - animals
+        - audio-guide
+        - beaches
+        - bike-tours
+        - boat-tours
+        - classes
+        - day-trips
+        - family-friendly
+        - fast-track
+        - food
+        - guided-tours
+        - history
+        - hop-on-hop-off
+        - literature
+        - live-music
+        - museums
+        - nightlife
+        - outdoors
+        - private-tours
+        - romantic
+        - recurring-events
+        - self-guided
+        - small-group-tours
+        - sports
+        - theme-parks
+        - walking-tours
+        - wheelchair-accessible
+        - accommodation-included
+        - trip-difficulty-easy
+        - trip-difficulty-medium
+        - trip-difficulty-hard
+      example: adults-only
+    Commentary:
       type: object
       required:
-        - id
-        - default
-        - name
-        - title
-        - shortDescription
-        - bannerImageUrl
-        - coverImageUrl
-        - productIds
+        - format
+        - language
       properties:
-        id:
+        format:
+          allOf:
+            - $ref: '#/components/schemas/CommentaryFormat'
+          example: IN_PERSON
+          description: |-
+            Specifies the format in which commentary is provided. Possible values are:
+            IN_PERSON: Live commentary delivered by a guide or host during the activity. Examples include a tour guide providing real-time explanations about historical landmarks or itinerary highlights.
+            RECORDED_AUDIO: Pre-recorded audio commentary accessible during the activity. Delivered via headphones, mobile apps, or speaker systems, covering key details in multiple languages.
+            WRITTEN: Commentary provided as written material, such as printed brochures, guidebooks, or on-site informational displays at points of interest.
+            OTHER: Commentary formats not explicitly listed, such as augmented reality experiences or interactive digital guides.
+        language:
           type: string
-          example: 697e3ce8-1860-4cbf-80ad-95857df1f640
-          description: Unique identifier used in the platform to represent the category.
-        default:
-          type: boolean
-          example: true
-          description: TRUE` identifies the category as default, and should therefore rendered and selected first
-        name:
-          type: string
-          nullable: true
           example: ''
-          description: The name of the category.
-        title:
-          type: string
-          nullable: true
-          example: ''
-          description: The title of the category.
-        shortDescription:
-          type: string
-          nullable: true
-          example: ''
-          description: The description of the category
-        bannerImageUrl:
-          type: string
-          nullable: true
-          example: The URL of the image that represents the category.
-          format: uri
-          description: The URL of the image that represents the category.
-        coverImageUrl:
-          type: string
-          nullable: true
-          example: The URL of the image that represents the category.
-          format: uri
-          description: The URL of the image that represents the category.
-        productIds:
-          type: array
-          items:
-            type: string
-          example:
-            - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-          description: ''
+          description: Specifies the language in which the commentary is offered, adhering to IETF BCP 47 language tags for compatibility.
       example:
-        id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-        default: true
-        name: ''
-        title: ''
-        shortDescription: ''
-        bannerImageUrl: The URL of the image that represents the category.
-        coverImageUrl: The URL of the image that represents the category.
-        productIds:
-          - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
+        format: IN_PERSON
+        language: ''
+    CommentaryFormat:
+      type: string
+      enum:
+        - IN_PERSON
+        - RECORDED_AUDIO
+        - WRITTEN
+        - OTHER
+      example: IN_PERSON
     Contact:
       type: object
       required:
@@ -4554,171 +5903,6 @@ components:
       example:
         deliveryFormat: QRCODE
         deliveryValue: ''
-    Destination:
-      type: object
-      required:
-        - id
-        - default
-        - name
-        - country
-        - contact
-        - latitude
-        - longitude
-        - googlePlaceId
-        - bannerImageUrl
-        - coverImageUrl
-        - videoUrl
-        - facebookUrl
-        - googleUrl
-        - tripadvisorUrl
-        - twitterUrl
-        - youtubeUrl
-        - instagramUrl
-        - categories
-      properties:
-        id:
-          type: string
-          example: 697e3ce8-1860-4cbf-80ad-95857df1f640
-          description: Unique identifier used in the platform to represent the destination.
-        default:
-          type: boolean
-          example: true
-          description: TRUE` identifies the destination as default, and should therefore rendered and selected first
-        name:
-          type: string
-          nullable: true
-          example: ''
-          description: The name of the destination
-        country:
-          type: string
-          nullable: true
-          example: ''
-          description: The name of the destination
-        contact:
-          allOf:
-            - $ref: '#/components/schemas/SupplierContact'
-          example:
-            website: null
-            email: support@ventrata.com
-            telephone: null
-            address: Marble Arch, London, W1H 7EJ, United Kingdom
-          description: ''
-        latitude:
-          type: number
-          nullable: true
-          example: 55.9533
-          description: The name of the destination
-        longitude:
-          type: number
-          nullable: true
-          example: -3.1883
-          description: The name of the destination
-        googlePlaceId:
-          type: string
-          nullable: true
-          example: ''
-          description: ''
-        bannerImageUrl:
-          type: string
-          nullable: true
-          example: The URL of the image that represents the destination.
-          format: uri
-          description: The URL of the image that represents the destination.
-        coverImageUrl:
-          type: string
-          nullable: true
-          example: The URL of the image that represents the destination.
-          format: uri
-          description: The URL of the image that represents the DESTINATION.
-        videoUrl:
-          type: string
-          nullable: true
-          example: ''
-          format: uri
-          description: ''
-        facebookUrl:
-          type: string
-          nullable: true
-          example: ''
-          format: uri
-          description: ''
-        googleUrl:
-          type: string
-          nullable: true
-          example: ''
-          format: uri
-          description: ''
-        tripadvisorUrl:
-          type: string
-          nullable: true
-          example: ''
-          format: uri
-          description: ''
-        twitterUrl:
-          type: string
-          nullable: true
-          example: ''
-          format: uri
-          description: ''
-        youtubeUrl:
-          type: string
-          nullable: true
-          example: ''
-          format: uri
-          description: ''
-        instagramUrl:
-          type: string
-          nullable: true
-          example: ''
-          format: uri
-          description: ''
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/Category'
-          example:
-            - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-              default: true
-              name: ''
-              title: ''
-              shortDescription: ''
-              bannerImageUrl: The URL of the image that represents the category.
-              coverImageUrl: The URL of the image that represents the category.
-              productIds:
-                - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-          description: ''
-      example:
-        id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-        default: true
-        name: ''
-        country: ''
-        contact:
-          website: null
-          email: support@ventrata.com
-          telephone: null
-          address: Marble Arch, London, W1H 7EJ, United Kingdom
-        latitude: 55.9533
-        longitude: -3.1883
-        googlePlaceId: ''
-        bannerImageUrl: The URL of the image that represents the destination.
-        coverImageUrl: The URL of the image that represents the destination.
-        videoUrl: ''
-        facebookUrl: ''
-        googleUrl: ''
-        tripadvisorUrl: ''
-        twitterUrl: ''
-        youtubeUrl: ''
-        instagramUrl: ''
-        categories:
-          - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-            default: true
-            name: ''
-            title: ''
-            shortDescription: ''
-            bannerImageUrl: The URL of the image that represents the category.
-            coverImageUrl: The URL of the image that represents the category.
-            productIds:
-              - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
     ErrorBadRequest:
       type: object
       allOf:
@@ -4831,6 +6015,305 @@ components:
           type: integer
       example:
         expirationMinutes: 15
+    FAQ:
+      type: object
+      required:
+        - question
+        - answer
+      properties:
+        question:
+          type: string
+          example: ''
+          description: 'The text of the frequently asked question. This should be a well-phrased question that reflects typical customer concerns or queries about the product (e.g., "Is hotel pickup included?", "What is the cancellation policy?"). Note: FAQs are intentionally repeated at both product and option levels, enabling suppliers to address questions specific to each context. Resellers must combine FAQs from both levels for customer presentation.'
+        answer:
+          type: string
+          example: ''
+          description: The detailed response to the corresponding question. Answers should be accurate, informative, and written in a way that resolves customer uncertainty (e.g., "Yes, hotel pickup is included within a 10-mile radius of the city center.", "Cancellations are free up to 24 hours before the activity.").
+      example:
+        question: ''
+        answer: ''
+    Feature:
+      type: object
+      required:
+        - shortDescription
+        - type
+      properties:
+        shortDescription:
+          type: string
+          nullable: true
+          example: ''
+          description: A brief summary of a specific feature, providing quick and precise information about an aspect of the product.
+        type:
+          allOf:
+            - $ref: '#/components/schemas/FeatureType'
+          example: CANCELLATION_TERM
+          description: |-
+            Specifies the category of the feature to ensure clear and organized communication. Each category serves a distinct purpose:
+
+            INCLUSION: Details what is included in the product offering (e.g., "Hotel pickup included," "Lunch provided," "All equipment supplied"), emphasizing the product's completeness and value.
+            EXCLUSION: Lists what is not included (e.g., "Gratuities not included," "Admission tickets not provided"), managing customer expectations and reducing ambiguity.
+            HIGHLIGHT: Emphasizes the product's key selling points or unique aspects (e.g., "Skip-the-line access to the Eiffel Tower," "Expert-guided tour"), captivating potential customers by showcasing standout qualities.
+            PREBOOKING_INFORMATION: Contains essential details customers need to know before booking (e.g., "Not suitable for children under 3 years," "Wear sturdy footwear").
+            PREARRIVAL_INFORMATION: Offers details to prepare customers for their experience before arrival (e.g., "Arrive 15 minutes early," "Bring a printed ticket").
+            REDEMPTION_INSTRUCTION: Provides clear instructions on how to redeem the product or service (e.g., "Show your booking confirmation at the ticket counter," "Scan your QR code upon entry").
+            ACCESSIBILITY_INFORMATION: Highlights accessibility-related details (e.g., "Wheelchair accessible," "No elevators available").
+            ADDITIONAL_INFORMATION: Supplies supplementary details that add context or clarity (e.g., "Pets allowed with prior notice," "Multilingual guides available").
+            BOOKING_TERM: Describes terms related to the booking process (e.g., "Reservations must be made at least 48 hours in advance," "No changes allowed after booking").
+            CANCELLATION_TERM: Explains the terms and conditions for cancellations (e.g., "Free cancellation up to 24 hours before the start time," "Non-refundable").
+            This structured classification enhances the product's appeal, ensures transparency, and facilitates informed decision-making for resellers and customers.
+      example:
+        shortDescription: ''
+        type: CANCELLATION_TERM
+    FeatureType:
+      type: string
+      enum:
+        - INCLUSION
+        - EXCLUSION
+        - HIGHLIGHT
+        - PREBOOKING_INFORMATION
+        - PREARRIVAL_INFORMATION
+        - REDEMPTION_INSTRUCTION
+        - ACCESSIBILITY_INFORMATION
+        - ADDITIONAL_INFORMATION
+        - BOOKING_TERM
+        - CANCELLATION_TERM
+      example: CANCELLATION_TERM
+    GetProductsSuccessRequest:
+      type: object
+    GetSupplierRequest:
+      type: object
+    Identifiers:
+      type: object
+      required:
+        - googlePlaceId
+        - applePlaceId
+        - tripadvisorLocationId
+        - yelpPlaceId
+        - facebookPlaceId
+        - foursquarePlaceId
+        - baiduPlaceId
+        - amapPlaceId
+      properties:
+        googlePlaceId:
+          type: string
+          nullable: true
+        applePlaceId:
+          type: string
+          nullable: true
+        tripadvisorLocationId:
+          type: string
+          nullable: true
+        yelpPlaceId:
+          type: string
+          nullable: true
+        facebookPlaceId:
+          type: string
+          nullable: true
+        foursquarePlaceId:
+          type: string
+          nullable: true
+        baiduPlaceId:
+          type: string
+          nullable: true
+        amapPlaceId:
+          type: string
+          nullable: true
+      example:
+        googlePlaceId: null
+        applePlaceId: null
+        tripadvisorLocationId: null
+        yelpPlaceId: null
+        facebookPlaceId: null
+        foursquarePlaceId: null
+        baiduPlaceId: null
+        amapPlaceId: null
+      description: |-
+        Specifies the type or source of the identifier for the location. This field defines the platform or system where the identifier is valid, allowing for seamless integration with third-party systems or mapping platforms. Common examples include:
+        googlePlaceId: A unique identifier for locations on Google Maps.
+        applePlaceId: A unique identifier for locations on Apple Maps.
+        tripadvisorLocationId: A unique identifier for listings on TripAdvisor.
+        yelpPlaceId: A unique identifier for locations on Yelp.
+        facebookPlaceId: A unique identifier for places on Facebook.
+        foursquarePlaceId: A unique identifier for venues on Foursquare.
+        baiduPlaceId: A unique identifier for locations on Baidu Maps.
+        amapPlaceId: A unique identifier for locations on Amap (China-based mapping platform).
+    Location:
+      type: object
+      required:
+        - title
+        - shortDescription
+        - types
+        - minutesTo
+        - minutesAt
+        - place
+      properties:
+        title:
+          type: string
+          nullable: true
+          example: ''
+          description: The name of the location, providing a recognizable identifier for customers (e.g., "Statue of Liberty"). This field can be null if no name is available.
+        shortDescription:
+          type: string
+          nullable: true
+          example: ''
+          description: A brief description of the location, summarizing its significance or role in the product (e.g., "Historic landmark and popular tourist destination"). This field can be null if no description is provided.
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocationType'
+          example:
+            - POINT_OF_INTEREST
+          description: |-
+            Specifies the roles or purposes of the location within the product. START: The starting point or meeting location for the product or experience. This is where customers are expected to gather before the activity begins.
+            REDEMPTION: A location where customers must go to exchange tickets, collect passes, or redeem vouchers before proceeding to the starting point or experience (if applicable).
+            ITINERARY_ITEM: A designated stop or location within the itinerary, typically where customers pause or spend time during a moving tour or activity.
+            POINT_OF_INTEREST: A notable location or attraction that customers may see or pass by without stopping. Generally used for sightseeing locations.
+            ADMISSION_INCLUDED: A location where entry is included in the product price, often highlighting an attraction or event that customers can access as part of the experience.
+            END: The final point or drop-off location where the activity concludes.
+        minutesTo:
+          type: integer
+          nullable: true
+          example: null
+          description: The travel time, in minutes, needed to reach this location from the previous one in the itinerary. Useful for building schedules or itineraries. Set to null if travel time is unknown, not relevant, or not required.
+        minutesAt:
+          type: integer
+          nullable: true
+          example: null
+          description: The approximate duration, in minutes, spent at this location. Helps provide clarity on the itinerary or scheduling details. Set to null if the time spent is flexible, unknown, or not applicable.
+        place:
+          allOf:
+            - $ref: '#/components/schemas/Place'
+          example:
+            latitude: 55.9533
+            longitude: -3.1883
+            postalAddress:
+              streetAddress: ''
+              addressLocality: ''
+              addressRegion: ''
+              postalCode: ''
+              addressCountry: ''
+              postOfficeBoxNumber: ''
+            identifiers:
+              googlePlaceId: null
+              applePlaceId: null
+              tripadvisorLocationId: null
+              yelpPlaceId: null
+              facebookPlaceId: null
+              foursquarePlaceId: null
+              baiduPlaceId: null
+              amapPlaceId: null
+            sameAs: []
+          description: An object containing detailed geospatial and postal address data for the location.
+      example:
+        title: ''
+        shortDescription: ''
+        types:
+          - POINT_OF_INTEREST
+        minutesTo: null
+        minutesAt: null
+        place:
+          latitude: 55.9533
+          longitude: -3.1883
+          postalAddress:
+            streetAddress: ''
+            addressLocality: ''
+            addressRegion: ''
+            postalCode: ''
+            addressCountry: ''
+            postOfficeBoxNumber: ''
+          identifiers:
+            googlePlaceId: null
+            applePlaceId: null
+            tripadvisorLocationId: null
+            yelpPlaceId: null
+            facebookPlaceId: null
+            foursquarePlaceId: null
+            baiduPlaceId: null
+            amapPlaceId: null
+          sameAs: []
+    LocationType:
+      type: string
+      enum:
+        - START
+        - ITINERARY_ITEM
+        - POINT_OF_INTEREST
+        - ADMISSION_INCLUDED
+        - END
+        - REDEMPTION
+      example: POINT_OF_INTEREST
+    Media:
+      type: object
+      required:
+        - src
+        - type
+        - rel
+        - title
+        - caption
+        - copyright
+      properties:
+        src:
+          type: string
+          example: ''
+          format: uri
+          description: The URL of the media file. The URL must be stable and publicly accessible.
+        type:
+          allOf:
+            - $ref: '#/components/schemas/MediaType'
+          example: image/jpeg
+          description: |-
+            Specifies the type of the media file, which indicates its format and intended usage. Recommended types include: image/jpeg: High-quality compressed images, ideal for general use. Suggested dimensions: 1920x1080 or higher.
+            image/png: Images with transparency or higher visual fidelity, recommended for logos. Suggested dimensions: At least 1000x1000 pixels.
+            video/mp4: Universal video format for high-quality playback. Suggested resolution: 1080p or higher.
+            video/avi: A less common video format; MP4 is generally preferred for compatibility.
+            external/youtube: URL links to YouTube videos for dynamic content. Use a shareable URL format.
+            external/vimeo: URL links to Vimeo-hosted videos for high-quality or private video content.
+        rel:
+          allOf:
+            - $ref: '#/components/schemas/MediaRel'
+          example: LOGO
+          description: |-
+            Defines the relationship of the media file to the supplier's content. Common values include: LOGO: For branding assets like supplier logos.
+            COVER: For primary visual elements representing the supplier.
+            GALLERY: For additional images or videos.
+        title:
+          type: string
+          nullable: true
+          example: ''
+          description: The title or name of the media, providing a brief description or identifier for the media file. This helps in organizing and identifying media files (e.g., "Main Attraction Image," "Promotional Video"). This field can be null if no title is provided.
+        caption:
+          type: string
+          nullable: true
+          example: ''
+          description: A caption providing additional context or information about what is depicted in the media. Captions should be customer-facing and provide insights such as "Overview of the city skyline at sunset" or "Guests enjoying the guided tour." This field can be null if no caption is provided.
+        copyright:
+          type: string
+          nullable: true
+          example: ''
+          description: Information about the copyright status or usage restrictions of the media. This may include details about ownership, licensing terms, or attribution requirements (e.g., "© 2024 Example Corp, All Rights Reserved"). If null, it is assumed there are no copyright restrictions or attribution requirements.
+      example:
+        src: ''
+        type: image/jpeg
+        rel: LOGO
+        title: ''
+        caption: ''
+        copyright: ''
+    MediaRel:
+      type: string
+      enum:
+        - LOGO
+        - COVER
+        - GALLERY
+      example: LOGO
+    MediaType:
+      type: string
+      enum:
+        - image/jpeg
+        - image/png
+        - video/mp4
+        - video/avi
+        - external/youtube
+        - external/vimeo
+      example: image/jpeg
     OpeningHours:
       type: object
       required:
@@ -5006,6 +6489,142 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+        title:
+          type: string
+          example: ''
+          description: The public, customer-facing name of the product. This name is displayed to end customers and should accurately represent the product for marketing and sales purposes
+          x-capability-data:
+            capability: octo/content
+            required: true
+        shortDescription:
+          type: string
+          nullable: true
+          example: ''
+          description: A brief, customer-facing description of the product. This field provides a concise overview of the product and can be null if no description is available.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        description:
+          type: string
+          nullable: true
+          example: ''
+          description: A detailed description of the product, offering in-depth information about it and relevant details. This field can be null if extended details are not provided.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+          example:
+            - shortDescription: ''
+              type: CANCELLATION_TERM
+          description: "An array of structured objects describing various aspects of the product's features, grouped into clear categories. These include details about what is included, excluded, emphasized, essential, or safety-related, ensuring transparency and enhancing the product’s appeal to customers. Note: Features are intentionally repeated at both product and option levels, allowing suppliers to specify details where most applicable. Resellers must combine information from both levels for a comprehensive customer view."
+          x-capability-data:
+            capability: octo/content
+            required: true
+        faqs:
+          type: array
+          items:
+            $ref: '#/components/schemas/FAQ'
+          example:
+            - question: ''
+              answer: ''
+          description: 'An array containing frequently asked questions (FAQs) related to the product. This field is designed to address common customer inquiries by providing clear and concise answers, enhancing the customer experience and reducing potential confusion. Each object represents a single question and its corresponding answer. Note: FAQs are intentionally repeated at both product and option levels, enabling suppliers to address questions specific to each context. Resellers must combine FAQs from both levels for customer presentation.'
+          x-capability-data:
+            capability: octo/content
+            required: true
+        media:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+          example:
+            - src: ''
+              type: image/jpeg
+              rel: LOGO
+              title: ''
+              caption: ''
+              copyright: ''
+          description: |-
+            A list of media files hosted at stable URLs. Media enhances the visual and informational representation of the product, supporting images, videos, or documents.
+            Note: Media details are intentionally repeated at both product and option levels. Suppliers should use the level most relevant for the resource. Resellers must merge media information for customer presentation.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+          example:
+            - title: ''
+              shortDescription: ''
+              types:
+                - POINT_OF_INTEREST
+              minutesTo: null
+              minutesAt: null
+              place:
+                latitude: 55.9533
+                longitude: -3.1883
+                postalAddress:
+                  streetAddress: ''
+                  addressLocality: ''
+                  addressRegion: ''
+                  postalCode: ''
+                  addressCountry: ''
+                  postOfficeBoxNumber: ''
+                identifiers:
+                  googlePlaceId: null
+                  applePlaceId: null
+                  tripadvisorLocationId: null
+                  yelpPlaceId: null
+                  facebookPlaceId: null
+                  foursquarePlaceId: null
+                  baiduPlaceId: null
+                  amapPlaceId: null
+                sameAs: []
+          description: 'A list of geographical locations associated with the product. These locations can represent an itinerary where the order of locations matters, such as for tours or experiences, or simply a list of related locations linked to the product. This field is particularly useful for map-dependent reseller platforms, as it provides geographic and contextual details to enhance customer understanding and platform integration. Each object in the array represents a single related location and includes the following fields:'
+          x-capability-data:
+            capability: octo/content
+            required: true
+        categoryLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoryLabel'
+          example:
+            - adults-only
+            - romantic
+          description: A list of labels representing the categories applicable to the product or experience. These categories help customers quickly understand the nature, format, or features of the product. The predefined category labels are based on Google's Product Categories for Things to Do, ensuring alignment with industry standards. OCTO has also added custom categories to cover additional popular offerings. OCTO welcomes suggestions for additional categories to ensure consistency and better coverage. Please contact the team to propose updates to the specification.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        durationMinutesFrom:
+          type: integer
+          example: 30
+          description: Indicates the duration of the product or experience in minutes. If the duration is flexible, this represents the typical minimum duration.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        durationMinutesTo:
+          type: integer
+          nullable: true
+          example: null
+          description: |-
+            If a number: Represents the maximum in flexible duration of the product or experience in minutes, defining a range.
+            If null: Indicates that the duration is exact and matches the value of durationMinutesFrom.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        commentary:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commentary'
+          example:
+            - format: IN_PERSON
+              language: ''
+          description: A list of commentary options available for the product. Each object in the array specifies the format and language of the commentary.
+          x-capability-data:
+            capability: octo/content
+            required: true
       example:
         id: DEFAULT
         default: true
@@ -5065,6 +6684,204 @@ components:
                 - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
             requiredContactFields:
               - firstName
+        pricingFrom:
+          - original: 2000
+            retail: 2000
+            net: 1600
+            currency: EUR
+            currencyPrecision: 2
+            includedTaxes: []
+    OptionContent:
+      type: object
+      properties:
+        title:
+          type: string
+          example: ''
+          description: The public, customer-facing name of the product. This name is displayed to end customers and should accurately represent the product for marketing and sales purposes
+          x-capability-data:
+            capability: octo/content
+            required: true
+        shortDescription:
+          type: string
+          nullable: true
+          example: ''
+          description: A brief, customer-facing description of the product. This field provides a concise overview of the product and can be null if no description is available.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        description:
+          type: string
+          nullable: true
+          example: ''
+          description: A detailed description of the product, offering in-depth information about it and relevant details. This field can be null if extended details are not provided.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+          example:
+            - shortDescription: ''
+              type: CANCELLATION_TERM
+          description: "An array of structured objects describing various aspects of the product's features, grouped into clear categories. These include details about what is included, excluded, emphasized, essential, or safety-related, ensuring transparency and enhancing the product’s appeal to customers. Note: Features are intentionally repeated at both product and option levels, allowing suppliers to specify details where most applicable. Resellers must combine information from both levels for a comprehensive customer view."
+          x-capability-data:
+            capability: octo/content
+            required: true
+        faqs:
+          type: array
+          items:
+            $ref: '#/components/schemas/FAQ'
+          example:
+            - question: ''
+              answer: ''
+          description: 'An array containing frequently asked questions (FAQs) related to the product. This field is designed to address common customer inquiries by providing clear and concise answers, enhancing the customer experience and reducing potential confusion. Each object represents a single question and its corresponding answer. Note: FAQs are intentionally repeated at both product and option levels, enabling suppliers to address questions specific to each context. Resellers must combine FAQs from both levels for customer presentation.'
+          x-capability-data:
+            capability: octo/content
+            required: true
+        media:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+          example:
+            - src: ''
+              type: image/jpeg
+              rel: LOGO
+              title: ''
+              caption: ''
+              copyright: ''
+          description: |-
+            A list of media files hosted at stable URLs. Media enhances the visual and informational representation of the product, supporting images, videos, or documents.
+            Note: Media details are intentionally repeated at both product and option levels. Suppliers should use the level most relevant for the resource. Resellers must merge media information for customer presentation.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+          example:
+            - title: ''
+              shortDescription: ''
+              types:
+                - POINT_OF_INTEREST
+              minutesTo: null
+              minutesAt: null
+              place:
+                latitude: 55.9533
+                longitude: -3.1883
+                postalAddress:
+                  streetAddress: ''
+                  addressLocality: ''
+                  addressRegion: ''
+                  postalCode: ''
+                  addressCountry: ''
+                  postOfficeBoxNumber: ''
+                identifiers:
+                  googlePlaceId: null
+                  applePlaceId: null
+                  tripadvisorLocationId: null
+                  yelpPlaceId: null
+                  facebookPlaceId: null
+                  foursquarePlaceId: null
+                  baiduPlaceId: null
+                  amapPlaceId: null
+                sameAs: []
+          description: 'A list of geographical locations associated with the product. These locations can represent an itinerary where the order of locations matters, such as for tours or experiences, or simply a list of related locations linked to the product. This field is particularly useful for map-dependent reseller platforms, as it provides geographic and contextual details to enhance customer understanding and platform integration. Each object in the array represents a single related location and includes the following fields:'
+          x-capability-data:
+            capability: octo/content
+            required: true
+        categoryLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoryLabel'
+          example:
+            - adults-only
+            - romantic
+          description: A list of labels representing the categories applicable to the product or experience. These categories help customers quickly understand the nature, format, or features of the product. The predefined category labels are based on Google's Product Categories for Things to Do, ensuring alignment with industry standards. OCTO has also added custom categories to cover additional popular offerings. OCTO welcomes suggestions for additional categories to ensure consistency and better coverage. Please contact the team to propose updates to the specification.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        durationMinutesFrom:
+          type: integer
+          example: 30
+          description: Indicates the duration of the product or experience in minutes. If the duration is flexible, this represents the typical minimum duration.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        durationMinutesTo:
+          type: integer
+          nullable: true
+          example: null
+          description: |-
+            If a number: Represents the maximum in flexible duration of the product or experience in minutes, defining a range.
+            If null: Indicates that the duration is exact and matches the value of durationMinutesFrom.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        commentary:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commentary'
+          example:
+            - format: IN_PERSON
+              language: ''
+          description: A list of commentary options available for the product. Each object in the array specifies the format and language of the commentary.
+          x-capability-data:
+            capability: octo/content
+            required: true
+      example:
+        title: ''
+        shortDescription: ''
+        description: ''
+        features:
+          - shortDescription: ''
+            type: CANCELLATION_TERM
+        faqs:
+          - question: ''
+            answer: ''
+        media:
+          - src: ''
+            type: image/jpeg
+            rel: LOGO
+            title: ''
+            caption: ''
+            copyright: ''
+        locations:
+          - title: ''
+            shortDescription: ''
+            types:
+              - POINT_OF_INTEREST
+            minutesTo: null
+            minutesAt: null
+            place:
+              latitude: 55.9533
+              longitude: -3.1883
+              postalAddress:
+                streetAddress: ''
+                addressLocality: ''
+                addressRegion: ''
+                postalCode: ''
+                addressCountry: ''
+                postOfficeBoxNumber: ''
+              identifiers:
+                googlePlaceId: null
+                applePlaceId: null
+                tripadvisorLocationId: null
+                yelpPlaceId: null
+                facebookPlaceId: null
+                foursquarePlaceId: null
+                baiduPlaceId: null
+                amapPlaceId: null
+              sameAs: []
+        categoryLabels:
+          - adults-only
+          - romantic
+        durationMinutesFrom: 30
+        durationMinutesTo: null
+        commentary:
+          - format: IN_PERSON
+            language: ''
     OptionPricing:
       type: object
       properties:
@@ -5126,6 +6943,120 @@ components:
       example:
         minUnits: 0
         maxUnits: 9
+    Place:
+      type: object
+      required:
+        - latitude
+        - longitude
+        - postalAddress
+        - identifiers
+        - sameAs
+      properties:
+        latitude:
+          type: number
+          example: 55.9533
+          description: The latitude of the location, expressed in decimal degrees. Negative values represent southern latitudes.
+        longitude:
+          type: number
+          example: -3.1883
+          description: The longitude of the location, expressed in decimal degrees. Negative values represent western longitudes.
+        postalAddress:
+          allOf:
+            - $ref: '#/components/schemas/PostalAddress'
+          example:
+            streetAddress: ''
+            addressLocality: ''
+            addressRegion: ''
+            postalCode: ''
+            addressCountry: ''
+            postOfficeBoxNumber: ''
+          description: Structured postal address details for the location.
+        identifiers:
+          allOf:
+            - $ref: '#/components/schemas/Identifiers'
+          example:
+            googlePlaceId: null
+            applePlaceId: null
+            tripadvisorLocationId: null
+            yelpPlaceId: null
+            facebookPlaceId: null
+            foursquarePlaceId: null
+            baiduPlaceId: null
+            amapPlaceId: null
+          description: A list of unique identifiers from third-party platforms (e.g., Google Maps, Yelp, Tripadvisor).
+        sameAs:
+          type: array
+          items:
+            type: string
+          example: []
+          description: A list of URLs pointing to web pages or social media profiles for the location.
+      example:
+        latitude: 55.9533
+        longitude: -3.1883
+        postalAddress:
+          streetAddress: ''
+          addressLocality: ''
+          addressRegion: ''
+          postalCode: ''
+          addressCountry: ''
+          postOfficeBoxNumber: ''
+        identifiers:
+          googlePlaceId: null
+          applePlaceId: null
+          tripadvisorLocationId: null
+          yelpPlaceId: null
+          facebookPlaceId: null
+          foursquarePlaceId: null
+          baiduPlaceId: null
+          amapPlaceId: null
+        sameAs: []
+    PostalAddress:
+      type: object
+      required:
+        - streetAddress
+        - addressLocality
+        - addressRegion
+        - postalCode
+        - addressCountry
+        - postOfficeBoxNumber
+      properties:
+        streetAddress:
+          type: string
+          nullable: true
+          example: ''
+          description: The primary address line, such as a street address, P.O. box, or company name. Null if not provided.
+        addressLocality:
+          type: string
+          nullable: true
+          example: ''
+          description: The city or locality associated with the address.
+        addressRegion:
+          type: string
+          nullable: true
+          example: ''
+          description: The state, province, or region associated with the address.
+        postalCode:
+          type: string
+          nullable: true
+          example: ''
+          description: The postal code or ZIP code for the address.
+        addressCountry:
+          type: string
+          nullable: true
+          example: ''
+          description: The postal code or ZIP code for the address.
+        postOfficeBoxNumber:
+          type: string
+          nullable: true
+          example: ''
+          description: The post office box number associated with the address, if applicable.
+      example:
+        streetAddress: ''
+        addressLocality: ''
+        addressRegion: ''
+        postalCode: ''
+        addressCountry: ''
+        postOfficeBoxNumber: ''
     Pricing:
       type: object
       required:
@@ -5381,6 +7312,142 @@ components:
             - $ref: '#/components/schemas/PricingPer'
           example: UNIT
           description: Is on the object when Pricing capability is requested. Indicates whether the pricing is per unit (most common), or per booking. Pricing which is per booking is common for private charters or group booking products where the price is the same regardless of how many tickets are purchased.
+        title:
+          type: string
+          example: ''
+          description: The public, customer-facing name of the product. This name is displayed to end customers and should accurately represent the product for marketing and sales purposes
+          x-capability-data:
+            capability: octo/content
+            required: true
+        shortDescription:
+          type: string
+          nullable: true
+          example: ''
+          description: A brief, customer-facing description of the product. This field provides a concise overview of the product and can be null if no description is available.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        description:
+          type: string
+          nullable: true
+          example: ''
+          description: A detailed description of the product, offering in-depth information about it and relevant details. This field can be null if extended details are not provided.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+          example:
+            - shortDescription: ''
+              type: CANCELLATION_TERM
+          description: "An array of structured objects describing various aspects of the product's features, grouped into clear categories. These include details about what is included, excluded, emphasized, essential, or safety-related, ensuring transparency and enhancing the product’s appeal to customers. Note: Features are intentionally repeated at both product and option levels, allowing suppliers to specify details where most applicable. Resellers must combine information from both levels for a comprehensive customer view."
+          x-capability-data:
+            capability: octo/content
+            required: true
+        faqs:
+          type: array
+          items:
+            $ref: '#/components/schemas/FAQ'
+          example:
+            - question: ''
+              answer: ''
+          description: 'An array containing frequently asked questions (FAQs) related to the product. This field is designed to address common customer inquiries by providing clear and concise answers, enhancing the customer experience and reducing potential confusion. Each object represents a single question and its corresponding answer. Note: FAQs are intentionally repeated at both product and option levels, enabling suppliers to address questions specific to each context. Resellers must combine FAQs from both levels for customer presentation.'
+          x-capability-data:
+            capability: octo/content
+            required: true
+        media:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+          example:
+            - src: ''
+              type: image/jpeg
+              rel: LOGO
+              title: ''
+              caption: ''
+              copyright: ''
+          description: |-
+            A list of media files hosted at stable URLs. Media enhances the visual and informational representation of the product, supporting images, videos, or documents.
+            Note: Media details are intentionally repeated at both product and option levels. Suppliers should use the level most relevant for the resource. Resellers must merge media information for customer presentation.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+          example:
+            - title: ''
+              shortDescription: ''
+              types:
+                - POINT_OF_INTEREST
+              minutesTo: null
+              minutesAt: null
+              place:
+                latitude: 55.9533
+                longitude: -3.1883
+                postalAddress:
+                  streetAddress: ''
+                  addressLocality: ''
+                  addressRegion: ''
+                  postalCode: ''
+                  addressCountry: ''
+                  postOfficeBoxNumber: ''
+                identifiers:
+                  googlePlaceId: null
+                  applePlaceId: null
+                  tripadvisorLocationId: null
+                  yelpPlaceId: null
+                  facebookPlaceId: null
+                  foursquarePlaceId: null
+                  baiduPlaceId: null
+                  amapPlaceId: null
+                sameAs: []
+          description: 'A list of geographical locations associated with the product. These locations can represent an itinerary where the order of locations matters, such as for tours or experiences, or simply a list of related locations linked to the product. This field is particularly useful for map-dependent reseller platforms, as it provides geographic and contextual details to enhance customer understanding and platform integration. Each object in the array represents a single related location and includes the following fields:'
+          x-capability-data:
+            capability: octo/content
+            required: true
+        categoryLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoryLabel'
+          example:
+            - adults-only
+            - romantic
+          description: A list of labels representing the categories applicable to the product or experience. These categories help customers quickly understand the nature, format, or features of the product. The predefined category labels are based on Google's Product Categories for Things to Do, ensuring alignment with industry standards. OCTO has also added custom categories to cover additional popular offerings. OCTO welcomes suggestions for additional categories to ensure consistency and better coverage. Please contact the team to propose updates to the specification.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        durationMinutesFrom:
+          type: integer
+          example: 30
+          description: Indicates the duration of the product or experience in minutes. If the duration is flexible, this represents the typical minimum duration.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        durationMinutesTo:
+          type: integer
+          nullable: true
+          example: null
+          description: |-
+            If a number: Represents the maximum in flexible duration of the product or experience in minutes, defining a range.
+            If null: Indicates that the duration is exact and matches the value of durationMinutesFrom.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        commentary:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commentary'
+          example:
+            - format: IN_PERSON
+              language: ''
+          description: A list of commentary options available for the product. Each object in the array specifies the format and language of the commentary.
+          x-capability-data:
+            capability: octo/content
+            required: true
       example:
         id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
         internalName: London Eye General Admission
@@ -5456,6 +7523,197 @@ components:
                     - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                 requiredContactFields:
                   - firstName
+    ProductContent:
+      type: object
+      properties:
+        title:
+          type: string
+          example: ''
+          description: The public, customer-facing name of the product. This name is displayed to end customers and should accurately represent the product for marketing and sales purposes
+          x-capability-data:
+            capability: octo/content
+            required: true
+        shortDescription:
+          type: string
+          nullable: true
+          example: ''
+          description: A brief, customer-facing description of the product. This field provides a concise overview of the product and can be null if no description is available.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        description:
+          type: string
+          nullable: true
+          example: ''
+          description: A detailed description of the product, offering in-depth information about it and relevant details. This field can be null if extended details are not provided.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+          example:
+            - shortDescription: ''
+              type: CANCELLATION_TERM
+          description: "An array of structured objects describing various aspects of the product's features, grouped into clear categories. These include details about what is included, excluded, emphasized, essential, or safety-related, ensuring transparency and enhancing the product’s appeal to customers. Note: Features are intentionally repeated at both product and option levels, allowing suppliers to specify details where most applicable. Resellers must combine information from both levels for a comprehensive customer view."
+          x-capability-data:
+            capability: octo/content
+            required: true
+        faqs:
+          type: array
+          items:
+            $ref: '#/components/schemas/FAQ'
+          example:
+            - question: ''
+              answer: ''
+          description: 'An array containing frequently asked questions (FAQs) related to the product. This field is designed to address common customer inquiries by providing clear and concise answers, enhancing the customer experience and reducing potential confusion. Each object represents a single question and its corresponding answer. Note: FAQs are intentionally repeated at both product and option levels, enabling suppliers to address questions specific to each context. Resellers must combine FAQs from both levels for customer presentation.'
+          x-capability-data:
+            capability: octo/content
+            required: true
+        media:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+          example:
+            - src: ''
+              type: image/jpeg
+              rel: LOGO
+              title: ''
+              caption: ''
+              copyright: ''
+          description: |-
+            A list of media files hosted at stable URLs. Media enhances the visual and informational representation of the product, supporting images, videos, or documents.
+            Note: Media details are intentionally repeated at both product and option levels. Suppliers should use the level most relevant for the resource. Resellers must merge media information for customer presentation.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+          example:
+            - title: ''
+              shortDescription: ''
+              types:
+                - POINT_OF_INTEREST
+              minutesTo: null
+              minutesAt: null
+              place:
+                latitude: 55.9533
+                longitude: -3.1883
+                postalAddress:
+                  streetAddress: ''
+                  addressLocality: ''
+                  addressRegion: ''
+                  postalCode: ''
+                  addressCountry: ''
+                  postOfficeBoxNumber: ''
+                identifiers:
+                  googlePlaceId: null
+                  applePlaceId: null
+                  tripadvisorLocationId: null
+                  yelpPlaceId: null
+                  facebookPlaceId: null
+                  foursquarePlaceId: null
+                  baiduPlaceId: null
+                  amapPlaceId: null
+                sameAs: []
+          description: 'A list of geographical locations associated with the product. These locations can represent an itinerary where the order of locations matters, such as for tours or experiences, or simply a list of related locations linked to the product. This field is particularly useful for map-dependent reseller platforms, as it provides geographic and contextual details to enhance customer understanding and platform integration. Each object in the array represents a single related location and includes the following fields:'
+          x-capability-data:
+            capability: octo/content
+            required: true
+        categoryLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/CategoryLabel'
+          example:
+            - adults-only
+            - romantic
+          description: A list of labels representing the categories applicable to the product or experience. These categories help customers quickly understand the nature, format, or features of the product. The predefined category labels are based on Google's Product Categories for Things to Do, ensuring alignment with industry standards. OCTO has also added custom categories to cover additional popular offerings. OCTO welcomes suggestions for additional categories to ensure consistency and better coverage. Please contact the team to propose updates to the specification.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        durationMinutesFrom:
+          type: integer
+          example: 30
+          description: Indicates the duration of the product or experience in minutes. If the duration is flexible, this represents the typical minimum duration.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        durationMinutesTo:
+          type: integer
+          nullable: true
+          example: null
+          description: |-
+            If a number: Represents the maximum in flexible duration of the product or experience in minutes, defining a range.
+            If null: Indicates that the duration is exact and matches the value of durationMinutesFrom.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        commentary:
+          type: array
+          items:
+            $ref: '#/components/schemas/Commentary'
+          example:
+            - format: IN_PERSON
+              language: ''
+          description: A list of commentary options available for the product. Each object in the array specifies the format and language of the commentary.
+          x-capability-data:
+            capability: octo/content
+            required: true
+      example:
+        title: ''
+        shortDescription: ''
+        description: ''
+        features:
+          - shortDescription: ''
+            type: CANCELLATION_TERM
+        faqs:
+          - question: ''
+            answer: ''
+        media:
+          - src: ''
+            type: image/jpeg
+            rel: LOGO
+            title: ''
+            caption: ''
+            copyright: ''
+        locations:
+          - title: ''
+            shortDescription: ''
+            types:
+              - POINT_OF_INTEREST
+            minutesTo: null
+            minutesAt: null
+            place:
+              latitude: 55.9533
+              longitude: -3.1883
+              postalAddress:
+                streetAddress: ''
+                addressLocality: ''
+                addressRegion: ''
+                postalCode: ''
+                addressCountry: ''
+                postOfficeBoxNumber: ''
+              identifiers:
+                googlePlaceId: null
+                applePlaceId: null
+                tripadvisorLocationId: null
+                yelpPlaceId: null
+                facebookPlaceId: null
+                foursquarePlaceId: null
+                baiduPlaceId: null
+                amapPlaceId: null
+              sameAs: []
+        categoryLabels:
+          - adults-only
+          - romantic
+        durationMinutesFrom: 30
+        durationMinutesTo: null
+        commentary:
+          - format: IN_PERSON
+            language: ''
     ProductPricing:
       type: object
       properties:
@@ -5496,6 +7754,10 @@ components:
         - PARTIAL
         - NONE
       example: PARTIAL
+    ResponseHeaders:
+      type: object
+    ResponseHeadersContent:
+      type: object
     Restrictions:
       type: object
       required:
@@ -5650,7 +7912,6 @@ components:
         - name
         - endpoint
         - contact
-        - capabilities
       properties:
         id:
           type: string
@@ -5674,60 +7935,26 @@ components:
             telephone: null
             address: Marble Arch, London, W1H 7EJ, United Kingdom
           description: A structured object containing defined contact fields related to the supplier. This includes various communication methods (e.g., website, email, phone) and address information. It ensures standardized contact details that facilitate seamless communication with the supplier for both customers and partners.
-        capabilities:
-          type: array
-          items:
-            $ref: '#/components/schemas/Capability'
-          example:
-            - octo/content
-          description: An array of capabilities that the supplier has. Possible values are:`octo/content` The supplier can provide pricing information
-          x-oapi-codegen-only-honour-go-name: true
-          x-go-json-ignore: true
-          x-go-name: capabilities
-        country:
+        shortDescription:
           type: string
           nullable: true
-          example: United Kingdom
-          description: The country the supplier is based in.
-          x-oapi-codegen-extra-tags:
+          example: ''
+          description: A brief, customer-facing description of the supplier. This field provides a concise overview of the supplier's business and may be null if no description is available.
+          x-capability-data:
             capability: octo/content
-        destinations:
+            required: true
+        media:
           type: array
           items:
-            $ref: '#/components/schemas/Destination'
+            $ref: '#/components/schemas/Media'
           example:
-            - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-              default: true
-              name: ''
-              country: ''
-              contact:
-                website: null
-                email: support@ventrata.com
-                telephone: null
-                address: Marble Arch, London, W1H 7EJ, United Kingdom
-              latitude: 55.9533
-              longitude: -3.1883
-              googlePlaceId: ''
-              bannerImageUrl: The URL of the image that represents the destination.
-              coverImageUrl: The URL of the image that represents the destination.
-              videoUrl: ''
-              facebookUrl: ''
-              googleUrl: ''
-              tripadvisorUrl: ''
-              twitterUrl: ''
-              youtubeUrl: ''
-              instagramUrl: ''
-              categories:
-                - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-                  default: true
-                  name: ''
-                  title: ''
-                  shortDescription: ''
-                  bannerImageUrl: The URL of the image that represents the category.
-                  coverImageUrl: The URL of the image that represents the category.
-                  productIds:
-                    - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-          description: An array of destinations the supplier operates in.
+            - src: ''
+              type: image/jpeg
+              rel: LOGO
+              title: ''
+              caption: ''
+              copyright: ''
+          description: 'A list of supplier media files hosted at stable URLs. Media enhances the visual and informational representation of the supplier, such as logos and supporting images. This array can be null if no media is available. Note: Media details are intentionally repeated at various levels. '
           x-capability-data:
             capability: octo/content
             required: true
@@ -5740,8 +7967,6 @@ components:
           email: support@ventrata.com
           telephone: null
           address: Marble Arch, London, W1H 7EJ, United Kingdom
-        capabilities:
-          - octo/content
       x-supported-capabilities:
         - octo/content
     SupplierContact:
@@ -5781,53 +8006,38 @@ components:
     SupplierContent:
       type: object
       properties:
-        country:
+        shortDescription:
           type: string
           nullable: true
-          example: United Kingdom
-          description: The country the supplier is based in.
-          x-oapi-codegen-extra-tags:
-            capability: octo/content
-        destinations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Destination'
-          example:
-            - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-              default: true
-              name: ''
-              country: ''
-              contact:
-                website: null
-                email: support@ventrata.com
-                telephone: null
-                address: Marble Arch, London, W1H 7EJ, United Kingdom
-              latitude: 55.9533
-              longitude: -3.1883
-              googlePlaceId: ''
-              bannerImageUrl: The URL of the image that represents the destination.
-              coverImageUrl: The URL of the image that represents the destination.
-              videoUrl: ''
-              facebookUrl: ''
-              googleUrl: ''
-              tripadvisorUrl: ''
-              twitterUrl: ''
-              youtubeUrl: ''
-              instagramUrl: ''
-              categories:
-                - id: 697e3ce8-1860-4cbf-80ad-95857df1f640
-                  default: true
-                  name: ''
-                  title: ''
-                  shortDescription: ''
-                  bannerImageUrl: The URL of the image that represents the category.
-                  coverImageUrl: The URL of the image that represents the category.
-                  productIds:
-                    - 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
-          description: An array of destinations the supplier operates in.
+          example: ''
+          description: A brief, customer-facing description of the supplier. This field provides a concise overview of the supplier's business and may be null if no description is available.
           x-capability-data:
             capability: octo/content
             required: true
+        media:
+          type: array
+          items:
+            $ref: '#/components/schemas/Media'
+          example:
+            - src: ''
+              type: image/jpeg
+              rel: LOGO
+              title: ''
+              caption: ''
+              copyright: ''
+          description: 'A list of supplier media files hosted at stable URLs. Media enhances the visual and informational representation of the supplier, such as logos and supporting images. This array can be null if no media is available. Note: Media details are intentionally repeated at various levels. '
+          x-capability-data:
+            capability: octo/content
+            required: true
+      example:
+        shortDescription: ''
+        media:
+          - src: ''
+            type: image/jpeg
+            rel: LOGO
+            title: ''
+            caption: ''
+            copyright: ''
     Tax:
       type: object
       required:
@@ -6013,6 +8223,17 @@ components:
           x-capability-data:
             capability: octo/content
             required: true
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+          example:
+            - shortDescription: ''
+              type: CANCELLATION_TERM
+          description: "An array of structured objects describing various aspects of the unit's features, grouped into clear categories. These include details about what is included, excluded, emphasized, essential, or safety-related, ensuring transparency and enhancing the option’s appeal to customers. Note: Features are intentionally repeated at both product and option levels, allowing suppliers to specify details where most applicable. Resellers must combine information from both levels for a comprehensive customer view."
+          x-capability-data:
+            capability: octo/content
+            required: true
       example:
         id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
         internalName: Adult(s)
@@ -6044,6 +8265,17 @@ components:
           type: string
           example: ''
           description: A concise summary of the unit, offering key details to customers. This helps in differentiating units and highlighting important characteristics.
+          x-capability-data:
+            capability: octo/content
+            required: true
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+          example:
+            - shortDescription: ''
+              type: CANCELLATION_TERM
+          description: "An array of structured objects describing various aspects of the unit's features, grouped into clear categories. These include details about what is included, excluded, emphasized, essential, or safety-related, ensuring transparency and enhancing the option’s appeal to customers. Note: Features are intentionally repeated at both product and option levels, allowing suppliers to specify details where most applicable. Resellers must combine information from both levels for a comprehensive customer view."
           x-capability-data:
             capability: octo/content
             required: true

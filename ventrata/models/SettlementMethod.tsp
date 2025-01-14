@@ -6,5 +6,5 @@ enum SettlementMethod {
   DEPOSIT: "deposit",
   DIRECT: "direct",
   VOUCHER: "voucher",
-  WHOLESALE: "wholesale"
+  WHOLESALE: "wholesale",
 }
