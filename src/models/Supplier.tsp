@@ -38,7 +38,7 @@ model Supplier {
   @doc(SUPPLIER_ENDPOINT_DOC)
   @example(SUPPLIER_ENDPOINT_EXAMPLE)
   @format("uri")
-  endpoint: string;
+  endpoint: url;
 
   @doc(SUPPLIER_CONTACT_DOC)
   @example(SUPPLIER_CONTACT_EXAMPLE)

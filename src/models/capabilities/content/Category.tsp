@@ -60,12 +60,12 @@ model Category {
   @doc(CATEGORY_BANNER_IMAGE_URL_DOC)
   @example(CATEGORY_BANNER_IMAGE_URL_EXAMPLE)
   @format("uri")
-  bannerImageUrl: string | null;
+  bannerImageUrl: url | null;
 
   @doc(CATEGORY_COVER_IMAGE_URL_DOC)
   @example(CATEGORY_COVER_IMAGE_URL_EXAMPLE)
   @format("uri")
-  coverImageUrl: string | null;
+  coverImageUrl: url | null;
 
   // @doc(CATEGORY_DESTINATIONS_DOC)
   // @example(CATEGORY_DESTINATIONS_EXAMPLE)

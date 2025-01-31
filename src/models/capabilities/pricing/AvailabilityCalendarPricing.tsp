@@ -1,7 +1,9 @@
+import "@typespec/openapi";
 import "./Pricing.tsp";
 import "./PricingUnit.tsp";
 
 namespace Octo;
+using OpenAPI;
 
 const AVAILABILITY_CALENDAR_PRICING_UNIT_PRICING_DOC = "Is on the object when Pricing capability is requested. ";
 const AVAILABILITY_CALENDAR_PRICING_PRICING_DOC = "Is on the object when Pricing capability is requested. ";
@@ -22,9 +24,23 @@ const AVAILABILITY_CALENDAR_PRICING_EXAMPLE = #{
 model AvailabilityCalendarPricing {
   @doc(AVAILABILITY_CALENDAR_PRICING_UNIT_PRICING_DOC)
   @example(AVAILABILITY_CALENDAR_PRICING_UNIT_PRICING_EXAMPLE)
+  @extension(
+    "x-capability-data",
+    {
+      capability: "octo/pricing",
+      required: true,
+    }
+  )
   unitPricingFrom?: PricingUnit[];
 
   @doc(AVAILABILITY_CALENDAR_PRICING_PRICING_DOC)
   @example(AVAILABILITY_CALENDAR_PRICING_PRICING_EXAMPLE)
+  @extension(
+    "x-capability-data",
+    {
+      capability: "octo/pricing",
+      required: true,
+    }
+  )
   pricingFrom?: Pricing[];
 }

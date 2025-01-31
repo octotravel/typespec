@@ -1,5 +1,5 @@
 import "./common/AvailabilityUnit.tsp";
-import "./capabilities/pricing/AvailabilityCalendarPricingSchema.tsp";
+import "./capabilities/pricing/AvailabilityCalendarPricingBody.tsp";
 
 namespace Octo;
 

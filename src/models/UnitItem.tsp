@@ -14,7 +14,7 @@ const UNIT_ITEM_UNIT_ID_DOC = "This MUST be a unique identifier within the scope
 const UNIT_UNIT_DOC = "";
 const UNIT_STATUS_DOC = "The status of the booking, possible values are:\n`ON_HOLD` The booking is pending confirmation, this is the default value when you first create the booking.\n`EXPIRED` If the booking is not confirmed before the expiration hold expires, it goes into an expired state.\n`CONFIRMED` Once the confirmation call is made the booking is ready to be used.\n`CANCELLED` If the booking is cancelled.\n`PENDING` If the booking is pending outside availability confirmation.\n`REDEEMED` If the booking is already redeemed.";
 const UNIT_UTC_REDEEMED_AT_DOC = "The ISO8601 date in UTC indicating when the ticket was used at the attraction.";
-const UNIT_CONTACT_DOC = "Contact details for the guests that will attend the tour/attraction. Contact schema can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information)";
+const UNIT_CONTACT_DOC = "Contact details for the guests that will attend the tour/attraction. Contact Body can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information)";
 const UNIT_TICKET_DOC = "";
 
 const UNIT_ITEM_UUID_EXAMPLE = "3b1bc2ee-3155-4738-9471-f49842a07327";
@@ -51,7 +51,7 @@ model UnitItem {
 
   @doc(UNIT_UTC_REDEEMED_AT_DOC)
   @example(UNIT_UTC_REDEEMED_AT_EXAMPLE)
-  utcRedeemedAt: string | null;
+  utcRedeemedAt: utcDateTime | null;
 
   @doc(UNIT_CONTACT_DOC)
   @example(UNIT_CONTACT_EXAMPLE)

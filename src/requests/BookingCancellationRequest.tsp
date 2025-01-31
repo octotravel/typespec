@@ -1,7 +1,7 @@
 import "@typespec/http";
 import "@typespec/openapi3";
 
-import "../schemas/BookingCancellationSchema.tsp";
+import "../schemas/BookingCancellationBody.tsp";
 import "./RequestHeaders.tsp";
 
 namespace Octo;

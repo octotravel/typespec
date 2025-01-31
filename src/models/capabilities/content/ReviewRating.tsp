@@ -77,7 +77,7 @@ model ReviewRating {
       required: false,
     }
   )
-  url?: string;
+  url?: url;
 
   @doc(REVIEW_RATING_EXTERNAL_PLATFORM_DOC)
   @example(REVIEW_RATING_EXTERNAL_PLATFORM_EXAMPLE)

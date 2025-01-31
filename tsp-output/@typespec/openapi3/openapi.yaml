@@ -90,7 +90,7 @@ paths:
                       vacancies: 10
                       capacity: 10
                       maxUnits: null
-                      utcCutoffAt: 2022-06-30T10:00:00Z
+                      utcCutoffAt: 2022-06-29T22:00:00Z
                       openingHours: []
                     - id: 2022-06-30T14:00:00+01:00
                       localDateTimeStart: 2022-06-30T14:00:00+01:00
@@ -101,7 +101,7 @@ paths:
                       vacancies: 10
                       capacity: 10
                       maxUnits: null
-                      utcCutoffAt: 2022-06-30T12:00:00Z
+                      utcCutoffAt: 2022-06-29T22:00:00Z
                       openingHours: []
                 Availability Check with octo/content:
                   summary: Availability Check with octo/content
@@ -3277,7 +3277,7 @@ paths:
       summary: Get Product
       description: Fetch the product for the given id.
       parameters:
-        - $ref: '#/components/parameters/GetProductSuccessRequest.id'
+        - $ref: '#/components/parameters/GetProductRequest.id'
         - $ref: '#/components/parameters/RequestHeaders.octoCapabilities'
         - $ref: '#/components/parameters/RequestHeadersContent'
       responses:
@@ -4040,7 +4040,7 @@ components:
       schema:
         type: string
       explode: false
-    GetProductSuccessRequest.id:
+    GetProductRequest.id:
       name: id
       in: path
       required: true
@@ -4097,6 +4097,7 @@ components:
           description: The end time for this availability in the product’s local time zone. It must also adhere to ISO 8601 standards.
         utcCutoffAt:
           type: string
+          format: date-time
           example: 2022-05-22T23:00:00Z
           description: The time by which the booking must be confirmed at
         allDay:
@@ -4168,6 +4169,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricing:
           type: array
           items:
@@ -4180,6 +4184,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         title:
           type: string
           nullable: true
@@ -4286,6 +4293,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricingFrom:
           type: array
           items:
@@ -4298,6 +4308,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         localDate: 2022-05-12
         available: true
@@ -4378,6 +4391,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricingFrom:
           type: array
           items:
@@ -4390,6 +4406,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         unitPricingFrom:
           - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -4559,6 +4578,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricing:
           type: array
           items:
@@ -4571,6 +4593,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         unitPricing:
           - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -4718,25 +4743,30 @@ components:
             UPGRADED: Upgraded to another tier or package.
         utcCreatedAt:
           type: string
+          format: date-time
           example: 2022-05-25T10:34:22Z
           description: An ISO8601 date time in UTC when the booking was created.
         utcUpdatedAt:
           type: string
+          format: date-time
           nullable: true
           example: 2022-05-25T10:34:22Z
           description: An ISO8601 date time in UTC when the booking was last updated, if applicable.
         utcExpiresAt:
           type: string
+          format: date-time
           nullable: true
           example: 2022-05-25T11:04:22Z
           description: An ISO8601 date times in UTC for when this booking is due to expire if the status is ON_HOLD.
         utcRedeemedAt:
           type: string
+          format: date-time
           nullable: true
           example: 2022-06-25T10:34:22Z
           description: An ISO8601 date time in UTC at when the booking was redeemed, if applicable.
         utcConfirmedAt:
           type: string
+          format: date-time
           nullable: true
           example: 2022-05-25T11:00:22Z
           description: An ISO8601 date time in UTC when the booking was confirmed, if applicable.
@@ -5024,6 +5054,9 @@ components:
             currencyPrecision: 2
             includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         id: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
         uuid: 559aed3d-6d5b-4fe0-bfca-99f5e7218a56
@@ -5326,6 +5359,7 @@ components:
           description: A text value describing why the cancellation happened.
         utcCancelledAt:
           type: string
+          format: date-time
           example: 2022-05-25T11:00:22Z
           description: An ISO8601 date time in UTC indicating when the booking was cancelled.
       example:
@@ -5372,7 +5406,7 @@ components:
               - en-GB
               - en-US
             country: GB
-          description: Contact details for the main guest who will attend the tour/attraction. Contact schema can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information).
+          description: Contact details for the main guest who will attend the tour/attraction. Contact BODY can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information).
         unitItems:
           type: array
           items:
@@ -5464,6 +5498,9 @@ components:
             currencyPrecision: 2
             includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         pricing:
           original: 2000
@@ -5477,7 +5514,6 @@ components:
       required:
         - productId
         - optionId
-        - availabilityId
         - unitItems
       properties:
         uuid:
@@ -5533,45 +5569,6 @@ components:
           type: string
           example: USD
           description: Can be used only when pricing capability is used.
-    BookingReservationQuery:
-      type: object
-      required:
-        - resellerReference
-        - supplierReference
-        - localDate
-        - localDateStart
-        - localDateEnd
-        - productId
-        - optionId
-      properties:
-        resellerReference:
-          type: string
-          example: ''
-          description: The reseller reference on the booking
-        supplierReference:
-          type: string
-          example: ''
-          description: The reference provided by the supplier
-        localDate:
-          type: string
-          example: ''
-          description: All bookings made for a specific date
-        localDateStart:
-          type: string
-          example: ''
-          description: First date of a date range search
-        localDateEnd:
-          type: string
-          example: ''
-          description: Last date of a date range search
-        productId:
-          type: string
-          example: ''
-          description: The product id to filter by
-        optionId:
-          type: string
-          example: ''
-          description: The option id to filter by
     BookingReservationRequest:
       type: object
       required:
@@ -5669,7 +5666,7 @@ components:
               - en-GB
               - en-US
             country: GB
-          description: Contact details for the main guest who will attend the tour/attraction. Contact schema can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information).
+          description: Contact details for the main guest who will attend the tour/attraction. Contact BODY can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information).
       example:
         resellerReference: VOUCHER-0123
         productId: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
@@ -6078,7 +6075,7 @@ components:
         - BOOKING_TERM
         - CANCELLATION_TERM
       example: CANCELLATION_TERM
-    GetProductsSuccessRequest:
+    GetProductsRequest:
       type: object
     GetSupplierRequest:
       type: object
@@ -6253,8 +6250,8 @@ components:
       properties:
         src:
           type: string
-          example: ''
           format: uri
+          example: ''
           description: The URL of the media file. The URL must be stable and publicly accessible.
         type:
           allOf:
@@ -6477,6 +6474,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricing:
           type: array
           items:
@@ -6489,6 +6489,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         title:
           type: string
           example: ''
@@ -6897,6 +6900,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricing:
           type: array
           items:
@@ -6909,6 +6915,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         pricingFrom:
           - original: 2000
@@ -7299,6 +7308,9 @@ components:
           type: string
           example: USD
           description: Is on the object when Pricing capability is requested. Default currency for this product, if you omit the currency parameter on future endpoints this is the value the reservation system will fallback to.
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         availableCurrencies:
           type: array
           items:
@@ -7307,11 +7319,17 @@ components:
             - USD
             - EUR
           description: Is on the object when Pricing capability is requested. All the possible currencies that we accept for this product.
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricingPer:
           allOf:
             - $ref: '#/components/schemas/PricingPer'
           example: UNIT
           description: Is on the object when Pricing capability is requested. Indicates whether the pricing is per unit (most common), or per booking. Pricing which is per booking is common for private charters or group booking products where the price is the same regardless of how many tickets are purchased.
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         title:
           type: string
           example: ''
@@ -7721,6 +7739,9 @@ components:
           type: string
           example: USD
           description: Is on the object when Pricing capability is requested. Default currency for this product, if you omit the currency parameter on future endpoints this is the value the reservation system will fallback to.
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         availableCurrencies:
           type: array
           items:
@@ -7729,11 +7750,17 @@ components:
             - USD
             - EUR
           description: Is on the object when Pricing capability is requested. All the possible currencies that we accept for this product.
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricingPer:
           allOf:
             - $ref: '#/components/schemas/PricingPer'
           example: UNIT
           description: Is on the object when Pricing capability is requested. Indicates whether the pricing is per unit (most common), or per booking. Pricing which is per booking is common for private charters or group booking products where the price is the same regardless of how many tickets are purchased.
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         defaultCurrency: USD
         availableCurrencies:
@@ -7758,101 +7785,6 @@ components:
       type: object
     ResponseHeadersContent:
       type: object
-    Restrictions:
-      type: object
-      required:
-        - minAge
-        - maxAge
-        - idRequired
-        - minQuantity
-        - maxQuantity
-        - paxCount
-        - accompaniedBy
-      properties:
-        minAge:
-          type: integer
-          example: 3
-          description: Minimum age to purchase the unit.
-        maxAge:
-          type: integer
-          example: 17
-          description: Maximum age to purchase the unit.
-        idRequired:
-          type: boolean
-          example: true
-          description: Indicates if identification (e.g., student ID) is required for redemption.
-        minQuantity:
-          type: integer
-          nullable: true
-          example: 2
-          description: Minimum number of units that must be purchased (e.g., 2 tickets). Null means no minimum.
-        maxQuantity:
-          type: integer
-          nullable: true
-          example: 7
-          description: Maximum number of units allowed in a single booking. Null means unlimited.
-        paxCount:
-          type: integer
-          example: 1
-          description: The number of people each unit represents (e.g., 1 family ticket = 4 pax).
-        accompaniedBy:
-          type: array
-          items:
-            type: string
-          example:
-            - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
-          description: 'Specifies if this unit must be accompanied by another unit (e.g., an infant ticket must be purchased with an adult ticket). Array of unit IDs which must be booked together. '
-        minHeight:
-          type: integer
-          example: 220
-          description: Minimum height required for this unit (e.g., for amusement park rides).
-          x-capability-data:
-            capability: octo/content
-            required: false
-        maxHeight:
-          type: integer
-          example: 120
-          description: Maximum height allowed.
-          x-capability-data:
-            capability: octo/content
-            required: false
-        heightUnit:
-          type: string
-          example: ''
-          description: Unit of height measurement (e.g., "cm" or "in") used for values of minHeight, maxHeight.
-          x-capability-data:
-            capability: octo/content
-            required: false
-        minWeight:
-          type: integer
-          example: 50
-          description: Minimum weight required.
-          x-capability-data:
-            capability: octo/content
-            required: false
-        maxWeight:
-          type: integer
-          example: 120
-          description: Maximum weight allowed.
-          x-capability-data:
-            capability: octo/content
-            required: false
-        weightUnit:
-          type: string
-          example: ''
-          description: Unit of weight measurement (e.g., "kg" or "lb") used for values of minWeight, maxWeight.
-          x-capability-data:
-            capability: octo/content
-            required: false
-      example:
-        minAge: 3
-        maxAge: 17
-        idRequired: true
-        minQuantity: 2
-        maxQuantity: 7
-        paxCount: 1
-        accompaniedBy:
-          - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
     RestrictionsContent:
       type: object
       properties:
@@ -7923,8 +7855,8 @@ components:
           description: Name used to identify the supplier within the platform. This name is typically recognized by end customers as the official name of the supplier's business entity. It should clearly represent the supplier's brand or identity to ensure consistency across platforms. For larger multi-venue suppliers, this represents the parent entity's name. Other associated entities or sub-divisions can be specified using the octo/content capability through the venues field.
         endpoint:
           type: string
-          example: https://api.my-booking-platform.com/v1
           format: uri
+          example: https://api.my-booking-platform.com/v1
           description: The base URL that is prepended to all other API paths. The value should not contain a trailing slash and must follow URI format.
         contact:
           allOf:
@@ -8144,7 +8076,7 @@ components:
           description: 'This is the base unit type for this unit definition. A value of TRAVELLER must only be used in replacement of ADULT, CHILD, INFANT, YOUTH, STUDENT, MILITARY or SENIOR. '
         restrictions:
           allOf:
-            - $ref: '#/components/schemas/Restrictions'
+            - $ref: '#/components/schemas/UnitRestrictions'
           example:
             minAge: 3
             maxAge: 17
@@ -8190,6 +8122,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricing:
           type: array
           items:
@@ -8208,6 +8143,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         title:
           type: string
           nullable: true
@@ -8342,6 +8280,7 @@ components:
             `REDEEMED` If the booking is already redeemed.
         utcRedeemedAt:
           type: string
+          format: date-time
           nullable: true
           example: null
           description: The ISO8601 date in UTC indicating when the ticket was used at the attraction.
@@ -8359,7 +8298,7 @@ components:
             postalCode: ''
             country: ''
             notes: ''
-          description: Contact details for the guests that will attend the tour/attraction. Contact schema can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information)
+          description: Contact details for the guests that will attend the tour/attraction. Contact Body can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information)
         ticket:
           type: object
           allOf:
@@ -8383,6 +8322,9 @@ components:
             currencyPrecision: 2
             includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33a
@@ -8431,6 +8373,9 @@ components:
             currencyPrecision: 2
             includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         pricing:
           original: 1000
@@ -8460,6 +8405,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
         pricing:
           type: array
           items:
@@ -8478,6 +8426,9 @@ components:
               currencyPrecision: 2
               includedTaxes: []
           description: 'Is on the object when Pricing capability is requested. '
+          x-capability-data:
+            capability: octo/pricing
+            required: true
       example:
         pricingFrom:
           - original: 1000
@@ -8505,6 +8456,101 @@ components:
             currency: USD
             currencyPrecision: 2
             includedTaxes: []
+    UnitRestrictions:
+      type: object
+      required:
+        - minAge
+        - maxAge
+        - idRequired
+        - minQuantity
+        - maxQuantity
+        - paxCount
+        - accompaniedBy
+      properties:
+        minAge:
+          type: integer
+          example: 3
+          description: Minimum age to purchase the unit.
+        maxAge:
+          type: integer
+          example: 17
+          description: Maximum age to purchase the unit.
+        idRequired:
+          type: boolean
+          example: true
+          description: Indicates if identification (e.g., student ID) is required for redemption.
+        minQuantity:
+          type: integer
+          nullable: true
+          example: 2
+          description: Minimum number of units that must be purchased (e.g., 2 tickets). Null means no minimum.
+        maxQuantity:
+          type: integer
+          nullable: true
+          example: 7
+          description: Maximum number of units allowed in a single booking. Null means unlimited.
+        paxCount:
+          type: integer
+          example: 1
+          description: The number of people each unit represents (e.g., 1 family ticket = 4 pax).
+        accompaniedBy:
+          type: array
+          items:
+            type: string
+          example:
+            - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
+          description: 'Specifies if this unit must be accompanied by another unit (e.g., an infant ticket must be purchased with an adult ticket). Array of unit IDs which must be booked together. '
+        minHeight:
+          type: integer
+          example: 220
+          description: Minimum height required for this unit (e.g., for amusement park rides).
+          x-capability-data:
+            capability: octo/content
+            required: false
+        maxHeight:
+          type: integer
+          example: 120
+          description: Maximum height allowed.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        heightUnit:
+          type: string
+          example: ''
+          description: Unit of height measurement (e.g., "cm" or "in") used for values of minHeight, maxHeight.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        minWeight:
+          type: integer
+          example: 50
+          description: Minimum weight required.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        maxWeight:
+          type: integer
+          example: 120
+          description: Maximum weight allowed.
+          x-capability-data:
+            capability: octo/content
+            required: false
+        weightUnit:
+          type: string
+          example: ''
+          description: Unit of weight measurement (e.g., "kg" or "lb") used for values of minWeight, maxWeight.
+          x-capability-data:
+            capability: octo/content
+            required: false
+      example:
+        minAge: 3
+        maxAge: 17
+        idRequired: true
+        minQuantity: 2
+        maxQuantity: 7
+        paxCount: 1
+        accompaniedBy:
+          - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
     UnitType:
       type: string
       enum:

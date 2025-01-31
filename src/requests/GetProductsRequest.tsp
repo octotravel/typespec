@@ -6,6 +6,6 @@ import "./RequestHeaders.tsp";
 namespace Octo;
 using TypeSpec.Http;
 
-model GetProductsSuccessRequest {
+model GetProductsRequest {
   ...RequestHeaders;
 }

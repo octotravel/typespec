@@ -1,6 +1,8 @@
+import "@typespec/openapi";
 import "./Pricing.tsp";
 
 namespace Octo;
+using OpenAPI;
 
 const UNIT_PRICING_PRICING_FROM_DOC = "Is on the object when Pricing capability is requested. ";
 const UNIT_PRICING_PRICING_DOC = "Is on the object when Pricing capability is requested. ";
@@ -23,10 +25,24 @@ const UNIT_PRICING_EXAMPLE = #{
 model UnitPricing {
   @doc(UNIT_PRICING_PRICING_FROM_DOC)
   @example(UNIT_PRICING_PRICING_FROM_EXAMPLE)
+  @extension(
+    "x-capability-data",
+    {
+      capability: "octo/pricing",
+      required: true,
+    }
+  )
   pricingFrom?: Pricing[];
 
   @doc(UNIT_PRICING_PRICING_DOC)
   @example(UNIT_PRICING_PRICING_EXAMPLE)
+  @extension(
+    "x-capability-data",
+    {
+      capability: "octo/pricing",
+      required: true,
+    }
+  )
   pricing?: Pricing[];
 }
 

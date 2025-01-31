@@ -1,7 +1,7 @@
 import "@typespec/http";
 import "@typespec/openapi3";
 
-import "../schemas/BookingUpdateSchema.tsp";
+import "../schemas/BookingUpdateBody.tsp";
 import "./RequestHeaders.tsp";
 
 namespace Octo;

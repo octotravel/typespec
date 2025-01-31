@@ -11,7 +11,7 @@ const BOOKING_UPDATE_EXPIRATION_MINUTES_DOC = "How many minutes to reserve the a
 const BOOKING_UPDATE_NOTES_DOC = "Optional notes for the booking.";
 const BOOKING_UPDATE_EMAIL_RECEIPT_DOC = "Whether you want OCTO Cloud to email the guest a copy of their receipt and tickets. (defaults to false).";
 const BOOKING_UPDATE_UNITITEMS_DOC = "An array of unit items in the booking. To retain or modify existing unit items, you must include the unit item with the associated uuid, otherwise that unit item will be removed.";
-const BOOKING_UPDATE_CONTACT_DOC = "Contact details for the main guest who will attend the tour/attraction. Contact schema can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information).";
+const BOOKING_UPDATE_CONTACT_DOC = "Contact details for the main guest who will attend the tour/attraction. Contact BODY can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information).";
 
 const BOOKING_UPDATE_RESELLER_REFERENCE_EXAMPLE = "VOUCHER-0123";
 const BOOKING_UPDATE_PRODUCT_ID_EXAMPLE = PRODUCT_ID_EXAMPLE;
@@ -21,7 +21,7 @@ const BOOKING_UPDATE_EXPIRATION_MINUTES_EXAMPLE = EXTEND_RESERVATION_SCHMEA_EXPI
 const BOOKING_UPDATE_NOTES_EXAMPLE = "Optional notes";
 const BOOKING_UPDATE_EMAIL_RECEIPT_EXAMPLE = true;
 const BOOKING_UPDATE_UNITITEMS_EXAMPLE = #[BOOKING_UNITITEM_EXAMPLE];
-const BOOKING_UPDATE_CONTACT_EXAMPLE = BOOKING_CONTACT_SCHEMA_EXAMPLE;
+const BOOKING_UPDATE_CONTACT_EXAMPLE = BOOKING_CONTACT_BODY_EXAMPLE;
 
 const BOOKING_UPDATE_BODY_EXAMPLE = #{
   resellerReference: BOOKING_UPDATE_RESELLER_REFERENCE_EXAMPLE,

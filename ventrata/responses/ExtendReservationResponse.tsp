@@ -1,0 +1,27 @@
+import "@typespec/http";
+import "@typespec/openapi3";
+
+import "../../src/models/Error.tsp";
+import "../../src/models/Booking.tsp";
+import "../../src/responses/ExtendReservationResponse.tsp";
+import "./ResponseHeaders.tsp";
+
+namespace Ventrata;
+using TypeSpec.Http;
+
+model ExtendReservationSuccessResponse
+  extends Octo.ExtendReservationSuccessResponse {
+  @body body: Booking;
+  ...ResponseHeaders;
+}
+
+const EXTEND_RESERVATION_RESPONSE = BOOKING_EXAMPLE;
+
+model ExtendReservationErrorResponse
+  extends Octo.ExtendReservationErrorResponse {}
+
+const EXTEND_RESERVATION_INVALID_BOOKING_UUID_RESPONSE_EXAMPLE = Octo.EXTEND_RESERVATION_INVALID_BOOKING_UUID_RESPONSE_EXAMPLE;
+const EXTEND_RESERVATION_UNPROCESSABLE_ENTITY_RESPONSE_EXAMPLE = Octo.EXTEND_RESERVATION_UNPROCESSABLE_ENTITY_RESPONSE_EXAMPLE;
+const EXTEND_RESERVATION_UNAUTHORIZED_RESPONSE_EXAMPLE = Octo.EXTEND_RESERVATION_UNAUTHORIZED_RESPONSE_EXAMPLE;
+const EXTEND_RESERVATION_INTERNAL_SERVER_ERROR_RESPONSE_EXAMPLE = Octo.EXTEND_RESERVATION_INTERNAL_SERVER_ERROR_RESPONSE_EXAMPLE;
+const EXTEND_RESERVATION_FORBIDDEN_RESPONSE_EXAMPLE = Octo.EXTEND_RESERVATION_FORBIDDEN_RESPONSE_EXAMPLE;

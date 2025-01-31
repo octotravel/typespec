@@ -42,7 +42,7 @@ model Media {
   @doc(MEDIA_SRC_DOC)
   @example(MEDIA_SRC_EXAMPLE)
   @format("uri")
-  src: string;
+  src: url;
 
   @doc(MEDIA_TYPE_DOC)
   @example(MEDIA_TYPE_EXAMPLE)

@@ -1,7 +1,7 @@
 import "@typespec/http";
 import "@typespec/openapi3";
 
-import "../schemas/AvailabilityCalendarSchema.tsp";
+import "../schemas/AvailabilityCalendarBody.tsp";
 import "./RequestHeaders.tsp";
 
 namespace Octo;

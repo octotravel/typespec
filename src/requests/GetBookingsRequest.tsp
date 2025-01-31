@@ -1,40 +1,46 @@
 import "@typespec/http";
 import "@typespec/openapi3";
 
-import "../schemas/GetBookingsSchema.tsp";
 import "./RequestHeaders.tsp";
 
 namespace Octo;
 using TypeSpec.Http;
 
 model GetBookingsRequest {
-  @doc(GET_BOOKINGS_QUERY_RESELLER_REFERENCE_DOC)
-  @query
-  resellerReference?: string;
+  /**
+   * The reseller reference on the booking
+   */
+  @query resellerReference?: string;
 
-  @doc(GET_BOOKINGS_QUERY_SUPPLIER_REFERENCE_DOC)
-  @query
-  supplierReference?: string;
+  /**
+   * The reference provided by the supplier
+   */
+  @query supplierReference?: string;
 
-  @doc(GET_BOOKINGS_QUERY_LOCAL_DATE_DOC)
-  @query
-  localDate?: string;
+  /**
+   * All bookings made for a specific date
+   */
+  @query localDate?: string;
 
-  @doc(GET_BOOKINGS_QUERY_LOCAL_DATE_START_DOC)
-  @query
-  localDateStart?: string;
+  /**
+   * First date of a date range search
+   */
+  @query localDateStart?: string;
 
-  @doc(GET_BOOKINGS_QUERY_LOCAL_DATE_END_DOC)
-  @query
-  localDateEnd?: string;
+  /**
+   * Last date of a date range search
+   */
+  @query localDateEnd?: string;
 
-  @doc(GET_BOOKINGS_QUERY_PRODUCT_ID_DOC)
-  @query
-  productId?: string;
+  /**
+   * The product id to filter by
+   */
+  @query productId?: string;
 
-  @doc(GET_BOOKINGS_QUERY_OPTION_ID_DOC)
-  @query
-  optionId?: string;
+  /**
+   * The option id to filter by
+   */
+  @query optionId?: string;
 
   ...RequestHeaders;
 }

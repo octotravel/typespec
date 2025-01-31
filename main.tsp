@@ -207,7 +207,7 @@ interface Products {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   GetProducts(
-    ...GetProductsSuccessRequest,
+    ...GetProductsRequest,
   ): GetProductsSuccessResponse | GetProductsErrorResponse;
 
   @route("/{id}")
@@ -305,7 +305,7 @@ interface Products {
     #{ title: "Forbidden Response", description: "Forbidden Response" }
   )
   GetProduct(
-    ...GetProductSuccessRequest,
+    ...GetProductRequest,
   ): GetProductSuccessResponse | GetProductErrorResponse;
 }
 

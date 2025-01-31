@@ -6,7 +6,7 @@ import "./RequestHeaders.tsp";
 namespace Octo;
 using TypeSpec.Http;
 
-model GetProductSuccessRequest {
+model GetProductRequest {
   @doc("The product id")
   @path
   id: string;

@@ -1,6 +1,6 @@
 import "./UnitType.tsp";
 import "./ContactField.tsp";
-import "./Restrictions.tsp";
+import "./UnitRestrictions.tsp";
 import "./capabilities/pricing/UnitPricing.tsp";
 import "./capabilities/content/UnitContent.tsp";
 
@@ -28,7 +28,6 @@ const UNIT_ID_EXAMPLE = "adult_697e3ce8-1860-4cbf-80ad-95857df1f640";
 const UNIT_INTERNAL_NAME_EXAMPLE = "Adult(s)";
 const UNIT_REFERENCE_EXAMPLE = "LR1-01-new";
 const UNIT_TYPE_EXAMPLE = UnitType.ADULT;
-const UNIT_RESTRICTIONS_EXAMPLE = "unit restrictions";
 const UNIT_REQUIRED_CONTACT_FIELDS_EXAMPLE = #[ContactField.firstName];
 
 const UNIT_ID_ADULT = "adult_697e3ce8-1860-4cbf-80ad-95857df1f640";
@@ -40,7 +39,7 @@ const UNIT_EXAMPLE = #{
   internalName: UNIT_INTERNAL_NAME_EXAMPLE,
   reference: UNIT_REFERENCE_EXAMPLE,
   type: UNIT_TYPE_EXAMPLE,
-  restrictions: RESTRICTIONS_EXAMPLE,
+  restrictions: UNIT_RESTRICTIONS_EXAMPLE,
   requiredContactFields: UNIT_REQUIRED_CONTACT_FIELDS_EXAMPLE,
 };
 
@@ -63,8 +62,8 @@ model Unit {
   type: UnitType;
 
   @doc(UNIT_RESTRICTIONS_DOC)
-  @example(RESTRICTIONS_EXAMPLE)
-  restrictions: Restrictions;
+  @example(UNIT_RESTRICTIONS_EXAMPLE)
+  restrictions: UnitRestrictions;
 
   @doc(UNIT_REQUIRED_CONTACT_FIELDS_DOC)
   @example(UNIT_REQUIRED_CONTACT_FIELDS_EXAMPLE)

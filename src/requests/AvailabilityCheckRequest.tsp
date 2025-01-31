@@ -2,7 +2,7 @@ import "@typespec/http";
 import "@typespec/openapi3";
 
 import "./RequestHeaders.tsp";
-import "../schemas/AvailabilityCheckSchema.tsp";
+import "../schemas/AvailabilityCheckBody.tsp";
 
 namespace Octo;
 using TypeSpec.Http;
