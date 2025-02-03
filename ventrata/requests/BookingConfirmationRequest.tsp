@@ -1,6 +1,3 @@
-import "@typespec/http";
-import "@typespec/openapi3";
-
 import "../../src/requests/BookingConfirmationRequest.tsp";
 import "../schemas/BookingConfirmationBody.tsp";
 import "./RequestHeaders.tsp";

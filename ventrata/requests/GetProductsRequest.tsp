@@ -1,6 +1,3 @@
-import "@typespec/http";
-import "@typespec/openapi3";
-
 import "../../src/requests/GetProductsRequest.tsp";
 import "./RequestHeaders.tsp";
 
