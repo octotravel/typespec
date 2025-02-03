@@ -1,9 +1,6 @@
-import "@typespec/openapi";
-
 import "./Include.tsp";
 
 namespace Ventrata;
-using OpenAPI;
 
 const PACKAGE_INCLUDE_TITLE_EXAMPLE = "";
 const PACKAGE_INCLUDE_COUNT_EXAMPLE = 1;

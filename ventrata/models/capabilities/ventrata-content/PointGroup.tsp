@@ -1,3 +1,5 @@
+namespace Ventrata;
+
 const POINT_GROUP_ID_EXAMPLE = "";
 const POINT_GROUP_INTERNAL_NAME_EXAMPLE = "";
 const POINT_GROUP_TITLE_EXAMPLE = "";

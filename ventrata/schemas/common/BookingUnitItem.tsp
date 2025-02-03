@@ -1,9 +1,6 @@
-import "@typespec/openapi";
-
 import "../../../src/schemas/common/BookingUnitItem.tsp";
 
 namespace Ventrata;
-using OpenAPI;
 
 const BOOKING_UNIT_ITEM_RESELLER_REFERENCE_EXAMPLE = "123321";
 const BOOKING_UNIT_ITEM_ALIAS_EXAMPLE = "alias";

@@ -1,9 +1,5 @@
-import "@typespec/openapi";
-
 import "../../src/models/AvailabilityCalendar.tsp";
 import "./capabilities/pricing/AvailabilityCalendarPricing.tsp";
-
-using OpenAPI;
 
 namespace Ventrata;
 

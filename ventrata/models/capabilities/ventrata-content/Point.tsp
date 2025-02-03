@@ -1,5 +1,7 @@
 import "./PointGroup.tsp";
 
+namespace Ventrata;
+
 const POINT_ID_EXAMPLE = "";
 const POINT_INTERNAL_NAME_EXAMPLE = "";
 const POINT_TITLE_EXAMPLE = "";

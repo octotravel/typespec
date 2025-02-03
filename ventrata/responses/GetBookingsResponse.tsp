@@ -1,5 +1,4 @@
 import "@typespec/http";
-import "@typespec/openapi3";
 
 import "../../src/models/Error.tsp";
 import "../../src/models/Booking.tsp";
@@ -16,7 +15,9 @@ model GetBookingsSuccessResponse extends Octo.GetBookingsSuccessResponse {
 
 const GET_BOOKINGS_RESPONSE = #[BOOKING_EXAMPLE];
 
-model GetBookingsErrorResponse extends Octo.GetBookingsErrorResponse {}
+model GetBookingsErrorResponse extends Octo.GetBookingsErrorResponse {
+  @statusCode statusCode: 400;
+}
 
 const GET_BOOKINGS_BAD_REQUEST_RESPONSE_EXAMPLE = Octo.GET_BOOKINGS_BAD_REQUEST_RESPONSE_EXAMPLE;
 const GET_BOOKINGS_UNAUTHORIZED_RESPONSE_EXAMPLE = Octo.GET_BOOKINGS_UNAUTHORIZED_RESPONSE_EXAMPLE;

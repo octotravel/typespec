@@ -1,12 +1,9 @@
-import "@typespec/openapi";
-
 import "../../src/schemas/BookingConfirmationBody.tsp";
 import "../models/SettlementMethod.tsp";
 import "./common/BookingUnitItem.tsp";
 import "./common/BookingContact.tsp";
 
 namespace Ventrata;
-using OpenAPI;
 
 const BOOKING_CONFIRMATION_BODY_UNIT_ITEMS_EXAMPLE = #[
   BOOKING_UNIT_ITEM_EXAMPLE

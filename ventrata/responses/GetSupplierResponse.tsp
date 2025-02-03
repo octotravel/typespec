@@ -1,5 +1,4 @@
 import "@typespec/http";
-import "@typespec/openapi3";
 
 import "../../src/responses/GetSupplierResponse.tsp";
 import "../../src/models/Error.tsp";
@@ -16,7 +15,9 @@ model GetSupplierSuccessResponse extends Octo.GetSupplierSuccessResponse {
 
 const GET_SUPPLIER_RESPONSE = SUPPLIER_EXAMPLE;
 
-model GetSupplierErrorResponse extends Octo.GetSupplierErrorResponse {}
+model GetSupplierErrorResponse extends Octo.GetSupplierErrorResponse {
+  @statusCode statusCode: 400;
+}
 
 const GET_SUPPLIER_UNAUTHORIZED_RESPONSE_EXAMPLE = Octo.GET_SUPPLIER_UNAUTHORIZED_RESPONSE_EXAMPLE;
 const GET_SUPPLIER_INTERNAL_SERVER_ERROR_RESPONSE_EXAMPLE = Octo.GET_SUPPLIER_INTERNAL_SERVER_ERROR_RESPONSE_EXAMPLE;

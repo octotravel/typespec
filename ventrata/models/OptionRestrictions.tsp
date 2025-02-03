@@ -1,5 +1,3 @@
-import "@typespec/openapi";
-
 import "../../src/models/OptionRestrictions.tsp";
 
 import "./SettlementMethod.tsp";
@@ -9,7 +7,6 @@ import "./capabilities/pricing/ProductPricing.tsp";
 import "./capabilities/packages/ProductPackages.tsp";
 
 namespace Ventrata;
-using OpenAPI;
 using Octo;
 
 const OPTION_RESTRICTIONS_MIN_PAX_COUNT_DOC = "The minimum number of pax units that can be purchased in a single booking (null = 0).";

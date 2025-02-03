@@ -20,7 +20,6 @@ const BOOKING_UPDATE_BODY_CONTACT_EXAMPLE = BOOKING_CONTACT_BODY_EXAMPLE;
 
 const BOOKING_UPDATE_BODY_EXAMPLE = #{ ...Octo.BOOKING_UPDATE_BODY_EXAMPLE };
 
-
 @example(BOOKING_UPDATE_BODY_EXAMPLE)
 model BookingUpdateBody extends Octo.BookingUpdateBody {
   resellerReference?: string;
@@ -30,8 +29,6 @@ model BookingUpdateBody extends Octo.BookingUpdateBody {
 
   @format("uuid")
   optionId?: string;
-
-  // availabilityId?: string;
 
   /**
    * The alias of the unit item.

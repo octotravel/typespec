@@ -1,3 +1,5 @@
+namespace Ventrata;
+
 const IMAGE_URL_DOC = "";
 const IMAGE_TITLE_DOC = "";
 const IMAGE_CAPTION_DOC = "";

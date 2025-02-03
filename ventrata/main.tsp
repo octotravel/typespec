@@ -1,6 +1,3 @@
-import "@typespec/http";
-import "@typespec/openapi";
-
 import "./models/Supplier.tsp";
 import "./models/Product.tsp";
 import "./models/Availability.tsp";

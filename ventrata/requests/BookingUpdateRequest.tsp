@@ -5,11 +5,13 @@ import "./RequestHeaders.tsp";
 namespace Ventrata;
 using TypeSpec.Http;
 
-model BookingUpdateRequest extends Octo.BookingUpdateRequest{
+model BookingUpdateRequest extends Octo.BookingUpdateRequest {
   @example(
     BOOKING_UPDATE_BODY_EXAMPLE,
     #{ title: "Update Booking", description: "Update Booking" }
   )
-  @body body: Ventrata.BookingUpdateBody;
+  @body
+  body: Ventrata.BookingUpdateBody;
+
   ...RequestHeaders;
 }

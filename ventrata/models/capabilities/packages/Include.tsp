@@ -1,10 +1,8 @@
-import "@typespec/openapi";
 import "../../Product.tsp";
 import "../../Option.tsp";
 import "../../DefaultableId.tsp";
 
 namespace Ventrata;
-using OpenAPI;
 
 const INCLUDE_ID_EXAMPLE = "";
 const INCLUDE_REQUIRED_EXAMPLE = false;

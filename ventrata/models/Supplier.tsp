@@ -1,5 +1,3 @@
-import "@typespec/openapi3";
-
 import "../../src/models/Supplier.tsp";
 import "./capabilities/ventrata-content/SupplierContent.tsp";
 

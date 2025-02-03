@@ -1,10 +1,6 @@
-import "@typespec/openapi";
-
 import "./Question.tsp";
 
 namespace Ventrata;
-
-using OpenAPI;
 
 const QUESTION_ANSWER_QUESTION_ID_EXAMPLE = "";
 const QUESTION_ANSWER_VALUE_EXAMPLE = "";

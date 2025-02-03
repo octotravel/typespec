@@ -1,5 +1,4 @@
 import "@typespec/http";
-import "@typespec/openapi3";
 
 import "../../src/models/Error.tsp";
 import "../../src/models/Booking.tsp";
@@ -16,7 +15,9 @@ model BookingUpdateSuccessResponse extends Octo.BookingUpdateSuccessResponse {
 
 const BOOKING_UPDATE_RESPONSE = BOOKING_EXAMPLE;
 
-model BookingUpdateErrorResponse extends Octo.BookingUpdateErrorResponse {}
+model BookingUpdateErrorResponse extends Octo.BookingUpdateErrorResponse {
+  @statusCode statusCode: 400;
+}
 
 const BOOKING_UPDATE_INVALID_PRODUCT_ID_RESPONSE_EXAMPLE = Octo.BOOKING_UPDATE_INVALID_PRODUCT_ID_RESPONSE_EXAMPLE;
 const BOOKING_UPDATE_INVALID_OPTION_ID_RESPONSE_EXAMPLE = Octo.BOOKING_UPDATE_INVALID_OPTION_ID_RESPONSE_EXAMPLE;

@@ -1,9 +1,6 @@
-import "@typespec/openapi";
-
 import "../../../src/schemas/common/BookingContact.tsp";
 
 namespace Ventrata;
-using OpenAPI;
 
 const BOOKING_CONTACT_BODY_TAX_ID_EXAMPLE = "";
 const BOOKING_CONTACT_BODY_STREET_ADDRESS_EXAMPLE = "";

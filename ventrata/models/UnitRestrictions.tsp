@@ -1,9 +1,6 @@
-import "@typespec/openapi";
-
 import "../../src/models/UnitRestrictions.tsp";
 
 namespace Ventrata;
-using OpenAPI;
 
 const UNIT_RESTRICTIONS_REQUIRED_EXAMPLE = false;
 

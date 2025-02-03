@@ -1,9 +1,6 @@
-import "@typespec/openapi";
-
 import "../../src/models/Contact.tsp";
 
 namespace Ventrata;
-using OpenAPI;
 using Octo;
 
 const CONTACT_TAX_ID_EXAMPLE = "";

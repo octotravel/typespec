@@ -1,5 +1,4 @@
 import "@typespec/http";
-import "@typespec/openapi3";
 
 import "../../src/models/Error.tsp";
 import "../../src/responses/GetProductResponse.tsp";
@@ -17,7 +16,9 @@ model GetProductSuccessResponse extends Octo.GetProductSuccessResponse {
 
 const GET_PRODUCT_RESPONSE = PRODUCT_EXAMPLE;
 
-model GetProductErrorResponse extends Octo.GetProductErrorResponse {}
+model GetProductErrorResponse extends Octo.GetProductErrorResponse {
+  @statusCode statusCode: 400;
+}
 
 const GET_PRODUCT_INVALID_PRODUCT_ID_RESPONSE_EXAMPLE = Octo.GET_PRODUCT_INVALID_PRODUCT_ID_RESPONSE_EXAMPLE;
 const GET_PRODUCT_UNAUTHORIZED_RESPONSE_EXAMPLE = Octo.GET_PRODUCT_UNAUTHORIZED_RESPONSE_EXAMPLE;
