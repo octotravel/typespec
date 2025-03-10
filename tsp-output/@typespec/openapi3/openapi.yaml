@@ -4666,19 +4666,7 @@ components:
       example:
         id: adult
         quantity: 2
-    BaseError:
-      type: object
-      required:
-        - error
-        - errorMessage
-      properties:
-        error:
-          type: string
-          description: The error code. A table of possible error codes is shown below.
-        errorMessage:
-          type: string
-          description: A human-readable error message will be translated depending on the language provided by the Accept-Language header.
-    Booking:
+    BaseBooking:
       type: object
       required:
         - id
@@ -4686,7 +4674,6 @@ components:
         - testMode
         - resellerReference
         - supplierReference
-        - status
         - utcCreatedAt
         - utcUpdatedAt
         - utcExpiresAt
@@ -4728,19 +4715,6 @@ components:
           nullable: true
           description: A reference provided by the reseller to identify the booking.
           example: XOPSUT
-        status:
-          allOf:
-            - $ref: '#/components/schemas/BookingStatus'
-          description: |-
-            Represents the current state of the booking:
-            ON_HOLD: Awaiting confirmation.
-            EXPIRED: Not confirmed within the hold expiration time.
-            CONFIRMED: Successfully confirmed.
-            CANCELLED: The booking was canceled.
-            PENDING: Awaiting external confirmation.
-            REDEEMED: The booking has been used.
-            UPGRADED: Upgraded to another tier or package.
-          example: CONFIRMED
         utcCreatedAt:
           type: string
           format: date-time
@@ -5057,6 +5031,37 @@ components:
           x-capability-data:
             capability: octo/pricing
             required: true
+    BaseError:
+      type: object
+      required:
+        - error
+        - errorMessage
+      properties:
+        error:
+          type: string
+          description: The error code. A table of possible error codes is shown below.
+        errorMessage:
+          type: string
+          description: A human-readable error message will be translated depending on the language provided by the Accept-Language header.
+    Booking:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          allOf:
+            - $ref: '#/components/schemas/BookingStatus'
+          description: |-
+            Represents the current state of the booking:
+            ON_HOLD: Awaiting confirmation.
+            EXPIRED: Not confirmed within the hold expiration time.
+            CONFIRMED: Successfully confirmed.
+            CANCELLED: The booking was canceled.
+            PENDING: Awaiting external confirmation.
+            REDEEMED: The booking has been used.
+          example: CONFIRMED
+      allOf:
+        - $ref: '#/components/schemas/BaseBooking'
       example:
         id: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
         uuid: 559aed3d-6d5b-4fe0-bfca-99f5e7218a56

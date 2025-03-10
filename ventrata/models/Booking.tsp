@@ -41,6 +41,7 @@ const BOOKING_RESELLER_EXAMPLE = null;
 const BOOKING_REQUIRED_CONTACT_FIELDS_EXAMPLE = #[];
 const BOOKING_VISIBLE_CONTACT_FIELDS_EXAMPLE = #[];
 const BOOKING_UNIT_ITEMS_EXAMPLE = #[UNIT_ITEM_EXAMPLE];
+const BOOKING_STATUS_EXAMPLE = BookingStatus.ON_HOLD;
 const BOOKING_UTC_NOSHOWED_AT_EXAMPLE = null;
 const BOOKING_UTC_REBOOKED_AT_EXAMPLE = null;
 
@@ -62,13 +63,14 @@ const BOOKING_EXAMPLE = #{
   requiredContactFields: BOOKING_REQUIRED_CONTACT_FIELDS_EXAMPLE,
   visibleContactFields: BOOKING_VISIBLE_CONTACT_FIELDS_EXAMPLE,
   unitItems: BOOKING_UNIT_ITEMS_EXAMPLE,
+  status: BOOKING_STATUS_EXAMPLE,
   rejection: BOOKING_REJECTION_EXAMPLE,
   utcNoshowedAt: BOOKING_UTC_NOSHOWED_AT_EXAMPLE,
   utcRebookedAt: BOOKING_UTC_REBOOKED_AT_EXAMPLE,
 };
 
 @example(BOOKING_EXAMPLE)
-model Booking extends Octo.Booking {
+model Booking extends Octo.BaseBooking {
   @extension("x-order", 1)
   @extension("x-go-name", "capabilities")
   @extension("x-internal", true)
@@ -152,8 +154,7 @@ model Booking extends Octo.Booking {
   @extension("x-go-type-skip-optional-pointer", true)
   unitItems: UnitItem[];
 
-  // TODO: BookingStatus pass as generics
-  // status: BookingStatus;
+  status: BookingStatus;
 
   @example(BOOKING_REJECTION_EXAMPLE)
   rejection: BookingRejection | null;

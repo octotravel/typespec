@@ -23,7 +23,6 @@ const BOOKING_STATUS_DOC = """
   CANCELLED: The booking was canceled.
   PENDING: Awaiting external confirmation.
   REDEEMED: The booking has been used.
-  UPGRADED: Upgraded to another tier or package.
   """;
 const BOOKING_UTC_CREATED_AT_DOC = "An ISO8601 date time in UTC when the booking was created.";
 const BOOKING_UTC_UPDATED_AT_DOC = "An ISO8601 date time in UTC when the booking was last updated, if applicable.";
@@ -78,8 +77,7 @@ const BOOKING_DELIVERY_METHODS_EXAMPLE = #[
 const BOOKING_VOUCHER_EXAMPLE = TICKET_EXAMPLE;
 const BOOKING_UNIT_ITEMS_EXAMPLE = #[UNIT_ITEM_ADULT_ON_HOLD];
 
-@example(BOOKING_ON_HOLD_EXAMPLE)
-model Booking {
+model BaseBooking {
   @doc(BOOKING_ID_DOC)
   @example(BOOKING_ID_EXAMPLE)
   id: string;
@@ -100,10 +98,6 @@ model Booking {
   @doc(BOOKING_RESELLER_REFERENCE_DOC)
   @example(BOOKING_SUPPLIER_REFERENCE_EXAMPLE)
   supplierReference: string | null;
-
-  @doc(BOOKING_STATUS_DOC)
-  @example(BOOKING_STATUS_EXAMPLE)
-  status: BookingStatus;
 
   @doc(BOOKING_UTC_CREATED_AT_DOC)
   @example(BOOKING_UTC_CREATED_AT_EXAMPLE)
@@ -183,6 +177,13 @@ model Booking {
 
   // capabilities
   ...BookingPricing;
+}
+
+@example(BOOKING_ON_HOLD_EXAMPLE)
+model Booking extends BaseBooking {
+  @doc(BOOKING_STATUS_DOC)
+  @example(BOOKING_STATUS_EXAMPLE)
+  status: BookingStatus;
 }
 
 const BOOKING_ON_HOLD_EXAMPLE = #{

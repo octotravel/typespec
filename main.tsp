@@ -1012,3 +1012,4 @@ interface Bookings {
     ...ExtendReservationRequest,
   ): ExtendReservationSuccessResponse | ExtendReservationErrorResponse;
 }
+

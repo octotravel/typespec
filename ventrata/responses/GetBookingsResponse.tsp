@@ -8,7 +8,8 @@ import "./ResponseHeaders.tsp";
 namespace Ventrata;
 using TypeSpec.Http;
 
-model GetBookingsSuccessResponse extends Octo.GetBookingsSuccessResponse {
+model GetBookingsSuccessResponse {
+  @statusCode statusCode: 200;
   @body body: Booking[];
   ...ResponseHeaders;
 }

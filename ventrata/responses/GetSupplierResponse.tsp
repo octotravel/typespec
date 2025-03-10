@@ -2,6 +2,7 @@ import "@typespec/http";
 
 import "../../src/responses/GetSupplierResponse.tsp";
 import "../../src/models/Error.tsp";
+import "./ResponseHeaders.tsp";
 
 import "../models/Supplier.tsp";
 

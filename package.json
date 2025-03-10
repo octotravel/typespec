@@ -2,12 +2,6 @@
   "name": "docs",
   "version": "0.1.0",
   "type": "module",
-  "dependencies": {
-    "@typespec/compiler": "0.64.0",
-    "@typespec/http": "0.64.0",
-    "@typespec/openapi": "^0.64.0",
-    "@typespec/openapi3": "0.64.0"
-  },
   "scripts": {
     "format": "tsp format ./src",
     "format:ventrata": "tsp format ./ventrata",
@@ -18,7 +12,13 @@
   },
   "private": true,
   "devDependencies": {
-    "@typespec/prettier-plugin-typespec": "^0.64.0",
-    "prettier": "^3.4.2"
+    "@typespec/prettier-plugin-typespec": "^0.67.0-dev.2",
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "@typespec/compiler": "^0.65.0",
+    "@typespec/http": "^0.65.0",
+    "@typespec/openapi": "^0.65.0",
+    "@typespec/openapi3": "^0.65.0"
   }
 }
