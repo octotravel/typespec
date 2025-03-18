@@ -1,7 +1,7 @@
 import "@typespec/http";
 
 import "../../src/models/Error.tsp";
-import "../../src/models/Booking.tsp";
+import "../models/Booking.tsp";
 import "../../src/responses/BookingCancellationResponse.tsp";
 import "./ResponseHeaders.tsp";
 

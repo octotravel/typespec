@@ -1,8 +1,10 @@
 import "@typespec/http";
 
 import "../../src/models/Error.tsp";
-import "../../src/models/Booking.tsp";
 import "../../src/responses/BookingReservationResponse.tsp";
+
+import "../models/Booking.tsp";
+
 import "./ResponseHeaders.tsp";
 
 namespace Ventrata;

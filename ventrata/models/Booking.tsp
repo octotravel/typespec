@@ -70,7 +70,7 @@ const BOOKING_EXAMPLE = #{
 };
 
 @example(BOOKING_EXAMPLE)
-model Booking extends Octo.BaseBooking {
+model Booking extends Octo.Booking {
   @extension("x-order", 1)
   @extension("x-go-name", "capabilities")
   @extension("x-internal", true)

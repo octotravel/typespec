@@ -1,49 +1,67 @@
-// import "./requests/GetSupplierRequest.tsp";
-// import "./responses/GetSupplierResponse.tsp";
+import "../dist/src/index.js";
 
-import "./requests/GetProductRequest.tsp";
+// import "@typespec/http";
+// import "@typespec/openapi";
+
+import "./models/Supplier.tsp";
+import "./models/Product.tsp";
+import "./models/Availability.tsp";
+import "./models/AvailabilityCalendar.tsp";
+import "./models/Booking.tsp";
+import "./models/DurationUnit.tsp";
+
+import "./responses/GetSupplierResponse.tsp";
+import "./requests/GetSupplierRequest.tsp";
+
 import "./responses/GetProductResponse.tsp";
+import "./requests/GetProductRequest.tsp";
 
 import "./requests/GetProductsRequest.tsp";
 import "./responses/GetProductsResponse.tsp";
 
-// import "./requests/AvailabilityCheckRequest.tsp";
-// import "./responses/AvailabilityCheckResponse.tsp";
+import "./requests/AvailabilityCheckRequest.tsp";
+import "./responses/AvailabilityCheckResponse.tsp";
 
-// import "./requests/AvailabilityCalendarRequest.tsp";
-// import "./responses/AvailabilityCalendarResponse.tsp";
+import "./requests/AvailabilityCalendarRequest.tsp";
+import "./responses/AvailabilityCalendarResponse.tsp";
 
-// import "./requests/BookingReservationRequest.tsp";
-// import "./responses/BookingReservationResponse.tsp";
+import "./requests/BookingReservationRequest.tsp";
+import "./responses/BookingReservationResponse.tsp";
 
-// import "./requests/GetBookingsRequest.tsp";
-// import "./responses/GetBookingsResponse.tsp";
+import "./requests/GetBookingsRequest.tsp";
+import "./responses/GetBookingsResponse.tsp";
 
-// import "./requests/BookingConfirmationRequest.tsp";
-// import "./responses/BookingConfirmationResponse.tsp";
+import "./requests/BookingConfirmationRequest.tsp";
+import "./responses/BookingConfirmationResponse.tsp";
 
-// import "./requests/BookingCancellationRequest.tsp";
-// import "./responses/BookingCancellationResponse.tsp";
+import "./requests/BookingCancellationRequest.tsp";
+import "./responses/BookingCancellationResponse.tsp";
 
-// import "./requests/GetBookingRequest.tsp";
-// import "./responses/GetBookingResponse.tsp";
+import "./requests/GetBookingRequest.tsp";
+import "./responses/GetBookingResponse.tsp";
 
-// import "./requests/BookingUpdateRequest.tsp";
-// import "./responses/BookingUpdateResponse.tsp";
+import "./requests/BookingUpdateRequest.tsp";
+import "./responses/BookingUpdateResponse.tsp";
 
-// import "./requests/ExtendReservationRequest.tsp";
-// import "./responses/ExtendReservationResponse.tsp";
+import "./requests/ExtendReservationRequest.tsp";
+import "./responses/ExtendReservationResponse.tsp";
 
-using TypeSpec.Http;
-using TypeSpec.OpenAPI;
-using Ventrata;
+namespace Octo;
 
-@useAuth(BearerAuth)
-@server("https://api.ventrata.com/octo")
-@service({
-  title: "Ventrata OCTO API",
-})
-namespace Ventrata;
+
+// using TypeSpec.Http;
+// using TypeSpec.OpenAPI;
+
+// @server("https://ventrata-api-1011165921260.us-central1.run.app/api/octo", "")
+// @server("http://localhost:8080/api/octo", "")
+// @useAuth(BearerAuth)
+// @service({
+//   title: "OCTO API Specification",
+// })
+
+
+
+// const ACCEPT_LANGUAGE_DOC = "This optional request header allows to specify preferred languages for content in the response. A language code that specifies the language of the product content. This code must conform to the BCP 47 standard, following RFC 5646 and RFC 4647 specifications for language tags. Examples include en-US for American English, fr-FR for French (France), and es-ES for Spanish (Spain). This header supports a comma-separated list of language tags with optional quality values (q) to indicate priority, such as en-US, fr-CA;q=0.8, fr;q=0.7, which prioritizes U.S. English, followed by Canadian French, and general French. This header is defined in the HTTP/1.1 specification (RFC 7231) and is commonly used for internationalized websites and services to enhance user experience. For more details, visit MDN Web Docs: Accept-Language - HTTP | MDN. Note this only determines preference and does not guarantee location has content available in the desired language.";
 
 // @tag("Supplier")
 // @route("/supplier")
@@ -51,6 +69,19 @@ namespace Ventrata;
 //   @route("/")
 //   @summary("Get Supplier")
 //   @doc("Returns the supplier and associated contact details.")
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "octo/content",
+//         statusCode: 200,
+//         body: GET_SUPPLIER_CONTENT_RESPONSE,
+//       },
+//     },
+//     #{
+//       title: "Supplier with octo/content",
+//       description: "Supplier with octo/content",
+//     }
+//   )
 //   @opExample(
 //     #{
 //       returnType: #{
@@ -96,115 +127,193 @@ namespace Ventrata;
 //   ): GetSupplierSuccessResponse | GetSupplierErrorResponse;
 // }
 
-@tag("Products")
-@route("/products")
-interface Products {
-  @route("/")
-  @summary("Get Products")
-  @doc("Fetch the list of products.")
-  @opExample(
-    #{
-      returnType: #{
-        octoCapabilities: "",
-        statusCode: 200,
-        body: GET_PRODUCTS_RESPONSE,
-      },
-    },
-    #{ title: "Products example", description: "Products example" }
-  )
-  @opExample(
-    #{
-      returnType: #{
-        statusCode: 400,
-        body: GET_PRODUCTS_UNAUTHORIZED_RESPONSE_EXAMPLE,
-      },
-    },
-    #{ title: "Unauthorized Response", description: "Unauthorized Response" }
-  )
-  @opExample(
-    #{
-      returnType: #{
-        statusCode: 400,
-        body: GET_PRODUCTS_INTERNAL_SERVER_ERROR_RESPONSE_EXAMPLE,
-      },
-    },
-    #{
-      title: "Internal Server Error Response",
-      description: "Internal Server Error Response",
-    }
-  )
-  @opExample(
-    #{
-      returnType: #{
-        statusCode: 400,
-        body: GET_PRODUCTS_FORBIDDEN_RESPONSE_EXAMPLE,
-      },
-    },
-    #{ title: "Forbidden Response", description: "Forbidden Response" }
-  )
-  GetProducts(
-    ...GetProductsRequest,
-  ): GetProductsSuccessResponse | GetProductsErrorResponse;
+// @tag("Products")
+// @route("/products")
+// interface Products {
+//   @route("/")
+//   @summary("Get Products")
+//   @doc("Fetch the list of products.")
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "octo/pricing",
+//         statusCode: 200,
+//         body: GET_PRODUCTS_PRICING_PER_BOOKING_RESPONSE,
+//       },
+//     },
+//     #{
+//       title: "Products with octo/pricng (pricing per booking)",
+//       description: "Products with octo/pricng (pricing per booking)",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "octo/pricing",
+//         statusCode: 200,
+//         body: GET_PRODUCTS_PRICING_PER_UNIT_RESPONSE,
+//       },
+//     },
+//     #{
+//       title: "Products with octo/pricng (pricing per unit)",
+//       description: "Products with octo/pricng (pricing per unit)",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "octo/content",
+//         statusCode: 200,
+//         body: GET_PRODUCTS_CONTENT_RESPONSE,
+//       },
+//     },
+//     #{
+//       title: "Products with octo/content",
+//       description: "Products with octo/content",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "",
+//         statusCode: 200,
+//         body: GET_PRODUCTS_RESPONSE,
+//       },
+//     },
+//     #{ title: "Products example", description: "Products example" }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         statusCode: 400,
+//         body: GET_PRODUCTS_UNAUTHORIZED_RESPONSE_EXAMPLE,
+//       },
+//     },
+//     #{ title: "Unauthorized Response", description: "Unauthorized Response" }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         statusCode: 400,
+//         body: GET_PRODUCTS_INTERNAL_SERVER_ERROR_RESPONSE_EXAMPLE,
+//       },
+//     },
+//     #{
+//       title: "Internal Server Error Response",
+//       description: "Internal Server Error Response",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         statusCode: 400,
+//         body: GET_PRODUCTS_FORBIDDEN_RESPONSE_EXAMPLE,
+//       },
+//     },
+//     #{ title: "Forbidden Response", description: "Forbidden Response" }
+//   )
+//   GetProducts(
+//     ...GetProductsRequest,
+//   ): GetProductsSuccessResponse | GetProductsErrorResponse;
 
-  @route("/{id}")
-  @summary("Get Product")
-  @doc("Fetch the product for the given id.")
-  @opExample(
-    #{
-      returnType: #{
-        octoCapabilities: "",
-        statusCode: 200,
-        body: GET_PRODUCT_RESPONSE,
-      },
-    },
-    #{ title: "Product example", description: "Product example" }
-  )
-  @opExample(
-    #{
-      returnType: #{
-        statusCode: 400,
-        body: GET_PRODUCT_INVALID_PRODUCT_ID_RESPONSE_EXAMPLE,
-      },
-    },
-    #{
-      title: "Invalid Product Id Response",
-      description: "Invalid Product Id Response",
-    }
-  )
-  @opExample(
-    #{
-      returnType: #{
-        statusCode: 400,
-        body: GET_PRODUCT_UNAUTHORIZED_RESPONSE_EXAMPLE,
-      },
-    },
-    #{ title: "Unauthorized Response", description: "Unauthorized Response" }
-  )
-  @opExample(
-    #{
-      returnType: #{
-        statusCode: 400,
-        body: GET_PRODUCT_INTERNAL_SERVER_ERROR_RESPONSE_EXAMPLE,
-      },
-    },
-    #{
-      title: "Internal Server Error Response",
-      description: "Internal Server Error Response",
-    }
-  )
-  @opExample(
-    #{
-      returnType: #{
-        statusCode: 400,
-        body: GET_PRODUCT_FORBIDDEN_RESPONSE_EXAMPLE,
-      },
-    },
-    #{ title: "Forbidden Response", description: "Forbidden Response" }
-  )
-  GetProduct(
-    ...GetProductRequest,
-  ): GetProductSuccessResponse | GetProductErrorResponse;
-}
+//   @route("/{id}")
+//   @summary("Get Product")
+//   @doc("Fetch the product for the given id.")
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "octo/pricing",
+//         statusCode: 200,
+//         body: GET_PRODUCT_PRICING_PER_BOOKING_RESPONSE,
+//       },
+//     },
+//     #{
+//       title: "Product with octo/pricng (pricing per booking)",
+//       description: "Product with octo/pricng (pricing per booking)",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "octo/pricing",
+//         statusCode: 200,
+//         body: GET_PRODUCT_PRICING_PER_UNIT_RESPONSE,
+//       },
+//     },
+//     #{
+//       title: "Product with octo/pricng (pricing per unit)",
+//       description: "Product with octo/pricng (pricing per unit)",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "octo/content",
+//         statusCode: 200,
+//         body: GET_PRODUCT_CONTENT_RESPONSE,
+//       },
+//     },
+//     #{
+//       title: "Product with octo/content",
+//       description: "Product with octo/content",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "",
+//         statusCode: 200,
+//         body: GET_PRODUCT_RESPONSE,
+//       },
+//     },
+//     #{ title: "Product example", description: "Product example" }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         statusCode: 400,
+//         body: GET_PRODUCT_INVALID_PRODUCT_ID_RESPONSE_EXAMPLE,
+//       },
+//     },
+//     #{
+//       title: "Invalid Product Id Response",
+//       description: "Invalid Product Id Response",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         statusCode: 400,
+//         body: GET_PRODUCT_UNAUTHORIZED_RESPONSE_EXAMPLE,
+//       },
+//     },
+//     #{ title: "Unauthorized Response", description: "Unauthorized Response" }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         statusCode: 400,
+//         body: GET_PRODUCT_INTERNAL_SERVER_ERROR_RESPONSE_EXAMPLE,
+//       },
+//     },
+//     #{
+//       title: "Internal Server Error Response",
+//       description: "Internal Server Error Response",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         statusCode: 400,
+//         body: GET_PRODUCT_FORBIDDEN_RESPONSE_EXAMPLE,
+//       },
+//     },
+//     #{ title: "Forbidden Response", description: "Forbidden Response" }
+//   )
+//   GetProduct(
+//     ...GetProductRequest,
+//   ): GetProductSuccessResponse | GetProductErrorResponse;
+// }
 
 // @tag("Availability")
 // @route("/availability")
@@ -213,6 +322,39 @@ interface Products {
 //   @post
 //   @summary("Availability Check")
 //   @doc("This endpoint is slightly slower as it will return an object for each individual departure time (or day). You have to perform this step to retrieve an `availabilityId` in order to confirm a sale, so if you just want to use this endpoint and skip the calendar endpoint then that's perfectly ok.\n\nYou must pass in one of the following combinations of parameters for this endpoint:\n- `localDate`\n- `localeDateStart` and `localDateEnd`\n- `availabilityIds`")
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "octo/content",
+//         statusCode: 200,
+//         body: AVAILABILITY_CHECK_CONTENT_RESPONSE,
+//       },
+//     },
+//     #{
+//       title: "Availability Check with octo/content",
+//       description: "Availability Check with octo/content",
+//     }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "",
+//         statusCode: 200,
+//         body: AVAILABILITY_CHECK_START_TIMES_RESPONSE,
+//       },
+//     },
+//     #{ title: "Start Times Example", description: "Start Times Example" }
+//   )
+//   @opExample(
+//     #{
+//       returnType: #{
+//         octoCapabilities: "",
+//         statusCode: 200,
+//         body: AVAILABILITY_CHECK_OPENING_HOURS_RESPONSE,
+//       },
+//     },
+//     #{ title: "Opening Hours Example", description: "Opening Hours Example" }
+//   )
 //   @opExample(
 //     #{
 //       returnType: #{
@@ -876,3 +1018,4 @@ interface Products {
 //     ...ExtendReservationRequest,
 //   ): ExtendReservationSuccessResponse | ExtendReservationErrorResponse;
 // }
+
