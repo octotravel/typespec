@@ -38,7 +38,7 @@ model ReviewRating {
   @example(REVIEW_RATING_COUNT_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }
@@ -49,7 +49,7 @@ model ReviewRating {
   @example(REVIEW_RATING_VALUE_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }
@@ -60,7 +60,7 @@ model ReviewRating {
   @example(REVIEW_RATING_SCALE_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }
@@ -72,7 +72,7 @@ model ReviewRating {
   @format("uri")
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }
@@ -83,7 +83,7 @@ model ReviewRating {
   @example(REVIEW_RATING_EXTERNAL_PLATFORM_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }

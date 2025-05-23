@@ -18,7 +18,7 @@ model UnitItemPricing {
   @example(UNIT_ITEM_PRICING_PRICING_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }

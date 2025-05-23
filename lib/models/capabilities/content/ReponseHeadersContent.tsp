@@ -7,12 +7,12 @@ model ResponseHeadersContent {
   @example("en")
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
   )
-  @header({
+  @header(#{
     name: "Content-Language",
   })
   contentLanguage?: string;
@@ -21,12 +21,12 @@ model ResponseHeadersContent {
   @example("en, es")
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
   )
-  @header({
+  @header(#{
     name: "Available-Languages",
   })
   availableLanguages?: string;

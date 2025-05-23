@@ -18,7 +18,7 @@ model ProductPricing {
   @example(PRODUCT_PRICING_DEFAULT_CURRENCY_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }
@@ -29,7 +29,7 @@ model ProductPricing {
   @example(PRODUCT_PRICING_AVAILABLE_CURRENCIES_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }
@@ -40,7 +40,7 @@ model ProductPricing {
   @example(PRODUCT_PRICING_PRICING_PER_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }

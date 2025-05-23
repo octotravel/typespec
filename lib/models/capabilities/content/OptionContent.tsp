@@ -61,7 +61,7 @@ model OptionContent {
   @example(OPTION_CONTENT_TITLE_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -72,7 +72,7 @@ model OptionContent {
   @example(OPTION_CONTENT_SHORT_DESCRIPTION_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -83,7 +83,7 @@ model OptionContent {
   @example(OPTION_CONTENT_DESCRIPTION_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -94,7 +94,7 @@ model OptionContent {
   @example(OPTION_CONTENT_FEATURES_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -105,7 +105,7 @@ model OptionContent {
   @example(OPTION_CONTENT_FAQS_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -116,7 +116,7 @@ model OptionContent {
   @example(OPTION_CONTENT_MEDIA_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -127,7 +127,7 @@ model OptionContent {
   @example(OPTION_CONTENT_LOCATIONS_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -138,7 +138,7 @@ model OptionContent {
   @example(OPTION_CONTENT_CATEGORY_LABELS_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -149,7 +149,7 @@ model OptionContent {
   @example(OPTION_CONTENT_DURATION_MINUTES_FROM_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -160,7 +160,7 @@ model OptionContent {
   @example(OPTION_CONTENT_DURATION_MINUTES_TO_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -171,7 +171,7 @@ model OptionContent {
   @example(OPTION_CONTENT_COMMENTARY_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }

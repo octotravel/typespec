@@ -18,7 +18,8 @@ describe("noInterfaceRule", () => {
     it("emit diagnostics if using interfaces", async () => {
       await ruleTester.expect(`interface Test {}`).toEmitDiagnostics({
         code: "docs-lib/no-interface",
-        message: "Interface shouldn't be used with this library. Keep operations at the root.",
+        message:
+          "Interface shouldn't be used with this library. Keep operations at the root.",
       });
     });
 

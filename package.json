@@ -1,6 +1,6 @@
 {
   "name": "@octocloud/typespec",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "type": "module",
   "main": "dist/src/index.js",
   "tspMain": "lib/main.tsp",
@@ -15,18 +15,18 @@
     }
   },
   "dependencies": {
-    "@typespec/compiler": "0.65.0",
-    "@typespec/http": "0.65.0",
-    "@typespec/openapi": "0.65.0",
-    "@typespec/openapi3": "0.65.0"
+    "@typespec/compiler": "1.0.0",
+    "@typespec/http": "1.0.1",
+    "@typespec/openapi": "1.0.0",
+    "@typespec/openapi3": "1.0.0"
   },
   "devDependencies": {
     "@types/node": "latest",
-    "@typescript-eslint/eslint-plugin": "6.0.0",
-    "@typescript-eslint/parser": "6.0.0",
-    "@typespec/library-linter": "0.65.0",
-    "eslint": "8.45.0",
-    "prettier": "3.0.3",
+    "@typescript-eslint/eslint-plugin": "8.32.1",
+    "@typescript-eslint/parser": "8.32.1",
+    "@typespec/library-linter": "0.70.0",
+    "eslint": "9.27.0",
+    "prettier": "3.5.3",
     "typescript": "latest"
   },
   "scripts": {
@@ -40,7 +40,6 @@
     "format:check": "prettier --check .",
     "compile": "tsp compile lib/main.tsp",
     "compile:watch": "tsp compile . --watch",
-    "compile:ventrata": "tsp compile ventrata/main.tsp",
     "generate-typespec": "tsp-openapi3 ./openapi.yml --output-dir ./tsp-output"
   },
   "publishConfig": {

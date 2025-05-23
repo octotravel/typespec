@@ -8,7 +8,7 @@ tags:
   - name: Availability
   - name: Bookings
 security:
-  - octoToken: [ ]
+  - octoToken: []
 servers:
   - url: https://ventrata-api-1011165921260.us-central1.run.app/api/octo
   - url: http://localhost:8080/api/octo
@@ -24,7 +24,7 @@ paths:
         - `localDate`
         - `localeDateStart` and `localDateEnd`
         - `availabilityIds`
-      parameters: [ ]
+      parameters: []
       responses:
         200:
           description: The request has succeeded.
@@ -33,7 +33,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Availability'
+                  $ref: "#/components/schemas/Availability"
               examples:
                 Opening Hours Example:
                   summary: Opening Hours Example
@@ -66,7 +66,7 @@ paths:
                       capacity: 10
                       maxUnits: null
                       utcCutoffAt: 2022-06-30T10:00:00Z
-                      openingHours: [ ]
+                      openingHours: []
                     - id: 2022-06-30T14:00:00+01:00
                       localDateTimeStart: 2022-06-30T14:00:00+01:00
                       localDateTimeEnd: 2022-06-30T16:00:00+01:00
@@ -77,36 +77,36 @@ paths:
                       capacity: 10
                       maxUnits: null
                       utcCutoffAt: 2022-06-30T12:00:00Z
-                      openingHours: [ ]
-        '400':
+                      openingHours: []
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorInvalidProductID'
-                  - $ref: '#/components/schemas/ErrorInvalidOptionID'
-                  - $ref: '#/components/schemas/ErrorBadRequest'
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorInvalidProductID"
+                  - $ref: "#/components/schemas/ErrorInvalidOptionID"
+                  - $ref: "#/components/schemas/ErrorBadRequest"
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
                 Bad request response:
                   summary: Bad request response
                   description: Bad request response
-                  value: { }
+                  value: {}
                 Invalid Option Id Response:
                   summary: Invalid Option Id Response
                   description: Invalid Option Id Response
@@ -124,7 +124,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AvailabilityCheckBody'
+              $ref: "#/components/schemas/AvailabilityCheckBody"
   /availability/calendar:
     post:
       operationId: Availabilities_AvailabilityCalendar
@@ -133,16 +133,16 @@ paths:
         This endpoint is highly optimised and will return a single object per day. It's designed to be queried for large date ranges and the result is used to populate an availability calendar.
 
         When the end user selects an open date you can call on `/availability` endpoint to get the `availabilityId` to create the booking
-      parameters: [ ]
+      parameters: []
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AvailabilityCalendar'
+                  $ref: "#/components/schemas/AvailabilityCalendar"
               examples:
                 Opening Hours Example:
                   summary: Opening Hours Example
@@ -181,48 +181,48 @@ paths:
                       status: AVAILABLE
                       vacancies: 10
                       capacity: 10
-                      openingHours: [ ]
+                      openingHours: []
                     - localDate: 2022-06-15
                       available: true
                       status: AVAILABLE
                       vacancies: 10
                       capacity: 10
-                      openingHours: [ ]
+                      openingHours: []
                     - localDate: 2022-06-16
                       available: true
                       status: AVAILABLE
                       vacancies: 10
                       capacity: 10
-                      openingHours: [ ]
-        '400':
+                      openingHours: []
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorInvalidProductID'
-                  - $ref: '#/components/schemas/ErrorInvalidOptionID'
-                  - $ref: '#/components/schemas/ErrorBadRequest'
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorInvalidProductID"
+                  - $ref: "#/components/schemas/ErrorInvalidOptionID"
+                  - $ref: "#/components/schemas/ErrorBadRequest"
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
                 Bad request response:
                   summary: Bad request response
                   description: Bad request response
-                  value: { }
+                  value: {}
                 Invalid Option Id Response:
                   summary: Invalid Option Id Response
                   description: Invalid Option Id Response
@@ -240,7 +240,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AvailabilityCalendarBody'
+              $ref: "#/components/schemas/AvailabilityCalendarBody"
   /bookings/:
     post:
       operationId: Bookings_CreateBooking
@@ -254,14 +254,14 @@ paths:
         The availability for the booking is held for the amount of time equal to the`expirationMinutes` parameter (if provided), up to an internal limit set by either the supplier or the OCTo provider. The `utc_expires_at` parameter in the response object will indicate when a reservtion will expire. A reservation can be extended by calling the [/bookings/{uuid}/extend](docs/octo/branches/main/2c7924ab9128f-extend-reservation) endpoint.
 
         A reserved booking can be confirmed after the customer finalizes their choice on the [/bookings/{uuid}/confirm](docs/octo/branches/main/614d1613b2d70-booking-confirmation) endpoint provided the reservation had not expired.
-      parameters: [ ]
+      parameters: []
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Booking'
+                $ref: "#/components/schemas/Booking"
               examples:
                 ON_HOLD Booking example:
                   summary: ON_HOLD Booking example
@@ -322,7 +322,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -336,7 +336,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -382,7 +382,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -396,7 +396,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -431,12 +431,12 @@ paths:
                       firstName: John
                       lastName: Doe
                       emailAddress: johndoe@email.com
-                      phoneNumber: ''
+                      phoneNumber: ""
                       locales:
                         - en
-                      postalCode: ''
-                      country: ''
-                      notes: ''
+                      postalCode: ""
+                      country: ""
+                      notes: ""
                     notes: Optional notes for the booking
                     deliveryMethods:
                       - TICKET
@@ -459,7 +459,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         status: ON_HOLD
@@ -469,12 +469,12 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
+                          postalCode: ""
+                          country: ""
+                          notes: ""
                         ticket: null
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33b
@@ -492,7 +492,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         status: ON_HOLD
@@ -502,12 +502,12 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
+                          postalCode: ""
+                          country: ""
+                          notes: ""
                         ticket: null
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33c
@@ -536,44 +536,44 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
+                          postalCode: ""
+                          country: ""
+                          notes: ""
                         ticket: null
-        '400':
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorInvalidProductID'
-                  - $ref: '#/components/schemas/ErrorInvalidOptionID'
-                  - $ref: '#/components/schemas/ErrorInvalidUnitID'
-                  - $ref: '#/components/schemas/ErrorInvalidAvailabilityID'
-                  - $ref: '#/components/schemas/ErrorUnprocessableEntity'
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorInvalidProductID"
+                  - $ref: "#/components/schemas/ErrorInvalidOptionID"
+                  - $ref: "#/components/schemas/ErrorInvalidUnitID"
+                  - $ref: "#/components/schemas/ErrorInvalidAvailabilityID"
+                  - $ref: "#/components/schemas/ErrorUnprocessableEntity"
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
                 Unprocessable Entity Response:
                   summary: Unprocessable Entity Response
                   description: Unprocessable Entity Response
-                  value: { }
+                  value: {}
                 Invalid Availability Id Response:
                   summary: Invalid Availability Id Response
                   description: Invalid Availability Id Response
@@ -601,7 +601,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateBookingBody'
+              $ref: "#/components/schemas/CreateBookingBody"
     get:
       operationId: Bookings_GetBookings
       summary: Get Bookings
@@ -665,14 +665,14 @@ paths:
             type: string
           explode: false
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Booking'
+                  $ref: "#/components/schemas/Booking"
               examples:
                 Bad Request Response:
                   summary: Bad Request Response
@@ -733,7 +733,7 @@ paths:
                                   minQuantity: 1
                                   maxQuantity: 10
                                   paxCount: 1
-                                  accompaniedBy: [ ]
+                                  accompaniedBy: []
                                 requiredContactFields:
                                   - firstName
                               - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -747,7 +747,7 @@ paths:
                                   minQuantity: 1
                                   maxQuantity: 10
                                   paxCount: 1
-                                  accompaniedBy: [ ]
+                                  accompaniedBy: []
                                 requiredContactFields:
                                   - firstName
                               - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -793,7 +793,7 @@ paths:
                               minQuantity: 1
                               maxQuantity: 10
                               paxCount: 1
-                              accompaniedBy: [ ]
+                              accompaniedBy: []
                             requiredContactFields:
                               - firstName
                           - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -807,7 +807,7 @@ paths:
                               minQuantity: 1
                               maxQuantity: 10
                               paxCount: 1
-                              accompaniedBy: [ ]
+                              accompaniedBy: []
                             requiredContactFields:
                               - firstName
                           - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -842,17 +842,17 @@ paths:
                         firstName: John
                         lastName: Doe
                         emailAddress: johndoe@email.com
-                        phoneNumber: ''
+                        phoneNumber: ""
                         locales:
                           - en
-                        postalCode: ''
-                        country: ''
-                        notes: ''
+                        postalCode: ""
+                        country: ""
+                        notes: ""
                       notes: Optional notes for the booking
                       deliveryMethods:
                         - TICKET
                         - VOUCHER
-                      voucher: { }
+                      voucher: {}
                       unitItems:
                         - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                           resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33a
@@ -870,7 +870,7 @@ paths:
                               minQuantity: 1
                               maxQuantity: 10
                               paxCount: 1
-                              accompaniedBy: [ ]
+                              accompaniedBy: []
                             requiredContactFields:
                               - firstName
                           status: ON_HOLD
@@ -880,13 +880,13 @@ paths:
                             firstName: John
                             lastName: Doe
                             emailAddress: johndoe@email.com
-                            phoneNumber: ''
+                            phoneNumber: ""
                             locales:
                               - en
-                            postalCode: ''
-                            country: ''
-                            notes: ''
-                          ticket: { }
+                            postalCode: ""
+                            country: ""
+                            notes: ""
+                          ticket: {}
                         - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                           resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33b
                           supplierReference: K9T7R5
@@ -903,7 +903,7 @@ paths:
                               minQuantity: 1
                               maxQuantity: 10
                               paxCount: 1
-                              accompaniedBy: [ ]
+                              accompaniedBy: []
                             requiredContactFields:
                               - firstName
                           status: CONFIRMED
@@ -913,13 +913,13 @@ paths:
                             firstName: John
                             lastName: Doe
                             emailAddress: johndoe@email.com
-                            phoneNumber: ''
+                            phoneNumber: ""
                             locales:
                               - en
-                            postalCode: ''
-                            country: ''
-                            notes: ''
-                          ticket: { }
+                            postalCode: ""
+                            country: ""
+                            notes: ""
+                          ticket: {}
                         - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                           resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33c
                           supplierReference: K9T7R6
@@ -947,39 +947,39 @@ paths:
                             firstName: John
                             lastName: Doe
                             emailAddress: johndoe@email.com
-                            phoneNumber: ''
+                            phoneNumber: ""
                             locales:
                               - en
-                            postalCode: ''
-                            country: ''
-                            notes: ''
-                          ticket: { }
-        '400':
+                            postalCode: ""
+                            country: ""
+                            notes: ""
+                          ticket: {}
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
                 Bad Request Response:
                   summary: Bad Request Response
                   description: Bad Request Response
-                  value: { }
+                  value: {}
       tags:
         - Bookings
   /bookings/{bookingId}:
@@ -1007,12 +1007,12 @@ paths:
           schema:
             type: boolean
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Booking'
+                $ref: "#/components/schemas/Booking"
               examples:
                 Booking example:
                   summary: Booking example
@@ -1073,7 +1073,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1087,7 +1087,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1133,7 +1133,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1147,7 +1147,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1182,17 +1182,17 @@ paths:
                       firstName: John
                       lastName: Doe
                       emailAddress: johndoe@email.com
-                      phoneNumber: ''
+                      phoneNumber: ""
                       locales:
                         - en
-                      postalCode: ''
-                      country: ''
-                      notes: ''
+                      postalCode: ""
+                      country: ""
+                      notes: ""
                     notes: Optional notes for the booking
                     deliveryMethods:
                       - TICKET
                       - VOUCHER
-                    voucher: { }
+                    voucher: {}
                     unitItems:
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33a
@@ -1210,7 +1210,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         status: ON_HOLD
@@ -1220,13 +1220,13 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
-                        ticket: { }
+                          postalCode: ""
+                          country: ""
+                          notes: ""
+                        ticket: {}
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33b
                         supplierReference: K9T7R5
@@ -1243,7 +1243,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         status: CONFIRMED
@@ -1253,13 +1253,13 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
-                        ticket: { }
+                          postalCode: ""
+                          country: ""
+                          notes: ""
+                        ticket: {}
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33c
                         supplierReference: K9T7R6
@@ -1287,36 +1287,36 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
-                        ticket: { }
-        '400':
+                          postalCode: ""
+                          country: ""
+                          notes: ""
+                        ticket: {}
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorInvalidBookingUUID'
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorInvalidBookingUUID"
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
                 Invalid Booking UUID Response:
                   summary: Invalid Booking UUID Response
                   description: Invalid Booking UUID Response
@@ -1348,27 +1348,27 @@ paths:
           schema:
             type: boolean
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Booking'
-        '400':
+                $ref: "#/components/schemas/Booking"
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorInvalidProductID'
-                  - $ref: '#/components/schemas/ErrorInvalidOptionID'
-                  - $ref: '#/components/schemas/ErrorInvalidUnitID'
-                  - $ref: '#/components/schemas/ErrorInvalidAvailabilityID'
-                  - $ref: '#/components/schemas/ErrorInvalidBookingUUID'
-                  - $ref: '#/components/schemas/ErrorUnprocessableEntity'
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorInvalidProductID"
+                  - $ref: "#/components/schemas/ErrorInvalidOptionID"
+                  - $ref: "#/components/schemas/ErrorInvalidUnitID"
+                  - $ref: "#/components/schemas/ErrorInvalidAvailabilityID"
+                  - $ref: "#/components/schemas/ErrorInvalidBookingUUID"
+                  - $ref: "#/components/schemas/ErrorUnprocessableEntity"
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
       tags:
         - Bookings
       requestBody:
@@ -1376,7 +1376,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateBookingBody'
+              $ref: "#/components/schemas/UpdateBookingBody"
   /bookings/{bookingId}/cancel:
     post:
       operationId: Bookings_CancelBooking
@@ -1390,12 +1390,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Booking'
+                $ref: "#/components/schemas/Booking"
               examples:
                 CANCELLED Booking example:
                   summary: CANCELLED Booking example
@@ -1456,7 +1456,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1470,7 +1470,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1516,7 +1516,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1530,7 +1530,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1549,7 +1549,7 @@ paths:
                           requiredContactFields:
                             - firstName
                     cancellable: false
-                    cancellation: { }
+                    cancellation: {}
                     freesale: false
                     availabilityId: 2021-10-27T00:00:00-04:00
                     availability:
@@ -1565,46 +1565,46 @@ paths:
                       firstName: John
                       lastName: Doe
                       emailAddress: johndoe@email.com
-                      phoneNumber: ''
+                      phoneNumber: ""
                       locales:
                         - en
-                      postalCode: ''
-                      country: ''
-                      notes: ''
+                      postalCode: ""
+                      country: ""
+                      notes: ""
                     notes: Optional notes for the booking
                     deliveryMethods:
                       - TICKET
                       - VOUCHER
                     voucher: null
-                    unitItems: [ ]
-        '400':
+                    unitItems: []
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorInvalidBookingUUID'
-                  - $ref: '#/components/schemas/ErrorUnprocessableEntity'
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorInvalidBookingUUID"
+                  - $ref: "#/components/schemas/ErrorUnprocessableEntity"
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
                 Unprocessable Entity Response:
                   summary: Unprocessable Entity Response
                   description: Unprocessable Entity Response
-                  value: { }
+                  value: {}
                 Invalid Booking UUID Response:
                   summary: Invalid Booking UUID Response
                   description: Invalid Booking UUID Response
@@ -1617,7 +1617,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BookingCancellationBody'
+              $ref: "#/components/schemas/BookingCancellationBody"
   /bookings/{bookingId}/confirm:
     post:
       operationId: Bookings_ConfirmBooking
@@ -1631,12 +1631,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Booking'
+                $ref: "#/components/schemas/Booking"
               examples:
                 CONFIRMED Booking example:
                   summary: CONFIRMED Booking example
@@ -1697,7 +1697,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1711,7 +1711,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1757,7 +1757,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1771,7 +1771,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -1806,17 +1806,17 @@ paths:
                       firstName: John
                       lastName: Doe
                       emailAddress: johndoe@email.com
-                      phoneNumber: ''
+                      phoneNumber: ""
                       locales:
                         - en
-                      postalCode: ''
-                      country: ''
-                      notes: ''
+                      postalCode: ""
+                      country: ""
+                      notes: ""
                     notes: Optional notes for the booking
                     deliveryMethods:
                       - TICKET
                       - VOUCHER
-                    voucher: { }
+                    voucher: {}
                     unitItems:
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33a
@@ -1834,7 +1834,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         status: ON_HOLD
@@ -1844,13 +1844,13 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
-                        ticket: { }
+                          postalCode: ""
+                          country: ""
+                          notes: ""
+                        ticket: {}
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33b
                         supplierReference: K9T7R5
@@ -1867,7 +1867,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         status: CONFIRMED
@@ -1877,13 +1877,13 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
-                        ticket: { }
+                          postalCode: ""
+                          country: ""
+                          notes: ""
+                        ticket: {}
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33c
                         supplierReference: K9T7R6
@@ -1911,45 +1911,45 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
-                        ticket: { }
-        '400':
+                          postalCode: ""
+                          country: ""
+                          notes: ""
+                        ticket: {}
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorInvalidProductID'
-                  - $ref: '#/components/schemas/ErrorInvalidOptionID'
-                  - $ref: '#/components/schemas/ErrorInvalidUnitID'
-                  - $ref: '#/components/schemas/ErrorInvalidAvailabilityID'
-                  - $ref: '#/components/schemas/ErrorInvalidBookingUUID'
-                  - $ref: '#/components/schemas/ErrorUnprocessableEntity'
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorInvalidProductID"
+                  - $ref: "#/components/schemas/ErrorInvalidOptionID"
+                  - $ref: "#/components/schemas/ErrorInvalidUnitID"
+                  - $ref: "#/components/schemas/ErrorInvalidAvailabilityID"
+                  - $ref: "#/components/schemas/ErrorInvalidBookingUUID"
+                  - $ref: "#/components/schemas/ErrorUnprocessableEntity"
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
                 Unprocessable Entity Response:
                   summary: Unprocessable Entity Response
                   description: Unprocessable Entity Response
-                  value: { }
+                  value: {}
                 Invalid Booking UUID Response:
                   summary: Invalid Booking UUID Response
                   description: Invalid Booking UUID Response
@@ -1982,7 +1982,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BookingConfirmationBody'
+              $ref: "#/components/schemas/BookingConfirmationBody"
   /bookings/{bookingId}/extend:
     post:
       operationId: Bookings_ExtendReservation
@@ -1996,12 +1996,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Booking'
+                $ref: "#/components/schemas/Booking"
               examples:
                 ON_HOLD Booking example:
                   summary: ON_HOLD Booking example
@@ -2062,7 +2062,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -2076,7 +2076,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -2122,7 +2122,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -2136,7 +2136,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -2171,12 +2171,12 @@ paths:
                       firstName: John
                       lastName: Doe
                       emailAddress: johndoe@email.com
-                      phoneNumber: ''
+                      phoneNumber: ""
                       locales:
                         - en
-                      postalCode: ''
-                      country: ''
-                      notes: ''
+                      postalCode: ""
+                      country: ""
+                      notes: ""
                     notes: Optional notes for the booking
                     deliveryMethods:
                       - TICKET
@@ -2199,7 +2199,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         status: ON_HOLD
@@ -2209,12 +2209,12 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
+                          postalCode: ""
+                          country: ""
+                          notes: ""
                         ticket: null
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33b
@@ -2232,7 +2232,7 @@ paths:
                             minQuantity: 1
                             maxQuantity: 10
                             paxCount: 1
-                            accompaniedBy: [ ]
+                            accompaniedBy: []
                           requiredContactFields:
                             - firstName
                         status: ON_HOLD
@@ -2242,12 +2242,12 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
+                          postalCode: ""
+                          country: ""
+                          notes: ""
                         ticket: null
                       - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                         resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33c
@@ -2276,41 +2276,41 @@ paths:
                           firstName: John
                           lastName: Doe
                           emailAddress: johndoe@email.com
-                          phoneNumber: ''
+                          phoneNumber: ""
                           locales:
                             - en
-                          postalCode: ''
-                          country: ''
-                          notes: ''
+                          postalCode: ""
+                          country: ""
+                          notes: ""
                         ticket: null
-        '400':
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorInvalidBookingUUID'
-                  - $ref: '#/components/schemas/ErrorUnprocessableEntity'
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorInvalidBookingUUID"
+                  - $ref: "#/components/schemas/ErrorUnprocessableEntity"
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
                 Unprocessable Entity Response:
                   summary: Unprocessable Entity Response
                   description: Unprocessable Entity Response
-                  value: { }
+                  value: {}
                 Invalid Booking UUID Response:
                   summary: Invalid Booking UUID Response
                   description: Invalid Booking UUID Response
@@ -2323,22 +2323,22 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ExtendReservationBody'
+              $ref: "#/components/schemas/ExtendReservationBody"
   /products/:
     get:
       operationId: Products_GetProducts
       summary: Get Products
       description: Fetch the list of products.
-      parameters: [ ]
+      parameters: []
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Product'
+                  $ref: "#/components/schemas/Product"
               examples:
                 Products example:
                   summary: Products example
@@ -2386,7 +2386,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -2400,7 +2400,7 @@ paths:
                                 minQuantity: 1
                                 maxQuantity: 10
                                 paxCount: 1
-                                accompaniedBy: [ ]
+                                accompaniedBy: []
                               requiredContactFields:
                                 - firstName
                             - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -2418,28 +2418,28 @@ paths:
                                   - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                               requiredContactFields:
                                 - firstName
-        '400':
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
       tags:
         - Products
   /products/{id}:
@@ -2455,12 +2455,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Product'
+                $ref: "#/components/schemas/Product"
               examples:
                 Product example:
                   summary: Product example
@@ -2508,7 +2508,7 @@ paths:
                               minQuantity: 1
                               maxQuantity: 10
                               paxCount: 1
-                              accompaniedBy: [ ]
+                              accompaniedBy: []
                             requiredContactFields:
                               - firstName
                           - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -2522,7 +2522,7 @@ paths:
                               minQuantity: 1
                               maxQuantity: 10
                               paxCount: 1
-                              accompaniedBy: [ ]
+                              accompaniedBy: []
                             requiredContactFields:
                               - firstName
                           - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -2540,29 +2540,29 @@ paths:
                                 - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                             requiredContactFields:
                               - firstName
-        '400':
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorInvalidProductID'
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorInvalidProductID"
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
                 Invalid Product Id Response:
                   summary: Invalid Product Id Response
                   description: Invalid Product Id Response
@@ -2575,14 +2575,14 @@ paths:
       operationId: Suppliers_get
       summary: Get Supplier
       description: Returns the supplier and associated contact details.
-      parameters: [ ]
+      parameters: []
       responses:
-        '200':
+        "200":
           description: The request has succeeded.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Supplier'
+                $ref: "#/components/schemas/Supplier"
               examples:
                 Supplier example:
                   summary: Supplier example
@@ -2596,28 +2596,28 @@ paths:
                       email: support@ventrata.com
                       telephone: null
                       address: Marble Arch, London, W1H 7EJ, United Kingdom
-        '400':
+        "400":
           description: The server could not understand the request due to invalid syntax.
           content:
             application/json:
               schema:
                 anyOf:
-                  - $ref: '#/components/schemas/ErrorUnauthorized'
-                  - $ref: '#/components/schemas/ErrorInternalServerError'
-                  - $ref: '#/components/schemas/ErrorForbidden'
+                  - $ref: "#/components/schemas/ErrorUnauthorized"
+                  - $ref: "#/components/schemas/ErrorInternalServerError"
+                  - $ref: "#/components/schemas/ErrorForbidden"
               examples:
                 Forbidden Response:
                   summary: Forbidden Response
                   description: Forbidden Response
-                  value: { }
+                  value: {}
                 Internal Server Error Response:
                   summary: Internal Server Error Response
                   description: Internal Server Error Response
-                  value: { }
+                  value: {}
                 Unauthorized Response:
                   summary: Unauthorized Response
                   description: Unauthorized Response
-                  value: { }
+                  value: {}
       tags:
         - Supplier
 components:
@@ -2725,7 +2725,7 @@ components:
               x-order: 1
               type: array
               items:
-                $ref: '#/components/schemas/Capability'
+                $ref: "#/components/schemas/Capability"
               x-go-name: capabilities
               x-internal: true
               x-go-type-skip-optional-pointer: true
@@ -2761,7 +2761,7 @@ components:
               description: Whether there is availability for this date / slot.
             status:
               allOf:
-                - $ref: '#/components/schemas/AvailabilityStatus'
+                - $ref: "#/components/schemas/AvailabilityStatus"
               example: AVAILABLE
               description: |-
                 The status of that date. Possible values are:
@@ -2803,7 +2803,7 @@ components:
             openingHours:
               type: array
               items:
-                $ref: '#/components/schemas/OpeningHours'
+                $ref: "#/components/schemas/OpeningHours"
               example:
                 - from: 08:00
                   to: 16:00
@@ -2811,24 +2811,24 @@ components:
             unitPricing:
               type: array
               items:
-                $ref: '#/components/schemas/PricingUnit'
+                $ref: "#/components/schemas/PricingUnit"
               example:
                 - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                 - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
                 - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
-              description: 'Is on the object when Pricing capability is requested. '
+              description: "Is on the object when Pricing capability is requested. "
             pricing:
               type: array
               items:
-                $ref: '#/components/schemas/Pricing'
+                $ref: "#/components/schemas/Pricing"
               example:
                 - original: 2000
                   retail: 2000
                   net: 1600
                   currency: EUR
                   currencyPrecision: 2
-                  includedTaxes: [ ]
-              description: 'Is on the object when Pricing capability is requested. '
+                  includedTaxes: []
+              description: "Is on the object when Pricing capability is requested. "
           example:
             id: 2022-05-23T00:00:00+01:00
             localDateTimeStart: 2022-05-23T00:00:00+01:00
@@ -2843,7 +2843,7 @@ components:
             openingHours:
               - from: 08:00
                 to: 16:00
-        - $ref: '#/components/schemas/AvailabilityPickups'
+        - $ref: "#/components/schemas/AvailabilityPickups"
     AvailabilityPickups:
       type: object
       properties:
@@ -2871,7 +2871,7 @@ components:
           x-go-type-skip-optional-pointer: true
           type: array
           items:
-            $ref: '#/components/schemas/PickupPoint'
+            $ref: "#/components/schemas/PickupPoint"
           description: |
             A list of pickup points for this availability.
             This field is only present when the capability `octo/pickups` is requested.
@@ -2895,7 +2895,7 @@ components:
           description: Whether there is availability for this date / slot.
         status:
           allOf:
-            - $ref: '#/components/schemas/AvailabilityStatus'
+            - $ref: "#/components/schemas/AvailabilityStatus"
           example: AVAILABLE
           description: |-
             The status of that date. Possible values are:
@@ -2917,7 +2917,7 @@ components:
         openingHours:
           type: array
           items:
-            $ref: '#/components/schemas/OpeningHours'
+            $ref: "#/components/schemas/OpeningHours"
           example:
             - from: 08:00
               to: 16:00
@@ -2925,24 +2925,24 @@ components:
         unitPricingFrom:
           type: array
           items:
-            $ref: '#/components/schemas/PricingUnit'
+            $ref: "#/components/schemas/PricingUnit"
           example:
             - unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
             - unitId: child_797e3ce8-1860-4cbf-80ad-95857df1f640
             - unitId: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
-          description: 'Is on the object when Pricing capability is requested. '
+          description: "Is on the object when Pricing capability is requested. "
         pricingFrom:
           type: array
           items:
-            $ref: '#/components/schemas/Pricing'
+            $ref: "#/components/schemas/Pricing"
           example:
             - original: 2000
               retail: 2000
               net: 1600
               currency: EUR
               currencyPrecision: 2
-              includedTaxes: [ ]
-          description: 'Is on the object when Pricing capability is requested. '
+              includedTaxes: []
+          description: "Is on the object when Pricing capability is requested. "
       example:
         localDate: 2022-05-12
         available: true
@@ -2977,7 +2977,7 @@ components:
         units:
           type: array
           items:
-            $ref: '#/components/schemas/AvailabilityUnit'
+            $ref: "#/components/schemas/AvailabilityUnit"
           example:
             - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
               quantity: 2
@@ -3025,7 +3025,7 @@ components:
         units:
           type: array
           items:
-            $ref: '#/components/schemas/AvailabilityUnit'
+            $ref: "#/components/schemas/AvailabilityUnit"
           example:
             - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
               quantity: 2
@@ -3128,7 +3128,7 @@ components:
               x-order: 1
               type: array
               items:
-                $ref: '#/components/schemas/Capability'
+                $ref: "#/components/schemas/Capability"
               x-go-name: capabilities
               x-internal: true
               x-go-type-skip-optional-pointer: true
@@ -3176,7 +3176,7 @@ components:
               example: XOPSUT
               description: The reference set by the Reseller. A mandatory field for resellers to be set in the booking confirmation request.
             settlementMethod:
-              $ref: '#/components/schemas/SettlementMethod'
+              $ref: "#/components/schemas/SettlementMethod"
             quote:
               type: boolean
               example: false
@@ -3188,7 +3188,7 @@ components:
               description: The product ID that identifies the product in the booking system to make this reservation.
             product:
               allOf:
-                - $ref: '#/components/schemas/Product'
+                - $ref: "#/components/schemas/Product"
               example:
                 id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
                 internalName: Amazon River Tour
@@ -3232,7 +3232,7 @@ components:
                           minQuantity: 1
                           maxQuantity: 10
                           paxCount: 1
-                          accompaniedBy: [ ]
+                          accompaniedBy: []
                         requiredContactFields:
                           - firstName
                       - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -3246,7 +3246,7 @@ components:
                           minQuantity: 1
                           maxQuantity: 10
                           paxCount: 1
-                          accompaniedBy: [ ]
+                          accompaniedBy: []
                         requiredContactFields:
                           - firstName
                       - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -3267,11 +3267,11 @@ components:
               description: A bookable product listed by a supplier.
             optionId:
               allOf:
-                - $ref: '#/components/schemas/DefaultableID'
+                - $ref: "#/components/schemas/DefaultableID"
               description: The option ID that identifies the product option in the booking system to make this reservation.
             option:
               allOf:
-                - $ref: '#/components/schemas/Option'
+                - $ref: "#/components/schemas/Option"
               example:
                 id: DEFAULT
                 default: true
@@ -3299,7 +3299,7 @@ components:
                       minQuantity: 1
                       maxQuantity: 10
                       paxCount: 1
-                      accompaniedBy: [ ]
+                      accompaniedBy: []
                     requiredContactFields:
                       - firstName
                   - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -3313,7 +3313,7 @@ components:
                       minQuantity: 1
                       maxQuantity: 10
                       paxCount: 1
-                      accompaniedBy: [ ]
+                      accompaniedBy: []
                     requiredContactFields:
                       - firstName
                   - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -3343,9 +3343,9 @@ components:
             cancellation:
               type: object
               allOf:
-                - $ref: '#/components/schemas/BookingCancellation'
+                - $ref: "#/components/schemas/BookingCancellation"
               nullable: true
-              example: { }
+              example: {}
               description: A boolean field indicating whether this booking can be cancelled.
             freesale:
               type: boolean
@@ -3359,7 +3359,7 @@ components:
             availability:
               nullable: true
               allOf:
-                - $ref: '#/components/schemas/Availability'
+                - $ref: "#/components/schemas/Availability"
               example:
                 id: 2021-10-27T00:00:00-04:00
                 localDateTimeStart: 2021-10-27T00:00:00-04:00
@@ -3373,48 +3373,48 @@ components:
             contact:
               nullable: true
               allOf:
-                - $ref: '#/components/schemas/CustomerContact'
+                - $ref: "#/components/schemas/CustomerContact"
               example:
                 fullName: John Doe
                 firstName: John
                 lastName: Doe
                 emailAddress: johndoe@email.com
-                phoneNumber: ''
+                phoneNumber: ""
                 locales:
                   - en
-                postalCode: ''
-                country: ''
-                notes: ''
+                postalCode: ""
+                country: ""
+                notes: ""
               description: Contact details for the guests that will attend the tour/attraction. Contact schema can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information)
             agent:
               nullable: true
               allOf:
-                - $ref: '#/components/schemas/Agent'
+                - $ref: "#/components/schemas/Agent"
               example:
-                id: '449eb2da-c6a3-46e1-a37d-c0bca406af8c'
-                name: 'xyz'
-                reference: ''
+                id: "449eb2da-c6a3-46e1-a37d-c0bca406af8c"
+                name: "xyz"
+                reference: ""
                 tags: []
-              description: ''
+              description: ""
             reseller:
               nullable: true
               product:
               allOf:
-                - $ref: '#/components/schemas/Reseller'
+                - $ref: "#/components/schemas/Reseller"
               example:
-                id: '449eb2da-c6a3-46e1-a37d-c0bca406af8c'
-                name: 'xyz'
-                reference: ''
+                id: "449eb2da-c6a3-46e1-a37d-c0bca406af8c"
+                name: "xyz"
+                reference: ""
                 tags: []
             requiredContactFields:
               type: array
               items:
-                $ref: '#/components/schemas/ContactField'
+                $ref: "#/components/schemas/ContactField"
               description: An array of required contact fields.
             visibleContactFields:
               type: array
               items:
-                $ref: '#/components/schemas/ContactField'
+                $ref: "#/components/schemas/ContactField"
               description: An array of visible contact fields.
             notes:
               type: string
@@ -3424,20 +3424,20 @@ components:
             deliveryMethods:
               type: array
               items:
-                $ref: '#/components/schemas/DeliveryMethod'
+                $ref: "#/components/schemas/DeliveryMethod"
               example:
                 - TICKET
                 - VOUCHER
               description: An array of delivery methods available for this booking.
             voucher:
               allOf:
-                - $ref: '#/components/schemas/Voucher'
+                - $ref: "#/components/schemas/Voucher"
               description: A voucher for this booking.
             unitItems:
               x-go-type-skip-optional-pointer: true
               type: array
               items:
-                $ref: '#/components/schemas/UnitItem'
+                $ref: "#/components/schemas/UnitItem"
               example:
                 - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
                   resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33a
@@ -3455,7 +3455,7 @@ components:
                       minQuantity: 1
                       maxQuantity: 10
                       paxCount: 1
-                      accompaniedBy: [ ]
+                      accompaniedBy: []
                     requiredContactFields:
                       - firstName
                   status: ON_HOLD
@@ -3465,17 +3465,17 @@ components:
                     firstName: John
                     lastName: Doe
                     emailAddress: johndoe@email.com
-                    phoneNumber: ''
+                    phoneNumber: ""
                     locales:
                       - en
-                    postalCode: ''
-                    country: ''
-                    notes: ''
+                    postalCode: ""
+                    country: ""
+                    notes: ""
                   ticket: null
               description: An array o`f unit items that will be included in the booking.
             status:
               allOf:
-                - $ref: '#/components/schemas/BookingStatus'
+                - $ref: "#/components/schemas/BookingStatus"
               example: CONFIRMED
               description: |-
                 The status of the booking, possible values are:
@@ -3487,7 +3487,7 @@ components:
                 `REDEEMED` If the booking is already redeemed.
             rejection:
               allOf:
-                - $ref: '#/components/schemas/BookingRejection'
+                - $ref: "#/components/schemas/BookingRejection"
               description: Booking rejection.
             utcExpiresAt:
               x-go-type: types.TimeRFC3339
@@ -3550,10 +3550,10 @@ components:
               format: date-time
               example: 2022-05-25 10:34:22Z
               description: An RFC 3339 date time in UTC when the booking was updated.
-        - $ref: '#/components/schemas/BookingAdjustments'
-        - $ref: '#/components/schemas/BookingPackages'
-        - $ref: '#/components/schemas/BookingPickups'
-        - $ref: '#/components/schemas/BookingQuestions'
+        - $ref: "#/components/schemas/BookingAdjustments"
+        - $ref: "#/components/schemas/BookingPackages"
+        - $ref: "#/components/schemas/BookingPickups"
+        - $ref: "#/components/schemas/BookingQuestions"
       example:
         id: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
         uuid: 559aed3d-6d5b-4fe0-bfca-99f5e7218a56
@@ -3610,7 +3610,7 @@ components:
                     minQuantity: 1
                     maxQuantity: 10
                     paxCount: 1
-                    accompaniedBy: [ ]
+                    accompaniedBy: []
                   requiredContactFields:
                     - firstName
                 - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -3624,7 +3624,7 @@ components:
                     minQuantity: 1
                     maxQuantity: 10
                     paxCount: 1
-                    accompaniedBy: [ ]
+                    accompaniedBy: []
                   requiredContactFields:
                     - firstName
                 - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -3670,7 +3670,7 @@ components:
                 minQuantity: 1
                 maxQuantity: 10
                 paxCount: 1
-                accompaniedBy: [ ]
+                accompaniedBy: []
               requiredContactFields:
                 - firstName
             - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -3684,7 +3684,7 @@ components:
                 minQuantity: 1
                 maxQuantity: 10
                 paxCount: 1
-                accompaniedBy: [ ]
+                accompaniedBy: []
               requiredContactFields:
                 - firstName
             - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -3719,12 +3719,12 @@ components:
           firstName: John
           lastName: Doe
           emailAddress: johndoe@email.com
-          phoneNumber: ''
+          phoneNumber: ""
           locales:
             - en
-          postalCode: ''
-          country: ''
-          notes: ''
+          postalCode: ""
+          country: ""
+          notes: ""
         notes: Optional notes for the booking
         deliveryMethods:
           - TICKET
@@ -3747,7 +3747,7 @@ components:
                 minQuantity: 1
                 maxQuantity: 10
                 paxCount: 1
-                accompaniedBy: [ ]
+                accompaniedBy: []
               requiredContactFields:
                 - firstName
             status: ON_HOLD
@@ -3757,12 +3757,12 @@ components:
               firstName: John
               lastName: Doe
               emailAddress: johndoe@email.com
-              phoneNumber: ''
+              phoneNumber: ""
               locales:
                 - en
-              postalCode: ''
-              country: ''
-              notes: ''
+              postalCode: ""
+              country: ""
+              notes: ""
             ticket: null
           - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
             resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33b
@@ -3780,7 +3780,7 @@ components:
                 minQuantity: 1
                 maxQuantity: 10
                 paxCount: 1
-                accompaniedBy: [ ]
+                accompaniedBy: []
               requiredContactFields:
                 - firstName
             status: ON_HOLD
@@ -3790,12 +3790,12 @@ components:
               firstName: John
               lastName: Doe
               emailAddress: johndoe@email.com
-              phoneNumber: ''
+              phoneNumber: ""
               locales:
                 - en
-              postalCode: ''
-              country: ''
-              notes: ''
+              postalCode: ""
+              country: ""
+              notes: ""
             ticket: null
           - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
             resellerReference: 4ec08a62-892c-48c1-a608-dc946531a33c
@@ -3824,12 +3824,12 @@ components:
               firstName: John
               lastName: Doe
               emailAddress: johndoe@email.com
-              phoneNumber: ''
+              phoneNumber: ""
               locales:
                 - en
-              postalCode: ''
-              country: ''
-              notes: ''
+              postalCode: ""
+              country: ""
+              notes: ""
             ticket: null
     BookingCancellation:
       type: object
@@ -3840,7 +3840,7 @@ components:
       properties:
         refund:
           allOf:
-            - $ref: '#/components/schemas/Refund'
+            - $ref: "#/components/schemas/Refund"
           example: FULL
           description: Whether the booking was refunded as part of the cancellation. Possible values are `FULL`, `PARTIAL` or `NONE`
         reason:
@@ -3888,13 +3888,13 @@ components:
           description: Your reference for this booking. Also known as a Voucher Number.
         contact:
           allOf:
-            - $ref: '#/components/schemas/CustomerContact'
+            - $ref: "#/components/schemas/CustomerContact"
           example:
             fullName: John Doe
             firstName: John
             lastName: Doe
             emailAddress: johndoe@email.com
-            phoneNumber: '+447840739436'
+            phoneNumber: "+447840739436"
             locales:
               - en
               - en-GB
@@ -3904,7 +3904,7 @@ components:
         unitItems:
           type: array
           items:
-            $ref: '#/components/schemas/UnitItemIdentifier'
+            $ref: "#/components/schemas/UnitItemIdentifier"
           example:
             - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
               unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -3916,7 +3916,7 @@ components:
           firstName: John
           lastName: Doe
           emailAddress: johndoe@email.com
-          phoneNumber: '+447840739436'
+          phoneNumber: "+447840739436"
           locales:
             - en
             - en-GB
@@ -3945,7 +3945,7 @@ components:
             capability: octo/adjustments
           type: array
           items:
-            $ref: '#/components/schemas/BookingAdjustment'
+            $ref: "#/components/schemas/BookingAdjustment"
           description: |
             An array of adjustments that will be included in the booking.
             This field is only present when octo/adjustments capability is requested.
@@ -3957,7 +3957,7 @@ components:
         - netDiscount
       properties:
         per:
-          $ref: '#/components/schemas/AdjustmentPer'
+          $ref: "#/components/schemas/AdjustmentPer"
         amount:
           x-go-type: decimal.Decimal
           x-go-type-import:
@@ -3970,7 +3970,7 @@ components:
           example: Optional notes
           description: Optional notes for the adjustment.
         netDiscount:
-          $ref: '#/components/schemas/AdjustmentDiscount'
+          $ref: "#/components/schemas/AdjustmentDiscount"
     AdjustmentPer:
       type: string
       enum:
@@ -4013,7 +4013,7 @@ components:
           x-oapi-codegen-extra-tags:
             capability: octo/packages
           allOf:
-            - $ref: '#/components/schemas/Include'
+            - $ref: "#/components/schemas/Include"
           description: |
             A package that will be included in the booking.
             This field is only present when octo/packages capability is requested.
@@ -4022,7 +4022,7 @@ components:
             capability: octo/packages
           type: array
           items:
-            $ref: '#/components/schemas/Booking'
+            $ref: "#/components/schemas/Booking"
           description: |
             An array of bookings that will be included in the package.
             This field is only present when octo/packages capability is requested.
@@ -4067,7 +4067,7 @@ components:
           x-oapi-codegen-extra-tags:
             capability: octo/pickups
           allOf:
-            - $ref: '#/components/schemas/PickupPoint'
+            - $ref: "#/components/schemas/PickupPoint"
           description: A pickup point that will be included in the booking. This field is only present when octo/pickups capability is requested.
     BookingQuestions:
       type: object
@@ -4078,7 +4078,7 @@ components:
           x-go-type-skip-optional-pointer: true
           type: array
           items:
-            $ref: '#/components/schemas/QuestionAnswer'
+            $ref: "#/components/schemas/QuestionAnswer"
           description: |
             An array of questions and andswers that will be included in the booking.
             This field is only present when octo/questions capability is requested.
@@ -4117,7 +4117,7 @@ components:
         phoneNumber:
           type: string
           nullable: true
-          example: '+447840739436'
+          example: "+447840739436"
           description: The phone number of the booking holder or the ticket holder.
         locales:
           type: array
@@ -4147,7 +4147,7 @@ components:
         postalCode:
           type: string
           nullable: true
-          example: ''
+          example: ""
           description: The PO Box of the booking holder or the ticket holder.
         country:
           type: string
@@ -4168,7 +4168,7 @@ components:
         firstName: John
         lastName: Doe
         emailAddress: johndoe@email.com
-        phoneNumber: '+447840739436'
+        phoneNumber: "+447840739436"
         locales:
           - en
           - en-GB
@@ -4245,7 +4245,7 @@ components:
           example: Adult
           description: The alias of the unit item.
         settlementMethod:
-          $ref: '#/components/schemas/SettlementMethod'
+          $ref: "#/components/schemas/SettlementMethod"
         expirationMinutes:
           x-go-type: uint
           type: integer
@@ -4262,7 +4262,7 @@ components:
         unitItems:
           type: array
           items:
-            $ref: '#/components/schemas/UnitItemIdentifier'
+            $ref: "#/components/schemas/UnitItemIdentifier"
           example:
             - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
               unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -4278,11 +4278,11 @@ components:
           description: Whether the booking was redeemed.
         contact:
           allOf:
-            - $ref: '#/components/schemas/CustomerContact'
+            - $ref: "#/components/schemas/CustomerContact"
           example:
             fullName: John Doe
             emailAddress: johndoe@email.com
-            phoneNumber: '+447840739436'
+            phoneNumber: "+447840739436"
             locales:
               - en
               - en-GB
@@ -4329,7 +4329,7 @@ components:
           example: Adult
           description: The alias of the unit item.
         settlementMethod:
-          $ref: '#/components/schemas/SettlementMethod'
+          $ref: "#/components/schemas/SettlementMethod"
         expirationMinutes:
           x-go-type: uint
           type: integer
@@ -4347,7 +4347,7 @@ components:
           x-go-type-skip-optional-pointer: true
           type: array
           items:
-            $ref: '#/components/schemas/UnitItemIdentifier'
+            $ref: "#/components/schemas/UnitItemIdentifier"
           example:
             - uuid: 3b1bc2ee-3155-4738-9471-f49842a07327
               unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -4363,11 +4363,11 @@ components:
           description: Whether the booking was redeemed.
         contact:
           allOf:
-            - $ref: '#/components/schemas/CustomerContact'
+            - $ref: "#/components/schemas/CustomerContact"
           example:
             fullName: John Doe
             emailAddress: johndoe@email.com
-            phoneNumber: '+447840739436'
+            phoneNumber: "+447840739436"
             locales:
               - en
               - en-GB
@@ -4390,7 +4390,7 @@ components:
           firstName: John
           lastName: Doe
           emailAddress: johndoe@email.com
-          phoneNumber: '+447840739436'
+          phoneNumber: "+447840739436"
           locales:
             - en
             - en-GB
@@ -4438,7 +4438,7 @@ components:
       properties:
         deliveryFormat:
           allOf:
-            - $ref: '#/components/schemas/DeliveryFormat'
+            - $ref: "#/components/schemas/DeliveryFormat"
           example: QRCODE
           description: |-
             The format for the delivery option possible values are:
@@ -4446,14 +4446,14 @@ components:
             `PDF_URL` Where you use the generated tickets as a PDF.
         deliveryValue:
           type: string
-          example: ''
+          example: ""
           description: |
             The format for the delivery option possible values are:
             `QRCODE` You should generate the QR Code yourself on a ticket.
             `PDF_URL` Where you use the generated tickets as a PDF.
       example:
         deliveryFormat: QRCODE
-        deliveryValue: ''
+        deliveryValue: ""
     DurationUnit:
       type: string
       enum:
@@ -4464,18 +4464,18 @@ components:
     ErrorBadRequest:
       type: object
       allOf:
-        - $ref: '#/components/schemas/BaseError'
-      example: { }
+        - $ref: "#/components/schemas/BaseError"
+      example: {}
     ErrorForbidden:
       type: object
       allOf:
-        - $ref: '#/components/schemas/BaseError'
-      example: { }
+        - $ref: "#/components/schemas/BaseError"
+      example: {}
     ErrorInternalServerError:
       type: object
       allOf:
-        - $ref: '#/components/schemas/BaseError'
-      example: { }
+        - $ref: "#/components/schemas/BaseError"
+      example: {}
     ErrorInvalidAvailabilityID:
       type: object
       required:
@@ -4485,7 +4485,7 @@ components:
           type: string
           description: Missing or invalid `availabilityId` in the request
       allOf:
-        - $ref: '#/components/schemas/BaseError'
+        - $ref: "#/components/schemas/BaseError"
       example:
         availabilityId: 2022-03-12T00:00:00+00:00
     ErrorInvalidBookingUUID:
@@ -4497,7 +4497,7 @@ components:
           type: string
           description: Missing or invalid booking UUID, or if you're confirming the booking the booking may have expired already.
       allOf:
-        - $ref: '#/components/schemas/BaseError'
+        - $ref: "#/components/schemas/BaseError"
       example:
         uuid: bbbb6227-54fc-4c32-9ed7-dc3eb99966ea
     ErrorInvalidOptionID:
@@ -4509,7 +4509,7 @@ components:
           type: string
           description: Missing or invalid `optionId` in the request
       allOf:
-        - $ref: '#/components/schemas/BaseError'
+        - $ref: "#/components/schemas/BaseError"
       example:
         optionId: 681fea0f-196e-45da-bec7-467bfacb1d87
     ErrorInvalidProductID:
@@ -4521,7 +4521,7 @@ components:
           type: string
           description: Missing or invalid `productId` in the request
       allOf:
-        - $ref: '#/components/schemas/BaseError'
+        - $ref: "#/components/schemas/BaseError"
       example:
         productId: cc2a6d56-6efe-426f-99c9-6eb10e341565
     ErrorInvalidUnitID:
@@ -4533,19 +4533,19 @@ components:
           type: string
           description: Missing or invalid `unitId` in the request
       allOf:
-        - $ref: '#/components/schemas/BaseError'
+        - $ref: "#/components/schemas/BaseError"
       example:
         unitId: senior
     ErrorUnauthorized:
       type: object
       allOf:
-        - $ref: '#/components/schemas/BaseError'
-      example: { }
+        - $ref: "#/components/schemas/BaseError"
+      example: {}
     ErrorUnprocessableEntity:
       type: object
       allOf:
-        - $ref: '#/components/schemas/BaseError'
-      example: { }
+        - $ref: "#/components/schemas/BaseError"
+      example: {}
     ExtendReservationBody:
       type: object
       properties:
@@ -4593,7 +4593,7 @@ components:
               x-order: 1
               type: array
               items:
-                $ref: '#/components/schemas/Capability'
+                $ref: "#/components/schemas/Capability"
               x-go-name: capabilities
               x-internal: true
               x-go-type-skip-optional-pointer: true
@@ -4601,14 +4601,14 @@ components:
             id:
               x-order: 1
               allOf:
-                - $ref: '#/components/schemas/DefaultableID'
+                - $ref: "#/components/schemas/DefaultableID"
               type: string
               example: DEFAULT
               description: The id that identifies this option, it is only unique within the product.
             default:
               type: boolean
               example: true
-              description: '`TRUE` identifies the option as default, and should therefore rendered and selected first'
+              description: "`TRUE` identifies the option as default, and should therefore rendered and selected first"
             internalName:
               type: string
               example: DEFAULT
@@ -4643,13 +4643,13 @@ components:
               description: The numeric amount for the cutoff.
             cancellationCutoffUnit:
               allOf:
-                - $ref: '#/components/schemas/CancellationCutoffUnit'
+                - $ref: "#/components/schemas/CancellationCutoffUnit"
               example: hour
-              description: 'Time units used to determine duration. Three values are available: `hour`, `minute`, `day`.'
+              description: "Time units used to determine duration. Three values are available: `hour`, `minute`, `day`."
             requiredContactFields:
               type: array
               items:
-                $ref: '#/components/schemas/ContactField'
+                $ref: "#/components/schemas/ContactField"
               example:
                 - firstName
                 - lastName
@@ -4659,7 +4659,7 @@ components:
             visibleContactFields:
               type: array
               items:
-                $ref: '#/components/schemas/ContactField'
+                $ref: "#/components/schemas/ContactField"
               example:
                 - firstName
                 - lastName
@@ -4673,11 +4673,11 @@ components:
                 - allowMarketing
               description: An array of the contact fields that are visible to the user when booking. These just apply to the lead traveller on the booking and not for every ticket.
             restrictions:
-              $ref: '#/components/schemas/OptionRestrictions'
+              $ref: "#/components/schemas/OptionRestrictions"
             units:
               type: array
               items:
-                $ref: '#/components/schemas/Unit'
+                $ref: "#/components/schemas/Unit"
               description: The list of ticket types (units) available for sale
           example:
             id: DEFAULT
@@ -4706,7 +4706,7 @@ components:
                   minQuantity: 1
                   maxQuantity: 10
                   paxCount: 1
-                  accompaniedBy: [ ]
+                  accompaniedBy: []
                 requiredContactFields:
                   - firstName
               - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -4720,7 +4720,7 @@ components:
                   minQuantity: 1
                   maxQuantity: 10
                   paxCount: 1
-                  accompaniedBy: [ ]
+                  accompaniedBy: []
                 requiredContactFields:
                   - firstName
               - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -4738,10 +4738,10 @@ components:
                     - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                 requiredContactFields:
                   - firstName
-        - $ref: '#/components/schemas/OptionContent'
-        - $ref: '#/components/schemas/OptionPackages'
-        - $ref: '#/components/schemas/OptionPickups'
-        - $ref: '#/components/schemas/OptionPricing'
+        - $ref: "#/components/schemas/OptionContent"
+        - $ref: "#/components/schemas/OptionPackages"
+        - $ref: "#/components/schemas/OptionPickups"
+        - $ref: "#/components/schemas/OptionPricing"
     OptionContent:
       type: object
       required:
@@ -4751,31 +4751,31 @@ components:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'Adult'
+          example: "Adult"
           description: The title of the option. Only present when octo/packages capability is requested.
         subtitle:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'Ages 18+'
+          example: "Ages 18+"
           description: The subtitle of the option. Only present when octo/packages capability is requested.
         language:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'en'
+          example: "en"
           description: The language of the option. Only present when octo/packages capability is requested.
         shortDescription:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'This ticket is for adults aged 18 and over.'
+          example: "This ticket is for adults aged 18 and over."
           description: The description of the option. Only present when octo/packages capability is requested.
         duration:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: '1 hour'
+          example: "1 hour"
           description: |
             Human readable duration of the option. Duration starts to count on redemption.
             This field can be hidden by `hide_duration`.
@@ -4794,7 +4794,7 @@ components:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           allOf:
-            - $ref: '#/components/schemas/DurationUnit'
+            - $ref: "#/components/schemas/DurationUnit"
           description: |
             The duration unit. Possible values are `hour`, `minute`, `day`.
             This field can be hidden by `hide_duration`.
@@ -4805,25 +4805,25 @@ components:
           type: string
           nullable: true
           format: uri
-          example: 'https://example.com/image.jpg'
+          example: "https://example.com/image.jpg"
           description: The cover image URL of the option. Only present when octo/packages capability is requested.
         itinerary:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           allOf:
-            - $ref: '#/components/schemas/Itinerary'
+            - $ref: "#/components/schemas/Itinerary"
           description: The itinerary of the option. Only present when octo/packages capability is requested.
         fromPoint:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           allOf:
-            - $ref: '#/components/schemas/Point'
+            - $ref: "#/components/schemas/Point"
           description: The origin point of the option. Only present when octo/packages capability is requested.
         toPoint:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           allOf:
-            - $ref: '#/components/schemas/Point'
+            - $ref: "#/components/schemas/Point"
           description: The destination point of the option. Only present when octo/packages capability is requested.
     OptionPackages:
       type: object
@@ -4833,7 +4833,7 @@ components:
             capability: octo/packages
           type: array
           items:
-            $ref: '#/components/schemas/PackageInclude'
+            $ref: "#/components/schemas/PackageInclude"
           description: |
             Option package includes.
             Only present when octo/packages capability is requested.
@@ -4866,7 +4866,7 @@ components:
             capability: octo/pickups
           type: array
           items:
-            $ref: '#/components/schemas/PickupPoint'
+            $ref: "#/components/schemas/PickupPoint"
           description: |
             Pickup points for the option.
             Only present when octo/pickups capability is requested.
@@ -4878,14 +4878,14 @@ components:
             capability: octo/pricing
           type: array
           items:
-            $ref: '#/components/schemas/Pricing'
+            $ref: "#/components/schemas/Pricing"
           example:
             - original: 2000
               retail: 2000
               net: 1600
               currency: EUR
               currencyPrecision: 2
-              includedTaxes: [ ]
+              includedTaxes: []
           description: |
             This is the price for the option as a whole. Only present if the octo/pricing capability is requested.
             Mutually exclusive with `pricingFrom`.
@@ -4938,7 +4938,7 @@ components:
             capability: octo/questions
           type: array
           items:
-            $ref: '#/components/schemas/Question'
+            $ref: "#/components/schemas/Question"
           description: Questions for this option. Only present when octo/questions capability is requested.
           x-go-type-skip-optional-pointer: true
     PackageInclude:
@@ -4960,7 +4960,7 @@ components:
           x-oapi-codegen-only-honour-go-name: true
         title:
           type: string
-          example: 'Package includes'
+          example: "Package includes"
           description: Include group name or product name.
         count:
           type: integer
@@ -4969,7 +4969,7 @@ components:
         includes:
           type: array
           items:
-            $ref: '#/components/schemas/Include'
+            $ref: "#/components/schemas/Include"
           description: An array of includes.
       description: Package include.
     PickupPoint:
@@ -5079,15 +5079,15 @@ components:
           example: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
           description: The product ID of the include.
         product:
-          $ref: '#/components/schemas/Product'
+          $ref: "#/components/schemas/Product"
         optionId:
-          $ref: '#/components/schemas/DefaultableID'
+          $ref: "#/components/schemas/DefaultableID"
         option:
-          $ref: '#/components/schemas/Option'
+          $ref: "#/components/schemas/Option"
     Itinerary:
       type: array
       items:
-        $ref: '#/components/schemas/ItineraryItem'
+        $ref: "#/components/schemas/ItineraryItem"
       description: The array of itinerary items.
     ItineraryItem:
       type: object
@@ -5099,7 +5099,7 @@ components:
       properties:
         name:
           type: string
-          example: 'London Eye'
+          example: "London Eye"
           description: The name of the itinerary.
         type:
           type: string
@@ -5108,22 +5108,22 @@ components:
             - POI
             - END
             - EVENT
-          example: 'START'
+          example: "START"
           description: |
             The type of the itinerary.
             Possible values are `START`, `POI`, `END`, `EVENT`. The default is `START`.
         description:
           type: string
           nullable: true
-          example: 'The London Eye is a giant Ferris wheel on the South Bank of the River Thames in London.'
+          example: "The London Eye is a giant Ferris wheel on the South Bank of the River Thames in London."
           description: The description of the itinerary.
         address:
           type: string
-          example: 'Riverside Building, County Hall, Westminster Bridge Road, London SE1 7PB, United Kingdom'
+          example: "Riverside Building, County Hall, Westminster Bridge Road, London SE1 7PB, United Kingdom"
           description: The address of the itinerary.
         googlePlaceId:
           type: string
-          example: 'ChIJ2dGMjMMEdkgRqVqkuXZl3aA'
+          example: "ChIJ2dGMjMMEdkgRqVqkuXZl3aA"
           description: The Google Place ID of the itinerary.
         latitude:
           type: number
@@ -5136,7 +5136,7 @@ components:
         travelTime:
           type: string
           nullable: true
-          example: '1 hour'
+          example: "1 hour"
           description: The travel time of the itinerary.
         travelTimeAmount:
           x-go-type: float64
@@ -5146,12 +5146,12 @@ components:
           description: The travel time amount of the itinerary.
         travelTimeUnit:
           allOf:
-            - $ref: '#/components/schemas/DurationUnit'
+            - $ref: "#/components/schemas/DurationUnit"
           description: The travel time unit of the itinerary.
         duration:
           type: string
           nullable: true
-          example: '1 hour'
+          example: "1 hour"
           description: |
             Human readable duration of the option. Duration starts to count on redemption.
             This field can be hidden by `hide_duration`.
@@ -5164,7 +5164,7 @@ components:
             This field can be hidden by `hide_duration`.
         durationUnit:
           allOf:
-            - $ref: '#/components/schemas/DurationUnit'
+            - $ref: "#/components/schemas/DurationUnit"
           description: |
             The duration unit. Possible values are `hour`, `minute`, `day`.
             This field can be hidden by `hide_duration`.
@@ -5194,7 +5194,7 @@ components:
             The short description of the point. This is preserved for historical compatibility, but will
             always be `nil`.
         pointGroup:
-          $ref: '#/components/schemas/PointGroup'
+          $ref: "#/components/schemas/PointGroup"
       example:
         id: 6b903d44-dc24-4ca4-ae71-6bde6c4f4854
         internalName: DEFAULT
@@ -5265,11 +5265,11 @@ components:
         currencyPrecision:
           type: integer
           example: 2
-          description: 'All pricing is given in integers to avoid floating point rounding issues. e.g. USD = 2 and JPY = 0. To convert a price to decimal you should do: price / (10 ** currencyPrecision) where ** is to the power of e.g. Math.pow(10, currencyPrecision).'
+          description: "All pricing is given in integers to avoid floating point rounding issues. e.g. USD = 2 and JPY = 0. To convert a price to decimal you should do: price / (10 ** currencyPrecision) where ** is to the power of e.g. Math.pow(10, currencyPrecision)."
         includedTaxes:
           type: array
           items:
-            $ref: '#/components/schemas/Tax'
+            $ref: "#/components/schemas/Tax"
           example:
             - name: VAT 10
               retail: 700
@@ -5307,7 +5307,7 @@ components:
           example: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
           description: ID of the unit this pricing is related to
       allOf:
-        - $ref: '#/components/schemas/Pricing'
+        - $ref: "#/components/schemas/Pricing"
       example:
         unitId: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
     Product:
@@ -5336,7 +5336,7 @@ components:
               x-order: 1
               type: array
               items:
-                $ref: '#/components/schemas/Capability'
+                $ref: "#/components/schemas/Capability"
               x-go-name: capabilities
               x-internal: true
               x-go-type-skip-optional-pointer: true
@@ -5374,9 +5374,9 @@ components:
               description: The amount of time in `freesaleDurationUnit` that a booking can be made without having to query availability first.
             freesaleDurationUnit:
               allOf:
-                - $ref: '#/components/schemas/DurationUnit'
+                - $ref: "#/components/schemas/DurationUnit"
               example: hour
-              description: 'Time units used to determine duration. Three values are available: `hour`, `minute`, `day`.'
+              description: "Time units used to determine duration. Three values are available: `hour`, `minute`, `day`."
             instantConfirmation:
               type: boolean
               example: true
@@ -5391,7 +5391,7 @@ components:
               description: Whether an `availabilityId` is required when creating a booking. Without this the booking will be open-dated and not have a specified travel date.
             availabilityType:
               allOf:
-                - $ref: '#/components/schemas/AvailabilityType'
+                - $ref: "#/components/schemas/AvailabilityType"
               example: START_TIME
               description: |-
                 What type of availability this product has, possible values are:
@@ -5400,7 +5400,7 @@ components:
             deliveryFormats:
               type: array
               items:
-                $ref: '#/components/schemas/DeliveryFormat'
+                $ref: "#/components/schemas/DeliveryFormat"
               example:
                 - QRCODE
               description: |-
@@ -5411,7 +5411,7 @@ components:
             deliveryMethods:
               type: array
               items:
-                $ref: '#/components/schemas/DeliveryMethod'
+                $ref: "#/components/schemas/DeliveryMethod"
               example:
                 - TICKET
               description: |-
@@ -5420,7 +5420,7 @@ components:
                 `VOUCHER`: One ticket for the whole booking
             redemptionMethod:
               allOf:
-                - $ref: '#/components/schemas/RedemptionMethod'
+                - $ref: "#/components/schemas/RedemptionMethod"
               example: DIGITAL
               description: |-
                 How the voucher can be redeemed. Possible values are:
@@ -5430,7 +5430,7 @@ components:
             settlementMethods:
               type: array
               items:
-                $ref: '#/components/schemas/SettlementMethod'
+                $ref: "#/components/schemas/SettlementMethod"
               description: |-
                 An array of available settlement methods. Settlement methods are determined by the connection type.
                 Possible values are:
@@ -5442,7 +5442,7 @@ components:
             options:
               type: array
               items:
-                $ref: '#/components/schemas/Option'
+                $ref: "#/components/schemas/Option"
               example:
                 - id: DEFAULT
                   default: true
@@ -5470,7 +5470,7 @@ components:
                         minQuantity: 1
                         maxQuantity: 10
                         paxCount: 1
-                        accompaniedBy: [ ]
+                        accompaniedBy: []
                       requiredContactFields:
                         - firstName
                     - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -5484,7 +5484,7 @@ components:
                         minQuantity: 1
                         maxQuantity: 10
                         paxCount: 1
-                        accompaniedBy: [ ]
+                        accompaniedBy: []
                       requiredContactFields:
                         - firstName
                     - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -5546,7 +5546,7 @@ components:
                       minQuantity: 1
                       maxQuantity: 10
                       paxCount: 1
-                      accompaniedBy: [ ]
+                      accompaniedBy: []
                     requiredContactFields:
                       - firstName
                   - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -5560,7 +5560,7 @@ components:
                       minQuantity: 1
                       maxQuantity: 10
                       paxCount: 1
-                      accompaniedBy: [ ]
+                      accompaniedBy: []
                     requiredContactFields:
                       - firstName
                   - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -5578,9 +5578,9 @@ components:
                         - adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                     requiredContactFields:
                       - firstName
-        - $ref: '#/components/schemas/ProductContent'
-        - $ref: '#/components/schemas/ProductPackages'
-        - $ref: '#/components/schemas/ProductPricing'
+        - $ref: "#/components/schemas/ProductContent"
+        - $ref: "#/components/schemas/ProductPackages"
+        - $ref: "#/components/schemas/ProductPricing"
     ProductContent:
       type: object
       properties:
@@ -5601,7 +5601,7 @@ components:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           allOf:
-            - $ref: '#/components/schemas/Destination'
+            - $ref: "#/components/schemas/Destination"
           description: Destination for this product. Only present when octo/content capability is requested.
         alert:
           x-oapi-codegen-extra-tags:
@@ -5612,19 +5612,19 @@ components:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'Example Product'
+          example: "Example Product"
           description: Title for this product. Only present when octo/content capability is requested.
         subtitle:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'Example Product Subtitle'
+          example: "Example Product Subtitle"
           description: Subtitle for this product. Only present when octo/content capability is requested.
         description:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'Example Product Description'
+          example: "Example Product Description"
           description: Description for this product. Only present when octo/content capability is requested.
         shortDescription:
           x-oapi-codegen-extra-tags:
@@ -5636,7 +5636,7 @@ components:
             capability: octo/content
           type: array
           items:
-            $ref: '#/components/schemas/Category'
+            $ref: "#/components/schemas/Category"
           description: Categories for this product. Only present when octo/content capability is requested.
           x-go-type-skip-optional-pointer: true
         inclusions:
@@ -5695,7 +5695,7 @@ components:
             capability: octo/content
           type: array
           items:
-            $ref: '#/components/schemas/FAQ'
+            $ref: "#/components/schemas/FAQ"
           description: FAQs for this product. Only present when octo/content capability is requested.
           x-go-type-skip-optional-pointer: true
         coverImageUrl:
@@ -5703,25 +5703,25 @@ components:
             capability: octo/content
           type: string
           format: uri
-          example: 'https://example.com/cover.jpg'
+          example: "https://example.com/cover.jpg"
         bannerImageUrl:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
           format: uri
-          example: 'https://example.com/banner.jpg'
+          example: "https://example.com/banner.jpg"
         videoUrl:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
           format: uri
-          example: 'https://example.com/video.mp4'
+          example: "https://example.com/video.mp4"
         galleryImages:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: array
           items:
-            $ref: '#/components/schemas/Image'
+            $ref: "#/components/schemas/Image"
           description: Gallery image URLs for this product. Only present when octo/content capability is requested.
           x-go-type-skip-optional-pointer: true
         bannerImages:
@@ -5729,7 +5729,7 @@ components:
             capability: octo/content
           type: array
           items:
-            $ref: '#/components/schemas/Image'
+            $ref: "#/components/schemas/Image"
           description: Banner image URLs for this product. Only present when octo/content capability is requested.
           x-go-type-skip-optional-pointer: true
     ProductPricing:
@@ -5763,7 +5763,7 @@ components:
           x-oapi-codegen-extra-tags:
             capability: octo/pricing
           allOf:
-            - $ref: '#/components/schemas/PricingPer'
+            - $ref: "#/components/schemas/PricingPer"
           example: UNIT
           description: |
             Indicates whether the pricing is per unit (most common), or per booking. Pricing which is per
@@ -5881,7 +5881,7 @@ components:
               x-order: 1
               type: array
               items:
-                $ref: '#/components/schemas/Capability'
+                $ref: "#/components/schemas/Capability"
               x-go-name: capabilities
               x-internal: true
               x-go-type-skip-optional-pointer: true
@@ -5902,8 +5902,8 @@ components:
               format: uri
               description: This is the base URL that will be prepended to ALL other paths. The value SHOULD NOT contain a trailing /.
             contact:
-              $ref: '#/components/schemas/SupplierContact'
-        - $ref: '#/components/schemas/SupplierContent'
+              $ref: "#/components/schemas/SupplierContact"
+        - $ref: "#/components/schemas/SupplierContent"
       example:
         id: 697e3ce8-1860-4cbf-80ad-95857df1f640
         name: Edin Explore
@@ -5966,7 +5966,7 @@ components:
             capability: octo/content
           type: array
           items:
-            $ref: '#/components/schemas/Destination'
+            $ref: "#/components/schemas/Destination"
           description: An array of destinations the supplier operates in.
     Category:
       type: object
@@ -6008,7 +6008,7 @@ components:
         default:
           type: boolean
           example: true
-          description: '`TRUE` identifies the category as default, and should therefore rendered and selected first'
+          description: "`TRUE` identifies the category as default, and should therefore rendered and selected first"
         shortDescription:
           type: string
           nullable: true
@@ -6042,11 +6042,11 @@ components:
         id:
           x-order: 1
           allOf:
-            - $ref: '#/components/schemas/DefaultableID'
+            - $ref: "#/components/schemas/DefaultableID"
         default:
           type: boolean
           example: true
-          description: '`TRUE identifies the destination as default, and should therefore rendered and selected first'
+          description: "`TRUE identifies the destination as default, and should therefore rendered and selected first"
         name:
           type: string
           nullable: true
@@ -6062,7 +6062,7 @@ components:
           nullable: true
           description: The description of the destination.
         contact:
-          $ref: '#/components/schemas/DestinationContact'
+          $ref: "#/components/schemas/DestinationContact"
         country:
           type: string
           nullable: true
@@ -6081,7 +6081,7 @@ components:
         featured:
           type: boolean
           example: true
-          description: '`TRUE` identifies the destination as featured, and should therefore rendered and selected first'
+          description: "`TRUE` identifies the destination as featured, and should therefore rendered and selected first"
         googlePlaceId:
           type: string
           nullable: true
@@ -6146,7 +6146,7 @@ components:
         categories:
           type: array
           items:
-            $ref: '#/components/schemas/Category'
+            $ref: "#/components/schemas/Category"
           description: An array of categories that the destination falls under.
           x-go-type-skip-optional-pointer: true
       description: Supplier destination information
@@ -6212,15 +6212,15 @@ components:
         url:
           type: string
           format: uri
-          example: 'https://example.com/image.jpg'
+          example: "https://example.com/image.jpg"
         title:
           type: string
           nullable: true
-          example: 'Example Image'
+          example: "Example Image"
         caption:
           type: string
           nullable: true
-          example: 'Example Image Caption'
+          example: "Example Image Caption"
     Tax:
       type: object
       required:
@@ -6231,21 +6231,21 @@ components:
         name:
           type: string
           example: VAT 10
-          description: ''
+          description: ""
         retail:
           x-go-type: int64
           type: integer
           example: 700
-          description: ''
+          description: ""
         original:
           x-go-type: int64
           type: integer
           example: 700
-          description: ''
+          description: ""
         net:
           x-go-type: int64
           example: 400
-          description: ''
+          description: ""
       example:
         name: VAT 10
         retail: 700
@@ -6259,7 +6259,7 @@ components:
       properties:
         redemptionMethod:
           allOf:
-            - $ref: '#/components/schemas/RedemptionMethod'
+            - $ref: "#/components/schemas/RedemptionMethod"
           example: DIGITAL
           description: |-
             How the voucher can be redeemed. Possible values are:
@@ -6287,10 +6287,10 @@ components:
         deliveryOptions:
           type: array
           items:
-            $ref: '#/components/schemas/DeliveryOption'
+            $ref: "#/components/schemas/DeliveryOption"
           example:
             - deliveryFormat: QRCODE
-              deliveryValue: ''
+              deliveryValue: ""
           description: |-
             How the voucher can be redeemed. Possible values are:
             `MANIFEST` The guest name will be written down and they just need to show up
@@ -6301,7 +6301,7 @@ components:
         utcRedeemedAt: 2021-10-27T23:28:43Z
         deliveryOptions:
           - deliveryFormat: QRCODE
-            deliveryValue: ''
+            deliveryValue: ""
     Unit:
       allOf:
         - type: object
@@ -6319,7 +6319,7 @@ components:
               x-order: 1
               type: array
               items:
-                $ref: '#/components/schemas/Capability'
+                $ref: "#/components/schemas/Capability"
               x-go-name: capabilities
               x-internal: true
               x-go-type-skip-optional-pointer: true
@@ -6340,12 +6340,12 @@ components:
               description: This is an internal reference identifier that the Supplier wishes to use. It MAY be non-unique.
             type:
               allOf:
-                - $ref: '#/components/schemas/UnitType'
+                - $ref: "#/components/schemas/UnitType"
               example: ADULT
               description: This is the base unit type for this unit definition. A value of TRAVELLER MUST only be used in replacement of `ADULT`, `CHILD`, `INFANT`, `YOUTH`, `STUDENT`, or `SENIOR`.
             restrictions:
               allOf:
-                - $ref: '#/components/schemas/UnitRestrictions'
+                - $ref: "#/components/schemas/UnitRestrictions"
               example:
                 minAge: 3
                 maxAge: 17
@@ -6359,14 +6359,14 @@ components:
             requiredContactFields:
               type: array
               items:
-                $ref: '#/components/schemas/ContactField'
+                $ref: "#/components/schemas/ContactField"
               example:
                 - firstName
               description: This is the array of the contact information PER ticket that the supplier expects.
             visibleContactFields:
               type: array
               items:
-                $ref: '#/components/schemas/ContactField'
+                $ref: "#/components/schemas/ContactField"
               example:
                 - firstName
               description: This is the array of the contact information PER ticket that the supplier expects.
@@ -6375,12 +6375,12 @@ components:
               items:
                 type: string
               example:
-                - 'tag1'
-                - 'tag2'
+                - "tag1"
+                - "tag2"
               description: This is an array of tags that can be used to filter the units.
-        - $ref: '#/components/schemas/UnitContent'
-        - $ref: '#/components/schemas/UnitPricing'
-        - $ref: '#/components/schemas/UnitQuestions'
+        - $ref: "#/components/schemas/UnitContent"
+        - $ref: "#/components/schemas/UnitPricing"
+        - $ref: "#/components/schemas/UnitQuestions"
       example:
         - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
           internalName: Adult
@@ -6393,7 +6393,7 @@ components:
             minQuantity: 1
             maxQuantity: 10
             paxCount: 1
-            accompaniedBy: [ ]
+            accompaniedBy: []
           requiredContactFields:
             - firstName
         - id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
@@ -6407,7 +6407,7 @@ components:
             minQuantity: 1
             maxQuantity: 10
             paxCount: 1
-            accompaniedBy: [ ]
+            accompaniedBy: []
           requiredContactFields:
             - firstName
         - id: infant_897e3ce8-1860-4cbf-80ad-95857df1f640
@@ -6435,19 +6435,19 @@ components:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'Example Unit'
+          example: "Example Unit"
           description: Title for this unit. Only present when octo/content capability is requested.
         titlePlural:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'Example Units'
+          example: "Example Units"
           description: Plural title for this unit. Only present when octo/content capability is requested.
         subtitle:
           x-oapi-codegen-extra-tags:
             capability: octo/content
           type: string
-          example: 'Example Unit Subtitle'
+          example: "Example Unit Subtitle"
           description: Subtitle for this unit. Only present when octo/content capability is requested.
     UnitPricing:
       type: object
@@ -6457,20 +6457,20 @@ components:
             capability: octo/pricing
           type: array
           items:
-            $ref: '#/components/schemas/Pricing'
+            $ref: "#/components/schemas/Pricing"
           example:
             - original: 1000
               retail: 1000
               net: 8000
               currency: EUR
               currencyPrecision: 2
-              includedTaxes: [ ]
+              includedTaxes: []
             - original: 1000
               retail: 1000
               net: 8000
               currency: USD
               currencyPrecision: 2
-              includedTaxes: [ ]
+              includedTaxes: []
           description: |
             Pricing of this unit.
             This field is mutually exclusive with `pricingFrom` and is only present when
@@ -6507,7 +6507,7 @@ components:
             capability: octo/questions
           type: array
           items:
-            $ref: '#/components/schemas/Question'
+            $ref: "#/components/schemas/Question"
           description: Questions for this unit. Only present when octo/questions capability is requested.
           x-go-type-skip-optional-pointer: true
     UnitItem:
@@ -6526,7 +6526,7 @@ components:
               x-order: 1
               type: array
               items:
-                $ref: '#/components/schemas/Capability'
+                $ref: "#/components/schemas/Capability"
               x-go-name: capabilities
               x-internal: true
               x-go-type-skip-optional-pointer: true
@@ -6546,7 +6546,7 @@ components:
             alias:
               type: string
               nullable: true
-              example: 'Example Alias'
+              example: "Example Alias"
               description: An alias for the unit.
             resellerReference:
               type: string
@@ -6588,12 +6588,12 @@ components:
               description: The id of the unit, this will be unique to the option.
             unitType:
               allOf:
-                - $ref: '#/components/schemas/UnitType'
+                - $ref: "#/components/schemas/UnitType"
               example: ADULT
               description: This is the base unit type for this unit definition. A value of TRAVELLER MUST only be used in replacement of `ADULT`, `CHILD`, `INFANT`, `YOUTH`, `STUDENT`, or `SENIOR`.
             unit:
               allOf:
-                - $ref: '#/components/schemas/Unit'
+                - $ref: "#/components/schemas/Unit"
               example:
                 id: adult_697e3ce8-1860-4cbf-80ad-95857df1f640
                 internalName: Adult
@@ -6606,10 +6606,10 @@ components:
                   minQuantity: 1
                   maxQuantity: 10
                   paxCount: 1
-                  accompaniedBy: [ ]
+                  accompaniedBy: []
                 requiredContactFields:
                   - firstName
-              description: ''
+              description: ""
             utcRebookedAt:
               x-go-type: types.TimeRFC3339
               x-go-type-import:
@@ -6638,32 +6638,32 @@ components:
                 description: The time the ticket was noshowed.
             contact:
               allOf:
-                - $ref: '#/components/schemas/CustomerContact'
+                - $ref: "#/components/schemas/CustomerContact"
               example:
                 fullName: John Doe
                 firstName: John
                 lastName: Doe
                 emailAddress: johndoe@email.com
-                phoneNumber: ''
+                phoneNumber: ""
                 locales:
                   - en
-                postalCode: ''
-                country: ''
-                notes: ''
+                postalCode: ""
+                country: ""
+                notes: ""
               description: Contact details for the guests that will attend the tour/attraction. Contact schema can be applied to both the booking object (the main reservation) or the unit object (individual ticket holders - if the supplier requires this information)
             ticket:
               type: object
               allOf:
-                - $ref: '#/components/schemas/Ticket'
+                - $ref: "#/components/schemas/Ticket"
               example:
-                redemptionMethod: 'DIGITAL'
-                utcRedeemedAt: '2021-10-27 23:28:43Z'
-                utcNoshowedAt: '2021-10-27 23:28:43Z'
-                deliveryOptions: [ ]
-              description: ''
+                redemptionMethod: "DIGITAL"
+                utcRedeemedAt: "2021-10-27 23:28:43Z"
+                utcNoshowedAt: "2021-10-27 23:28:43Z"
+                deliveryOptions: []
+              description: ""
             status:
               allOf:
-                - $ref: '#/components/schemas/BookingStatus'
+                - $ref: "#/components/schemas/BookingStatus"
               example: CONFIRMED
               description: |-
                 The status of the booking, possible values are:
@@ -6690,7 +6690,7 @@ components:
                 minQuantity: 1
                 maxQuantity: 10
                 paxCount: 1
-                accompaniedBy: [ ]
+                accompaniedBy: []
               requiredContactFields:
                 - firstName
             status: ON_HOLD
@@ -6700,14 +6700,14 @@ components:
               firstName: John
               lastName: Doe
               emailAddress: johndoe@email.com
-              phoneNumber: ''
+              phoneNumber: ""
               locales:
                 - en
-              postalCode: ''
-              country: ''
-              notes: ''
+              postalCode: ""
+              country: ""
+              notes: ""
             ticket: null
-        - $ref: '#/components/schemas/UnitItemQuestions'
+        - $ref: "#/components/schemas/UnitItemQuestions"
     UnitItemQuestions:
       type: object
       properties:
@@ -6716,7 +6716,7 @@ components:
             capability: octo/questions
           type: array
           items:
-            $ref: '#/components/schemas/QuestionAnswer'
+            $ref: "#/components/schemas/QuestionAnswer"
           description: Questions for this unit item. Only present when octo/questions capability is requested.
           x-go-type-skip-optional-pointer: true
     UnitType:
@@ -6772,15 +6772,15 @@ components:
         required:
           type: boolean
           example: true
-          description: '`TRUE` identifies the question as required, and should therefore be answered by the customer'
+          description: "`TRUE` identifies the question as required, and should therefore be answered by the customer"
         selectOptions:
           type: array
           items:
-            $ref: '#/components/schemas/SelectOption'
+            $ref: "#/components/schemas/SelectOption"
           description: The options that the customer can select from. Only present when `inputType` is `radio` or `select`.
     QuestionAnswer:
       allOf:
-        - $ref: '#/components/schemas/Question'
+        - $ref: "#/components/schemas/Question"
         - type: object
           required:
             - questionId
@@ -6797,10 +6797,10 @@ components:
     Voucher:
       type: object
       allOf:
-        - $ref: '#/components/schemas/Ticket'
+        - $ref: "#/components/schemas/Ticket"
       nullable: true
-      example: { }
-      description: ''
+      example: {}
+      description: ""
     SelectOption:
       type: object
       required:

@@ -27,7 +27,7 @@ model UnitPricing {
   @example(UNIT_PRICING_PRICING_FROM_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }
@@ -38,7 +38,7 @@ model UnitPricing {
   @example(UNIT_PRICING_PRICING_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }

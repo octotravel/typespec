@@ -7,7 +7,7 @@ using TypeSpec.Http;
 model RequestHeaders {
   @doc("A list of the Capabilities (their IDs) initialized with your request.")
   @example("octo/content, octo/pricing")
-  @header({
+  @header(#{
     name: "Octo-Capabilities",
   })
   octoCapabilities: string;

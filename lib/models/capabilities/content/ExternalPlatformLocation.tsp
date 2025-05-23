@@ -18,7 +18,7 @@ model ExternalPlatformLocation {
   @example(ExternalPlatformLocationType.AMAP_PLACE_ID)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -29,7 +29,7 @@ model ExternalPlatformLocation {
   @example("COMMENTARY_LANGUAGE_EXAMPLE")
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }

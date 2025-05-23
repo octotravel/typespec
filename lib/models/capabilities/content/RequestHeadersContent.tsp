@@ -7,12 +7,12 @@ model RequestHeadersContent {
   @example("en")
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
   )
-  @header({
+  @header(#{
     name: "Accept-Language",
   })
   acceptLanguage?: string;

@@ -11,7 +11,6 @@ export async function createDocsLibTestRunner() {
   const host = await createDocsLibTestHost();
 
   return createTestWrapper(host, {
-    autoUsings: ["DocsLib"]
+    autoUsings: ["DocsLib"],
   });
 }
-

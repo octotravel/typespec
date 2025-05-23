@@ -21,7 +21,7 @@ model OptionPricing {
   @example(OPTION_PRICING_PRICING_FROM_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }
@@ -32,7 +32,7 @@ model OptionPricing {
   @example(OPTION_PRICING_PRICING_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }

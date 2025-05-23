@@ -10,7 +10,11 @@ export const namespace = "Octo";
  * @param target Decorator target. Must be an operation.
  * @param name Alternate name.
  */
-export function $alternateName(context: DecoratorContext, target: Operation, name: string) {
+export function $alternateName(
+  context: DecoratorContext,
+  target: Operation,
+  name: string,
+) {
   if (name === "banned") {
     reportDiagnostic(context.program, {
       code: "banned-alternate-name",
@@ -28,6 +32,9 @@ export function $alternateName(context: DecoratorContext, target: Operation, nam
  * @param target Decorator target. Must be an operation.
  * @returns Altenate name if provided on the given operation or undefined
  */
-export function getAlternateName(program: Program, target: Operation): string | undefined {
+export function getAlternateName(
+  program: Program,
+  target: Operation,
+): string | undefined {
   return program.stateMap(StateKeys.alternateName).get(target);
 }

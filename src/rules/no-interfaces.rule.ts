@@ -5,7 +5,8 @@ export const noInterfaceRule = createRule({
   severity: "warning",
   description: "Make sure interface are not used.",
   messages: {
-    default: "Interface shouldn't be used with this library. Keep operations at the root.",
+    default:
+      "Interface shouldn't be used with this library. Keep operations at the root.",
   },
   create: (context) => {
     return {

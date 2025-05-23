@@ -20,7 +20,7 @@ model SupplierContent {
   @example(SUPPLIER_CONTENT_SHORT_DESCRIPTION_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -31,7 +31,7 @@ model SupplierContent {
   @example(SUPPLIER_CONTENT_MEDIA_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }

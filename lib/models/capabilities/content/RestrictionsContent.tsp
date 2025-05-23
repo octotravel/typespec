@@ -31,7 +31,7 @@ model RestrictionsContent {
   @example(RESTRICTIONS_CONTENT_MAX_HEIHGT_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }
@@ -42,7 +42,7 @@ model RestrictionsContent {
   @example(RESTRICTIONS_CONTENT_MIN_HEIHGT_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }
@@ -53,7 +53,7 @@ model RestrictionsContent {
   @example(RESTRICTIONS_CONTENT_HEIGHT_UNIT_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }
@@ -64,7 +64,7 @@ model RestrictionsContent {
   @example(RESTRICTIONS_CONTENT_MIN_WEIGHT_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }
@@ -75,7 +75,7 @@ model RestrictionsContent {
   @example(RESTRICTIONS_CONTENT_MAX_WEIGHT_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }
@@ -86,7 +86,7 @@ model RestrictionsContent {
   @example(RESTRICTIONS_CONTENT_WEIGHT_UNIT_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: false,
     }

@@ -26,7 +26,7 @@ model AvailabilityCalendarPricing {
   @example(AVAILABILITY_CALENDAR_PRICING_UNIT_PRICING_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }
@@ -37,7 +37,7 @@ model AvailabilityCalendarPricing {
   @example(AVAILABILITY_CALENDAR_PRICING_PRICING_EXAMPLE)
   @extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/pricing",
       required: true,
     }

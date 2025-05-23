@@ -20,7 +20,7 @@ model AvailabilityContent {
   @example(AVAILABILITY_CONTENT_TITLE_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
@@ -31,7 +31,7 @@ model AvailabilityContent {
   @example(AVAILABILITY_CONTENT_SHORT_DESCRIPTION_EXAMPLE)
   @TypeSpec.OpenAPI.extension(
     "x-capability-data",
-    {
+    #{
       capability: "octo/content",
       required: true,
     }
