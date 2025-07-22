@@ -152,11 +152,11 @@ model Booking {
 
   @doc(BOOKING_AVAILABILITY_ID_DOC)
   @example(BOOKING_AVAILABILITY_ID_EXAMPLE)
-  availabilityId: string;
+  availabilityId: string | null;
 
   @doc(BOOKING_AVAILABILITY_DOC)
   @example(AVAILABILITY_EXAMPLE)
-  availability: Availability;
+  availability: Availability | null;
 
   @doc(BOOKING_CONTACT_DOC)
   @example(BOOKING_CONTACT_EXAMPLE)

@@ -9,6 +9,7 @@ import "./models/Availability.tsp";
 import "./models/AvailabilityCalendar.tsp";
 import "./models/Booking.tsp";
 import "./models/DurationUnit.tsp";
+import "./models/capabilities/pricing/Pricing.tsp";
 
 import "./responses/GetSupplierResponse.tsp";
 import "./requests/GetSupplierRequest.tsp";
