@@ -1,3 +1,5 @@
+namespace Octo;
+
 const OPENING_HOURS_DOC = "Defines the opening hours for this availability, even for start time-based availability. Supports multiple periods for breaks in the day.";
 const OPENING_HOURS_EXAMPLE = #{
   from: OPENING_HOURS_FROM_EXAMPLE,
