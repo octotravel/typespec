@@ -1,5 +1,5 @@
 import "./Unit.tsp";
-import "./CancellationCutoffUnit.tsp";
+import "./DurationUnit.tsp";
 import "./OptionRestrictions.tsp";
 import "./capabilities/pricing/OptionPricing.tsp";
 import "./capabilities/content/OptionContent.tsp";
@@ -45,7 +45,7 @@ const OPTION_REFERENCE_EXAMPLE = null;
 const OPTION_AVAILABILITY_LOCAL_START_TIMES_EXAMPLE = #["00:00"];
 const OPTION_CANCELLATION_CUTOFF_EXAMPLE = "1 hour";
 const OPTION_CANCELLATION_CUTOFF_AMOUNT_EXAMPLE = 1;
-const OPTION_CANCELLATION_CUTOFF_UNIT_EXAMPLE = CancellationCutoffUnit.hour;
+const OPTION_CANCELLATION_CUTOFF_UNIT_EXAMPLE = DurationUnit.HOUR;
 const OPTION_REQUIRED_CONTACT_FIELDS_EXAMPLE = #[ContactField.firstName];
 const OPTION_UNITS_EXAMPLE = #[
   UNIT_ADULT_EXAMPLE,
@@ -99,8 +99,8 @@ model Option {
   cancellationCutoffAmount: integer;
 
   @doc(OPTION_CANCELLATION_CUTOFF_UNIT_DOC)
-  @example(CancellationCutoffUnit.hour)
-  cancellationCutoffUnit: CancellationCutoffUnit;
+  @example(OPTION_CANCELLATION_CUTOFF_UNIT_EXAMPLE)
+  cancellationCutoffUnit: DurationUnit;
 
   @doc(OPTION_REQUIRED_CONTACT_FIELDS_DOC)
   @example(OPTION_REQUIRED_CONTACT_FIELDS_EXAMPLE)
