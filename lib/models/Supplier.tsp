@@ -1,6 +1,6 @@
 import "@typespec/openapi3";
 
-import "./capabilities/Capability.tsp";
+import "./capabilities/CapabilityId.tsp";
 import "./capabilities/content/SupplierContent.tsp";
 import "./SupplierContact.tsp";
 
@@ -15,7 +15,6 @@ const SUPPLIER_CAPABILITIES_DOC = "An array of capabilities that the supplier ha
 const SUPPLIER_ID_EXAMPLE = "697e3ce8-1860-4cbf-80ad-95857df1f640";
 const SUPPLIER_NAME_EXAMPLE = "Merlin Entertainments";
 const SUPPLIER_ENDPOINT_EXAMPLE = "https://api.my-booking-platform.com/v1";
-// const SUPPLIER_CAPABILITIES_EXAMPLE = #[Capability.CONTENT];
 
 const SUPPLIER_EXAMPLE = #{
   id: SUPPLIER_ID_EXAMPLE,
@@ -25,7 +24,7 @@ const SUPPLIER_EXAMPLE = #{
 };
 
 @example(SUPPLIER_EXAMPLE)
-@TypeSpec.OpenAPI.extension("x-supported-capabilities", #[Capability.CONTENT])
+@TypeSpec.OpenAPI.extension("x-supported-capabilities", #[CapabilityId.CONTENT])
 model Supplier {
   @doc(SUPPLIER_ID_DOC)
   @example(SUPPLIER_ID_EXAMPLE)
