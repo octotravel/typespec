@@ -1,3 +1,5 @@
+namespace Octo;
+
 enum CapabilityId {
   ADJUSTMENTS: "octo/adjustments",
   CART: "octo/cart",

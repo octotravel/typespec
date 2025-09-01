@@ -1,6 +1,8 @@
 import "@typespec/openapi";
 import "./CapabilityId.tsp";
 
+namespace Octo;
+
 // --- Documentation ---
 const CAPABILITY_ID_DOC = "Unique identifier of the capability.";
 const CAPABILITY_REVISION_DOC = "Revision number for the capability.";
