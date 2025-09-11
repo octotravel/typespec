@@ -5404,46 +5404,6 @@ components:
             - en-GB
             - en-US
           country: GB
-    Capability:
-      type: object
-      required:
-        - id
-        - revision
-        - required
-        - dependencies
-        - docs
-      properties:
-        id:
-          allOf:
-            - $ref: '#/components/schemas/CapabilityId'
-          description: Unique identifier of the capability.
-          example: octo/pricing
-        revision:
-          type: integer
-          format: int32
-          description: Revision number for the capability.
-          example: 3
-        required:
-          type: boolean
-          description: Whether this capability is required.
-          example: true
-        dependencies:
-          type: array
-          items:
-            $ref: '#/components/schemas/CapabilityId'
-          description: List of dependent capability IDs.
-          example: []
-        docs:
-          type: string
-          nullable: true
-          description: Optional documentation or description for this capability.
-          example: This capability enables booking creation.
-      example:
-        id: octo/pricing
-        revision: 3
-        required: true
-        dependencies: []
-        docs: This capability enables booking creation.
     CapabilityId:
       type: string
       enum:
