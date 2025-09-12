@@ -1,19 +1,48 @@
 {
-  "name": "docs",
-  "version": "0.1.0",
+  "name": "@octocloud/typespec",
+  "version": "0.1.31",
   "type": "module",
+  "main": "dist/src/index.js",
+  "tspMain": "lib/main.tsp",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
+    },
+    "./testing": {
+      "types": "./dist/src/testing/index.d.ts",
+      "default": "./dist/src/testing/index.js"
+    }
+  },
   "dependencies": {
-    "@typespec/compiler": "0.61.2",
-    "@typespec/http": "0.61.0",
-    "@typespec/openapi": "^0.61.0",
-    "@typespec/openapi3": "0.61.0"
+    "@typespec/compiler": "1.4.0",
+    "@typespec/http": "1.4.0",
+    "@typespec/openapi": "1.4.0",
+    "@typespec/openapi3": "1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@typescript-eslint/eslint-plugin": "8.43.0",
+    "@typescript-eslint/parser": "8.43.0",
+    "@typespec/library-linter": "0.74.0",
+    "eslint": "9.35.0",
+    "prettier": "3.6.2",
+    "typescript": "latest"
   },
   "scripts": {
-    "compile": "tsp compile ."
+    "build": "tsc -p . && npm run build:tsp",
+    "watch": "tsc -p . --watch",
+    "build:tsp": "tsp compile . --warn-as-error --import @typespec/library-linter",
+    "test": "node --test ./dist/test/",
+    "lint": "eslint src/ test/ --report-unused-disable-directives --max-warnings=0",
+    "lint:fix": "eslint . --report-unused-disable-directives --fix",
+    "format": "prettier .  --write",
+    "format:check": "prettier --check .",
+    "compile": "tsp compile lib/main.tsp",
+    "compile:watch": "tsp compile . --watch",
+    "generate-typespec": "tsp-openapi3 ./openapi.yml --output-dir ./tsp-output"
   },
-  "private": true,
-  "devDependencies": {
-    "@typespec/prettier-plugin-typespec": "^0.61.0",
-    "prettier": "^3.3.3"
+  "publishConfig": {
+    "access": "public"
   }
 }

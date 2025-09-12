@@ -1,0 +1,24 @@
+namespace Octo;
+
+const BOOKING_UNITITEM_UUID_DOC = "The unit item unit ID.";
+const BOOKING_UNITITEM_UNIT_ID_DOC = "A unique UUID to identify the unit, same as the booking uuid except per unit.";
+
+const BOOKING_UNITITEM_UUID_EXAMPLE = "3b1bc2ee-3155-4738-9471-f49842a07327";
+const BOOKING_UNITITEM_UNIT_ID_EXAMPLE = UNIT_ID_ADULT;
+
+const BOOKING_UNITITEM_EXAMPLE = #{
+  uuid: BOOKING_UNITITEM_UUID_EXAMPLE,
+  unitId: BOOKING_UNITITEM_UNIT_ID_EXAMPLE,
+};
+
+@example(BOOKING_UNITITEM_EXAMPLE)
+model BookingUnitItem {
+  @doc(BOOKING_UNITITEM_UUID_DOC)
+  @example(BOOKING_UNITITEM_UUID_EXAMPLE)
+  @format("uuid")
+  uuid?: string;
+
+  @doc(BOOKING_UNITITEM_UNIT_ID_DOC)
+  @example(BOOKING_UNITITEM_UNIT_ID_EXAMPLE)
+  unitId: string;
+}
