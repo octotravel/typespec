@@ -1,5 +1,7 @@
 import "./DeliveryFormat.tsp";
 
+using Octo;
+
 const DELIVERY_FORMAT_DOC = """
   The format in which vouchers for this product are delivered. Each format specifies how the vouchers will be represented:
   QRCODE: A code presented as a QR Code, commonly used for scanning at entry points.

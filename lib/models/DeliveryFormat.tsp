@@ -1,3 +1,5 @@
+namespace Octo;
+
 @example(DeliveryFormat.QRCODE)
 enum DeliveryFormat {
   PDF_URL,
