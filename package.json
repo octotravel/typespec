@@ -1,6 +1,6 @@
 {
   "name": "@octocloud/typespec",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "type": "module",
   "main": "dist/src/index.js",
   "tspMain": "lib/main.tsp",

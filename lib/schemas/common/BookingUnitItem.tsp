@@ -1,3 +1,5 @@
+import "./BookingContact.tsp";
+
 namespace Octo;
 
 const BOOKING_UNITITEM_UUID_DOC = "The unit item unit ID.";
@@ -21,4 +23,8 @@ model BookingUnitItem {
   @doc(BOOKING_UNITITEM_UNIT_ID_DOC)
   @example(BOOKING_UNITITEM_UNIT_ID_EXAMPLE)
   unitId: string;
+
+  resellerReference?: string;
+
+  contact?: BookingContact
 }
