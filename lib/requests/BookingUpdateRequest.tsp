@@ -4,10 +4,15 @@ import "./RequestHeaders.tsp";
 namespace Octo;
 using TypeSpec.Http;
 
+model BookingUpdatePathParams {
+    @doc("The UUID of the booking")
+    uuid: string;
+}
+
 model BookingUpdateRequest {
   @doc("The UUID of the booking")
   @path
-  uuid: string;
+  uuid: BookingUpdatePathParams.uuid;
 
   @body body: BookingUpdateBody;
   ...RequestHeaders;

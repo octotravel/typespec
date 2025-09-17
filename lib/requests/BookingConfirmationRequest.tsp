@@ -7,10 +7,16 @@ import "./RequestHeaders.tsp";
 namespace Octo;
 using TypeSpec.Http;
 
+
+model BookingConfirmationPathParams {
+    @doc("The UUID of the booking")
+    uuid: string;
+}
+
 model BookingConfirmationRequest {
   @doc("The UUID of the booking")
   @path
-  uuid: string;
+  uuid: BookingConfirmationPathParams.uuid;
 
   @example(
     BOOKING_CONFIRMATION_BODY_EXAMPLE,

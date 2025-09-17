@@ -7,10 +7,15 @@ import "./RequestHeaders.tsp";
 namespace Octo;
 using TypeSpec.Http;
 
+model ExtendReservationPathParams {
+    @doc("The UUID of the booking")
+    uuid: string;
+}
+
 model ExtendReservationRequest {
   @doc("The UUID of the booking")
   @path
-  uuid: string;
+  uuid: ExtendReservationPathParams.uuid;
 
   @body body: ExtendReservationBody;
   ...RequestHeaders;
