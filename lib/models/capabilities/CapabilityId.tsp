@@ -8,5 +8,7 @@ enum CapabilityId {
   PACKAGES: "octo/packages",
   PICKUPS: "octo/pickups",
   PRICING: "octo/pricing",
+  OFFERS: "octo/offers",
   QUESTIONS: "octo/questions",
+  WEBHOOKS: "octo/webhooks",
 }

@@ -67,6 +67,14 @@ model BookingReservationBody {
   @example(BOOKING_RESERVATION_BODY_UNIT_ITEMS_EXAMPLE)
   unitItems: BookingUnitItem[];
 
+  @doc(BOOKING_CONFIRMATION_RESELLER_REFERENCE_DOC)
+  @example(BOOKING_CONFIRMATION_RESELLER_REFERENCE_EXAMPLE)
+  resellerReference?: string;
+
+  @doc(BOOKING_CONFIRMATION_CONTACT_DOC)
+  @example(BOOKING_CONTACT_BODY_EXAMPLE)
+  contact?: BookingContact;
+
   // capabilities
   ...BookingReservationPricingBody;
 }

@@ -43,6 +43,9 @@ import "./responses/BookingUpdateResponse.tsp";
 import "./requests/ExtendReservationRequest.tsp";
 import "./responses/ExtendReservationResponse.tsp";
 
+import "./models/capabilities/requests/ListCapabilitiesRequest.tsp";
+import "./models/capabilities/responses/ListCapabilitiesResponse.tsp";
+
 
 
 using TypeSpec.Http;
@@ -1013,5 +1016,25 @@ interface Bookings {
   ExtendReservation(
     ...ExtendReservationRequest,
   ): ExtendReservationSuccessResponse | ExtendReservationErrorResponse;
+}
+@tag("Capabilities")
+@route("/capabilities")
+interface Capabilities {
+  @route("/")
+  @summary("List capabilities")
+  @doc("List capabiliteis")
+  @opExample(
+    #{
+      returnType: #{
+        octoCapabilities: "",
+        statusCode: 200,
+        body: LIST_CAPABILITIES_RESPONSE,
+      },
+    },
+    #{ title: "Capabilities", description: "Capabilities" }
+  )
+  get(
+    ...ListCapabilitiesRequest,
+  ): ListCapabilitiesResponse;
 }
 

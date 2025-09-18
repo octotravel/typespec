@@ -6,4 +6,5 @@ enum DeliveryFormat {
   QRCODE,
   CODE128,
   PKPASS_URL,
+  AZTECCODE
 }
