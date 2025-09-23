@@ -5945,6 +5945,14 @@ components:
         - BOOKING_TERM
         - CANCELLATION_TERM
       example: CANCELLATION_TERM
+    GetProductPathParams:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The id of the product
     GetProductsRequest:
       type: object
     GetSupplierRequest:
