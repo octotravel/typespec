@@ -24,7 +24,7 @@ const SUPPLIER_EXAMPLE = #{
 };
 
 @example(SUPPLIER_EXAMPLE)
-@TypeSpec.OpenAPI.extension("x-supported-capabilities", #[CapabilityId.CONTENT])
+@TypeSpec.OpenAPI.extension("x-supported-capabilities", #[CapabilityId.Content])
 model Supplier {
   @doc(SUPPLIER_ID_DOC)
   @example(SUPPLIER_ID_EXAMPLE)
