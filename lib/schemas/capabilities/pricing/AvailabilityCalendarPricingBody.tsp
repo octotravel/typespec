@@ -6,5 +6,5 @@ const AVAILABILITY_CALENDAR_BODY_CURRENCY_EXAMPLE = "USD";
 model AvailabilityCalendarPricingBody {
   @doc(AVAILABILITY_CALENDAR_BODY_CURRENCY_DOC)
   @example(AVAILABILITY_CALENDAR_BODY_CURRENCY_EXAMPLE)
-  currency?: string;
+  currency?: string | null;
 }

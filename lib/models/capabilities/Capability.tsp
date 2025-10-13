@@ -9,7 +9,7 @@ const CAPABILITY_DEPENDENCIES_DOC = "List of dependent capability IDs.";
 const CAPABILITY_DOCS_DOC = "Optional documentation or description for this capability.";
 
 // --- Example values ---
-const CAPABILITY_ID_EXAMPLE = Octo.CapabilityId.PRICING;
+const CAPABILITY_ID_EXAMPLE = Octo.CapabilityId.Pricing;
 const CAPABILITY_REVISION_EXAMPLE = 3;
 const CAPABILITY_REQUIRED_EXAMPLE = true;
 const CAPABILITY_DEPENDENCIES_EXAMPLE = #[];

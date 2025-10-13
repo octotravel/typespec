@@ -59,7 +59,7 @@ model BookingUpdateBody {
 
   @doc(BOOKING_UPDATE_NOTES_DOC)
   @example(BOOKING_UPDATE_NOTES_EXAMPLE)
-  notes?: string;
+  notes?: string | null;
 
   @doc(BOOKING_UPDATE_EMAIL_RECEIPT_DOC)
   @example(BOOKING_UPDATE_EMAIL_RECEIPT_EXAMPLE)

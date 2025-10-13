@@ -6,5 +6,5 @@ const AVAILABILITY_BODY_CURRENCY_EXAMPLE = "USD";
 model AvailabilityPricingBody {
   @doc(AVAILABILITY_BODY_CURRENCY_DOC)
   @example(AVAILABILITY_BODY_CURRENCY_EXAMPLE)
-  currency?: string;
+  currency?: string | null;
 }

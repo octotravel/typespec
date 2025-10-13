@@ -61,7 +61,7 @@ model BookingReservationBody {
 
   @doc(BOOKING_RESERVATION_BODY_NOTES_DOC)
   @example(BOOKING_RESERVATION_BODY_NOTES_EXAMPLE)
-  notes?: string;
+  notes?: string | null;
 
   @doc(BOOKING_RESERVATION_BODY_UNIT_ITEMS_DOC)
   @example(BOOKING_RESERVATION_BODY_UNIT_ITEMS_EXAMPLE)

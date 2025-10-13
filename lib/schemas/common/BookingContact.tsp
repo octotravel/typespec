@@ -67,5 +67,5 @@ model BookingContact {
 
   @doc(BOOKING_CONTACT_BODY_NOTES_DOC)
   @example(BOOKING_CONTACT_BODY_NOTES_EXAMPLE)
-  notes?: string;
+  notes?: string | null;
 }

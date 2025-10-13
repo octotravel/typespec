@@ -6,5 +6,5 @@ const BOOKING_RESERVATION_PRICING_BODY_CURRENCY_EXAMPLE = "USD";
 model BookingReservationPricingBody {
   @doc(BOOKING_RESERVATION_PRICING_BODY_CURRENCY_DOC)
   @example(BOOKING_RESERVATION_PRICING_BODY_CURRENCY_EXAMPLE)
-  currency?: string;
+  currency?: string | null;
 }

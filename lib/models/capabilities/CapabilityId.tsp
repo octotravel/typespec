@@ -1,14 +1,14 @@
 namespace Octo;
 
 enum CapabilityId {
-  ADJUSTMENTS: "octo/adjustments",
-  CART: "octo/cart",
-  CONTENT: "octo/content",
-  MAPPINGS: "octo/mappings",
-  PACKAGES: "octo/packages",
-  PICKUPS: "octo/pickups",
-  PRICING: "octo/pricing",
-  OFFERS: "octo/offers",
-  QUESTIONS: "octo/questions",
-  WEBHOOKS: "octo/webhooks",
+  Adjustments: "octo/adjustments",
+  Cart: "octo/cart",
+  Content: "octo/content",
+  Mappings: "octo/mappings",
+  Packages: "octo/packages",
+  Pickups: "octo/pickups",
+  Pricing: "octo/pricing",
+  Offers: "octo/offers",
+  Questions: "octo/questions",
+  Webhooks: "octo/webhooks",
 }
