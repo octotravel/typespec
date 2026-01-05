@@ -9,6 +9,9 @@ namespace Octo;
 
 using TypeSpec.Http;
 
+model GetSupplierSchema {
+}
+
 model GetSupplierRequest {
   ...RequestHeaders;
 }

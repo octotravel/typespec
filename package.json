@@ -1,6 +1,6 @@
 {
   "name": "@octocloud/typespec",
-  "version": "0.1.36",
+  "version": "0.1.37",
   "type": "module",
   "main": "dist/src/index.js",
   "tspMain": "lib/main.tsp",
@@ -15,18 +15,18 @@
     }
   },
   "dependencies": {
-    "@typespec/compiler": "1.4.0",
-    "@typespec/http": "1.4.0",
-    "@typespec/openapi": "1.4.0",
-    "@typespec/openapi3": "1.4.0"
+    "@typespec/compiler": "1.7.1",
+    "@typespec/http": "1.7.0",
+    "@typespec/openapi": "1.7.0",
+    "@typespec/openapi3": "1.7.0"
   },
   "devDependencies": {
     "@types/node": "latest",
-    "@typescript-eslint/eslint-plugin": "8.43.0",
-    "@typescript-eslint/parser": "8.43.0",
-    "@typespec/library-linter": "0.74.0",
-    "eslint": "9.35.0",
-    "prettier": "3.6.2",
+    "@typescript-eslint/eslint-plugin": "8.51.0",
+    "@typescript-eslint/parser": "8.51.0",
+    "@typespec/library-linter": "0.77.0",
+    "eslint": "9.39.2",
+    "prettier": "3.7.4",
     "typescript": "latest"
   },
   "scripts": {
@@ -38,7 +38,8 @@
     "lint:fix": "eslint . --report-unused-disable-directives --fix",
     "format": "prettier .  --write",
     "format:check": "prettier --check .",
-    "compile": "tsp compile lib/main.tsp",
+    "compile": "npm run compile:openapi && npm run format",
+    "compile:openapi": "tsp compile lib/main.tsp",
     "compile:watch": "tsp compile . --watch",
     "generate-typespec": "tsp-openapi3 ./openapi.yml --output-dir ./tsp-output"
   },

@@ -7,6 +7,11 @@ import "./RequestHeaders.tsp";
 namespace Octo;
 using TypeSpec.Http;
 
+
+model BookingReservationSchema {
+  ...BookingReservationBody;
+}
+
 model BookingReservationRequest {
   @example(
     BOOKING_RESERVATION_BODY_EXAMPLE,

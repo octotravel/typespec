@@ -34,24 +34,24 @@ const BOOKING_CONTACT_BODY_EXAMPLE = #{
 model BookingContact {
   @doc(BOOKING_CONTACT_BODY_FULL_NAME_DOC)
   @example(BOOKING_CONTACT_BODY_FULL_NAME_EXAMPLE)
-  fullName?: string;
+  fullName?: string | null;
 
   @doc(BOOKING_CONTACT_BODY_FIRST_NAME_DOC)
   @example(BOOKING_CONTACT_BODY_FIRST_NAME_EXAMPLE)
-  firstName?: string;
+  firstName?: string | null;
 
   @doc(BOOKING_CONTACT_BODY_LAST_NAME_DOC)
   @example(BOOKING_CONTACT_BODY_LAST_NAME_EXAMPLE)
-  lastName?: string;
+  lastName?: string | null;
 
   @doc(BOOKING_CONTACT_BODY_EMAIL_ADDRESS_DOC)
   @example(BOOKING_CONTACT_BODY_EMAIL_ADDRESS_EXAMPLE)
   @format("email")
-  emailAddress?: string;
+  emailAddress?: string | null;
 
   @doc(BOOKING_CONTACT_BODY_PHONE_NUMBER_DOC)
   @example(BOOKING_CONTACT_BODY_PHONE_NUMBER_EXAMPLE)
-  phoneNumber?: string;
+  phoneNumber?: string | null;
 
   @doc(BOOKING_CONTACT_BODY_LOCALES_DOC)
   @example(BOOKING_CONTACT_BODY_LOCALES_EXAMPLE)
@@ -59,11 +59,11 @@ model BookingContact {
 
   @doc(BOOKING_CONTACT_BODY_POSTAL_CODE_DOC)
   @example(BOOKING_CONTACT_BODY_POSTAL_CODE_EXAMPLE)
-  postalCode?: string;
+  postalCode?: string | null;
 
   @doc(BOOKING_CONTACT_BODY_COUNTRY_DOC)
   @example(BOOKING_CONTACT_BODY_COUNTRY_EXAMPLE)
-  country?: string;
+  country?: string | null;
 
   @doc(BOOKING_CONTACT_BODY_NOTES_DOC)
   @example(BOOKING_CONTACT_BODY_NOTES_EXAMPLE)

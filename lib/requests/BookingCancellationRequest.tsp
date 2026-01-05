@@ -7,6 +7,11 @@ import "./RequestHeaders.tsp";
 namespace Octo;
 using TypeSpec.Http;
 
+model BookingCancellationSchema {
+  ...BookingCancellationPathParams;
+  ...BookingCancellationBody;
+}
+
 model BookingCancellationPathParams {
     @doc("The UUID of the booking")
     uuid: string;

@@ -7,6 +7,10 @@ import "../schemas/AvailabilityCheckBody.tsp";
 namespace Octo;
 using TypeSpec.Http;
 
+model AvailabilityCheckSchema {
+  ...AvailabilityCheckBody
+}
+
 model AvailabilityCheckRequest {
   @example(
     AVAILABILITY_CHECK_DATE_RANGE_BODY_EXAMPLE,

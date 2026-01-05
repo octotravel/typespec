@@ -7,6 +7,10 @@ import "./RequestHeaders.tsp";
 namespace Octo;
 using TypeSpec.Http;
 
+model AvailabilityCalendarSchema {
+  ...AvailabilityCalendarBody
+}
+
 model AvailabilityCalendarRequest {
   @example(
     AVAILABILITY_CALENDAR_DATE_RANGE_BODY_EXAMPLE,
