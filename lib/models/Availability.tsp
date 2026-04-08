@@ -19,6 +19,8 @@ const AVAILABILITY_STATUS_DOC = """
   LIMITED: Less than 50% capacity remaining.
   CLOSED: The availability is closed.
   """;
+const AVAILABILITY_STATUS_CODE_DOC = "Availability status code";
+const AVAILABILITY_STATUS_MESSAGE_DOC = "Availability status message";
 const AVAILABILITY_VACANCIES_DOC = "Specifies the number of available slots remaining. Should be nulled or omitted when status is FREESALE. If availability is tracked per unit, this represents the maximum remaining quantity across all units.";
 const AVAILABILITY_CAPACITY_DOC = "The total capacity for this availability.";
 const AVAILABILITY_MAX_UNITS_DOC = "The maximum number of units that can be sold in a single booking during this availability slot.";
@@ -31,6 +33,8 @@ const AVAILABILITY_UTC_CUTOFF_AT_EXAMPLE = utcDateTime.fromISO("2022-05-22T23:00
 const AVAILABILITY_ALL_DAY_EXAMPLE = false;
 const AVAILABILITY_AVAILABLE_EXAMPLE = true;
 const AVAILABILITY_STATUS_EXAMPLE = AvailabilityStatus.AVAILABLE;
+const AVAILABILITY_STATUS_CODE_EXAMPLE = "AVAILABLE";
+const AVAILABILITY_STATUS_MESSAGE_EXAMPLE = "Available";
 const AVAILABILITY_VACANCIES_EXAMPLE = 10;
 const AVAILABILITY_CAPACITY_EXAMPLE = 10;
 const AVAILABILITY_MAX_UNITS_EXAMPLE = null;
@@ -44,6 +48,8 @@ const AVAILABILITY_EXAMPLE = #{
   allDay: AVAILABILITY_ALL_DAY_EXAMPLE,
   available: AVAILABILITY_AVAILABLE_EXAMPLE,
   status: AVAILABILITY_STATUS_EXAMPLE,
+  statusCode: AVAILABILITY_STATUS_CODE_EXAMPLE,
+  statusMessage: AVAILABILITY_STATUS_MESSAGE_EXAMPLE,
   vacancies: AVAILABILITY_VACANCIES_EXAMPLE,
   capacity: AVAILABILITY_CAPACITY_EXAMPLE,
   maxUnits: AVAILABILITY_MAX_UNITS_EXAMPLE,
@@ -79,6 +85,14 @@ model Availability {
   @doc(AVAILABILITY_STATUS_DOC)
   @example(AVAILABILITY_STATUS_EXAMPLE)
   status: AvailabilityStatus;
+
+  @doc(Octo.AVAILABILITY_STATUS_CODE_DOC)
+  @example(Octo.AVAILABILITY_STATUS_CODE_EXAMPLE)
+  statusCode: string;
+
+  @doc(Octo.AVAILABILITY_STATUS_MESSAGE_DOC)
+  @example(Octo.AVAILABILITY_STATUS_MESSAGE_EXAMPLE)
+  statusMessage: string;
 
   @doc(AVAILABILITY_VACANCIES_DOC)
   @example(AVAILABILITY_VACANCIES_EXAMPLE)
