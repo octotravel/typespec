@@ -1,0 +1,24 @@
+name: Sync OpenAPI specification
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 #v4.3.1
+
+      - name: Sync OpenAPI specification to octotypes
+        uses: BetaHuhn/repo-file-sync-action@8b92be3375cf1d1b0cd579af488a9255572e4619 #v1.21.1
+        with:
+          GH_PAT: ${{ secrets.OCTOTYPES_TOKEN }}
+          GIT_USERNAME: openapi-sync[bot]
+          GIT_EMAIL: openapi-sync[bot]@users.noreply.github.com
