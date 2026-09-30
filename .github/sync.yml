@@ -1,0 +1,6 @@
+group:
+  - files:
+      - source: tsp-output/@typespec/openapi3/openapi.yaml
+        dest: src/openapi.yaml
+    repos: |
+      octotravel/octotypes

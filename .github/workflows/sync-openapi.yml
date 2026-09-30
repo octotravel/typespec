@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - tsp-output/@typespec/openapi3/openapi.yaml
   workflow_dispatch:
 
 permissions:
@@ -16,29 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out TypeSpec repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 #v4.3.1
 
-      - name: Check out octotypes repository
-        uses: actions/checkout@v4
+      - name: Sync OpenAPI specification to octotypes
+        uses: BetaHuhn/repo-file-sync-action@8b92be3375cf1d1b0cd579af488a9255572e4619 #v1.21.1
         with:
-          repository: octotravel/octotypes
-          token: ${{ secrets.OCTOTYPES_TOKEN }}
-          path: octotypes
-
-      - name: Copy OpenAPI specification
-        run: cp tsp-output/@typespec/openapi3/openapi.yaml octotypes/openapi.yaml
-
-      - name: Commit and push changes
-        working-directory: octotypes
-        run: |
-          if git diff --quiet -- openapi.yaml; then
-            echo "OpenAPI specification is already up to date."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add openapi.yaml
-          git commit -m "chore: sync OpenAPI specification"
-          git push
+          GH_PAT: ${{ secrets.OCTOTYPES_TOKEN }}
+          GIT_USERNAME: openapi-sync[bot]
+          GIT_EMAIL: openapi-sync[bot]@users.noreply.github.com
